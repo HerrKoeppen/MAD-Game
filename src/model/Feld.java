@@ -64,7 +64,7 @@ public int feld(int indexd, String feldart, int Xposition, int Yposition, String
     this.istBesetzt = false;
     this.positionX = Xposition;
     this.positionY = Yposition;
-    this.farbe = spieler
+    this.farbe = spieler;
         
     return 0;
 }
