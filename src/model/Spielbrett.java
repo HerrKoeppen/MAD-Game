@@ -6,12 +6,14 @@
 package model;
 
 /**
- *
+ * Klasse Spielbrett erzeugt mit dem Spielbrett eine Basis
+ * auf der die  Felder und Figuren/Spieler eines Spieles gemanaged werden.   
  * @author koeppen
  */
 public class Spielbrett {
-  Spieleranzahl
-		Farben
+  private int Spieleranzahl;
+  public String[] Farben = new String[7];
+  
 		
 		räumen
 		aufbauen
