@@ -11,6 +11,7 @@ package model;
  */
 public class Spielfigur {
     
+    private int id;
     private int positionX;
     private int positionY;
     private Feld startfeld;
@@ -20,7 +21,30 @@ public class Spielfigur {
     private boolean aufzielfeld;
     private boolean aufstartfeld;
     private boolean aufafeld;
+    /**
+     * 
+     */
     private boolean aufspielfeld;
+    /**
+     * 
+     */
+    private Spieler farbe; 
+    
+    
+    public int spielfigur(int id, Feld starterfeld, Spieler spielerfarbe){
+        this.startfeld = starterfeld;
+        this.positionX = this.startfeld.gibpositionX();
+        this.positionY = this.startfeld.gibpositionY();
+        this.aktfeld = this.startfeld;
+        this.feldnummer = this.startfeld.gibid();
+        this.aufafeld = false;
+        this.aufspielfeld = false;
+        this.aufstartfeld = true;
+        this.aufzielfeld = false;
+        this.farbe = spielerfarbe;
+        return 0;
+    }
+    
     
     public void herauskommen()
     {
@@ -32,23 +56,33 @@ public class Spielfigur {
     public int bewegen(Feld zielfeld)
     {   return 1;
     }
-
+    /**
+     * 
+     */
     public void setzten()
-    {
-    }
-    
-    public void schlagen()
     {
     }
     /**
      * 
-     * @return 
+     */
+    public void schlagen()
+    {
+    }
+    
+    /**
+     * 
+     * @return 0 
      */
     public int zurueckgehen()
     {
-     if (this.bewegen(startfeld)== 0){
-         return 0;}
-     else {return 1;  }
+     if (this.bewegen(this.startfeld)== 0)
+        {
+             return 0;
+        }
+     else   
+        {
+            return 1;  
+        }
     }
     
     
