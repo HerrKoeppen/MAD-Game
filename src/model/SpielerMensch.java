@@ -6,13 +6,26 @@
 package model;
 
 /**
- *
- * @author koeppen
+ * Die Klasse SpielerMensch beinhaltet zum einen, den Namen der Spieler,
+ * die Farbe, die den Spielern momentan zu geordnet ist und
+ * ordnet die Spielfiguren (jeder besitzt 4 Spielfiguren) den Spielern zu. 
+ * @author Lion
  */
 public class SpielerMensch implements Spieler{
-Name
-		Farbe
-		Spielfiguren
+    /**
+     * Die Namen der Spieler.
+     */
+    public String Name;
+    /**
+     * Die Farbe des Spielers/Spielfigur.
+     */
+    public String Farbe;
+    /**
+     * ordnet jedem Spieler 4 Spielfiguren mit jeweils der gleichen Farbe zu
+     */
+    public Spielfigur[] Spielfiguren = new Spielfigur[4];
+            
+            
     @Override
     public void ziehen() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

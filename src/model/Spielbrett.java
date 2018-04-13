@@ -11,13 +11,21 @@ package model;
  * @author koeppen
  */
 public class Spielbrett {
-  private int Spieleranzahl;
-  /**
-   * Gibt die maximale Anzahl der Spieler an. 
-   */
-  public String[] Farben = new String[7];
-  
-		
-		räumen
-		aufbauen
+    /**
+     * anzahl der spieler auf dem Feld
+     */
+    private int Spieleranzahl;
+    /**
+     * array mit ALLEN MÖGLICHEN FARBEN
+     */
+    public String[] Farben = new String[7];
+    /**
+     * baut Spielfeld ab zurück auf standard
+     */
+    public void raumen(){}
+    /**
+     * baut Feld neu auf
+     */
+    public void aufbauen(){}
 }
+

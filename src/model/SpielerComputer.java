@@ -23,7 +23,7 @@ public class SpielerComputer implements Spieler{
     /**
      * ordnet jedem Spieler 4 Spielfiguren mit jeweils der gleichen Farbe zu
      */
-    public int Spielfiguren;
+    public Spielfigur[] Spielfiguren = new Spielfigur[4];
             
             
     @Override

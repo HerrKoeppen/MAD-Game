@@ -6,19 +6,15 @@
 package model;
 
 /**
+ * Klasse Feld beschreibt ein Feld auf dem Spielbrett.
+ * kann verschieden Typen haben: A-, Start- ,Standard- und Zielfeld
  * @author hannah
- * 
- * Das Spielbrett besteht aus mehreren Feldern, die Felder sind also essentiell für das gesamte Spiel.
- * Auf den Feldern stehen die Spielfiguren.
- * Es kann jeweils immer nur eine Spielfigur auf einem Feld stehen.
- * 
  */
 public class Feld {
 
+
 /**
  * gibt an, ob Feld Startfeld ist
- * Jede Farbe hat vier Startfelder, auf denen die vier Spielfiguren eines Spielers zu Beginn stehen.
- * Am Ende des Spiels muss das Startfeld des Gewinners leer sein.
  * boolean: true oder false
  */    
 private boolean Startfeld;
@@ -51,7 +47,7 @@ private int positionY;
  * gibt ID des Feldes auf dem Spielbrett an
  * integer
  */
-private int Id;
+private int id;
 /** 
  * gibt an, ob Feld besetzt ist
  * boolean: true oder false
@@ -61,18 +57,83 @@ private boolean istBesetzt;
  * gibt Farbe des jeweiligen Feldes an
  * String
  * Start-, A-Feld und Zielfeld: sieben Farben
- * Standardfeld: weiß
+ * Standardfeld: weiÃŸ
  */
 private String farbe;
-
-public int feld(int indexd, String feldart, int Xposition, int Yposition, String spieler)
-{
-    this.Id = indexd;
+/**
+ * Konstruktor:erzeugt ein Objekt der klasse Feld
+ * @param index:int sollte sich mit indexnummer von der Spielbrett array decken
+ * @param feldart:string,  lÃ¤sst verschieden Schreibweisen des 
+ * Standardfeld(standard; Standartfeld; standardfeld), 
+ * Startfeld(start, startfeld, Startfeld), 
+ * Zielfeld(ziel, zielfeld, Zielfeld), 
+ * aFeld(a, afeld, Afeld, A-Feld, Anfangsfeld, anfangsfeld) zu. 
+ * @param xposition:int die X-koordinate des feldes auf dem Spielbrett
+ * @param yposition:int die Y-koordinate des feldes auf dem Spielbrett
+ * @param teamfarbe:string die farbe des Feldes
+ */
+public  Feld(int index, String feldart, int xposition, int yposition, String teamfarbe) {
+    this.id = index;
     this.istBesetzt = false;
-    this.positionX = Xposition;
-    this.positionY = Yposition;
-    this.farbe = spieler;
-        
-    return 0;
+    this.positionX = xposition;
+    this.positionY = yposition;
+    this.farbe = teamfarbe;
+    
+    this.Standardfeld = false;
+    this.Startfeld = false;
+    this.Zielfeld = false;
+    this.aFeld = false;
+    
+    switch (feldart.toLowerCase()) { // sehr netter Switch der den Typ des Feldes festlegt
+            case "start":
+            case "startfeld":
+            case "Startfeld":
+                this.Startfeld = true;
+                break;
+            case "a":
+            case "afeld":
+            case "Afeld":
+            case "A-Feld":
+            case "Anfangsfeld":
+            case "anfangsfeld":
+                this.aFeld = true;
+                break;
+            case "ziel":
+            case "Zielfeld":
+            case "zielfeld":
+                this.Zielfeld = true;
+                break;
+            case "standart":
+            case "standartfeld":
+            case "Standartfeld":
+                this.Standardfeld = true;
+                break;
+             default: 
+                break;
+        }
+
 }
+/**
+ * getter-methode von id
+ * @return id 
+ */
+public int gibID(){
+    return id;
+}
+/**
+ * getter-methode von positionX
+ * @return positionX 
+ */
+public int gibPositionX(){
+    return positionX;
+}
+/**
+ * getter-methode von positionY
+ * @return positionY 
+ */
+public int gibPositionY(){
+    return positionY;
+}
+
+
 }

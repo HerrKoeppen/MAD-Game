@@ -6,46 +6,36 @@
 package model;
 
 /**
- * Die Klasse Spiel verwaltet die VAriablen die für den generellen Spielablauf
- * wichtig sind.
+ * Die Klasse Spiel verwaltet die VAriablen die fÃ¼r den generellen Spielablauf
+ * wichtig sind: Der Integer Runde gibt an in welcher Runde man sich befindet.
+ * Der Integer BotAnzahl gibt an wie viele Bots bei den Spiel mitspielen sollen.
+ * Der Boolean beendet gibt an ob das Spiel beendet ist.true=beendet Die
+ * ArrayListe AlleSpieler beinhaltet alle Spieler im Spiel Die Arrayliste
+ * AlleSpielfiguren beeinhaltet alle Spielfiguren im Spiel. Das Objekt
+ * aktiverSpieler der Klasse Spieler gibt an welcher Spieler momentan am Zug
+ * ist.
  *
- *
- *
- * @author Louie Noel Siaa Krüger
+ * @author Louie Noel Siaa KrÃ¼ger
  */
 public class Spiel {
-
-    /**
-     * Der Integer Runde gibt an in welcher Runde man sich befindet. Eine Runde
-     * ist beendet wenn alle Spieler einmal ihren Zug beendet haben.
-     */
+    public Spielbrett dasSpielbrett;
     public int Runde;
-    /**
-     * Der Integer BotAnzahl gibt an wie viele Bots bei den Spiel mitspielen
-     * sollen.
-     */
     public int BotAnzahl;
-    /**
-     * Der Boolean beendet gibt an ob das Spiel beendet ist.true=beendet
-     */
     public boolean beendet;
-    /**
-     * Die ArrayListe AlleSpieler beinhaltet alle Spieler im Spiel
-     */
-
     public Spieler[] AlleSpieler = new Spieler[7];
-    /**
-     * Die Arrayliste AlleSpielfiguren beeinhaltet alle Spielfiguren im Spiel.
-     */
     public Spielfigur[] AlleSpielfiguren = new Spielfigur[28];
-    /**
-     * Das Objekt aktiverSpieler der Klasse Spieler gibt an welcher Spieler
-     * momentan am Zug ist.
-     */
     public Spieler aktiverSpieler;
-
+    
+    
     /**
-     * Setzt Integer Botanzahl auf den übergebenen Wert BotAnzahl.
+     * Konstrucktor der klasse Spiel
+     */
+    public Spiel(){
+    
+    }
+    
+    /**
+     * Setzt Integer Botanzahl auf den Ã¼bergebenen Wert BotAnzahl.
      *
      * @param Botanzahl
      */
@@ -55,14 +45,12 @@ public class Spiel {
 
     /**
      *
-     * Initilisiert alle notwendigen Grund-Werte für das Spiel. SpielStarten:
+     * Initilisiert alle notwendigen Grund-Werte fÃ¼r das Spiel. SpielStarten:
      * 1.Das Spiel startet und erstellt: -Spielbrett -7 Spieler(Je nach Wert bei
-     * BotAnzahl werden Bots erstellt) 
-     * -Fügt diese in die ArrayListe AlleSpieler
-     * -28 Spielfiguren -Fügt diese in die ArrayListe AlleSpielfiguren 
-     * 2.Die
+     * BotAnzahl werden Bots erstellt) -FÃ¼gt diese in die ArrayListe AlleSpieler
+     * -28 Spielfiguren -FÃ¼gt diese in die ArrayListe AlleSpielfiguren 2.Die
      * Spielfiguren werden wie folgt mit Farben belegt und den Spielern
-     * zugeordnet: 1-4 Blau (Spieler 1) 5-8 Rot (SP 2) 9-12 Grün (SP 3) 13-16
+     * zugeordnet: 1-4 Blau (Spieler 1) 5-8 Rot (SP 2) 9-12 GrÃ¼n (SP 3) 13-16
      * Pink (SP 4) 17-20 Gelb (SP 5) 21-24 Schwarz(SP 7) 25-28 Braun(SP 8)
      */
     public void SpielStarten() {
@@ -70,20 +58,20 @@ public class Spiel {
     }
 
     /**
-     * NeuesSpiel: Setz ALLE Variablen des Objekts zurück.
+     * NeuesSpiel: Setz ALLE Variablen des Objekts zurÃ¼ck.
      */
     public void NeuesSpiel() {
 
     }
 
     /**
-     * Die Funktion spielen sorgt für das eigentliche Spiel. Ein neuer Integer
-     * "i" wird eingeführt. 1.i wird auf 0 gesetzt. 2.Die Funktion setzt die
+     * Die Funktion spielen sorgt fÃ¼r das eigentliche Spiel. Ein neuer Integer
+     * "i" wird eingefÃ¼hrt. 1.i wird auf 0 gesetzt. 2.Die Funktion setzt die
      * Variable aktiverSpieler auf das Objekt der Liste AllerSpieler mit den
      * Index-Wert von der Variable i. 3.Solange die Variable beendet=false
      * ist,wird Schritt 3 wiederhohlt.(Schleife) Das Objekt das mit der Variable
      * aktiverSpieler referenziert ist darf einen Zug machen. i wird um eins
-     * erhöht.
+     * erhÃ¶ht.
      *
      *
      *
