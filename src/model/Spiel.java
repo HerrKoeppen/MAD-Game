@@ -7,7 +7,7 @@ package model;
 
 /**
  * Die Klasse Spiel verwaltet die VAriablen die für den generellen Spielablauf
- * wichtig sind:
+ * wichtig sind.
  *
  *
  *
