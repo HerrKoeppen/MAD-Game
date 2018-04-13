@@ -6,7 +6,7 @@
 package model;
 
 /**
- * Die Klasse Spiel verwaltet die VAriablen die fÃ¼r den generellen Spielablauf
+ * Die Klasse Spiel verwaltet die VAriablen die fuer den generellen Spielablauf
  * wichtig sind: Der Integer Runde gibt an in welcher Runde man sich befindet.
  * Der Integer BotAnzahl gibt an wie viele Bots bei den Spiel mitspielen sollen.
  * Der Boolean beendet gibt an ob das Spiel beendet ist.true=beendet Die
@@ -15,7 +15,7 @@ package model;
  * aktiverSpieler der Klasse Spieler gibt an welcher Spieler momentan am Zug
  * ist.
  *
- * @author Louie Noel Siaa KrÃ¼ger
+ * @author Louie Noel Siaa Krueger
  */
 public class Spiel {
     public Spielbrett dasSpielbrett;
@@ -45,10 +45,10 @@ public class Spiel {
 
     /**
      *
-     * Initilisiert alle notwendigen Grund-Werte fÃ¼r das Spiel. SpielStarten:
+     * Initilisiert alle notwendigen Grund-Werte fuer das Spiel. SpielStarten:
      * 1.Das Spiel startet und erstellt: -Spielbrett -7 Spieler(Je nach Wert bei
-     * BotAnzahl werden Bots erstellt) -FÃ¼gt diese in die ArrayListe AlleSpieler
-     * -28 Spielfiguren -FÃ¼gt diese in die ArrayListe AlleSpielfiguren 2.Die
+     * BotAnzahl werden Bots erstellt) -Fuegt diese in die ArrayListe AlleSpieler
+     * -28 Spielfiguren -Fuegt diese in die ArrayListe AlleSpielfiguren 2.Die
      * Spielfiguren werden wie folgt mit Farben belegt und den Spielern
      * zugeordnet: 1-4 Blau (Spieler 1) 5-8 Rot (SP 2) 9-12 GrÃ¼n (SP 3) 13-16
      * Pink (SP 4) 17-20 Gelb (SP 5) 21-24 Schwarz(SP 7) 25-28 Braun(SP 8)
@@ -65,13 +65,13 @@ public class Spiel {
     }
 
     /**
-     * Die Funktion spielen sorgt fÃ¼r das eigentliche Spiel. Ein neuer Integer
-     * "i" wird eingefÃ¼hrt. 1.i wird auf 0 gesetzt. 2.Die Funktion setzt die
+     * Die Funktion spielen sorgt fuer das eigentliche Spiel. Ein neuer Integer
+     * "i" wird eingefuehrt. 1.i wird auf 0 gesetzt. 2.Die Funktion setzt die
      * Variable aktiverSpieler auf das Objekt der Liste AllerSpieler mit den
      * Index-Wert von der Variable i. 3.Solange die Variable beendet=false
      * ist,wird Schritt 3 wiederhohlt.(Schleife) Das Objekt das mit der Variable
      * aktiverSpieler referenziert ist darf einen Zug machen. i wird um eins
-     * erhÃ¶ht.
+     * erhoeht.
      *
      *
      *
