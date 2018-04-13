@@ -12,6 +12,9 @@ package model;
  */
 public class Spielbrett {
   private int Spieleranzahl;
+  /**
+   * Gibt die maximale Anzahl der Spieler an. 
+   */
   public String[] Farben = new String[7];
   
 		
