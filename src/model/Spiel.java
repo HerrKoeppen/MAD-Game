@@ -57,8 +57,10 @@ public class Spiel {
      *
      * Initilisiert alle notwendigen Grund-Werte für das Spiel. SpielStarten:
      * 1.Das Spiel startet und erstellt: -Spielbrett -7 Spieler(Je nach Wert bei
-     * BotAnzahl werden Bots erstellt) -Fügt diese in die ArrayListe AlleSpieler
-     * -28 Spielfiguren -Fügt diese in die ArrayListe AlleSpielfiguren 2.Die
+     * BotAnzahl werden Bots erstellt) 
+     * -Fügt diese in die ArrayListe AlleSpieler
+     * -28 Spielfiguren -Fügt diese in die ArrayListe AlleSpielfiguren 
+     * 2.Die
      * Spielfiguren werden wie folgt mit Farben belegt und den Spielern
      * zugeordnet: 1-4 Blau (Spieler 1) 5-8 Rot (SP 2) 9-12 Grün (SP 3) 13-16
      * Pink (SP 4) 17-20 Gelb (SP 5) 21-24 Schwarz(SP 7) 25-28 Braun(SP 8)
