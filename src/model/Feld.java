@@ -7,11 +7,18 @@ package model;
 
 /**
  * @author hannah
+ * 
+ * Das Spielbrett besteht aus mehreren Feldern, die Felder sind also essentiell für das gesamte Spiel.
+ * Auf den Feldern stehen die Spielfiguren.
+ * Es kann jeweils immer nur eine Spielfigur auf einem Feld stehen.
+ * 
  */
 public class Feld {
 
 /**
  * gibt an, ob Feld Startfeld ist
+ * Jede Farbe hat vier Startfelder, auf denen die vier Spielfiguren eines Spielers zu Beginn stehen.
+ * Am Ende des Spiels muss das Startfeld des Gewinners leer sein.
  * boolean: true oder false
  */    
 private boolean Startfeld;
