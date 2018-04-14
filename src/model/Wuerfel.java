@@ -9,48 +9,78 @@ import java.util.Random;
 
 /**
  * Klasse Wuerfel speichert eine Augenzahl zwischen, welche durchs wuerfeln
- * pseudo-zufÃ¤llig geÃ¤ndert werden kann. Beim erzeugen wir die hÃ¶chste 
- * und niedrigste Augenzahl festgelegt
+ * pseudo-zufÃ¤llig geÃ¤ndert werden kann. Beim erzeugen wir die hÃ¶chste und
+ * niedrigste Augenzahl festgelegt
+ *
  * @author leon
  */
 public class Wuerfel {
+
+    String objektname;
+    Logger log;
     /**
      * ist die aktuelle Augenzahl des Wuerfels
      */
     private int dieZahl;
     /**
      * ist die niedrigste Augenzahl
-     */ 
+     */
     private int min;
     /**
      * ist die hÃ¶chstmÃ¶gliche Augenzahl
      */
     private int max;
+
     /**
      * kostruktor:erzeugt ein Objekt der klasse wuerfel
+     *
      * @param wuerfelmin:integer die niedrigste Augenzahl
      * @param wuerfelmax:integer ist die hÃ¶chstmÃ¶gliche Augenzahl
      */
-    public Wuerfel(int wuerfelmin, int wuerfelmax) {
+    public Wuerfel(String name, int wuerfelmin, int wuerfelmax) {
+        objektname = name;
         min = wuerfelmin;
         max = wuerfelmax;
     }
+
     /**
      * gibt die aktuelle Augenzahl des wÃ¼rfels zurÃ¼ck
-     * @return integer 
+     *
+     * @return integer
      */
-    public int gibZahl(){
-    return dieZahl;
+    public int gibZahl() {
+        return dieZahl;
     }
+
     /**
-     * erzeugt eine pseudo-randomzahl im bereich von min - max
-     * und setzt die aktuelle Augenzah: dieZahl auf diese
+     * erzeugt eine pseudo-randomzahl im bereich von min - max und setzt die
+     * aktuelle Augenzah: dieZahl auf diese
+     *
      * @return dieNeueZahl:integer
      */
-    public int wuerfeln(){
-    Random rand = null;
-    int augen = rand.nextInt((max - min) + 1) + min;
-    dieZahl = augen;
-    return augen;
+    public int wuerfeln() {
+        log.log(objektname, "Start der Methode wuerfeln().");
+        Random rand = new Random();
+        int augen = rand.nextInt((max - min) + 1) + min;
+        dieZahl = augen;
+        log.log(objektname, "Augenzahl " + augen + " gewuerfelt.");
+        log.log(objektname, "Methode wuerfeln() beendet.");
+
+        return augen;
     }
-}  
+
+    public void loggerSetzen(Logger logger) {
+        log = logger;
+    }
+
+    public static void main(String args[]) {
+        Logger myLogger = new Logger();
+        Wuerfel w1 = new Wuerfel("w1", 1, 6);
+        w1.loggerSetzen(myLogger);
+        for (int i = 0; i < 50; i++) {
+            w1.wuerfeln();
+        }
+        myLogger.logBeenden();
+    }
+
+}
