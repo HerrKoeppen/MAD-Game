@@ -5,6 +5,8 @@
  */
 package model;
 
+import static model.Spiel.log;
+
 /**
  * Klasse Feld beschreibt ein Feld auf dem Spielbrett.
  * kann verschieden Typen haben: A-, Start- ,Standard- und Zielfeld
@@ -62,6 +64,7 @@ private boolean istBesetzt;
 private String farbe;
 /**
  * Konstruktor:erzeugt ein Objekt der klasse Feld
+ * @param dasspielbrett know your origin 
  * @param index:int sollte sich mit indexnummer von der Spielbrett array decken
  * @param feldart:string,  lÃ¤sst verschieden Schreibweisen des 
  * Standardfeld(standard; Standartfeld; standardfeld), 
@@ -72,12 +75,14 @@ private String farbe;
  * @param yposition:int die Y-koordinate des feldes auf dem Spielbrett
  * @param teamfarbe:string die farbe des Feldes
  */
-public  Feld(int index, String feldart, int xposition, int yposition, String teamfarbe) {
-    this.id = index;
+public  Feld( Spielbrett dasspielbrett, String feldart, int xposition, int yposition, String teamfarbe) {
+    
     this.istBesetzt = false;
     this.positionX = xposition;
     this.positionY = yposition;
     this.farbe = teamfarbe;
+    
+    this.id = dasspielbrett.feldhinzufuegen(this);
     
     this.Standardfeld = false;
     this.Startfeld = false;
@@ -111,7 +116,7 @@ public  Feld(int index, String feldart, int xposition, int yposition, String tea
              default: 
                 break;
         }
-
+    log.log("Feld "+id , "ist ein " + farbe +"es "+ feldart);
 }
 /**
  * getter-methode von id

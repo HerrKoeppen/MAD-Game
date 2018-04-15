@@ -15,7 +15,9 @@ import java.util.Random;
  * @author leon
  */
 public class Wuerfel {
-
+    /**
+     * name des objekts fuer den log
+     */
     String objektname;
     Logger log;
     /**
@@ -27,7 +29,7 @@ public class Wuerfel {
      */
     private int min;
     /**
-     * ist die hÃ¶chstmÃ¶gliche Augenzahl
+     * ist die hoechstmoegliche Augenzahl
      */
     private int max;
 
@@ -68,7 +70,11 @@ public class Wuerfel {
 
         return augen;
     }
-
+    /**
+     * setzt log auf logger
+     * macht ein wuerfelobjekt mit einem logger bekannt
+     * @param logger 
+     */
     public void loggerSetzen(Logger logger) {
         log = logger;
     }

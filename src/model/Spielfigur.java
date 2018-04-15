@@ -51,7 +51,7 @@ public class Spielfigur {
     private boolean aufafeld;
     /**
      * boolean welche angibt, ob die Figur momentan im spielfeld ist
-     */
+     */   
     private boolean aufspielfeld;
     /**
      * gibt an zu welchen spieler die Figur gehÃ¶rt
@@ -140,6 +140,6 @@ public class Spielfigur {
             return 1;  
         }
     }
-    
+        
     
 }

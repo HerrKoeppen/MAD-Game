@@ -31,7 +31,9 @@ public class Spiel {
      * Konstrucktor der klasse Spiel
      */
     public Spiel(){
-    
+    log.log("Spiel ", "baut neues Spiel auf");
+    Spielbrett dasSpielbrett = new Spielbrett();
+    log.log("Spiel ", "Aye, Spiel ist bereit.");
     }
     
     /**
@@ -78,5 +80,11 @@ public class Spiel {
      */
     public void spielen() {
 
+    }
+    static Logger log;
+    public static void main(String args[]) {
+        log = new Logger("testlog");
+        Spiel test = new Spiel();
+        log.logBeenden();
     }
 }

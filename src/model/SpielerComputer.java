@@ -25,10 +25,14 @@ public class SpielerComputer implements Spieler{
      */
     public Spielfigur[] Spielfiguren = new Spielfigur[4];
             
-            
+    public SpielerComputer(){}
+    
     @Override
     public void ziehen() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      /** while(true){
+       if (wuerfeln)
+       
+       }**/
     }
 
     @Override
