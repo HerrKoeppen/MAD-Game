@@ -39,8 +39,21 @@ public class Wuerfel {
      * @param wuerfelmin:integer die niedrigste Augenzahl
      * @param wuerfelmax:integer ist die hÃ¶chstmÃ¶gliche Augenzahl
      */
-    public Wuerfel(String name, int wuerfelmin, int wuerfelmax) {
+    public Wuerfel(int wuerfelmin, int wuerfelmax) {
+        
+        min = wuerfelmin;
+        max = wuerfelmax;
+    }
+    /**
+     * kostruktor:erzeugt ein Objekt der klasse wuerfel. Gibt dem Objhekt außerdem einen frei wählbaren Namen.
+     * @param logger Loggerobjekt zu Diagnosezwecken
+     * @param name Name des Objekts
+     * @param wuerfelmin die niedrigste Augenzahl
+     * @param wuerfelmax ist die hoechstmoegliche Augenzahl
+     */
+    public Wuerfel(Logger logger, String name, int wuerfelmin, int wuerfelmax) {
         objektname = name;
+        log = logger;
         min = wuerfelmin;
         max = wuerfelmax;
     }
@@ -81,7 +94,7 @@ public class Wuerfel {
 
     public static void main(String args[]) {
         Logger myLogger = new Logger();
-        Wuerfel w1 = new Wuerfel("w1", 1, 6);
+        Wuerfel w1 = new Wuerfel(myLogger,"w1", 1, 6);
         w1.loggerSetzen(myLogger);
         for (int i = 0; i < 50; i++) {
             w1.wuerfeln();

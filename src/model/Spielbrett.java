@@ -8,7 +8,6 @@ package model;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import static model.Spiel.log;
 
 /**
  * Klasse Spielbrett erzeugt mit dem Spielbrett eine Basis
@@ -249,7 +248,7 @@ public class Spielbrett {
     Feld braunZiel2 = new Feld( this, "Zielfeld", 0, 0, "braun");
     Feld braunZiel3 = new Feld( this, "Zielfeld", 0, 0, "braun");
     
-    log.log("Spielbrett ", "steht bereit");
+   // log.log("Spielbrett ", "steht bereit");
     }
     
     

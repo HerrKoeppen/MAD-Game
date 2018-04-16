@@ -18,24 +18,39 @@ package model;
  * @author Louie Noel Siaa Krueger
  */
 public class Spiel {
+
     public Spielbrett dasSpielbrett;
     public int Runde;
     public int BotAnzahl;
+    public int SpielerAnzahl;
+    public int GesamtSpielerAnzahl;
     public boolean beendet;
     public Spieler[] AlleSpieler = new Spieler[7];
     public Spielfigur[] AlleSpielfiguren = new Spielfigur[28];
     public Spieler aktiverSpieler;
-    
-    
+    private String objektname;
+    private Logger log;
+
     /**
      * Konstrucktor der klasse Spiel
      */
-    public Spiel(){
-    log.log("Spiel ", "baut neues Spiel auf");
-    Spielbrett dasSpielbrett = new Spielbrett();
-    log.log("Spiel ", "Aye, Spiel ist bereit.");
+    public Spiel() {
+        //log.log("Spiel ", "baut neues Spiel auf");
+        SetzeBotAnzahl(BotAnzahl);
+        SpielStarten();
+        spielen();
+        //dasSpielbrett = new Spielbrett();
+        //log.log("Spiel ", "Aye, Spiel ist bereit.");
     }
-    
+
+    public Spiel(Logger logger, String objektname) {
+        this.objektname = objektname;
+        log = logger;
+        SetzeBotAnzahl(BotAnzahl);
+        SpielStarten();
+        spielen();
+    }
+
     /**
      * Setzt Integer Botanzahl auf den Ã¼bergebenen Wert BotAnzahl.
      *
@@ -46,17 +61,38 @@ public class Spiel {
     }
 
     /**
+     * Setzt Integer Spieleranzahl auf den Ã¼bergebenen Wert SpielerAnzahl.
+     *
+     * @param Spieleranzahl
+     */
+    public void SetzeSpielerAnzahl(int Spieleranzahl) {
+
+    }
+
+    /**
+     * Setzt Integer Gesamtspieleranzahl auf den Ã¼bergebenen Wert
+     * Gesamtspieleranzahl.
+     *
+     * @param Gesamtspieleranzahl
+     */
+    public void SetzeGesamtSpielerAnzahl(int Gesamtspieleranzahl) {
+
+    }
+
+    /**
      *
      * Initilisiert alle notwendigen Grund-Werte fuer das Spiel. SpielStarten:
      * 1.Das Spiel startet und erstellt: -Spielbrett -7 Spieler(Je nach Wert bei
-     * BotAnzahl werden Bots erstellt) -Fuegt diese in die ArrayListe AlleSpieler
-     * -28 Spielfiguren -Fuegt diese in die ArrayListe AlleSpielfiguren 2.Die
-     * Spielfiguren werden wie folgt mit Farben belegt und den Spielern
-     * zugeordnet: 1-4 Blau (Spieler 1) 5-8 Rot (SP 2) 9-12 GrÃ¼n (SP 3) 13-16
-     * Pink (SP 4) 17-20 Gelb (SP 5) 21-24 Schwarz(SP 7) 25-28 Braun(SP 8)
+     * BotAnzahl werden Bots erstellt) -Fuegt diese in die ArrayListe
+     * AlleSpieler -28 Spielfiguren -Fuegt diese in die ArrayListe
+     * AlleSpielfiguren 2.Die Spielfiguren werden wie folgt mit Farben belegt
+     * und den Spielern zugeordnet: 1-4 Blau (Spieler 1) 5-8 Rot (SP 2) 9-12
+     * GrÃ¼n (SP 3) 13-16 Pink (SP 4) 17-20 Gelb (SP 5) 21-24 Schwarz(SP 7)
+     * 25-28 Braun(SP 8)
      */
     public void SpielStarten() {
-
+        //Spielbrett erzeugen
+        dasSpielbrett = new Spielbrett();
     }
 
     /**
@@ -75,15 +111,14 @@ public class Spiel {
      * aktiverSpieler referenziert ist darf einen Zug machen. i wird um eins
      * erhoeht.
      *
-     *
-     *
      */
     public void spielen() {
-
+        //Startspieler ermitteln fehlt
+        //aktives Spielen beginnt, Spielreihenfolge im Uhrzeigersinn
     }
-    static Logger log;
+
     public static void main(String args[]) {
-        log = new Logger("testlog");
+        Logger log = new Logger("testlog.txt");
         Spiel test = new Spiel();
         log.logBeenden();
     }

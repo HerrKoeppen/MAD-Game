@@ -140,6 +140,14 @@ public class Spielfigur {
             return 1;  
         }
     }
+    /**
+     * beurteilt, ob sich eine SPielfigur um eine bestimmte Anzahl von Felder fortbewegen kann
+     * @param felderAnzahl Anzahl der Felder, die vortgerueckt werden soll
+     * @return true, wenn der Zug möglich ist, sonst false
+     */
+    public boolean kannSichBewegen(int felderAnzahl){
+        return false;
+    }
         
     
 }
