@@ -7,26 +7,29 @@ package model;
 
 /**
  * Die Klasse Spiel verwaltet die VAriablen die fuer den generellen Spielablauf
- * wichtig sind: Der Integer Runde gibt an in welcher Runde man sich befindet.
- * Der Integer BotAnzahl gibt an wie viele Bots bei den Spiel mitspielen sollen.
- * Der Boolean beendet gibt an ob das Spiel beendet ist.true=beendet Die
- * ArrayListe AlleSpieler beinhaltet alle Spieler im Spiel Die Arrayliste
- * AlleSpielfiguren beeinhaltet alle Spielfiguren im Spiel. Das Objekt
- * aktiverSpieler der Klasse Spieler gibt an welcher Spieler momentan am Zug
- * ist.
+ * wichtig sind:
+ *
+ *
  *
  * @author Louie Noel Siaa Krueger
  */
 public class Spiel {
 
     public Spielbrett dasSpielbrett;
+    //Der Integer Runde gibt an in welcher Runde man sich befindet.
     public int Runde;
+    //Der Integer BotAnzahl gibt an wie viele Bots bei den Spiel mitspielen sollen.
     public int BotAnzahl;
+
     public int SpielerAnzahl;
     public int GesamtSpielerAnzahl;
+    //Der Boolean beendet gibt an ob das Spiel beendet ist.true=beendet
     public boolean beendet;
+    //Die ArrayListe AlleSpieler beinhaltet alle Spieler im Spiel
     public Spieler[] AlleSpieler = new Spieler[7];
+    //Die Arrayliste AlleSpielfiguren beeinhaltet alle Spielfiguren im Spiel.
     public Spielfigur[] AlleSpielfiguren = new Spielfigur[28];
+    //Das Objekt aktiverSpieler der Klasse Spieler gibt an welcher Spieler momentan am Zug ist.   
     public Spieler aktiverSpieler;
     private String objektname;
     private Logger log;
