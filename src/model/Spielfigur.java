@@ -148,6 +148,13 @@ public class Spielfigur {
     public boolean kannSichBewegen(int felderAnzahl){
         return false;
     }
-        
+    /**
+     * gibt zurück od sich figur auf einem spielfeld befindet
+     * getter methode für aufzielfeld
+     * @return aufzielfeld:boolean 
+     */
+    public boolean gibAufZielfeld(){
+        return this.aufzielfeld;
+    }
     
 }
