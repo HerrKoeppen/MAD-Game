@@ -30,9 +30,11 @@ public class SpielerMensch implements Spieler {
     /**
      * Logger zu Diagnosezwecken
      */
-    public Logger log;
+    private Logger log;
+    private String objektname;
 
-    public SpielerMensch(Logger logger) {
+    public SpielerMensch(String oname, Logger logger) {
+        objektname = oname;
         log = logger;
     }
 
@@ -41,12 +43,14 @@ public class SpielerMensch implements Spieler {
      *
      * @param Spielfigur
      */
-    public void setzeSpielfigur(Spielfigur Spielfigur) {
+    public void setzeSpielfigur(Spielfigur dieSpielfigur) {
+        log.log(objektname, "Methode setzeSpielfigur() gestartet mit Parameter " + dieSpielfigur + " .");
         int i = 0;
         while (Spielfiguren[i] != null) {
             i++;
         }
-        Spielfiguren[i] = Spielfigur;
+        Spielfiguren[i] = dieSpielfigur;
+        log.log(objektname, "Methode setzeSpielfigur() beendet.");
 
     }
 
@@ -57,16 +61,22 @@ public class SpielerMensch implements Spieler {
      * @return true, wenn der Spieler gewonnen hat, sonst false
      */
     public boolean hatGewonnen() {
+        log.log(objektname, "Methode hatGewonnen() gestartet.");
         for (Spielfigur i : Spielfiguren) {
             if (i.gibAufZielfeld() == false) {
+                log.log(objektname, "Methodenrückgabe: " + false);
+                log.log(objektname, "Methode hatGewonnen() beendet.");
                 return false;
             }
         }
+        log.log(objektname, "Methodenrückgabe: " + true);
+        log.log(objektname, "Methode hatGewonnen() beendet.");
         return true;
     }
 
     @Override
     public void ziehen() {
+        log.log(objektname, "Methode ziehen() gestartet.");
         //habe ich gewonnen? Wenn nein, dann mache ich einen normalen Zug
 
         //habe ich nur Spielfiguren im Startkreis
@@ -101,11 +111,17 @@ public class SpielerMensch implements Spieler {
         //Spielfigur vorrücken
         //schlagen --> geschlagene Figur kommt auf den Startkreis zurück
         //ich habe doch schon gewonnen: ich mache nichts
+        log.log(objektname, "Methode ziehen() beendet.");
+
     }
 
     @Override
     public int wuerfeln() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        log.log(objektname, "Methode wuerfeln() gestartet.");
+        int augenzahl = 0;
+        log.log(objektname, "Methodenrückgabe: " + augenzahl);
+        log.log(objektname, "Methode wuerfeln() beendet.");
+        return augenzahl;
     }
 
     /**

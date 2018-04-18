@@ -24,11 +24,21 @@ public class SpielerComputer implements Spieler{
      * ordnet jedem Spieler 4 Spielfiguren mit jeweils der gleichen Farbe zu
      */
     public Spielfigur[] Spielfiguren = new Spielfigur[4];
+    
+     private Logger log;
+    private String objektname;
             
     public SpielerComputer(){}
     
+    public SpielerComputer(String oname, Logger logger){
+        objektname = oname;
+        log = logger;
+    }
+    
     @Override
     public void ziehen() {
+        log.log(objektname,"Methode ziehen() gestartet.");
+        log.log(objektname,"Methode ziehen() beendet.");
       /** while(true){
        if (wuerfeln)
        
@@ -37,7 +47,11 @@ public class SpielerComputer implements Spieler{
 
     @Override
     public int wuerfeln() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        log.log(objektname,"Methode wuerfeln() gestartet.");
+        int augenzahl = 0;
+        log.log(objektname,"Methodenrückgabe: "+augenzahl);
+        log.log(objektname,"Methode wuerfeln() beendet.");
+        return augenzahl;
     }
     
 }

@@ -6,19 +6,21 @@
 package model;
 
 /**
- * Klasse Spielfigur erzeugt einezelne Spielfiguren
- * und verwaltet deren verhalten, wie bewegen, schlagen etc. 
- * Funktionen arbeiten mit returnwerten als fehlermeldung: 0 ist immer super
- * fÃ¼r unterschiedliche probleme kÃ¶nnen andere integers festgelegt werden
+ * Klasse Spielfigur erzeugt einezelne Spielfiguren und verwaltet deren
+ * verhalten, wie bewegen, schlagen etc. Funktionen arbeiten mit returnwerten
+ * als fehlermeldung: 0 ist immer super fÃ¼r unterschiedliche probleme kÃ¶nnen
+ * andere integers festgelegt werden
+ *
  * @author johanna
  */
 public class Spielfigur {
+
     /**
      * id der spielfigur macht sie einzigartig
      */
     private int id;
     /**
-     * beschreibt die X-Koordinate auf dem Spielbrett 
+     * beschreibt die X-Koordinate auf dem Spielbrett
      */
     private int positionX;
     /**
@@ -51,25 +53,28 @@ public class Spielfigur {
     private boolean aufafeld;
     /**
      * boolean welche angibt, ob die Figur momentan im spielfeld ist
-     */   
+     */
     private boolean aufspielfeld;
     /**
      * gibt an zu welchen spieler die Figur gehÃ¶rt
      */
-    private Spieler team; 
+    private Spieler team;
     /**
      * eine String fÃ¼r die Farbe der Spielfigur
      */
     private String farbe;
-    
+    private Logger log;
+    private String objektname;
+
     /**
-     * Konstruktor fÃ¼r die klasse Spielfigur
-     * erzeugt eine neue Spielfigur
-     * @param id der Spielfigur 
-     * @param starterfeld die grundposition der spielfigur auf der sie erzeugt wird
-     * @param spieler die SpielerzugehÃ¶rigkeit 
+     * Konstruktor fÃ¼r die klasse Spielfigur erzeugt eine neue Spielfigur
+     *
+     * @param id der Spielfigur
+     * @param starterfeld die grundposition der spielfigur auf der sie erzeugt
+     * wird
+     * @param spieler die SpielerzugehÃ¶rigkeit
      */
-    public Spielfigur(int id, Feld starterfeld, Spieler derSpieler){
+    public Spielfigur(int id, Feld starterfeld, Spieler derSpieler) {
         this.startfeld = starterfeld;
         this.positionX = this.startfeld.gibPositionX();
         this.positionY = this.startfeld.gibPositionY();
@@ -82,14 +87,24 @@ public class Spielfigur {
         this.team = derSpieler;
         //this.farbe = this.team.gibfarbe();
     }
-    
+
+    public Spielfigur(String oname, Logger logger, int id, Feld starterfeld, Spieler derSpieler) {
+
+        this(id, starterfeld, derSpieler);
+        objektname = oname;
+        log = logger;
+
+    }
+
     /**
-     * setzt Figur auf sein Afeld 
-     * @return 1 bei fehler sonst 0 
+     * setzt Figur auf sein Afeld
+     *
+     * @return 1 bei fehler sonst 0
      */
-    public int herauskommen()
-    {
-       /*if (this.setzten(this.team.gibafeld())== 0)
+    public int herauskommen() {
+        log.log(objektname, "Methode herauskommen() gestartet.");
+
+        /*if (this.setzten(this.team.gibafeld())== 0)
         {
              return 0;
         }
@@ -97,55 +112,78 @@ public class Spielfigur {
         {
             return 1;  
         }*/
+        log.log(objektname, "Methodenrückgabe: " + 5);
+        log.log(objektname, "Methode herauskommen() beendet.");
         return 5;
     }
+
     /**
      * bewegt eine Figur um ein Feld
-     * @return 1 bei fehler sonst 0 
+     *
+     * @return 1 bei fehler sonst 0
      */
-    public int bewegen()
-    {   
+    public int bewegen() {
+        log.log(objektname, "Methode bewegen() gestartet.");
+        log.log(objektname, "Methodenrückgabe: " + 1);
+        log.log(objektname, "Methode bewegen() beendet.");
         return 1;
     }
+
     /**
      * setzt Figur auf ein Feld: Zielfeld
+     *
      * @param zielfeld
-     * @return 1 bei fehler sonst 0 
+     * @return 1 bei fehler sonst 0
      */
-    public int setzten(Feld zielfeld)
-    {
+    public int setzten(Feld zielfeld) {
+        log.log(objektname, "Methode setzen() gestartet.");
+        log.log(objektname, "Methodenrückgabe: " + 1);
+        log.log(objektname, "Methode setzen() beendet.");
         return 1;
     }
+
     /**
      * schickt eine andere Figur zurÃ¼ck auf ihre startposition
-     * @return 1 bei fehler sonst 0 
+     *
+     * @return 1 bei fehler sonst 0
      */
-    public int schlagen()
-    {   
+    public int schlagen() {
+        log.log(objektname, "Methode schlagen() gestartet.");
+        log.log(objektname, "Methodenrückgabe: " + 1);
+        log.log(objektname, "Methode schlagen() beendet.");
         return 1;
     }
-    
+
     /**
      * setzt figur zurÃ¼ck auf startposition
-     * @return 1 bei fehler sonst 0 
+     *
+     * @return 1 bei fehler sonst 0
      */
-    public int zurueckgehen()
-    {
-     if (this.setzten(this.getStartfeld())== 0)
-        {
-             return 0;
-        }
-     else   
-        {
-            return 1;  
+    public int zurueckgehen() {
+        log.log(objektname, "Methode zurueckgehen() gestartet.");
+
+        if (this.setzten(this.startfeld) == 0) {
+            log.log(objektname, "Methodenrückgabe: " + 0);
+            log.log(objektname, "Methode zurueckgehen() beendet.");
+            return 0;
+        } else {
+            log.log(objektname, "Methodenrückgabe: " + 1);
+            log.log(objektname, "Methode zurueckgehen() beendet.");
+            return 1;
         }
     }
+
     /**
-     * beurteilt, ob sich eine SPielfigur um eine bestimmte Anzahl von Felder fortbewegen kann
+     * beurteilt, ob sich eine SPielfigur um eine bestimmte Anzahl von Felder
+     * fortbewegen kann
+     *
      * @param felderAnzahl Anzahl der Felder, die vortgerueckt werden soll
      * @return true, wenn der Zug möglich ist, sonst false
      */
-    public boolean kannSichBewegen(int felderAnzahl){
+    public boolean kannSichBewegen(int felderAnzahl) {
+        log.log(objektname,"Methode kannSichBewegen() gestartet mit Parameter "+felderAnzahl+" .");
+        log.log(objektname,"Methodenrückgabe: "+false);
+        log.log(objektname,"Methode kannSichBewegen() beendet.");
         return false;
     }
     /**
