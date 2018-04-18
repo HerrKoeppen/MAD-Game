@@ -57,7 +57,9 @@ public class Spiel {
      * @param Botanzahl
      */
     public void SetzeBotAnzahl(int Botanzahl) {
+        log.log(objektname, "Methode SetzeBotAnzahl() gestartet mit Parameter " + Botanzahl + " .");
 
+        log.log(objektname, "Methode SetzeBotAnzahl() beendet.");
     }
 
     /**
@@ -66,7 +68,9 @@ public class Spiel {
      * @param Spieleranzahl
      */
     public void SetzeSpielerAnzahl(int Spieleranzahl) {
+        log.log(objektname, "Methode SetzeSpieleranzahl() gestartet mit Parameter " + Spieleranzahl + " .");
 
+        log.log(objektname, "Methode SetzeSpieleranzahl() beendet.");
     }
 
     /**
@@ -76,7 +80,9 @@ public class Spiel {
      * @param Gesamtspieleranzahl
      */
     public void SetzeGesamtSpielerAnzahl(int Gesamtspieleranzahl) {
+        log.log(objektname, "Methode SetzeGesamtspieleranzahl() gestartet mit Parameter " + Gesamtspieleranzahl + " .");
 
+        log.log(objektname, "Methode SetzeGesamtspieleranzahl() beendet.");
     }
 
     /**
@@ -92,13 +98,19 @@ public class Spiel {
      */
     public void SpielStarten() {
         //Spielbrett erzeugen
-        dasSpielbrett = new Spielbrett();
+        log.log(objektname, "Methode SpielStarten() gestartet.");
+        dasSpielbrett = new Spielbrett(log);
+        log.log(objektname, "Methode hat das Spielbrett erzeugt");
+        log.log(objektname, "Methode SpielStarten() beendet.");
     }
 
     /**
      * NeuesSpiel: Setz ALLE Variablen des Objekts zurÃ¼ck.
      */
     public void NeuesSpiel() {
+        log.log(objektname, "Methode NeuesSpiel() gestartet.");
+
+        log.log(objektname, "Methode NeuesSpiel() beendet.");
 
     }
 
@@ -113,8 +125,11 @@ public class Spiel {
      *
      */
     public void spielen() {
+        log.log(objektname, "Methode spielen() gestartet.");
+
         //Startspieler ermitteln fehlt
         //aktives Spielen beginnt, Spielreihenfolge im Uhrzeigersinn
+        log.log(objektname, "Methode spielen() beendet.");
     }
 
     public static void main(String args[]) {
