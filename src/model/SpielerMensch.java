@@ -134,15 +134,21 @@ public class SpielerMensch implements Spieler {
      * @returnSSS
      */
     public boolean SpielerImStartkreis() {
+        log.log(objektname, "Methode SpielerImStartkreis() gestartet.");
+
         for (int i = 0; i < 4; i++) {
             if (this.Spielfiguren[i].isAufstartfeld() == true) {
 
             } else {
+                log.log(objektname, "Methodenrückgabe: " + false);
+                log.log(objektname, "Methode SpielerImStartkreis() beendet.");
                 return false;
 
             }
 
         }
+        log.log(objektname, "Methodenrückgabe: " + true);
+        log.log(objektname, "Methode SpielerImStartkreis() beendet.");
         return true;
 
     }

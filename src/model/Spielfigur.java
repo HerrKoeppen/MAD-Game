@@ -207,6 +207,9 @@ public class Spielfigur {
      * @return aufzielfeld:boolean 
      */
     public boolean gibAufZielfeld(){
+        log.log(objektname,"Methode gibAufZielfeld() gestartet.");
+        log.log(objektname,"Methodenrückgabe: "+this.isAufzielfeld());
+        log.log(objektname,"Methode gibAufZielfeld() beendet.");
         return this.isAufzielfeld();
     }
 
@@ -214,6 +217,9 @@ public class Spielfigur {
      * @return the id
      */
     public int getId() {
+        log.log(objektname,"Methode getID() gestartet.");
+        log.log(objektname,"Methodenrückgabe: "+id);
+        log.log(objektname,"Methode getID() beendet.");
         return id;
     }
 
@@ -221,6 +227,8 @@ public class Spielfigur {
      * @param id the id to set
      */
     public void setId(int id) {
+        log.log(objektname,"Methode setID() gestartet mit Parameter "+id+" .");
+        log.log(objektname,"Methode setID() beendet.");
         this.id = id;
     }
 
@@ -228,6 +236,9 @@ public class Spielfigur {
      * @return the positionX
      */
     public int getPositionX() {
+        log.log(objektname,"Methode getPositionX() gestartet.");
+        log.log(objektname,"Methodenrückgabe: "+positionX);
+        log.log(objektname,"Methode getPositionX() beendet.");
         return positionX;
     }
 
@@ -235,6 +246,9 @@ public class Spielfigur {
      * @param positionX the positionX to set
      */
     public void setPositionX(int positionX) {
+        log.log(objektname,"Methode setPositionX() gestartet mit Parameter "+positionX+" .");
+        
+        log.log(objektname,"Methode setPositionX() beendet.");
         this.positionX = positionX;
     }
 
@@ -242,6 +256,9 @@ public class Spielfigur {
      * @return the positionY
      */
     public int getPositionY() {
+        log.log(objektname,"Methode getPositionY() gestartet.");
+        log.log(objektname,"Methodenrückgabe: "+positionY);
+        log.log(objektname,"Methode getPositionY() beendet.");
         return positionY;
     }
 
@@ -249,6 +266,9 @@ public class Spielfigur {
      * @param positionY the positionY to set
      */
     public void setPositionY(int positionY) {
+        log.log(objektname,"Methode setPositionY() gestartet mit Parameter "+positionY+" .");
+        
+        log.log(objektname,"Methode setPositionY() beendet.");
         this.positionY = positionY;
     }
 
@@ -256,6 +276,9 @@ public class Spielfigur {
      * @return the startfeld
      */
     public Feld getStartfeld() {
+         log.log(objektname,"Methode getStartfeld() gestartet.");
+        log.log(objektname,"Methodenrückgabe: "+startfeld);
+        log.log(objektname,"Methode getStartfeld() beendet.");
         return startfeld;
     }
 
@@ -263,6 +286,9 @@ public class Spielfigur {
      * @param startfeld the startfeld to set
      */
     public void setStartfeld(Feld startfeld) {
+        log.log(objektname,"Methode setStartfeld() gestartet mit Parameter "+startfeld+" .");
+        
+        log.log(objektname,"Methode setStartfeld() beendet.");
         this.startfeld = startfeld;
     }
 
@@ -270,6 +296,9 @@ public class Spielfigur {
      * @return the aktfeld
      */
     public Feld getAktfeld() {
+         log.log(objektname,"Methode getAktfeld() gestartet.");
+        log.log(objektname,"Methodenrückgabe: "+aktfeld);
+        log.log(objektname,"Methode getAktfeld() beendet.");
         return aktfeld;
     }
 
@@ -277,6 +306,9 @@ public class Spielfigur {
      * @param aktfeld the aktfeld to set
      */
     public void setAktfeld(Feld aktfeld) {
+        log.log(objektname,"Methode setAktfeld() gestartet mit Parameter "+aktfeld+" .");
+        
+        log.log(objektname,"Methode setAktfeld() beendet.");
         this.aktfeld = aktfeld;
     }
 
@@ -284,6 +316,9 @@ public class Spielfigur {
      * @return the feldnummer
      */
     public int getFeldnummer() {
+         log.log(objektname,"Methode getFeldnummer() gestartet.");
+        log.log(objektname,"Methodenrückgabe: "+feldnummer);
+        log.log(objektname,"Methode getFeldnummer() beendet.");
         return feldnummer;
     }
 
@@ -291,6 +326,9 @@ public class Spielfigur {
      * @param feldnummer the feldnummer to set
      */
     public void setFeldnummer(int feldnummer) {
+        log.log(objektname,"Methode setFeldnummer() gestartet mit Parameter "+feldnummer+" .");
+        
+        log.log(objektname,"Methode setFeldnummer() beendet.");
         this.feldnummer = feldnummer;
     }
 
@@ -298,6 +336,9 @@ public class Spielfigur {
      * @return the aufzielfeld
      */
     public boolean isAufzielfeld() {
+        log.log(objektname,"Methode isAufzielfeld() gestartet.");
+        log.log(objektname,"Methodenrückgabe: "+aufzielfeld);
+        log.log(objektname,"Methode isAufzielfeld() beendet.");
         return aufzielfeld;
     }
 
@@ -305,6 +346,9 @@ public class Spielfigur {
      * @param aufzielfeld the aufzielfeld to set
      */
     public void setAufzielfeld(boolean aufzielfeld) {
+        log.log(objektname,"Methode setAufzielfeld() gestartet mit Parameter "+aufzielfeld+" .");
+        
+        log.log(objektname,"Methode setAufzielfeld() beendet.");
         this.aufzielfeld = aufzielfeld;
     }
 
@@ -312,6 +356,9 @@ public class Spielfigur {
      * @return the aufstartfeld
      */
     public boolean isAufstartfeld() {
+        log.log(objektname,"Methode istAufstartfeld() gestartet.");
+        log.log(objektname,"Methodenrückgabe: "+aufstartfeld);
+        log.log(objektname,"Methode isAufstartfeld() beendet.");
         return aufstartfeld;
     }
 
@@ -319,6 +366,9 @@ public class Spielfigur {
      * @param aufstartfeld the aufstartfeld to set
      */
     public void setAufstartfeld(boolean aufstartfeld) {
+        log.log(objektname,"Methode setAufstartfeld() gestartet mit Parameter "+aufstartfeld+" .");
+        
+        log.log(objektname,"Methode setAufstartfeld() beendet.");
         this.aufstartfeld = aufstartfeld;
     }
 
@@ -326,6 +376,9 @@ public class Spielfigur {
      * @return the aufafeld
      */
     public boolean isAufafeld() {
+        log.log(objektname,"Methode istAufafeld() gestartet.");
+        log.log(objektname,"Methodenrückgabe: "+aufafeld);
+        log.log(objektname,"Methode isAufafeld() beendet.");
         return aufafeld;
     }
 
@@ -333,6 +386,9 @@ public class Spielfigur {
      * @param aufafeld the aufafeld to set
      */
     public void setAufafeld(boolean aufafeld) {
+        log.log(objektname,"Methode setAufafeld() gestartet mit Parameter "+aufafeld+" .");
+        
+        log.log(objektname,"Methode setAufafeld() beendet.");
         this.aufafeld = aufafeld;
     }
 
@@ -340,6 +396,9 @@ public class Spielfigur {
      * @return the aufspielfeld
      */
     public boolean isAufspielfeld() {
+        log.log(objektname,"Methode isAufspielfeld() gestartet.");
+        log.log(objektname,"Methodenrückgabe: "+aufspielfeld);
+        log.log(objektname,"Methode isAufspielfeld() beendet.");
         return aufspielfeld;
     }
 
@@ -347,6 +406,9 @@ public class Spielfigur {
      * @param aufspielfeld the aufspielfeld to set
      */
     public void setAufspielfeld(boolean aufspielfeld) {
+        log.log(objektname,"Methode setAufspielfeld() gestartet mit Parameter "+aufspielfeld+" .");
+        
+        log.log(objektname,"Methode setAufspielfeld() beendet.");
         this.aufspielfeld = aufspielfeld;
     }
 
@@ -354,6 +416,9 @@ public class Spielfigur {
      * @return the team
      */
     public Spieler getTeam() {
+         log.log(objektname,"Methode getTeam() gestartet.");
+        log.log(objektname,"Methodenrückgabe: "+team);
+        log.log(objektname,"Methode getTeam() beendet.");
         return team;
     }
 
@@ -361,6 +426,9 @@ public class Spielfigur {
      * @param team the team to set
      */
     public void setTeam(Spieler team) {
+        log.log(objektname,"Methode setTeam() gestartet mit Parameter "+team+" .");
+        
+        log.log(objektname,"Methode setTeam() beendet.");
         this.team = team;
     }
 
@@ -368,6 +436,9 @@ public class Spielfigur {
      * @return the farbe
      */
     public String getFarbe() {
+         log.log(objektname,"Methode getFarbe() gestartet.");
+        log.log(objektname,"Methodenrückgabe: "+farbe);
+        log.log(objektname,"Methode getFarbe() beendet.");
         return farbe;
     }
 
@@ -375,6 +446,9 @@ public class Spielfigur {
      * @param farbe the farbe to set
      */
     public void setFarbe(String farbe) {
+        log.log(objektname,"Methode setFarbe() gestartet mit Parameter "+farbe+" .");
+        
+        log.log(objektname,"Methode setFarbe() beendet.");
         this.farbe = farbe;
     }
     
