@@ -70,8 +70,8 @@ public class Spielfigur {
      * boolean, gibt an, ob sich Spielfigur bewegen kann oder nicht
      * Zugpflichten muessen hier beachtet werden:
      * 1. Schlagpflicht (wichtigste Pflicht)
-     * 2. Figur von Startfeld auf A-Feld, bei 6
-     * 3. Figur von A-Feld wegsetzen, sofern noch Figuren im Startkreis
+     * 2. Figur von A-Feld wegsetzen, sofern noch Figuren im Startkreis
+     * 3. Figur von Startfeld auf A-Feld, bei 6
      * 4. Einruecken in Zielfeld
      */
     private boolean zugfaehigkeit;
@@ -201,6 +201,8 @@ public class Spielfigur {
         
         return zugfaehigkeit;
     }
+    
+    public int PrioritaetenSetzen(int felderanzahl,)
     /**
      * gibt zurück od sich figur auf einem spielfeld befindet
      * getter methode für aufzielfeld
