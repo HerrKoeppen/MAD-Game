@@ -47,7 +47,7 @@ public class Feld {
     private boolean istBesetzt;
     /**
      * gibt Farbe des jeweiligen Feldes an String Start-, A-Feld und Zielfeld:
-     * sieben Farben Standardfeld: weiÃŸ
+     * sieben Farben Standardfeld: weiss
      */
     private String farbe;
     

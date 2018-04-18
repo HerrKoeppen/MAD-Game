@@ -61,6 +61,15 @@ public class Spielfigur {
      * eine String fÃ¼r die Farbe der Spielfigur
      */
     private String farbe;
+    /**
+     * boolean, gibt an, ob sich Spielfigur bewegen kann oder nicht
+     * Zugpflichten muessen hier beachtet werden:
+     * 1. Schlagpflicht (wichtigste Pflicht)
+     * 2. Figur von Startfeld auf A-Feld, bei 6
+     * 3. Figur von A-Feld wegsetzen, sofern noch Figuren im Startkreis
+     * 4. Einruecken in Zielfeld
+     */
+    private boolean zugfaehigkeit;
     
     /**
      * Konstruktor fÃ¼r die klasse Spielfigur
@@ -79,6 +88,7 @@ public class Spielfigur {
         this.aufspielfeld = false;
         this.aufstartfeld = true;
         this.aufzielfeld = false;
+        this.zugfaehigkeit = false;
         this.team = derSpieler;
         //this.farbe = this.team.gibfarbe();
     }
@@ -141,12 +151,14 @@ public class Spielfigur {
         }
     }
     /**
-     * beurteilt, ob sich eine SPielfigur um eine bestimmte Anzahl von Felder fortbewegen kann
+     * beurteilt, ob sich eine Spielfigur um eine bestimmte Anzahl von Felder fortbewegen kann
      * @param felderAnzahl Anzahl der Felder, die vortgerueckt werden soll
      * @return true, wenn der Zug möglich ist, sonst false
      */
     public boolean kannSichBewegen(int felderAnzahl){
-        return false;
+        
+        
+        return zugfaehigkeit;
     }
     /**
      * gibt zurück od sich figur auf einem spielfeld befindet
