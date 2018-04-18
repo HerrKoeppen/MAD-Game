@@ -232,25 +232,24 @@ public class Spielfigur {
 
         return zugfaehigkeit;
     }
-    /**
-     * Die Methode überprüft wie hoch die Priorität des Zuges ist.
-     * 0-Der Zug darf nicht druchgeführt werden
-     * 1-Der Zug darf durchgeführt werden
-     * 2-Der Zug muss durchgeführt werden
-     * 3-Doppelter Zug-Zwang
-     * 4-Error
-     * 
-     * 
-     * 
-     * 
-     * 
-     * 
-     * 
-     * 
-     * @param felderanzahl
-     * @return 
-     */
 
+    /**
+     * Die Methode überprüft wie hoch die Priorität des Zuges ist. 0-Der Zug
+     * darf nicht druchgeführt werden 1-Der Zug darf durchgeführt werden 2-Der
+     * Zug muss durchgeführt werden 3-Doppelter Zug-Zwang. Dies sind die
+     * Pflichten: 1. Schlagpflicht (wichtigste Pflicht) 2. Figur von A-Feld
+     * wegsetzen, sofern noch Figuren im Startkreis 3. Figur von Startfeld auf
+     * A-Feld, bei 6 4. Einruecken in Zielfeld
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     * @param felderanzahl
+     * @return
+     */
     public int GibPrioritaet(int ZuLaufendeFeldanzahl) {
         int PositionImFeld;
         //Sucht die Postion des Feldes in der Liste der Spielfigur
@@ -258,28 +257,36 @@ public class Spielfigur {
             if (team.getFelder().get(i).equals(this.aktfeld)) {
                 PositionImFeld = i;
             }
-            
+
             return 4;
 
         }
         //Nur für die Syntax
         PositionImFeld = -1;
+        //Wenn das Zielfeld besetzt ist
+        if (team.getFelder().get(PositionImFeld + ZuLaufendeFeldanzahl).isIstBesetzt()) {
+            //Wenn das Zielfeld vom gleichen Team besetzt ist
+            if (team.getFelder().get(PositionImFeld + ZuLaufendeFeldanzahl).gibSpielfigur().getFarbe().equals(team.getFelder().get(PositionImFeld).gibSpielfigur().getFarbe())) {
+                return 0;
+            } else {
+                //Wenn das Zielfeld von einer anderen Farbe besetzt ist,die Spielfigur auf dem A-Feld steht und Spieler im Startkreis sind.
+                if (team.getFelder().get(PositionImFeld).isaFeld() && team.SpielerImStartkreis() == true) {
+                    return 3;
+                }
 
-        if (team.getFelder().get(PositionImFeld + ZuLaufendeFeldanzahl).isIstBesetzt()){
+                //Wenn das Zielfeld von einer anderen Farbe besetzt ist.
+                return 2;
+
+            }
+
+        } //Wenn das Zielfeld nicht exestiert.(Ende der ArrayListe)
+        else if (team.getFelder().get(PositionImFeld + ZuLaufendeFeldanzahl) == null) {
             return 0;
-        
+        }
+        return 1;
     }
         
-        
-        
-        
-        
-        
-        
-        
-        
-     return 5;   
-    }
+    
 
     /**
      * gibt zurück od sich figur auf einem spielfeld befindet getter methode für
