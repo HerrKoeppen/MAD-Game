@@ -144,5 +144,30 @@ public class Feld {
     public int gibPositionY() {
         return positionY;
     }
+    /**
+     * setter methode fuer IStBEsetzt
+     * @param neu:boolean
+     * @return ist unnötig
+     */
+    public int setzIstBesetzt(boolean neu) {
+    this.istBesetzt = neu; 
+    return 0;
+    }
+    /**
+     * 
+     * @return feldtyp: string
+     */
+    public String gibFeldtyp() {
+    if (this.Startfeld){
+    return "Startfeld";} 
+    if (this.aFeld){
+    return "aFeld";} 
+    if (this.Zielfeld){
+    return "Zielfeld";} 
+    if (this.Standardfeld){
+    return "Standardfeld";} 
+    return "Fehler";
+    }
+    
 
 }

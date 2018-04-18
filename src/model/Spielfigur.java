@@ -53,6 +53,10 @@ public class Spielfigur {
      * boolean welche angibt, ob die Figur momentan im spielfeld ist
      */   
     private boolean aufspielfeld;
+     /**
+     * boolean welche angibt, ob die Figur momentan auf einem Standard ist
+     */   
+    private boolean aufStandardfeld;
     /**
      * gibt an zu welchen spieler die Figur gehÃ¶rt
      */
@@ -109,18 +113,50 @@ public class Spielfigur {
     }
     /**
      * setzt Figur auf ein Feld: Zielfeld
+     * Methode ist fuer sprunge geeignet (zb. rauskommen, geschlagenwerden
+     * nicht aber fuer das reguläre laufen empfohlen)
+     * Achtung zielfeld steht nicht fuer Zielfeld sondern 
+     * fuer das neue Feld der Figur
      * @param zielfeld
      * @return 1 bei fehler sonst 0 
      */
-    public int setzten(Feld zielfeld)
+    public int setzen(Feld zielfeld)
     {
-        return 1;
+        this.aktfeld.setzIstBesetzt(false);
+        this.aktfeld = zielfeld;
+        this.positionX = this.aktfeld.gibPositionX();
+        this.positionY = this.aktfeld.gibPositionY();
+        this.feldnummer = this.aktfeld.gibID();
+        this.aufspielfeld = false;
+        this.aufstartfeld = false;
+        this.aufzielfeld = false;
+        switch (this.aktfeld.gibFeldtyp().toLowerCase()) { // sehr netter Switch der den Typ des Feldes festlegt
+            case "Startfeld":
+                this.aufstartfeld = true;
+                break;
+            case "aFeld":
+                this.aufspielfeld = true;
+                this.aufafeld = true;
+                break;
+            case "Zielfeld":
+                this.aufspielfeld = true;
+                this.aufzielfeld = true;
+                break;
+            case "Standartfeld":
+                this.aufspielfeld = true;
+                this.aufStandardfeld = true;
+                break;
+            default:
+                break;
+        }
+        this.aktfeld.setzIstBesetzt(true);
+        return 0;
     }
     /**
      * schickt eine andere Figur zurÃ¼ck auf ihre startposition
      * @return 1 bei fehler sonst 0 
      */
-    public int schlagen()
+    public int schlagen(int index)
     {   
         return 1;
     }
@@ -131,7 +167,7 @@ public class Spielfigur {
      */
     public int zurueckgehen()
     {
-     if (this.setzten(this.startfeld)== 0)
+     if (this.setzen(this.startfeld)== 0)
         {
              return 0;
         }
