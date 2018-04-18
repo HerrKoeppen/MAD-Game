@@ -7,26 +7,29 @@ package model;
 
 /**
  * Die Klasse Spiel verwaltet die VAriablen die fuer den generellen Spielablauf
- * wichtig sind: Der Integer Runde gibt an in welcher Runde man sich befindet.
- * Der Integer BotAnzahl gibt an wie viele Bots bei den Spiel mitspielen sollen.
- * Der Boolean beendet gibt an ob das Spiel beendet ist.true=beendet Die
- * ArrayListe AlleSpieler beinhaltet alle Spieler im Spiel Die Arrayliste
- * AlleSpielfiguren beeinhaltet alle Spielfiguren im Spiel. Das Objekt
- * aktiverSpieler der Klasse Spieler gibt an welcher Spieler momentan am Zug
- * ist.
+ * wichtig sind:
+ *
+ *
  *
  * @author Louie Noel Siaa Krueger
  */
 public class Spiel {
 
     public Spielbrett dasSpielbrett;
+    //Der Integer Runde gibt an in welcher Runde man sich befindet.
     public int Runde;
+    //Der Integer BotAnzahl gibt an wie viele Bots bei den Spiel mitspielen sollen.
     public int BotAnzahl;
+
     public int SpielerAnzahl;
     public int GesamtSpielerAnzahl;
+    //Der Boolean beendet gibt an ob das Spiel beendet ist.true=beendet
     public boolean beendet;
+    //Die ArrayListe AlleSpieler beinhaltet alle Spieler im Spiel
     public Spieler[] AlleSpieler = new Spieler[7];
+    //Die Arrayliste AlleSpielfiguren beeinhaltet alle Spielfiguren im Spiel.
     public Spielfigur[] AlleSpielfiguren = new Spielfigur[28];
+    //Das Objekt aktiverSpieler der Klasse Spieler gibt an welcher Spieler momentan am Zug ist.   
     public Spieler aktiverSpieler;
     private String objektname;
     private Logger log;
@@ -57,7 +60,9 @@ public class Spiel {
      * @param Botanzahl
      */
     public void SetzeBotAnzahl(int Botanzahl) {
+        log.log(objektname, "Methode SetzeBotAnzahl() gestartet mit Parameter " + Botanzahl + " .");
 
+        log.log(objektname, "Methode SetzeBotAnzahl() beendet.");
     }
 
     /**
@@ -66,7 +71,9 @@ public class Spiel {
      * @param Spieleranzahl
      */
     public void SetzeSpielerAnzahl(int Spieleranzahl) {
+        log.log(objektname, "Methode SetzeSpieleranzahl() gestartet mit Parameter " + Spieleranzahl + " .");
 
+        log.log(objektname, "Methode SetzeSpieleranzahl() beendet.");
     }
 
     /**
@@ -76,7 +83,9 @@ public class Spiel {
      * @param Gesamtspieleranzahl
      */
     public void SetzeGesamtSpielerAnzahl(int Gesamtspieleranzahl) {
+        log.log(objektname, "Methode SetzeGesamtspieleranzahl() gestartet mit Parameter " + Gesamtspieleranzahl + " .");
 
+        log.log(objektname, "Methode SetzeGesamtspieleranzahl() beendet.");
     }
 
     /**
@@ -92,13 +101,19 @@ public class Spiel {
      */
     public void SpielStarten() {
         //Spielbrett erzeugen
-        dasSpielbrett = new Spielbrett();
+        log.log(objektname, "Methode SpielStarten() gestartet.");
+        dasSpielbrett = new Spielbrett(log);
+        log.log(objektname, "Methode hat das Spielbrett erzeugt");
+        log.log(objektname, "Methode SpielStarten() beendet.");
     }
 
     /**
      * NeuesSpiel: Setz ALLE Variablen des Objekts zurÃ¼ck.
      */
     public void NeuesSpiel() {
+        log.log(objektname, "Methode NeuesSpiel() gestartet.");
+
+        log.log(objektname, "Methode NeuesSpiel() beendet.");
 
     }
 
@@ -113,8 +128,11 @@ public class Spiel {
      *
      */
     public void spielen() {
+        log.log(objektname, "Methode spielen() gestartet.");
+
         //Startspieler ermitteln fehlt
         //aktives Spielen beginnt, Spielreihenfolge im Uhrzeigersinn
+        log.log(objektname, "Methode spielen() beendet.");
     }
 
     public static void main(String args[]) {

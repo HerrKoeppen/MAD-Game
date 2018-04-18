@@ -64,6 +64,9 @@ public class Wuerfel {
      * @return integer
      */
     public int gibZahl() {
+        log.log(objektname,"Methode Zahl() gestartet.");
+        log.log(objektname,"Methodenrückgabe: "+dieZahl);
+        log.log(objektname,"Methode gibZahl() beendet.");
         return dieZahl;
     }
 
@@ -95,7 +98,6 @@ public class Wuerfel {
     public static void main(String args[]) {
         Logger myLogger = new Logger();
         Wuerfel w1 = new Wuerfel(myLogger,"w1", 1, 6);
-        w1.loggerSetzen(myLogger);
         for (int i = 0; i < 50; i++) {
             w1.wuerfeln();
         }

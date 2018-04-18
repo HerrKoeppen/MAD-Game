@@ -47,7 +47,7 @@ public class Feld {
     private boolean istBesetzt;
     /**
      * gibt Farbe des jeweiligen Feldes an String Start-, A-Feld und Zielfeld:
-     * sieben Farben Standardfeld: weiÃŸ
+     * sieben Farben Standardfeld: weiss
      */
     private String farbe;
     
@@ -124,6 +124,9 @@ public class Feld {
      * @return id
      */
     public int gibID() {
+        log.log(objektname,"Methode gibID() gestartet.");
+        log.log(objektname,"Methodenrückgabe: "+id);
+        log.log(objektname,"Methode gibID() beendet.");
         return id;
     }
 
@@ -133,6 +136,9 @@ public class Feld {
      * @return positionX
      */
     public int gibPositionX() {
+        log.log(objektname,"Methode gibPositionX() gestartet.");
+        log.log(objektname,"Methodenrückgabe: "+positionX);
+        log.log(objektname,"Methode gibPositionX() beendet.");
         return positionX;
     }
 
@@ -142,6 +148,9 @@ public class Feld {
      * @return positionY
      */
     public int gibPositionY() {
+        log.log(objektname,"Methode gibPositionY() gestartet.");
+        log.log(objektname,"Methodenrückgabe: "+positionY);
+        log.log(objektname,"Methode gibPositionY() beendet.");
         return positionY;
     }
     /**
