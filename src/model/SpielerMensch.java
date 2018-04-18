@@ -26,13 +26,13 @@ public class SpielerMensch implements Spieler {
      * Eine Liste mit 4 Spielfiguren.
      */
     public Spielfigur[] Spielfiguren = new Spielfigur[4];
-    
+
     /**
      * Logger zu Diagnosezwecken
      */
     public Logger log;
-    
-    public SpielerMensch(Logger logger){
+
+    public SpielerMensch(Logger logger) {
         log = logger;
     }
 
@@ -49,15 +49,18 @@ public class SpielerMensch implements Spieler {
         Spielfiguren[i] = Spielfigur;
 
     }
+
     /**
-     * ueberprueft, ob ein Spieler gewonnen hat (alle Spielfiguren im Zielkreis hat)
+     * ueberprueft, ob ein Spieler gewonnen hat (alle Spielfiguren im Zielkreis
+     * hat)
+     *
      * @return true, wenn der Spieler gewonnen hat, sonst false
      */
-    public boolean hatGewonnen(){
-        for (Spielfigur i : Spielfiguren){
-        if (i.gibAufZielfeld() == false){
-        return false;
-        }
+    public boolean hatGewonnen() {
+        for (Spielfigur i : Spielfiguren) {
+            if (i.gibAufZielfeld() == false) {
+                return false;
+            }
         }
         return true;
     }
@@ -65,48 +68,67 @@ public class SpielerMensch implements Spieler {
     @Override
     public void ziehen() {
         //habe ich gewonnen? Wenn nein, dann mache ich einen normalen Zug
-        
+
         //habe ich nur Spielfiguren im Startkreis
         //-> ja, dann bis zu dreimal würfeln und hoffe auf eine 6
-            // ist es eine 6?
-                //Spielfigur auf das A-Feld setzen
-                //schlagen --> geschlagene Figur kommt auf den Startkreis zurück
-                //nochmal würfeln
-            //ist es keine 6 -> möglicherweise verbleibenden Wurf ausführen
-        
-        
+        // ist es eine 6?
+        //Spielfigur auf das A-Feld setzen
+        //schlagen --> geschlagene Figur kommt auf den Startkreis zurück
+        //nochmal würfeln
+        //ist es keine 6 -> möglicherweise verbleibenden Wurf ausführen
         //-> nein, einmal würfeln
-            // ist es eine 6? 
-                //kann eine Spielfigur diesen Wurf durchführen?
-                    //--> Spielfigur: kannSichBewegen(int felderAnzahl)
-                //Spielfigur wählen (Pflichten beachten!!!!!!)
-                    // 1. Schlagpflicht (wichtigste Pflicht)
-                    // 2. Figur von Startfeld auf A-Feld, bei 6
-                    // 3. Figur von A-Feld wegsetzen, sofern noch Figuren im Startkreis
-                    // 4. Einruecken in Zielfeld
-                    //Zug mit doppelter Pflicht vor Zug mit einfacher Pflicht
-                //Spielfigur vorrücken
-                //schlagen --> geschlagene Figur kommt auf den Startkreis zurück
-                //nochmal würfeln
-            //es ist keine 6
-                //kann eine Spielfigur diesen Wurf durchführen?
-                //Spielfigur wählen (Pflichten beachten!!!!!!)
-                //Spielfigur wählen (Pflichten beachten!!!!!!)
-                    // 1. Schlagpflicht (wichtigste Pflicht)
-                    // 2. Figur von Startfeld auf A-Feld, bei 6
-                    // 3. Figur von A-Feld wegsetzen, sofern noch Figuren im Startkreis
-                    // 4. Einruecken in Zielfeld
-                    //Zug mit doppelter Pflicht vor Zug mit einfacher Pflicht
-                //Spielfigur vorrücken
-                //schlagen --> geschlagene Figur kommt auf den Startkreis zurück
-        
+        // ist es eine 6? 
+        //kann eine Spielfigur diesen Wurf durchführen?
+        //--> Spielfigur: kannSichBewegen(int felderAnzahl)
+        //Spielfigur wählen (Pflichten beachten!!!!!!)
+        // 1. Schlagpflicht (wichtigste Pflicht)
+        // 2. Figur von Startfeld auf A-Feld, bei 6
+        // 3. Figur von A-Feld wegsetzen, sofern noch Figuren im Startkreis
+        // 4. Einruecken in Zielfeld
+        //Zug mit doppelter Pflicht vor Zug mit einfacher Pflicht
+        //Spielfigur vorrücken
+        //schlagen --> geschlagene Figur kommt auf den Startkreis zurück
+        //nochmal würfeln
+        //es ist keine 6
+        //kann eine Spielfigur diesen Wurf durchführen?
+        //Spielfigur wählen (Pflichten beachten!!!!!!)
+        //Spielfigur wählen (Pflichten beachten!!!!!!)
+        // 1. Schlagpflicht (wichtigste Pflicht)
+        // 2. Figur von Startfeld auf A-Feld, bei 6
+        // 3. Figur von A-Feld wegsetzen, sofern noch Figuren im Startkreis
+        // 4. Einruecken in Zielfeld
+        //Zug mit doppelter Pflicht vor Zug mit einfacher Pflicht
+        //Spielfigur vorrücken
+        //schlagen --> geschlagene Figur kommt auf den Startkreis zurück
         //ich habe doch schon gewonnen: ich mache nichts
-        
     }
 
     @Override
     public int wuerfeln() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    /**
+     * Die Methode gibt an ob sich alle Spielfiguren auf den Startfeldern
+     * befinden.
+     *
+     *
+     *
+     *
+     * @returnSSS
+     */
+    public boolean SpielerImStartkreis() {
+        for (int i = 0; i < 4; i++) {
+            if (this.Spielfiguren[i].isAufstartfeld() == true) {
+
+            } else {
+                return false;
+
+            }
+
+        }
+        return true;
+
     }
 
 }
