@@ -54,7 +54,12 @@ public class SpielerMensch implements Spieler {
      * @return true, wenn der Spieler gewonnen hat, sonst false
      */
     public boolean hatGewonnen(){
+        for (Spielfigur i : Spielfiguren){
+        if (i.gibAufZielfeld() == false){
         return false;
+        }
+        }
+        return true;
     }
 
     @Override
