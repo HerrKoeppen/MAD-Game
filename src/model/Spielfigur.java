@@ -55,6 +55,10 @@ public class Spielfigur {
      * boolean welche angibt, ob die Figur momentan im spielfeld ist
      */
     private boolean aufspielfeld;
+     /**
+     * boolean welche angibt, ob die Figur momentan auf einem Standard ist
+     */   
+    private boolean aufStandardfeld;
     /**
      * gibt an zu welchen spieler die Figur gehÃ¶rt
      */
@@ -70,8 +74,8 @@ public class Spielfigur {
      * boolean, gibt an, ob sich Spielfigur bewegen kann oder nicht
      * Zugpflichten muessen hier beachtet werden:
      * 1. Schlagpflicht (wichtigste Pflicht)
-     * 2. Figur von Startfeld auf A-Feld, bei 6
-     * 3. Figur von A-Feld wegsetzen, sofern noch Figuren im Startkreis
+     * 2. Figur von A-Feld wegsetzen, sofern noch Figuren im Startkreis
+     * 3. Figur von Startfeld auf A-Feld, bei 6
      * 4. Einruecken in Zielfeld
      */
     private boolean zugfaehigkeit;
@@ -142,15 +146,46 @@ public class Spielfigur {
 
     /**
      * setzt Figur auf ein Feld: Zielfeld
-     *
+     * Methode ist fuer sprunge geeignet (zb. rauskommen, geschlagenwerden
+     * nicht aber fuer das reguläre laufen empfohlen)
+     * Achtung zielfeld steht nicht fuer Zielfeld sondern 
+     * fuer das neue Feld der Figur
      * @param zielfeld
      * @return 1 bei fehler sonst 0
      */
     public int setzten(Feld zielfeld) {
         log.log(objektname, "Methode setzen() gestartet.");
-        log.log(objektname, "Methodenrückgabe: " + 1);
+        this.aktfeld.setzIstBesetzt(false);
+        this.aktfeld = zielfeld;
+        this.positionX = this.aktfeld.gibPositionX();
+        this.positionY = this.aktfeld.gibPositionY();
+        this.feldnummer = this.aktfeld.gibID();
+        this.aufspielfeld = false;
+        this.aufstartfeld = false;
+        this.aufzielfeld = false;
+        switch (this.aktfeld.gibFeldtyp().toLowerCase()) { // sehr netter Switch der den Typ des Feldes festlegt
+            case "Startfeld":
+                this.aufstartfeld = true;
+                break;
+            case "aFeld":
+                this.aufspielfeld = true;
+                this.aufafeld = true;
+                break;
+            case "Zielfeld":
+                this.aufspielfeld = true;
+                this.aufzielfeld = true;
+                break;
+            case "Standartfeld":
+                this.aufspielfeld = true;
+                this.aufStandardfeld = true;
+                break;
+            default:
+                break;
+        }
+        this.aktfeld.setzIstBesetzt(true);
         log.log(objektname, "Methode setzen() beendet.");
-        return 1;
+         log.log(objektname, "Methodenrückgabe: " + 0);
+        return 0;
     }
 
     /**
@@ -201,6 +236,8 @@ public class Spielfigur {
         
         return zugfaehigkeit;
     }
+    
+    public int PrioritaetenSetzen(int felderanzahl,)
     /**
      * gibt zurück od sich figur auf einem spielfeld befindet
      * getter methode für aufzielfeld
