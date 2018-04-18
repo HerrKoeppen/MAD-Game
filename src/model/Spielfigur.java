@@ -155,9 +155,6 @@ public class Spielfigur {
      */
     public int setzten(Feld zielfeld) {
         log.log(objektname, "Methode setzen() gestartet.");
-        log.log(objektname, "Methodenrückgabe: " + 1);
-        log.log(objektname, "Methode setzen() beendet.");
-  
         this.aktfeld.setzIstBesetzt(false);
         this.aktfeld = zielfeld;
         this.positionX = this.aktfeld.gibPositionX();
@@ -186,6 +183,8 @@ public class Spielfigur {
                 break;
         }
         this.aktfeld.setzIstBesetzt(true);
+        log.log(objektname, "Methode setzen() beendet.");
+         log.log(objektname, "Methodenrückgabe: " + 0);
         return 0;
     }
 
