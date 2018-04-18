@@ -131,7 +131,7 @@ public class Spielfigur {
      */
     public int zurueckgehen()
     {
-     if (this.setzten(this.startfeld)== 0)
+     if (this.setzten(this.getStartfeld())== 0)
         {
              return 0;
         }
@@ -154,7 +154,175 @@ public class Spielfigur {
      * @return aufzielfeld:boolean 
      */
     public boolean gibAufZielfeld(){
-        return this.aufzielfeld;
+        return this.isAufzielfeld();
+    }
+
+    /**
+     * @return the id
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    /**
+     * @return the positionX
+     */
+    public int getPositionX() {
+        return positionX;
+    }
+
+    /**
+     * @param positionX the positionX to set
+     */
+    public void setPositionX(int positionX) {
+        this.positionX = positionX;
+    }
+
+    /**
+     * @return the positionY
+     */
+    public int getPositionY() {
+        return positionY;
+    }
+
+    /**
+     * @param positionY the positionY to set
+     */
+    public void setPositionY(int positionY) {
+        this.positionY = positionY;
+    }
+
+    /**
+     * @return the startfeld
+     */
+    public Feld getStartfeld() {
+        return startfeld;
+    }
+
+    /**
+     * @param startfeld the startfeld to set
+     */
+    public void setStartfeld(Feld startfeld) {
+        this.startfeld = startfeld;
+    }
+
+    /**
+     * @return the aktfeld
+     */
+    public Feld getAktfeld() {
+        return aktfeld;
+    }
+
+    /**
+     * @param aktfeld the aktfeld to set
+     */
+    public void setAktfeld(Feld aktfeld) {
+        this.aktfeld = aktfeld;
+    }
+
+    /**
+     * @return the feldnummer
+     */
+    public int getFeldnummer() {
+        return feldnummer;
+    }
+
+    /**
+     * @param feldnummer the feldnummer to set
+     */
+    public void setFeldnummer(int feldnummer) {
+        this.feldnummer = feldnummer;
+    }
+
+    /**
+     * @return the aufzielfeld
+     */
+    public boolean isAufzielfeld() {
+        return aufzielfeld;
+    }
+
+    /**
+     * @param aufzielfeld the aufzielfeld to set
+     */
+    public void setAufzielfeld(boolean aufzielfeld) {
+        this.aufzielfeld = aufzielfeld;
+    }
+
+    /**
+     * @return the aufstartfeld
+     */
+    public boolean isAufstartfeld() {
+        return aufstartfeld;
+    }
+
+    /**
+     * @param aufstartfeld the aufstartfeld to set
+     */
+    public void setAufstartfeld(boolean aufstartfeld) {
+        this.aufstartfeld = aufstartfeld;
+    }
+
+    /**
+     * @return the aufafeld
+     */
+    public boolean isAufafeld() {
+        return aufafeld;
+    }
+
+    /**
+     * @param aufafeld the aufafeld to set
+     */
+    public void setAufafeld(boolean aufafeld) {
+        this.aufafeld = aufafeld;
+    }
+
+    /**
+     * @return the aufspielfeld
+     */
+    public boolean isAufspielfeld() {
+        return aufspielfeld;
+    }
+
+    /**
+     * @param aufspielfeld the aufspielfeld to set
+     */
+    public void setAufspielfeld(boolean aufspielfeld) {
+        this.aufspielfeld = aufspielfeld;
+    }
+
+    /**
+     * @return the team
+     */
+    public Spieler getTeam() {
+        return team;
+    }
+
+    /**
+     * @param team the team to set
+     */
+    public void setTeam(Spieler team) {
+        this.team = team;
+    }
+
+    /**
+     * @return the farbe
+     */
+    public String getFarbe() {
+        return farbe;
+    }
+
+    /**
+     * @param farbe the farbe to set
+     */
+    public void setFarbe(String farbe) {
+        this.farbe = farbe;
     }
     
 }
