@@ -132,10 +132,22 @@ public class Spielfigur {
 
     /**
      * bewegt eine Figur um ein Feld
-     *
+     *je nach dem, welche Augenzahl man gewuerfelt hat, fuehrt man diese Funktion
+     * dementsprechend oft aus
      * @return 1 bei fehler sonst 0
      */
     public int bewegen() {
+        
+        /**
+         * ID des aktuellen Feldes wird angegeben
+         * um einen Schritt voran zu gehen, muss man die id des aktuellen Feldes um 1 erhoehen
+         * 
+         */
+        aktfeld.gibID();
+        id = feldnummer + 1; 
+        // id = id + 1; 
+        
+        
         log.log(objektname, "Methode bewegen() gestartet.");
         log.log(objektname, "Methodenrückgabe: " + 1);
         log.log(objektname, "Methode bewegen() beendet.");
@@ -187,7 +199,7 @@ public class Spielfigur {
     }
 
     /**
-     * schickt eine andere Figur zurÃ¼ck auf ihre startposition
+     * schickt eine andere Figur zurueck auf ihre startposition
      *
      * @return 1 bei fehler sonst 0
      */
@@ -241,12 +253,6 @@ public class Spielfigur {
      * wegsetzen, sofern noch Figuren im Startkreis 3. Figur von Startfeld auf
      * A-Feld, bei 6 4. Einruecken in Zielfeld
      *
-     *
-     *
-     *
-     *
-     *
-     *
      * @param felderanzahl
      * @return
      */
@@ -289,7 +295,7 @@ public class Spielfigur {
     
 
     /**
-     * gibt zurück od sich figur auf einem spielfeld befindet getter methode für
+     * gibt zurueck, ob sich figur auf einem spielfeld befindet getter methode für
      * aufzielfeld
      *
      * @return aufzielfeld:boolean

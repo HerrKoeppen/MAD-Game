@@ -120,6 +120,7 @@ public class Feld {
 
     /**
      * getter-methode von id
+     * gibt die ID des Feldes zurueck
      *
      * @return id
      */
@@ -154,7 +155,7 @@ public class Feld {
         return positionY;
     }
     /**
-     * setter methode fuer IStBEsetzt
+     * setter methode fuer IstBesetzt
      * @param neu:boolean
      * @return ist unnötig
      */
@@ -163,7 +164,7 @@ public class Feld {
     return 0;
     }
     /**
-     * 
+     * getter methode fuer feldtyp
      * @return feldtyp: string
      */
     public String gibFeldtyp() {

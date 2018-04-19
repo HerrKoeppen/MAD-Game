@@ -6,7 +6,7 @@
 package model;
 
 /**
- * Die Klasse Spiel verwaltet die VAriablen die fuer den generellen Spielablauf
+ * Die Klasse Spiel verwaltet die Variablen die fuer den generellen Spielablauf
  * wichtig sind:
  *
  *
@@ -108,7 +108,7 @@ public class Spiel {
     }
 
     /**
-     * NeuesSpiel: Setz ALLE Variablen des Objekts zurÃ¼ck.
+     * NeuesSpiel: Setz ALLE Variablen des Objekts zurueck.
      */
     public void NeuesSpiel() {
         log.log(objektname, "Methode NeuesSpiel() gestartet.");
