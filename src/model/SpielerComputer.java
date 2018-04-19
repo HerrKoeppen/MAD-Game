@@ -5,6 +5,8 @@
  */
 package model;
 
+import java.util.List;
+
 /**
  * Die Klasse SpielerComputer beinhaltet zum einen, den Namen der Spieler,
  * die Farbe, die den Spielern momentan zu geordnet ist und
@@ -62,8 +64,12 @@ public class SpielerComputer implements Spieler{
     return aFeld;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
-    public Feld[] getFelder() {
+    public List<Feld> getFelder() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

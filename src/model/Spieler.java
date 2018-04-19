@@ -5,6 +5,8 @@
  */
 package model;
 
+import static java.util.Collections.list;
+import java.util.List;
 /**
  *
  * @author koeppen
@@ -23,6 +25,6 @@ public interface Spieler {
      */
     public int wuerfeln();
     public Feld gibafeld();
-    public Feld[] getFelder();
+    public List<Feld> getFelder();
     public Spiel gibSpiel();
 }

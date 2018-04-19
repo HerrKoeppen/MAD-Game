@@ -50,6 +50,10 @@ public class Feld {
      */
     private boolean istBesetzt;
     /**
+     * gibt an, wer das Feld besetzt
+     */
+    private Spielfigur hausbesetzter;
+    /**
      * gibt Farbe des jeweiligen Feldes an String Start-, A-Feld und Zielfeld:
      * sieben Farben Standardfeld: weiss
      */
@@ -181,6 +185,13 @@ public class Feld {
     return 0;
     }
     /**
+     * Getter methode fuer IstBesetzt
+     * @return istBestzt
+     */
+    public boolean gibIstBesetzt() {
+     return this.istBesetzt; 
+    }
+    /**
      * getter methode fuer feldtyp
      * @return feldtyp: string
      */
@@ -195,6 +206,14 @@ public class Feld {
     return "Standardfeld";} 
     return "Fehler";
     }
+    /**
+     * Getter methode fuer hausbesetzter
+     * @return istBestzt
+     */
+    public Spielfigur gibHausbesetzter() {
+     return this.hausbesetzter; 
+    }
+    
     
 
 }

@@ -200,7 +200,7 @@ public class SpielerMensch implements Spieler {
     }
 
     @Override
-    public Feld[] getFelder() {
+    public List<Feld> getFelder() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

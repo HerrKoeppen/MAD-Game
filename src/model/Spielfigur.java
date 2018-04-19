@@ -157,8 +157,8 @@ public class Spielfigur {
     }
     public int laufen(int augen){
         Feld backup = this.aktfeld;
-        if (this.team.gibSpiel().gibSpielbrett().gibFelder().get((aktfeld.gibID() + augen)).){
-        
+        if (this.team.gibSpiel().gibSpielbrett().gibFelder().get((aktfeld.gibID() + augen)).gibImSpielkreis() && !this.team.gibSpiel().gibSpielbrett().gibFelder().get((aktfeld.gibID() + augen)).gibHausbesetzter().getFarbe().equals(this.farbe)){
+        this.schlagen(this.team.gibSpiel().gibSpielbrett().gibFelder().get((aktfeld.gibID() + augen)));
         }
         
         for(int i = 0; i > augen; i++){
@@ -560,6 +560,10 @@ public class Spielfigur {
 
         log.log(objektname, "Methode setFarbe() beendet.");
         this.farbe = farbe;
+    }
+    
+    public Spieler gibTeam(){
+    return this.team;
     }
 
 }
