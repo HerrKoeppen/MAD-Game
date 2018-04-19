@@ -13,12 +13,16 @@ public interface Spieler {
 
     /**
      *
+     * @param gezogen
      */
-    public void ziehen();
+    public void ziehen(int gezogen);
 
     /**
      *
      * @return
      */
     public int wuerfeln();
+    public Feld gibafeld();
+    public Feld[] getFelder();
+    public Spiel gibSpiel();
 }

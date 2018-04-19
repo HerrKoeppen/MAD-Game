@@ -22,6 +22,10 @@ public class Feld {
      */
     private boolean Zielfeld;
     /**
+     * gibt an ob sich Feld im Feld befindet
+     */
+    private boolean imSpielkreis;
+    /**
      * gibt an, ob Feld A-Feld ist boolean: true oder false
      */
     private boolean aFeld;
@@ -58,8 +62,6 @@ public class Feld {
      * Konstruktor:erzeugt ein Objekt der klasse Feld
      *
      * @param dasspielbrett know your origin
-     * @param index:int sollte sich mit indexnummer von der Spielbrett array
-     * decken
      * @param feldart:string, lÃ¤sst verschieden Schreibweisen des
      * Standardfeld(standard; Standartfeld; standardfeld), Startfeld(start,
      * startfeld, Startfeld), Zielfeld(ziel, zielfeld, Zielfeld), aFeld(a,
@@ -95,6 +97,8 @@ public class Feld {
             case "Anfangsfeld":
             case "anfangsfeld":
                 this.aFeld = true;
+                this.imSpielkreis = true;
+                dasspielbrett.kreisfeldhinzufuegen(this);
                 break;
             case "ziel":
             case "Zielfeld":
@@ -105,6 +109,8 @@ public class Feld {
             case "standartfeld":
             case "Standartfeld":
                 this.Standardfeld = true;
+                this.imSpielkreis = true;
+                dasspielbrett.kreisfeldhinzufuegen(this);
                 break;
             default:
                 break;
@@ -141,6 +147,17 @@ public class Feld {
         log.log(objektname,"Methodenrückgabe: "+positionX);
         log.log(objektname,"Methode gibPositionX() beendet.");
         return positionX;
+    }
+    /**
+     * getter-methode von imSpielkreis
+     *
+     * @return positionX
+     */
+    public boolean gibImSpielkreis() {
+        log.log(objektname,"Methode gibPositionX() gestartet.");
+        log.log(objektname,"Methodenrückgabe: "+this.imSpielkreis);
+        log.log(objektname,"Methode gibPositionX() beendet.");
+        return this.imSpielkreis;
     }
 
     /**

@@ -33,6 +33,7 @@ public class Spiel {
     public Spieler aktiverSpieler;
     private String objektname;
     private Logger log;
+    private Wuerfel derWuerfel;
 
     /**
      * Konstrucktor der klasse Spiel
@@ -139,5 +140,13 @@ public class Spiel {
         Logger log = new Logger("testlog.txt");
         Spiel test = new Spiel();
         log.logBeenden();
+    }
+    
+    public Wuerfel gibWuerfel(){
+    return derWuerfel;
+    }
+    
+    public Spielbrett gibSpielbrett(){
+    return dasSpielbrett;
     }
 }
