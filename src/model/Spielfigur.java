@@ -117,17 +117,19 @@ public class Spielfigur {
     public int herauskommen() {
         log.log(objektname, "Methode herauskommen() gestartet.");
 
-        /*if (this.setzten(this.team.gibafeld())== 0)
+        if (this.setzten(this.team.gibafeld())== 0)
         {
-             return 0;
+             log.log(objektname, "Methodenrückgabe: " + 0);
+             log.log(objektname, "Methode herauskommen() beendet.");
+            return 0;
         }
-     else   
+         else   
         {
+            log.log(objektname, "Methodenrückgabe: " + 1);
+            log.log(objektname, "Methode herauskommen() beendet.");
             return 1;  
-        }*/
-        log.log(objektname, "Methodenrückgabe: " + 5);
-        log.log(objektname, "Methode herauskommen() beendet.");
-        return 5;
+        }
+       
     }
 
     /**
@@ -153,7 +155,21 @@ public class Spielfigur {
         log.log(objektname, "Methode bewegen() beendet.");
         return 1;
     }
-
+    public int laufen(int augen){
+        Feld backup = this.aktfeld;
+        if (this.team.gibSpiel().gibSpielbrett().gibFelder().get((aktfeld.gibID() + augen)).){
+        
+        }
+        
+        for(int i = 0; i > augen; i++){
+            if(this.bewegen() == 1){
+            this.setzten(backup);
+            return 1;
+            }
+      
+    }
+          return 0;
+    }
     /**
      * setzt Figur auf ein Feld: Zielfeld Methode ist fuer sprunge geeignet (zb.
      * rauskommen, geschlagenwerden nicht aber fuer das reguläre laufen
@@ -203,7 +219,7 @@ public class Spielfigur {
      *
      * @return 1 bei fehler sonst 0
      */
-    public int schlagen() {
+    public int schlagen(Feld dasFEld) {
         log.log(objektname, "Methode schlagen() gestartet.");
         log.log(objektname, "Methodenrückgabe: " + 1);
         log.log(objektname, "Methode schlagen() beendet.");
