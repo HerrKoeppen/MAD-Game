@@ -6,7 +6,7 @@
 package model;
 
 /**
- * Die Klasse Spiel verwaltet die VAriablen die fuer den generellen Spielablauf
+ * Die Klasse Spiel verwaltet die Variablen die fuer den generellen Spielablauf
  * wichtig sind:
  *
  *
@@ -33,6 +33,7 @@ public class Spiel {
     public Spieler aktiverSpieler;
     private String objektname;
     private Logger log;
+    private Wuerfel derWuerfel;
 
     /**
      * Konstrucktor der klasse Spiel
@@ -108,7 +109,7 @@ public class Spiel {
     }
 
     /**
-     * NeuesSpiel: Setz ALLE Variablen des Objekts zurÃ¼ck.
+     * NeuesSpiel: Setz ALLE Variablen des Objekts zurueck.
      */
     public void NeuesSpiel() {
         log.log(objektname, "Methode NeuesSpiel() gestartet.");
@@ -139,5 +140,13 @@ public class Spiel {
         Logger log = new Logger("testlog.txt");
         Spiel test = new Spiel();
         log.logBeenden();
+    }
+    
+    public Wuerfel gibWuerfel(){
+    return derWuerfel;
+    }
+    
+    public Spielbrett gibSpielbrett(){
+    return dasSpielbrett;
     }
 }

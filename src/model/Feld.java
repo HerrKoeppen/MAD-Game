@@ -24,6 +24,10 @@ public class Feld {
      */
     private boolean Zielfeld;
     /**
+     * gibt an ob sich Feld im Feld befindet
+     */
+    private boolean imSpielkreis;
+    /**
      * gibt an, ob Feld A-Feld ist boolean: true oder false
      * Anfangsfeld einer bestimmten Farbe
      */
@@ -56,6 +60,10 @@ public class Feld {
      */
     private boolean istBesetzt;
     /**
+     * gibt an, wer das Feld besetzt
+     */
+    private Spielfigur hausbesetzter;
+    /**
      * gibt Farbe des jeweiligen Feldes an String Start-, A-Feld und Zielfeld:
      * sieben Farben Standardfeld: weiss
      */
@@ -68,8 +76,6 @@ public class Feld {
      * Konstruktor:erzeugt ein Objekt der klasse Feld
      *
      * @param dasspielbrett know your origin
-     * @param index:int sollte sich mit indexnummer von der Spielbrett array
-     * decken
      * @param feldart:string, lÃ¤sst verschieden Schreibweisen des
      * Standardfeld(standard; Standartfeld; standardfeld), Startfeld(start,
      * startfeld, Startfeld), Zielfeld(ziel, zielfeld, Zielfeld), aFeld(a,
@@ -105,6 +111,8 @@ public class Feld {
             case "Anfangsfeld":
             case "anfangsfeld":
                 this.aFeld = true;
+                this.imSpielkreis = true;
+                dasspielbrett.kreisfeldhinzufuegen(this);
                 break;
             case "ziel":
             case "Zielfeld":
@@ -115,6 +123,8 @@ public class Feld {
             case "standartfeld":
             case "Standartfeld":
                 this.Standardfeld = true;
+                this.imSpielkreis = true;
+                dasspielbrett.kreisfeldhinzufuegen(this);
                 break;
             default:
                 break;
@@ -130,6 +140,7 @@ public class Feld {
 
     /**
      * getter-methode von id
+     * gibt die ID des Feldes zurueck
      *
      * @return id
      */
@@ -151,6 +162,17 @@ public class Feld {
         log.log(objektname,"Methode gibPositionX() beendet.");
         return positionX;
     }
+    /**
+     * getter-methode von imSpielkreis
+     *
+     * @return positionX
+     */
+    public boolean gibImSpielkreis() {
+        log.log(objektname,"Methode gibPositionX() gestartet.");
+        log.log(objektname,"Methodenrückgabe: "+this.imSpielkreis);
+        log.log(objektname,"Methode gibPositionX() beendet.");
+        return this.imSpielkreis;
+    }
 
     /**
      * getter-methode von positionY
@@ -164,7 +186,7 @@ public class Feld {
         return positionY;
     }
     /**
-     * setter methode fuer IStBEsetzt
+     * setter methode fuer IstBesetzt
      * @param neu:boolean
      * @return ist unnötig
      */
@@ -173,7 +195,14 @@ public class Feld {
     return 0;
     }
     /**
-     * 
+     * Getter methode fuer IstBesetzt
+     * @return istBestzt
+     */
+    public boolean gibIstBesetzt() {
+     return this.istBesetzt; 
+    }
+    /**
+     * getter methode fuer feldtyp
      * @return feldtyp: string
      */
     public String gibFeldtyp() {
@@ -187,6 +216,14 @@ public class Feld {
     return "Standardfeld";} 
     return "Fehler";
     }
+    /**
+     * Getter methode fuer hausbesetzter
+     * @return istBestzt
+     */
+    public Spielfigur gibHausbesetzter() {
+     return this.hausbesetzter; 
+    }
+    
     
 
 }

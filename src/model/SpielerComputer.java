@@ -5,6 +5,8 @@
  */
 package model;
 
+import java.util.List;
+
 /**
  * Die Klasse SpielerComputer beinhaltet zum einen, den Namen der Spieler,
  * die Farbe, die den Spielern momentan zu geordnet ist und
@@ -25,9 +27,12 @@ public class SpielerComputer implements Spieler{
      */
     public Spielfigur[] Spielfiguren = new Spielfigur[4];
     
-     private Logger log;
+    private Logger log;
     private String objektname;
-            
+    /**
+     * den der Spieler sollte wissen wo er startet.
+     */
+    private Feld aFeld;      
     public SpielerComputer(){}
     
     public SpielerComputer(String oname, Logger logger){
@@ -36,7 +41,7 @@ public class SpielerComputer implements Spieler{
     }
     
     @Override
-    public void ziehen() {
+    public void ziehen(int gezogen) {
         log.log(objektname,"Methode ziehen() gestartet.");
         log.log(objektname,"Methode ziehen() beendet.");
       /** while(true){
@@ -52,6 +57,25 @@ public class SpielerComputer implements Spieler{
         log.log(objektname,"Methodenrückgabe: "+augenzahl);
         log.log(objektname,"Methode wuerfeln() beendet.");
         return augenzahl;
+    }
+    
+    @Override
+    public Feld gibafeld(){
+    return aFeld;
+    }
+
+    /**
+     *
+     * @return
+     */
+    @Override
+    public List<Feld> getFelder() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Spiel gibSpiel() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
