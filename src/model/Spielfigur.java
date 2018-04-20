@@ -157,7 +157,7 @@ public class Spielfigur {
     }
     public int laufen(int augen){
         Feld backup = this.aktfeld;
-        if (this.team.getSpiel().getSpielbrett().getFelder().get((aktfeld.getID() + augen)).getImSpielkreis() && !this.team.getSpiel().getSpielbrett().getFelder().get((aktfeld.getID() + augen)).getHausbesetzter().getFarbe().equals(this.farbe)){
+        if (this.team.getSpiel().getSpielbrett().getFelder().get((aktfeld.getID() + augen)).getImSpielkreis() && !this.team.getSpiel().getSpielbrett().getFelder().get((aktfeld.getID() + augen)).getHausbesetzer().getFarbe().equals(this.farbe)){
         this.schlagen(this.team.getSpiel().getSpielbrett().getFelder().get((aktfeld.getID() + augen)));
         }
         
@@ -181,7 +181,7 @@ public class Spielfigur {
      */
     public int setzten(Feld zielfeld) {
         log.log(objektname, "Methode setzen() gestartet.");
-        this.aktfeld.setzIstBesetzt(false);
+        this.aktfeld.setIstBesetzt(false);
         this.aktfeld = zielfeld;
         this.positionX = this.aktfeld.getPositionX();
         this.positionY = this.aktfeld.getPositionY();
@@ -208,7 +208,7 @@ public class Spielfigur {
             default:
                 break;
         }
-        this.aktfeld.setzIstBesetzt(true);
+        this.aktfeld.setIstBesetzt(true);
         log.log(objektname, "Methode setzen() beendet.");
         log.log(objektname, "Methodenrückgabe: " + 0);
         return 0;
@@ -272,7 +272,7 @@ public class Spielfigur {
      * @param felderanzahl
      * @return
      */
-    public int GibPrioritaet(int ZuLaufendeFeldanzahl) {
+    public int getPrioritaet(int ZuLaufendeFeldanzahl) {
         int PositionImFeld;
         //Sucht die Postion des Feldes in der Liste der Spielfigur
         for (int i = 0; i < 200; i++) {
