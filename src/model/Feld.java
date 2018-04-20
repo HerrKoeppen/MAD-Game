@@ -15,10 +15,12 @@ public class Feld {
 
     /**
      * gibt an, ob Feld Startfeld ist boolean: true oder false
+     * Startfeld einer bestimmten Farbe
      */
     private boolean Startfeld;
     /**
      * gibt an, ob Feld Zielfeld ist boolean: true oder false
+     * Zielfeld einer bestimmten Farbe
      */
     private boolean Zielfeld;
     /**
@@ -27,10 +29,19 @@ public class Feld {
     private boolean imSpielkreis;
     /**
      * gibt an, ob Feld A-Feld ist boolean: true oder false
+     * Anfangsfeld einer bestimmten Farbe
      */
     private boolean aFeld;
+     /**
+     * gibt an, ob Feld E-Feld ist boolean: true oder false
+     * Endfeld einer bestimmten Farbe, Eingang zu den Zielfeldern
+     * Durch das E-Feld wird signalisiert, dass die Figur einer Farbe in ihren Zielbereich eintreten muss
+     */
+    private boolean eFeld;
     /**
      * gibt an, ob Feld Startfeld ist boolean: true oder false
+     * auf dem Standardfeld kann jede Figur stehen, egal welche Farbe sie hat
+     * Standardfelder sind weiss
      */
     private boolean Standardfeld;
     /**
@@ -52,7 +63,7 @@ public class Feld {
     /**
      * gibt an, wer das Feld besetzt
      */
-    private Spielfigur hausbesetzter;
+    private Spielfigur hausbesetzer;
     /**
      * gibt Farbe des jeweiligen Feldes an String Start-, A-Feld und Zielfeld:
      * sieben Farben Standardfeld: weiss
@@ -134,7 +145,7 @@ public class Feld {
      *
      * @return id
      */
-    public int gibID() {
+    public int getID() {
         log.log(objektname,"Methode gibID() gestartet.");
         log.log(objektname,"Methodenrückgabe: "+id);
         log.log(objektname,"Methode gibID() beendet.");
@@ -146,7 +157,7 @@ public class Feld {
      *
      * @return positionX
      */
-    public int gibPositionX() {
+    public int getPositionX() {
         log.log(objektname,"Methode gibPositionX() gestartet.");
         log.log(objektname,"Methodenrückgabe: "+positionX);
         log.log(objektname,"Methode gibPositionX() beendet.");
@@ -157,7 +168,7 @@ public class Feld {
      *
      * @return positionX
      */
-    public boolean gibImSpielkreis() {
+    public boolean getImSpielkreis() {
         log.log(objektname,"Methode gibPositionX() gestartet.");
         log.log(objektname,"Methodenrückgabe: "+this.imSpielkreis);
         log.log(objektname,"Methode gibPositionX() beendet.");
@@ -169,7 +180,7 @@ public class Feld {
      *
      * @return positionY
      */
-    public int gibPositionY() {
+    public int getPositionY() {
         log.log(objektname,"Methode gibPositionY() gestartet.");
         log.log(objektname,"Methodenrückgabe: "+positionY);
         log.log(objektname,"Methode gibPositionY() beendet.");
@@ -180,7 +191,7 @@ public class Feld {
      * @param neu:boolean
      * @return ist unnötig
      */
-    public int setzIstBesetzt(boolean neu) {
+    public int setIstBesetzt(boolean neu) {
     this.istBesetzt = neu; 
     return 0;
     }
@@ -188,14 +199,14 @@ public class Feld {
      * Getter methode fuer IstBesetzt
      * @return istBestzt
      */
-    public boolean gibIstBesetzt() {
+    public boolean getIstBesetzt() {
      return this.istBesetzt; 
     }
     /**
      * getter methode fuer feldtyp
      * @return feldtyp: string
      */
-    public String gibFeldtyp() {
+    public String getFeldtyp() {
     if (this.Startfeld){
     return "Startfeld";} 
     if (this.aFeld){
@@ -210,8 +221,8 @@ public class Feld {
      * Getter methode fuer hausbesetzter
      * @return istBestzt
      */
-    public Spielfigur gibHausbesetzter() {
-     return this.hausbesetzter; 
+    public Spielfigur getHausbesetzer() {
+     return this.hausbesetzer; 
     }
     
     

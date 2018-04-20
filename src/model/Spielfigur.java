@@ -40,27 +40,27 @@ public class Spielfigur {
      */
     private int feldnummer;
     /**
-     * boolean welche angibt, ob die Figur im Ziel ist
+     * boolean welche angett, ob die Figur im Ziel ist
      */
     private boolean aufzielfeld;
     /**
-     * boolean welche angibt, ob die Figur im Start steht
+     * boolean welche angett, ob die Figur im Start steht
      */
     private boolean aufstartfeld;
     /**
-     * boolean welche angibt, ob die Figur ihrem anfangsfeld steht
+     * boolean welche angett, ob die Figur ihrem anfangsfeld steht
      */
     private boolean aufafeld;
     /**
-     * boolean welche angibt, ob die Figur momentan im spielfeld ist
+     * boolean welche angett, ob die Figur momentan im spielfeld ist
      */
     private boolean aufspielfeld;
     /**
-     * boolean welche angibt, ob die Figur momentan auf einem Standard ist
+     * boolean welche angett, ob die Figur momentan auf einem Standard ist
      */
     private boolean aufStandardfeld;
     /**
-     * gibt an zu welchen spieler die Figur gehÃ¶rt
+     * gett an zu welchen spieler die Figur gehÃ¶rt
      */
     private Spieler team;
     /**
@@ -71,7 +71,7 @@ public class Spielfigur {
     private String objektname;
 
     /**
-     * boolean, gibt an, ob sich Spielfigur bewegen kann oder nicht Zugpflichten
+     * boolean, gett an, ob sich Spielfigur bewegen kann oder nicht Zugpflichten
      * muessen hier beachtet werden: 1. Schlagpflicht (wichtigste Pflicht) 2.
      * Figur von A-Feld wegsetzen, sofern noch Figuren im Startkreis 3. Figur
      * von Startfeld auf A-Feld, bei 6 4. Einruecken in Zielfeld
@@ -88,17 +88,17 @@ public class Spielfigur {
      */
     public Spielfigur(int id, Feld starterfeld, Spieler derSpieler) {
         this.startfeld = starterfeld;
-        this.positionX = this.startfeld.gibPositionX();
-        this.positionY = this.startfeld.gibPositionY();
+        this.positionX = this.startfeld.getPositionX();
+        this.positionY = this.startfeld.getPositionY();
         this.aktfeld = this.startfeld;
-        this.feldnummer = this.startfeld.gibID();
+        this.feldnummer = this.startfeld.getID();
         this.aufafeld = false;
         this.aufspielfeld = false;
         this.aufstartfeld = true;
         this.aufzielfeld = false;
         this.zugfaehigkeit = false;
         this.team = derSpieler;
-        //this.farbe = this.team.gibfarbe();
+        //this.farbe = this.team.getfarbe();
     }
 
     public Spielfigur(String oname, Logger logger, int id, Feld starterfeld, Spieler derSpieler) {
@@ -117,7 +117,7 @@ public class Spielfigur {
     public int herauskommen() {
         log.log(objektname, "Methode herauskommen() gestartet.");
 
-        if (this.setzten(this.team.gibafeld())== 0)
+        if (this.setzten(this.team.getafeld())== 0)
         {
              log.log(objektname, "Methodenrückgabe: " + 0);
              log.log(objektname, "Methode herauskommen() beendet.");
@@ -145,7 +145,7 @@ public class Spielfigur {
          * um einen Schritt voran zu gehen, muss man die id des aktuellen Feldes um 1 erhoehen
          * 
          */
-        aktfeld.gibID();
+        aktfeld.getID();
         id = feldnummer + 1; 
         // id = id + 1; 
         
@@ -157,8 +157,8 @@ public class Spielfigur {
     }
     public int laufen(int augen){
         Feld backup = this.aktfeld;
-        if (this.team.gibSpiel().gibSpielbrett().gibFelder().get((aktfeld.gibID() + augen)).gibImSpielkreis() && !this.team.gibSpiel().gibSpielbrett().gibFelder().get((aktfeld.gibID() + augen)).gibHausbesetzter().getFarbe().equals(this.farbe)){
-        this.schlagen(this.team.gibSpiel().gibSpielbrett().gibFelder().get((aktfeld.gibID() + augen)));
+        if (this.team.getSpiel().getSpielbrett().getFelder().get((aktfeld.getID() + augen)).getImSpielkreis() && !this.team.getSpiel().getSpielbrett().getFelder().get((aktfeld.getID() + augen)).getHausbesetzter().getFarbe().equals(this.farbe)){
+        this.schlagen(this.team.getSpiel().getSpielbrett().getFelder().get((aktfeld.getID() + augen)));
         }
         
         for(int i = 0; i > augen; i++){
@@ -183,13 +183,13 @@ public class Spielfigur {
         log.log(objektname, "Methode setzen() gestartet.");
         this.aktfeld.setzIstBesetzt(false);
         this.aktfeld = zielfeld;
-        this.positionX = this.aktfeld.gibPositionX();
-        this.positionY = this.aktfeld.gibPositionY();
-        this.feldnummer = this.aktfeld.gibID();
+        this.positionX = this.aktfeld.getPositionX();
+        this.positionY = this.aktfeld.getPositionY();
+        this.feldnummer = this.aktfeld.getID();
         this.aufspielfeld = false;
         this.aufstartfeld = false;
         this.aufzielfeld = false;
-        switch (this.aktfeld.gibFeldtyp().toLowerCase()) { // sehr netter Switch der den Typ des Feldes festlegt
+        switch (this.aktfeld.getFeldtyp().toLowerCase()) { // sehr netter Switch der den Typ des Feldes festlegt
             case "Startfeld":
                 this.aufstartfeld = true;
                 break;
@@ -288,7 +288,7 @@ public class Spielfigur {
         //Wenn das Zielfeld besetzt ist
         if (team.getFelder().get(PositionImFeld + ZuLaufendeFeldanzahl).isIstBesetzt()) {
             //Wenn das Zielfeld vom gleichen Team besetzt ist
-            if (team.getFelder().get(PositionImFeld + ZuLaufendeFeldanzahl).gibSpielfigur().getFarbe().equals(team.getFelder().get(PositionImFeld).gibSpielfigur().getFarbe())) {
+            if (team.getFelder().get(PositionImFeld + ZuLaufendeFeldanzahl).getSpielfigur().getFarbe().equals(team.getFelder().get(PositionImFeld).getSpielfigur().getFarbe())) {
                 return 0;
             } else {
                 //Wenn das Zielfeld von einer anderen Farbe besetzt ist,die Spielfigur auf dem A-Feld steht und Spieler im Startkreis sind.
@@ -311,15 +311,15 @@ public class Spielfigur {
     
 
     /**
-     * gibt zurueck, ob sich figur auf einem spielfeld befindet getter methode für
+     * gett zurueck, ob sich figur auf einem spielfeld befindet getter methode für
      * aufzielfeld
      *
      * @return aufzielfeld:boolean
      */
-    public boolean gibAufZielfeld() {
-        log.log(objektname, "Methode gibAufZielfeld() gestartet.");
+    public boolean getAufZielfeld() {
+        log.log(objektname, "Methode getAufZielfeld() gestartet.");
         log.log(objektname, "Methodenrückgabe: " + this.isAufzielfeld());
-        log.log(objektname, "Methode gibAufZielfeld() beendet.");
+        log.log(objektname, "Methode getAufZielfeld() beendet.");
         return this.isAufzielfeld();
     }
 
@@ -562,7 +562,7 @@ public class Spielfigur {
         this.farbe = farbe;
     }
     
-    public Spieler gibTeam(){
+    public Spieler getTeam(){
     return this.team;
     }
 

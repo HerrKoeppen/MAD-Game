@@ -41,7 +41,7 @@ public class Spiel {
      */
     public Spiel() {
         //log.log("Spiel ", "baut neues Spiel auf");
-        SetzeBotAnzahl(BotAnzahl);
+        setBotAnzahl(BotAnzahl);
         SpielStarten();
         spielen();
         //dasSpielbrett = new Spielbrett();
@@ -51,7 +51,7 @@ public class Spiel {
     public Spiel(Logger logger, String objektname) {
         this.objektname = objektname;
         log = logger;
-        SetzeBotAnzahl(BotAnzahl);
+        setBotAnzahl(BotAnzahl);
         SpielStarten();
         spielen();
     }
@@ -61,10 +61,10 @@ public class Spiel {
      *
      * @param Botanzahl
      */
-    public void SetzeBotAnzahl(int Botanzahl) {
-        log.log(objektname, "Methode SetzeBotAnzahl() gestartet mit Parameter " + Botanzahl + " .");
+    public void setBotAnzahl(int Botanzahl) {
+        log.log(objektname, "Methode setBotAnzahl() gestartet mit Parameter " + Botanzahl + " .");
 
-        log.log(objektname, "Methode SetzeBotAnzahl() beendet.");
+        log.log(objektname, "Methode setBotAnzahl() beendet.");
     }
 
     /**
@@ -72,10 +72,10 @@ public class Spiel {
      *
      * @param Spieleranzahl
      */
-    public void SetzeSpielerAnzahl(int Spieleranzahl) {
-        log.log(objektname, "Methode SetzeSpieleranzahl() gestartet mit Parameter " + Spieleranzahl + " .");
+    public void setSpielerAnzahl(int Spieleranzahl) {
+        log.log(objektname, "Methode setSpieleranzahl() gestartet mit Parameter " + Spieleranzahl + " .");
 
-        log.log(objektname, "Methode SetzeSpieleranzahl() beendet.");
+        log.log(objektname, "Methode setSpieleranzahl() beendet.");
     }
 
     /**
@@ -84,10 +84,10 @@ public class Spiel {
      *
      * @param Gesamtspieleranzahl
      */
-    public void SetzeGesamtSpielerAnzahl(int Gesamtspieleranzahl) {
-        log.log(objektname, "Methode SetzeGesamtspieleranzahl() gestartet mit Parameter " + Gesamtspieleranzahl + " .");
+    public void setGesamtSpielerAnzahl(int Gesamtspieleranzahl) {
+        log.log(objektname, "Methode setGesamtspieleranzahl() gestartet mit Parameter " + Gesamtspieleranzahl + " .");
 
-        log.log(objektname, "Methode SetzeGesamtspieleranzahl() beendet.");
+        log.log(objektname, "Methode setGesamtspieleranzahl() beendet.");
     }
 
     /**
@@ -143,11 +143,11 @@ public class Spiel {
         log.logBeenden();
     }
     
-    public Wuerfel gibWuerfel(){
+    public Wuerfel getWuerfel(){
     return derWuerfel;
     }
     
-    public Spielbrett gibSpielbrett(){
+    public Spielbrett getSpielbrett(){
     return dasSpielbrett;
     }
     

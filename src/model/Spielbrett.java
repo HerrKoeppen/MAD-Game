@@ -234,11 +234,11 @@ public class Spielbrett {
      * @return innteger index des neu hinzugefügten objektes
      */
     public int feldhinzufuegen(Feld dasFeld) {
-        log.log(objektname, "Methode gibPositionY() gestartet mit Parameter " + dasFeld + " .");
+        log.log(objektname, "Methode getPositionY() gestartet mit Parameter " + dasFeld + " .");
 
         felder.add(dasFeld);
         log.log(objektname, "Methodenrückgabe: " + felder.lastIndexOf(dasFeld));
-        log.log(objektname, "Methode gibPositionY() beendet.");
+        log.log(objektname, "Methode getPositionY() beendet.");
         return felder.lastIndexOf(dasFeld);
     }
      /**
@@ -248,9 +248,9 @@ public class Spielbrett {
      * @return innteger index des neu hinzugefügten objektes
      */
     public void kreisfeldhinzufuegen(Feld dasFeld) {
-        log.log(objektname, "Methode gibPositionY() gestartet mit Parameter " + dasFeld + " .");
+        log.log(objektname, "Methode getPositionY() gestartet mit Parameter " + dasFeld + " .");
         this.spielkreis.add(dasFeld);
-        log.log(objektname, "Methode gibPositionY() beendet.");
+        log.log(objektname, "Methode getPositionY() beendet.");
     }
 
     /**
@@ -272,7 +272,7 @@ public class Spielbrett {
      * 
      * @return 
      */
-    public List<Feld> gibFelder(){
+    public List<Feld> getFelder(){
     return felder;
     }
 

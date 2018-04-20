@@ -24,7 +24,7 @@ public interface Spieler {
      * @return
      */
     public int wuerfeln();
-    public Feld gibafeld();
+    public Feld getafeld();
     public List<Feld> getFelder();
-    public Spiel gibSpiel();
+    public Spiel getSpiel();
 }
