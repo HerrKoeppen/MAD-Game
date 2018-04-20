@@ -63,10 +63,10 @@ public class Wuerfel {
      *
      * @return integer
      */
-    public int gibZahl() {
+    public int getZahl() {
         log.log(objektname,"Methode Zahl() gestartet.");
         log.log(objektname,"Methodenrückgabe: "+dieZahl);
-        log.log(objektname,"Methode gibZahl() beendet.");
+        log.log(objektname,"Methode getZahl() beendet.");
         return dieZahl;
     }
 

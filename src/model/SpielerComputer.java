@@ -60,7 +60,7 @@ public class SpielerComputer implements Spieler{
     }
     
     @Override
-    public Feld gibafeld(){
+    public Feld getafeld(){
     return aFeld;
     }
 
@@ -74,7 +74,7 @@ public class SpielerComputer implements Spieler{
     }
 
     @Override
-    public Spiel gibSpiel() {
+    public Spiel getSpiel() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

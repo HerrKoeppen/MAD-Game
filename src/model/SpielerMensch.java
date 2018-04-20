@@ -54,14 +54,14 @@ public class SpielerMensch implements Spieler {
      *
      * @param Spielfigur
      */
-    public void setzeSpielfigur(Spielfigur dieSpielfigur) {
-        log.log(objektname, "Methode setzeSpielfigur() gestartet mit Parameter " + dieSpielfigur + " .");
+    public void setSpielfigur(Spielfigur dieSpielfigur) {
+        log.log(objektname, "Methode setSpielfigur() gestartet mit Parameter " + dieSpielfigur + " .");
         int i = 0;
         while (Spielfiguren[i] != null) {
             i++;
         }
         Spielfiguren[i] = dieSpielfigur;
-        log.log(objektname, "Methode setzeSpielfigur() beendet.");
+        log.log(objektname, "Methode setSpielfigur() beendet.");
 
     }
 
@@ -74,7 +74,7 @@ public class SpielerMensch implements Spieler {
     public boolean hatGewonnen() {
         log.log(objektname, "Methode hatGewonnen() gestartet.");
         for (Spielfigur i : Spielfiguren) {
-            if (i.gibAufZielfeld()) {
+            if (i.getAufZielfeld()) {
                 log.log(objektname, "Methodenrückgabe: " + false);
                 log.log(objektname, "Methode hatGewonnen() beendet.");
                 return false;
@@ -104,7 +104,7 @@ public class SpielerMensch implements Spieler {
                         this.Spielfiguren[0].herauskommen();
                         //nochmal würfeln
                         this.Spielfiguren[0].laufen(this.wuerfeln());
-                        if(this.dasSpiel.gibWuerfel().gibZahl() == 6)
+                        if(this.dasSpiel.getWuerfel().getZahl() == 6)
                             {this.ziehen(gezogen++);}
                         return;
                     }
@@ -159,14 +159,14 @@ public class SpielerMensch implements Spieler {
     @Override
     public int wuerfeln() {
         log.log(objektname, "Methode wuerfeln() gestartet.");
-        int augenzahl = this.dasSpiel.gibWuerfel().wuerfeln();
+        int augenzahl = this.dasSpiel.getWuerfel().wuerfeln();
         log.log(objektname, "Methodenrückgabe: " + augenzahl);
         log.log(objektname, "Methode wuerfeln() beendet.");
         return augenzahl;
     }
 
     /**
-     * Die Methode gibt an ob sich alle Spielfiguren auf den Startfeldern
+     * Die Methode gett an ob sich alle Spielfiguren auf den Startfeldern
      * befinden.
      *
      *
@@ -195,7 +195,7 @@ public class SpielerMensch implements Spieler {
     }
     
     @Override
-    public Feld gibafeld(){
+    public Feld getafeld(){
     return aFeld;
     }
 
@@ -205,7 +205,7 @@ public class SpielerMensch implements Spieler {
     }
 
     @Override
-    public Spiel gibSpiel() {
+    public Spiel getSpiel() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
