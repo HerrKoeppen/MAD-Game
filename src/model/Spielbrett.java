@@ -108,7 +108,7 @@ public class Spielbrett {
      *
      */
     public Spielbrett(Logger logger) {
-
+        
         Feld blauAnfang = new Feld(this, "Anfangsfeld", 0, 0, "blau");
 
         Feld standard1 = new Feld(this, "Standardfeld", 0, 0, "weiss");
