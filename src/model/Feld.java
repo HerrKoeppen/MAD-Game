@@ -15,18 +15,28 @@ public class Feld {
 
     /**
      * gibt an, ob Feld Startfeld ist boolean: true oder false
+     * Startfeld einer bestimmten Farbe
      */
     private boolean Startfeld;
     /**
      * gibt an, ob Feld Zielfeld ist boolean: true oder false
+     * Zielfeld einer bestimmten Farbe
      */
     private boolean Zielfeld;
     /**
      * gibt an, ob Feld A-Feld ist boolean: true oder false
+     * Anfangsfeld einer bestimmten Farbe
      */
     private boolean aFeld;
+     /**
+     * gibt an, ob Feld E-Feld ist boolean: true oder false
+     * Endfeld einer bestimmten Farbe, Eingang zu den Zielfeldern
+     */
+    private boolean eFeld;
     /**
      * gibt an, ob Feld Startfeld ist boolean: true oder false
+     * auf dem Standardfeld kann jede Figur stehen, egal welche Farbe sie hat
+     * Standardfelder sind weiss
      */
     private boolean Standardfeld;
     /**
