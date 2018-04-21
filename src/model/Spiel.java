@@ -65,7 +65,7 @@ public class Spiel {
      */
     public void setBotAnzahl(int Botanzahl) {
         log.log(objektname, "Methode setBotAnzahl() gestartet mit Parameter " + Botanzahl + " .");
-
+        this.BotAnzahl = Botanzahl;
         log.log(objektname, "Methode setBotAnzahl() beendet.");
     }
 
@@ -76,7 +76,7 @@ public class Spiel {
      */
     public void setSpielerAnzahl(int Spieleranzahl) {
         log.log(objektname, "Methode setSpieleranzahl() gestartet mit Parameter " + Spieleranzahl + " .");
-
+        this.SpielerAnzahl = Spieleranzahl;
         log.log(objektname, "Methode setSpieleranzahl() beendet.");
     }
 
@@ -88,7 +88,7 @@ public class Spiel {
      */
     public void setGesamtSpielerAnzahl(int Gesamtspieleranzahl) {
         log.log(objektname, "Methode setGesamtspieleranzahl() gestartet mit Parameter " + Gesamtspieleranzahl + " .");
-
+        this.GesamtSpielerAnzahl = Gesamtspieleranzahl;
         log.log(objektname, "Methode setGesamtspieleranzahl() beendet.");
     }
 
@@ -116,6 +116,19 @@ public class Spiel {
      */
     public void NeuesSpiel() {
         log.log(objektname, "Methode NeuesSpiel() gestartet.");
+        dasSpielbrett = null;
+        Runde = 0;
+        BotAnzahl = 0;
+        SpielerAnzahl = 0;
+        GesamtSpielerAnzahl = 0;
+        beendet = false;
+        aktiverSpieler = null;
+        objektname = null;
+        log = null;
+        derWuerfel = null;
+        AsciiSpielbrett = null;
+        AlleSpielfiguren = null;
+        AlleSpieler = null;
 
         log.log(objektname, "Methode NeuesSpiel() beendet.");
 
