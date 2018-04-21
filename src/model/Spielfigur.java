@@ -292,7 +292,7 @@ public class Spielfigur {
                 return 0;
             } else {
                 //Wenn das Zielfeld von einer anderen Farbe besetzt ist,die Spielfigur auf dem A-Feld steht und Spieler im Startkreis sind.
-                if (team.getFelder().get(PositionImFeld).getFeldtyp() =="aFeld" && team.SpielerImStartkreis() == true) {
+                if (team.getFelder().get(PositionImFeld).getFeldtyp().equals("aFeld") && team.SpielerImStartkreis() == true) {
                     return 3;
                 }
 
