@@ -34,39 +34,41 @@ public class Spiel {
     private String objektname;
     private Logger log;
     private Wuerfel derWuerfel;
-    private String[][] AsciiSpielbrett;
+    public SpielbrettAusgabe output;
 
     /**
      * Konstrucktor der klasse Spiel
      */
     public Spiel() {
         //log.log("Spiel ", "baut neues Spiel auf");
-        setBotAnzahl(BotAnzahl);
+        //setBotAnzahl(BotAnzahl);
         SpielStarten();
         spielen();
         //dasSpielbrett = new Spielbrett();
         //log.log("Spiel ", "Aye, Spiel ist bereit.");
     }
 
-    public Spiel(Logger logger, String objektname) {
+    public Spiel(Logger logger, String objektname,int diebotanzahl) {
         this.objektname = objektname;
         log = logger;
-        setBotAnzahl(BotAnzahl);
+        this.BotAnzahl= diebotanzahl;
+        this.output = new SpielbrettAusgabe();
+        //setBotAnzahl(BotAnzahl);
         SpielStarten();
-        spielen();
+        //spielen();
     }
 
     /**
      * Setzt Integer Botanzahl auf den Ã¼bergebenen Wert BotAnzahl.
      *
      * @param Botanzahl
-     */
+     
     public void setBotAnzahl(int Botanzahl) {
         log.log(objektname, "Methode setBotAnzahl() gestartet mit Parameter " + Botanzahl + " .");
-
+        int a = Botanzahl;
         log.log(objektname, "Methode setBotAnzahl() beendet.");
     }
-
+    */
     /**
      * Setzt Integer Spieleranzahl auf den Ã¼bergebenen Wert SpielerAnzahl.
      *
@@ -104,7 +106,7 @@ public class Spiel {
     public void SpielStarten() {
         //Spielbrett erzeugen
         log.log(objektname, "Methode SpielStarten() gestartet.");
-        dasSpielbrett = new Spielbrett(log);
+        dasSpielbrett = new Spielbrett(log,output);
         log.log(objektname, "Methode hat das Spielbrett erzeugt");
         log.log(objektname, "Methode SpielStarten() beendet.");
     }
@@ -151,42 +153,5 @@ public class Spiel {
     return dasSpielbrett;
     }
     
-    /**| a| b| c| d| e| f| g| h| i| j| k| l| m| n| o| p| q| r| s| t| u| v| 
-     * | 1|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  
-     * | 2|  |  |  |  |  |  |  |  |  |  |  |AB|  |  |  |  |  |  |  |  |  |  |  
-     * | 3|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 
-     * | 4|  |  |  |  |  |  |  |  |  |  |SW|  |SW|  |  |  |  |  |  |  |  |  | 
-     * | 5|  |  |  |  |  |  |  |  |. |. |. |. |. |. |. |. |. |. |. |. |. |. | 
-     * | 6|. |. |AB|. |. |. |. |. |. |SW|. |. |. |SW|. |. |. |..|. |. |AR|. | 
-     * | 7|. |. |. |. |SW|. |. |. |. |. |. |. |. |. |. |. |. |. |SW|. |. |. | 
-     * | 8|. |. |..|. |..|. |SW|. |. |. |. |. |. |. |. |. |SW|. |. |. |. |. | 
-     * | 9|. |. |. |SW|. |. |. |. |. |SW|. |. |..|SW|. |. |. |. |. |SW|. |. | 
-     * |10|. |. |. |. |. |. |. |. |. |. |. |. |. |. |. |. |. |. |. |. |. |. | 
-     * |11|. |. |. |. |SW|. |. |. |. |. |. |. |. |. |. |. |. |. |SW|. |. |. | 
-     * |12|. |. |. |. |. |. |. |. |. |..| .|. |. |. |. |. |. |. |. |. |. |. | 
-     * |13|. |. |. |. |. |. |SW|. |. |. |. |. |. |. |. |. |SW|. |. |. |..|. | 
-     * |14|. |. |. |. |SW|. |. |. |. |. |. |. |. | .| .| .| .| .|SW| .| .|. | 
-     * |15|. |. |SW|. |. |..|. |. |. | .| .| .|. |. |. |. |. |. |. | .|SW| .| 
-     * |16|. |AS|. |. |. |. |. |. |. |. | .| .| .| .| .|. |..| .| .| .|. |AG| 
-     * |17|. |. | .| .|. |. | .| .| .| .| .| .| .| .| .| .| .|. | .| .| .|. | 
-     * |18|. |. |..|SW|. |SW|. |SW|. | .|. |. |. |. |. |SW|. |SW|. |SW|. |. | 
-     * |19|. |. | .| .| .| .| .| .| .| .| .|..|. |. |. |. |. |. |. |. |. |. | 
-     * |20|. |. | .| .| .| .| .| .| .| .| .|SW| .| .| .| .| .| .| .| .| .| .|
-     * |21|. |. | .| .| .| .|. |SW| .| .| .| .|. |. | .|SW|. | .| .| .| .| .| 
-     * |22|. |. | .| .| .| .| .| .| .| .|SW| .|SW| .| .| .| .| .| .| .| .| .| 
-     * |23|. |. | .| .|. |..| .|SW| .|. |. |. | .| .| .|SW| .| .|..|. |. |. | 
-     * |24|. |. | .| .| .| .| .|. | .|SW| .| .| .|SW| .| .| .| .| .| .| .| .| 
-     * |25|. |. | .| .|..| .|. |. |. |. |. |. |. | .|. |. |. |. |. |. |. |. | 
-     * |26|. |. | .| .| .| .| .|AP|. |. |. | .| .| .|..|AG| .| .| .| .| .| .| 
-     **/
-    public void AsciiSpielbrettErzeugen(){
-   // String[][] AsciiSpielbrett = {{"|  ","|  ","|  ","|  ","|  ","|  ","|  ","|  ","|  ","|""  |AB|  |  |  |  |  |  |  |  |  |"},{""},{""},{""},{""},{""},{""},{""}};
-    
-    
-    }
-    public void spielAudgabe(){
-    
-    
-    
-    }
+   
 }

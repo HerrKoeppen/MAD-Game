@@ -35,6 +35,7 @@ public class Spielbrett {
      * alle Felder des Spielbrettes
      */
     private List<Feld> felder = new ArrayList<Feld>();
+    private SpielbrettAusgabe Output;
     /**
      * alle Felder des Spielfeldes
      */
@@ -76,94 +77,94 @@ public class Spielbrett {
      *
      *
      *
-     * |**| a| b| c| d| e| f| g| h| i| j| k| l| m| n| o| p| q| r| s| t| u| v| 
-     * | 1|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  
-     * | 2|  |  |  |  |  |  |  |  |  |  |  |AB|  |  |  |  |  |  |  |  |  |  |  
-     * | 3|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 
-     * | 4|  |  |  |  |  |  |  |  |  |  |SW|  |SW|  |  |  |  |  |  |  |  |  | 
-     * | 5|  |  |  |  |  |  |  |  |. |. |. |. |. |. |. |. |. |. |. |. |. |. | 
-     * | 6|. |. |AB|. |. |. |. |. |. |SW|. |. |. |SW|. |. |. |..|. |. |AR|. | 
-     * | 7|. |. |. |. |SW|. |. |. |. |. |. |. |. |. |. |. |. |. |SW|. |. |. | 
-     * | 8|. |. |..|. |..|. |SW|. |. |. |. |. |. |. |. |. |SW|. |. |. |. |. | 
-     * | 9|. |. |. |SW|. |. |. |. |. |SW|. |. |..|SW|. |. |. |. |. |SW|. |. | 
-     * |10|. |. |. |. |. |. |. |. |. |. |. |. |. |. |. |. |. |. |. |. |. |. | 
-     * |11|. |. |. |. |SW|. |. |. |. |. |. |. |. |. |. |. |. |. |SW|. |. |. | 
-     * |12|. |. |. |. |. |. |. |. |. |..| .|. |. |. |. |. |. |. |. |. |. |. | 
-     * |13|. |. |. |. |. |. |SW|. |. |. |. |. |. |. |. |. |SW|. |. |. |..|. | 
-     * |14|. |. |. |. |SW|. |. |. |. |. |. |. |. | .| .| .| .| .|SW| .| .|. | 
-     * |15|. |. |SW|. |. |..|. |. |. | .| .| .|. |. |. |. |. |. |. | .|SW| .| 
-     * |16|. |AS|. |. |. |. |. |. |. |. | .| .| .| .| .|. |..| .| .| .|. |AG| 
-     * |17|. |. | .| .|. |. | .| .| .| .| .| .| .| .| .| .| .|. | .| .| .|. | 
-     * |18|. |. |..|SW|. |SW|. |SW|. | .|. |. |. |. |. |SW|. |SW|. |SW|. |. | 
-     * |19|. |. | .| .| .| .| .| .| .| .| .|..|. |. |. |. |. |. |. |. |. |. | 
-     * |20|. |. | .| .| .| .| .| .| .| .| .|SW| .| .| .| .| .| .| .| .| .| .|
-     * |21|. |. | .| .| .| .|. |SW| .| .| .| .|. |. | .|SW|. | .| .| .| .| .| 
-     * |22|. |. | .| .| .| .| .| .| .| .|SW| .|SW| .| .| .| .| .| .| .| .| .| 
-     * |23|. |. | .| .|. |..| .|SW| .|. |. |. | .| .| .|SW| .| .|..|. |. |. | 
-     * |24|. |. | .| .| .| .| .|. | .|SW| .| .| .|SW| .| .| .| .| .| .| .| .| 
-     * |25|. |. | .| .|..| .|. |. |. |. |. |. |. | .|. |. |. |. |. |. |. |. | 
-     * |26|. |. | .| .| .| .| .|AP|. |. |. | .| .| .|..|AG| .| .| .| .| .| .| 
-     * |27|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+     * |**   |0 | 1| 2| 3| 4| 5| 6| 7| 8| 9|10|11|12|13|14|15|16|17|18|19|20|   
+     * | 0|  |  |  |  |  |  |  |  |  |  |  |AB|  |  |  |  |  |  |  |  |  |  |  
+     * | 1|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 
+     * | 2|  |  |  |  |  |  |  |  |  |  |SW|  |SW|  |  |  |  |  |  |  |  |  | 
+     * | 3|  |  |  |  |  |  |  |  |. |. |. |. |. |. |. |. |. |. |. |. |. |. | 
+     * | 4|. |. |AB|. |. |. |. |. |. |SW|. |. |. |SW|. |. |. |..|. |. |AR|. | 
+     * | 5|. |. |. |. |SW|. |. |. |. |. |. |. |. |. |. |. |. |. |SW|. |. |. | 
+     * | 6|. |. |..|. |..|. |SW|. |. |. |. |. |. |. |. |. |SW|. |. |. |. |. | 
+     * | 7|. |. |. |SW|. |. |. |. |. |SW|. |. |..|SW|. |. |. |. |. |SW|. |. | 
+     * | 8|. |. |. |. |. |. |. |. |. |. |. |. |. |. |. |. |. |. |. |. |. |. | 
+     * | 9|. |. |. |. |SW|. |. |. |. |. |. |. |. |. |. |. |. |. |SW|. |. |. | 
+     * |10|. |. |. |. |. |. |. |. |. |..| .|. |. |. |. |. |. |. |. |. |. |. | 
+     * |11|. |. |. |. |. |. |SW|. |. |. |. |. |. |. |. |. |SW|. |. |. |..|. | 
+     * |12|. |. |. |. |SW|. |. |. |. |. |. |. |. | .| .| .| .| .|SW| .| .|. | 
+     * |13|. |. |SW|. |. |..|. |. |. | .| .| .|. |. |. |. |. |. |. | .|SW| .| 
+     * |14|. |AS|. |. |. |. |. |. |. |. | .| .| .| .| .|. |..| .| .| .|. |AG| 
+     * |15|. |. | .| .|. |. | .| .| .| .| .| .| .| .| .| .| .|. | .| .| .|. | 
+     * |16|. |. |..|SW|. |SW|. |SW|. | .|. |. |. |. |. |SW|. |SW|. |SW|. |. | 
+     * |17|. |. | .| .| .| .| .| .| .| .| .|..|. |. |. |. |. |. |. |. |. |. | 
+     * |18|. |. | .| .| .| .| .| .| .| .| .|SW| .| .| .| .| .| .| .| .| .| .|
+     * |19|. |. | .| .| .| .|. |SW| .| .| .| .|. |. | .|SW|. | .| .| .| .| .| 
+     * |20|. |. | .| .| .| .| .| .| .| .|SW| .|SW| .| .| .| .| .| .| .| .| .| 
+     * |21|. |. | .| .|. |..| .|SW| .|. |. |. | .| .| .|SW| .| .|..|. |. |. | 
+     * |22|. |. | .| .| .| .| .|. | .|SW| .| .| .|SW| .| .| .| .| .| .| .| .| 
+     * |23|. |. | .| .|..| .|. |. |. |. |. |. |. | .|. |. |. |. |. |. |. |. | 
+     * |24|. |. | .| .| .| .| .|AP|. |. |. | .| .| .|..|AG| .| .| .| .| .| .| 
+
      *
      *
      */
-    public Spielbrett(Logger logger) {
+    public Spielbrett(Logger logger, SpielbrettAusgabe derOutput) {
+        this.Output = derOutput;
         
-        Feld blauAnfang = new Feld(this, "Anfangsfeld", 0, 0, "blau");
+        Feld blauAnfang = new Feld(this, "Anfangsfeld", 10, 0, "blau");
 
-        Feld standard1 = new Feld(this, "Standardfeld", 0, 0, "weiss");
-        Feld standard2 = new Feld(this, "Standardfeld", 0, 0, "weiss");
-        Feld standard3 = new Feld(this, "Standardfeld", 0, 0, "weiss");
-        Feld standard4 = new Feld(this, "Standardfeld", 0, 0, "weiss");
-        Feld standard5 = new Feld(this, "Standardfeld", 0, 0, "weiss");
+        Feld standard1 = new Feld(this, "Standardfeld", 11, 2, "weiss");
+        Feld standard2 = new Feld(this, "Standardfeld", 12, 4, "weiss");
+        Feld standard3 = new Feld(this, "Standardfeld", 12, 0, "weiss");
+        Feld standard4 = new Feld(this, "Standardfeld", 15, 0, "weiss");
+        Feld standard5 = new Feld(this, "Standardfeld", 17, 0, "weiss");
 
-        Feld rotAnfang = new Feld(this, "Anfangsfeld", 0, 0, "rot");
+        Feld rotAnfang = new Feld(this, "Anfangsfeld", 19, 0, "rot");
 
-        Feld standard7 = new Feld(this, "Standardfeld", 0, 0, "weiss");
-        Feld standard8 = new Feld(this, "Standardfeld", 0, 0, "weiss");
-        Feld standard9 = new Feld(this, "Standardfeld", 0, 0, "weiss");
-        Feld standard10 = new Feld(this, "Standardfeld", 0, 0, "weiss");
-        Feld standard11 = new Feld(this, "Standardfeld", 0, 0, "weiss");
+        Feld standard7 = new Feld(this, "Standardfeld", 18, 0, "weiss");
+        Feld standard8 = new Feld(this, "Standardfeld", 17, 0, "weiss");
+        Feld standard9 = new Feld(this, "Standardfeld", 15, 0, "weiss");
+        Feld standard10 = new Feld(this, "Standardfeld", 17, 0, "weiss");
+        Feld standard11 = new Feld(this, "Standardfeld", 19, 0, "weiss");
 
-        Feld gruenAnfang = new Feld(this, "Anfangsfeld", 0, 0, "gruen");
+        Feld gruenAnfang = new Feld(this, "Anfangsfeld", 20, 0, "gruen");
 
-        Feld standard13 = new Feld(this, "Standardfeld", 0, 0, "weiss");
-        Feld standard14 = new Feld(this, "Standardfeld", 0, 0, "weiss");
-        Feld standard15 = new Feld(this, "Standardfeld", 0, 0, "weiss");
-        Feld standard16 = new Feld(this, "Standardfeld", 0, 0, "weiss");
-        Feld standard17 = new Feld(this, "Standardfeld", 0, 0, "weiss");
+        Feld standard13 = new Feld(this, "Standardfeld", 18, 0, "weiss");
+        Feld standard14 = new Feld(this, "Standardfeld", 16, 0, "weiss");
+        Feld standard15 = new Feld(this, "Standardfeld", 14, 0, "weiss");
+        Feld standard16 = new Feld(this, "Standardfeld", 14, 0, "weiss");
+        Feld standard17 = new Feld(this, "Standardfeld", 14, 0, "weiss");
 
-        Feld pinkAnfang = new Feld(this, "Anfangsfeld", 0, 0, "pink");
+        Feld pinkAnfang = new Feld(this, "Anfangsfeld", 14, 0, "pink");
 
-        Feld standard19 = new Feld(this, "Standardfeld", 0, 0, "weiss");
-        Feld standard20 = new Feld(this, "Standardfeld", 0, 0, "weiss");
-        Feld standard21 = new Feld(this, "Standardfeld", 0, 0, "weiss");
-        Feld standard22 = new Feld(this, "Standardfeld", 0, 0, "weiss");
-        Feld standard23 = new Feld(this, "Standardfeld", 0, 0, "weiss");
+        Feld standard19 = new Feld(this, "Standardfeld", 12, 0, "weiss");
+        Feld standard20 = new Feld(this, "Standardfeld", 11, 0, "weiss");
+        Feld standard21 = new Feld(this, "Standardfeld", 10, 0, "weiss");
+        Feld standard22 = new Feld(this, "Standardfeld", 9, 0, "weiss");
+        Feld standard23 = new Feld(this, "Standardfeld", 8, 0, "weiss");
 
-        Feld gelbAnfang = new Feld(this, "Anfangsfeld", 0, 0, "gelb");
+        Feld gelbAnfang = new Feld(this, "Anfangsfeld", 6, 0, "gelb");
 
-        Feld standard25 = new Feld(this, "Standardfeld", 0, 0, "weiss");
-        Feld standard26 = new Feld(this, "Standardfeld", 0, 0, "weiss");
-        Feld standard27 = new Feld(this, "Standardfeld", 0, 0, "weiss");
-        Feld standard28 = new Feld(this, "Standardfeld", 0, 0, "weiss");
-        Feld standard29 = new Feld(this, "Standardfeld", 0, 0, "weiss");
+        Feld standard25 = new Feld(this, "Standardfeld", 6, 0, "weiss");
+        Feld standard26 = new Feld(this, "Standardfeld", 6, 0, "weiss");
+        Feld standard27 = new Feld(this, "Standardfeld", 6, 0, "weiss");
+        Feld standard28 = new Feld(this, "Standardfeld", 4, 0, "weiss");
+        Feld standard29 = new Feld(this, "Standardfeld", 2, 0, "weiss");
 
         Feld schwarzAnfang = new Feld(this, "Anfangsfeld", 0, 0, "schwarz");
 
-        Feld standard31 = new Feld(this, "Standardfeld", 0, 0, "weiss");
-        Feld standard32 = new Feld(this, "Standardfeld", 0, 0, "weiss");
-        Feld standard33 = new Feld(this, "Standardfeld", 0, 0, "weiss");
-        Feld standard34 = new Feld(this, "Standardfeld", 0, 0, "weiss");
-        Feld standard35 = new Feld(this, "Standardfeld", 0, 0, "weiss");
+        Feld standard31 = new Feld(this, "Standardfeld", 1, 0, "weiss");
+        Feld standard32 = new Feld(this, "Standardfeld", 3, 0, "weiss");
+        Feld standard33 = new Feld(this, "Standardfeld", 5, 0, "weiss");
+        Feld standard34 = new Feld(this, "Standardfeld", 3, 0, "weiss");
+        Feld standard35 = new Feld(this, "Standardfeld", 2, 0, "weiss");
 
-        Feld braunAnfang = new Feld(this, "Anfangsfeld", 0, 0, "braun");
+        Feld braunAnfang = new Feld(this, "Anfangsfeld", 1, 0, "braun");
 
-        Feld standard37 = new Feld(this, "Standardfeld", 0, 0, "weiss");
-        Feld standard38 = new Feld(this, "Standardfeld", 0, 0, "weiss");
-        Feld standard39 = new Feld(this, "Standardfeld", 0, 0, "weiss");
-        Feld standard40 = new Feld(this, "Standardfeld", 0, 0, "weiss");
-        Feld standard41 = new Feld(this, "Standardfeld", 0, 0, "weiss");
+        Feld standard37 = new Feld(this, "Standardfeld", 3, 0, "weiss");
+        Feld standard38 = new Feld(this, "Standardfeld", 5, 0, "weiss");
+        Feld standard39 = new Feld(this, "Standardfeld", 8, 0, "weiss");
+        Feld standard40 = new Feld(this, "Standardfeld", 8, 0, "weiss");
+        Feld standard41 = new Feld(this, "Standardfeld", 9, 0, "weiss");
 
         //erzeugt startfelder von blau
         Feld blauStart1 = new Feld(this, "Startfeld", 0, 0, "blau");
@@ -241,6 +242,7 @@ public class Spielbrett {
         log.log(objektname, "Methode getPositionY() beendet.");
         return felder.lastIndexOf(dasFeld);
     }
+      
      /**
      * fügt ein neues Feld in die Spüielkreisliste ein
      *
@@ -274,6 +276,9 @@ public class Spielbrett {
      */
     public List<Feld> getFelder(){
     return felder;
+    }
+    public SpielbrettAusgabe getOutput(){
+    return Output;
     }
 
 }

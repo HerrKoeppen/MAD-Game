@@ -131,6 +131,7 @@ public class Feld {
                 break;
         }
         //log.log("Feld " + id, "ist ein " + farbe + "es " + feldart);
+        dasspielbrett.getOutput().feldeinfuegen(this);
     }
 
     public Feld(String oname, Logger logger, Spielbrett dasspielbrett, String feldart, int xposition, int yposition, String teamfarbe) {
@@ -224,7 +225,21 @@ public class Feld {
     public Spielfigur getHausbesetzer() {
      return this.hausbesetzer; 
     }
-    
+    /**
+     * 
+     * @return aFeld
+     */
+    public boolean getaFeld(){
+    return this.aFeld;
+   
+    }
+    /**
+     * 
+     * @return farbe 
+     */
+    public String getFarbe(){
+    return this.farbe;
+    }
     
 
 }

@@ -27,4 +27,5 @@ public interface Spieler {
     public Feld getafeld();
     public List<Feld> getFelder();
     public Spiel getSpiel();
+    public boolean SpielerImStartkreis();
 }
