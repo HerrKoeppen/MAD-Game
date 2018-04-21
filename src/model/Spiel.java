@@ -5,6 +5,8 @@
  */
 package model;
 
+import java.util.Arrays;
+
 /**
  * Die Klasse Spiel verwaltet die Variablen die fuer den generellen Spielablauf
  * wichtig sind:
@@ -120,17 +122,37 @@ public class Spiel {
     }
 
     /**
-     * Die Funktion spielen sorgt fuer das eigentliche Spiel. Ein neuer Integer
-     * "i" wird eingefuehrt. 1.i wird auf 0 gesetzt. 2.Die Funktion setzt die
-     * Variable aktiverSpieler auf das Objekt der Liste AllerSpieler mit den
-     * Index-Wert von der Variable i. 3.Solange die Variable beendet=false
-     * ist,wird Schritt 3 wiederhohlt.(Schleife) Das Objekt das mit der Variable
-     * aktiverSpieler referenziert ist darf einen Zug machen. i wird um eins
-     * erhoeht.
+     * Die Funktion spielen sorgt fuer das eigentliche Spiel. Alle Spieler
+     * würfeln erst.Der mit der höchsten Würfelzahl beginnt das Spiel. Dannach
+     * wird der nächste Spieler in der ArrayListe ermittelt.Wenn die ArrayListe
+     * am Ende angekommen ist,dann fängt sie wieder vorne an. BEMERKUNGEN:Die
+     * Methode ermittelt nicht wer als erstes die 6 gewürfelt hat.
      *
      */
     public void spielen() {
         log.log(objektname, "Methode spielen() gestartet.");
+        int i = 0;
+        int[] Ergebnisse = new int[7];
+        while (AlleSpieler[i] != null) {
+            Ergebnisse[i] = AlleSpieler[i].wuerfeln();
+
+        }
+        int[] ErgebnisseKopie = Ergebnisse;
+        Arrays.sort(Ergebnisse);
+        i = 0;
+        while (ErgebnisseKopie[0] != Ergebnisse[i]) {
+            i++;
+
+        }
+        while (beendet != true) {
+            if (AlleSpieler[i] != null) {
+                AlleSpieler[i].ziehen(AlleSpieler[i].wuerfeln());
+                i++;
+            }
+
+            i = 0;
+
+        }
 
         //Startspieler ermitteln fehlt
         //aktives Spielen beginnt, Spielreihenfolge im Uhrzeigersinn
@@ -142,51 +164,49 @@ public class Spiel {
         Spiel test = new Spiel();
         log.logBeenden();
     }
-    
-    public Wuerfel getWuerfel(){
-    return derWuerfel;
+
+    public Wuerfel getWuerfel() {
+        return derWuerfel;
     }
-    
-    public Spielbrett getSpielbrett(){
-    return dasSpielbrett;
+
+    public Spielbrett getSpielbrett() {
+        return dasSpielbrett;
     }
-    
-    /**| a| b| c| d| e| f| g| h| i| j| k| l| m| n| o| p| q| r| s| t| u| v| 
-     * | 1|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  
-     * | 2|  |  |  |  |  |  |  |  |  |  |  |AB|  |  |  |  |  |  |  |  |  |  |  
-     * | 3|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 
-     * | 4|  |  |  |  |  |  |  |  |  |  |SW|  |SW|  |  |  |  |  |  |  |  |  | 
-     * | 5|  |  |  |  |  |  |  |  |. |. |. |. |. |. |. |. |. |. |. |. |. |. | 
-     * | 6|. |. |AB|. |. |. |. |. |. |SW|. |. |. |SW|. |. |. |..|. |. |AR|. | 
-     * | 7|. |. |. |. |SW|. |. |. |. |. |. |. |. |. |. |. |. |. |SW|. |. |. | 
-     * | 8|. |. |..|. |..|. |SW|. |. |. |. |. |. |. |. |. |SW|. |. |. |. |. | 
-     * | 9|. |. |. |SW|. |. |. |. |. |SW|. |. |..|SW|. |. |. |. |. |SW|. |. | 
-     * |10|. |. |. |. |. |. |. |. |. |. |. |. |. |. |. |. |. |. |. |. |. |. | 
-     * |11|. |. |. |. |SW|. |. |. |. |. |. |. |. |. |. |. |. |. |SW|. |. |. | 
-     * |12|. |. |. |. |. |. |. |. |. |..| .|. |. |. |. |. |. |. |. |. |. |. | 
-     * |13|. |. |. |. |. |. |SW|. |. |. |. |. |. |. |. |. |SW|. |. |. |..|. | 
-     * |14|. |. |. |. |SW|. |. |. |. |. |. |. |. | .| .| .| .| .|SW| .| .|. | 
-     * |15|. |. |SW|. |. |..|. |. |. | .| .| .|. |. |. |. |. |. |. | .|SW| .| 
-     * |16|. |AS|. |. |. |. |. |. |. |. | .| .| .| .| .|. |..| .| .| .|. |AG| 
-     * |17|. |. | .| .|. |. | .| .| .| .| .| .| .| .| .| .| .|. | .| .| .|. | 
-     * |18|. |. |..|SW|. |SW|. |SW|. | .|. |. |. |. |. |SW|. |SW|. |SW|. |. | 
-     * |19|. |. | .| .| .| .| .| .| .| .| .|..|. |. |. |. |. |. |. |. |. |. | 
-     * |20|. |. | .| .| .| .| .| .| .| .| .|SW| .| .| .| .| .| .| .| .| .| .|
-     * |21|. |. | .| .| .| .|. |SW| .| .| .| .|. |. | .|SW|. | .| .| .| .| .| 
-     * |22|. |. | .| .| .| .| .| .| .| .|SW| .|SW| .| .| .| .| .| .| .| .| .| 
-     * |23|. |. | .| .|. |..| .|SW| .|. |. |. | .| .| .|SW| .| .|..|. |. |. | 
-     * |24|. |. | .| .| .| .| .|. | .|SW| .| .| .|SW| .| .| .| .| .| .| .| .| 
-     * |25|. |. | .| .|..| .|. |. |. |. |. |. |. | .|. |. |. |. |. |. |. |. | 
-     * |26|. |. | .| .| .| .| .|AP|. |. |. | .| .| .|..|AG| .| .| .| .| .| .| 
-     **/
-    public void AsciiSpielbrettErzeugen(){
-   // String[][] AsciiSpielbrett = {{"|  ","|  ","|  ","|  ","|  ","|  ","|  ","|  ","|  ","|""  |AB|  |  |  |  |  |  |  |  |  |"},{""},{""},{""},{""},{""},{""},{""}};
-    
-    
+
+    /**
+     * | a| b| c| d| e| f| g| h| i| j| k| l| m| n| o| p| q| r| s| t| u| v| | 1|
+     * | | | | | | | | | | | | | | | | | | | | | | | 2| | | | | | | | | | | |AB|
+     * | | | | | | | | | | | 3| | | | | | | | | | | | | | | | | | | | | | | | 4|
+     * | | | | | | | | | |SW| |SW| | | | | | | | | | | 5| | | | | | | | |. |. |.
+     * |. |. |. |. |. |. |. |. |. |. |. | | 6|. |. |AB|. |. |. |. |. |. |SW|. |.
+     * |. |SW|. |. |. |..|. |. |AR|. | | 7|. |. |. |. |SW|. |. |. |. |. |. |. |.
+     * |. |. |. |. |. |SW|. |. |. | | 8|. |. |..|. |..|. |SW|. |. |. |. |. |. |.
+     * |. |. |SW|. |. |. |. |. | | 9|. |. |. |SW|. |. |. |. |. |SW|. |. |..|SW|.
+     * |. |. |. |. |SW|. |. | |10|. |. |. |. |. |. |. |. |. |. |. |. |. |. |. |.
+     * |. |. |. |. |. |. | |11|. |. |. |. |SW|. |. |. |. |. |. |. |. |. |. |. |.
+     * |. |SW|. |. |. | |12|. |. |. |. |. |. |. |. |. |..| .|. |. |. |. |. |. |.
+     * |. |. |. |. | |13|. |. |. |. |. |. |SW|. |. |. |. |. |. |. |. |. |SW|. |.
+     * |. |..|. | |14|. |. |. |. |SW|. |. |. |. |. |. |. |. | .| .| .| .| .|SW|
+     * .| .|. | |15|. |. |SW|. |. |..|. |. |. | .| .| .|. |. |. |. |. |. |. |
+     * .|SW| .| |16|. |AS|. |. |. |. |. |. |. |. | .| .| .| .| .|. |..| .| .|
+     * .|. |AG| |17|. |. | .| .|. |. | .| .| .| .| .| .| .| .| .| .| .|. | .| .|
+     * .|. | |18|. |. |..|SW|. |SW|. |SW|. | .|. |. |. |. |. |SW|. |SW|. |SW|.
+     * |. | |19|. |. | .| .| .| .| .| .| .| .| .|..|. |. |. |. |. |. |. |. |. |.
+     * | |20|. |. | .| .| .| .| .| .| .| .| .|SW| .| .| .| .| .| .| .| .| .| .|
+     * |21|. |. | .| .| .| .|. |SW| .| .| .| .|. |. | .|SW|. | .| .| .| .| .|
+     * |22|. |. | .| .| .| .| .| .| .| .|SW| .|SW| .| .| .| .| .| .| .| .| .|
+     * |23|. |. | .| .|. |..| .|SW| .|. |. |. | .| .| .|SW| .| .|..|. |. |. |
+     * |24|. |. | .| .| .| .| .|. | .|SW| .| .| .|SW| .| .| .| .| .| .| .| .|
+     * |25|. |. | .| .|..| .|. |. |. |. |. |. |. | .|. |. |. |. |. |. |. |. |
+     * |26|. |. | .| .| .| .| .|AP|. |. |. | .| .| .|..|AG| .| .| .| .| .| .|
+     *
+     */
+    public void AsciiSpielbrettErzeugen() {
+        // String[][] AsciiSpielbrett = {{"|  ","|  ","|  ","|  ","|  ","|  ","|  ","|  ","|  ","|""  |AB|  |  |  |  |  |  |  |  |  |"},{""},{""},{""},{""},{""},{""},{""}};
+
     }
-    public void spielAudgabe(){
-    
-    
-    
+
+    public void spielAudgabe() {
+
     }
 }
