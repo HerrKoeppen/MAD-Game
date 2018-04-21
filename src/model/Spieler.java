@@ -5,7 +5,7 @@
  */
 package model;
 
-import static java.util.Collections.list;
+
 import java.util.List;
 /**
  *
@@ -28,4 +28,8 @@ public interface Spieler {
     public List<Feld> getFelder();
     public Spiel getSpiel();
     public boolean SpielerImStartkreis();
+    public Feld getzefeld();
+    public String getfarbe();
+    public Feld getzielfeld();
+
 }

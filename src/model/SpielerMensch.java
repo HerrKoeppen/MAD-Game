@@ -30,6 +30,14 @@ public class SpielerMensch implements Spieler {
      */
     private Feld aFeld;
     /**
+     * den der Spieler sollte wissen wann er ins Ziel kommt.
+     */
+    private Feld zeFeld;
+    /**
+     * den der Spieler sollte wissen wo das Ziel ist.
+     */
+    private Feld zielfeld;
+    /**
      * den der Spieler sollte wissen, was er spielt.
      */
     private Spiel dasSpiel;
@@ -43,8 +51,56 @@ public class SpielerMensch implements Spieler {
      */
     private Logger log;
     private String objektname;
-
-    public SpielerMensch(String oname, Logger logger) {
+    
+    public SpielerMensch(Spiel dasspiel,String farbe) {
+    this.dasSpiel = dasspiel;
+    this.Farbe = farbe;
+        switch (farbe.toLowerCase()) { // sehr uneleganter Switch: nochmal überarbeiten!!!!!!!
+            case "blau":
+                this.aFeld = this.dasSpiel.getSpielbrett().getFelder().get(0);
+                this.zeFeld = this.dasSpiel.getSpielbrett().getFelder().get(41);
+                this.zielfeld = this.dasSpiel.getSpielbrett().getFelder().get(42);
+                break;
+            case "rot":
+                this.aFeld = this.dasSpiel.getSpielbrett().getFelder().get(6);
+                this.zeFeld = this.dasSpiel.getSpielbrett().getFelder().get(5);
+                this.zielfeld = this.dasSpiel.getSpielbrett().getFelder().get(45);
+                break;
+            case "cyan":
+                this.aFeld = this.dasSpiel.getSpielbrett().getFelder().get(12);
+                this.zeFeld = this.dasSpiel.getSpielbrett().getFelder().get(11);
+                this.zielfeld = this.dasSpiel.getSpielbrett().getFelder().get(48);
+                break;
+            case "gelb":
+                this.aFeld = this.dasSpiel.getSpielbrett().getFelder().get(18);
+                this.zeFeld = this.dasSpiel.getSpielbrett().getFelder().get(17);
+                this.zielfeld = this.dasSpiel.getSpielbrett().getFelder().get(51);
+                break;
+            case "pink":
+                this.aFeld = this.dasSpiel.getSpielbrett().getFelder().get(24);
+                this.zeFeld = this.dasSpiel.getSpielbrett().getFelder().get(23);
+                this.zielfeld = this.dasSpiel.getSpielbrett().getFelder().get(54);
+                break;
+            case "schwarz":
+                this.aFeld = this.dasSpiel.getSpielbrett().getFelder().get(30);
+                this.zeFeld = this.dasSpiel.getSpielbrett().getFelder().get(29);
+                this.zielfeld = this.dasSpiel.getSpielbrett().getFelder().get(57);
+                break;
+            case "orange":
+            case "braun":
+                this.aFeld = this.dasSpiel.getSpielbrett().getFelder().get(36);
+                this.zeFeld = this.dasSpiel.getSpielbrett().getFelder().get(35);
+                this.zielfeld = this.dasSpiel.getSpielbrett().getFelder().get(60);
+                break;
+            
+            default:
+                break;
+        }
+    
+    }
+    
+    public SpielerMensch(String oname, Logger logger, Spiel dasspiel,String farbe) {
+        this( dasspiel , farbe);
         objektname = oname;
         log = logger;
     }
@@ -207,6 +263,26 @@ public class SpielerMensch implements Spieler {
     @Override
     public Spiel getSpiel() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    /**
+     *
+     * @return
+     */
+    @Override
+    public Feld getzefeld() {
+       
+        return zeFeld;
+    }
+
+    @Override
+    public String getfarbe() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Feld getzielfeld() {
+        return zielfeld;
     }
     
 

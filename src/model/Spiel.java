@@ -179,6 +179,10 @@ public class Spiel {
     public Spielbrett getSpielbrett() {
         return dasSpielbrett;
     }
+    
+     public SpielbrettAusgabe getoutput() {
+        return this.output;
+    }
 
 
 

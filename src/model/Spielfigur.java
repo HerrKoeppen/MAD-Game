@@ -52,6 +52,10 @@ public class Spielfigur {
      */
     private boolean aufafeld;
     /**
+     * boolean welche angett, ob die Figur ihrem anfangsfeld steht
+     */
+    private boolean aufzefeld;
+    /**
      * boolean welche angett, ob die Figur momentan im spielfeld ist
      */
     private boolean aufspielfeld;
@@ -98,7 +102,7 @@ public class Spielfigur {
         this.aufzielfeld = false;
         this.zugfaehigkeit = false;
         this.team = derSpieler;
-        //this.farbe = this.team.getfarbe();
+        this.farbe = this.team.getfarbe();
     }
 
     public Spielfigur(String oname, Logger logger, int id, Feld starterfeld, Spieler derSpieler) {
@@ -145,9 +149,8 @@ public class Spielfigur {
          * um einen Schritt voran zu gehen, muss man die id des aktuellen Feldes um 1 erhoehen
          * 
          */
-        aktfeld.getID();
-        id = feldnummer + 1; 
-        // id = id + 1; 
+        this.setzten(this.team.getSpiel().getSpielbrett().getFelder().get(this.aktfeld.getID() + 1));    
+        this.team.getSpiel().getoutput().SpielerSetzen(this);
         
         
         log.log(objektname, "Methode bewegen() gestartet.");
@@ -155,21 +158,49 @@ public class Spielfigur {
         log.log(objektname, "Methode bewegen() beendet.");
         return 1;
     }
+    /**
+     * 
+     * @return 
+     */
+    public Feld holpfad(){
+       switch (this.aktfeld.getFeldtyp().toLowerCase()) { // bester und elegantester Switch von allen
+            case "Startfeld":
+                return this.team.getafeld(); 
+            case "zefeld":
+                if(this.team.getzefeld().equals(this.aktfeld)){
+                    return this.team.getzielfeld();
+                }
+            case "aFeld":
+            case "Standardfeld":
+                return this.team.getSpiel().getSpielbrett().getFelder().get(this.aktfeld.getID() + 1);  
+            case "Zielfeld":
+                if (this.team.getSpiel().getSpielbrett().getFelder().get(this.aktfeld.getID() + 1).getFarbe().equals(this.aktfeld.getFarbe())){
+                    return this.team.getSpiel().getSpielbrett().getFelder().get(this.aktfeld.getID() + 1);}   
+            default:
+                break;       
+        } 
+        return this.aktfeld;  
+    }
+    /**
+     * 
+     * @param augen
+     * @return 
+     */
     public int laufen(int augen){
         Feld backup = this.aktfeld;
+        
         if (this.team.getSpiel().getSpielbrett().getFelder().get((aktfeld.getID() + augen)).getImSpielkreis() && !this.team.getSpiel().getSpielbrett().getFelder().get((aktfeld.getID() + augen)).getHausbesetzer().getFarbe().equals(this.farbe)){
         this.schlagen(this.team.getSpiel().getSpielbrett().getFelder().get((aktfeld.getID() + augen)));
         }
-        
+        Feld zielfeld = this.aktfeld;
         for(int i = 0; i > augen; i++){
-            if(this.bewegen() == 1){
-            this.setzten(backup);
-            return 1;
+            zielfeld = this.holpfad();
             }
-      
+        this.setzten(zielfeld);
+        return 0;
     }
-          return 0;
-    }
+        
+
     /**
      * setzt Figur auf ein Feld: Zielfeld Methode ist fuer sprunge geeignet (zb.
      * rauskommen, geschlagenwerden nicht aber fuer das reguläre laufen
@@ -181,7 +212,9 @@ public class Spielfigur {
      */
     public int setzten(Feld zielfeld) {
         log.log(objektname, "Methode setzen() gestartet.");
+        this.team.getSpiel().getoutput().feldeinfuegen(this.aktfeld);
         this.aktfeld.setIstBesetzt(false);
+        this.team.getSpiel().getoutput().feldeinfuegen(this.aktfeld);
         this.aktfeld = zielfeld;
         this.positionX = this.aktfeld.getPositionX();
         this.positionY = this.aktfeld.getPositionY();
@@ -204,6 +237,11 @@ public class Spielfigur {
             case "Standartfeld":
                 this.aufspielfeld = true;
                 this.aufStandardfeld = true;
+                break;
+            case "eFeld":
+            case "zeFeld":
+                this.aufzefeld = true;
+                this.aufspielfeld = true;
                 break;
             default:
                 break;

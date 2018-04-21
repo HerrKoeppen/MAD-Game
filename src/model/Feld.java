@@ -33,6 +33,11 @@ public class Feld {
      */
     private boolean aFeld;
      /**
+     * gibt an, ob Feld A-Feld ist boolean: true oder false
+     * Anfangsfeld einer bestimmten Farbe
+     */
+    private boolean zeFeld;
+     /**
      * gibt an, ob Feld E-Feld ist boolean: true oder false
      * Endfeld einer bestimmten Farbe, Eingang zu den Zielfeldern
      * Durch das E-Feld wird signalisiert, dass die Figur einer Farbe in ihren Zielbereich eintreten muss
@@ -128,6 +133,13 @@ public class Feld {
                 this.imSpielkreis = true;
                 dasspielbrett.kreisfeldhinzufuegen(this);
                 break;
+            case "eFeld":
+            case "zeFeld":
+            case "Zieleintrittsfeld":
+                this.eFeld = true;
+                this.imSpielkreis = true;
+                dasspielbrett.kreisfeldhinzufuegen(this);
+                break;
             default:
                 break;
         }
@@ -206,6 +218,8 @@ public class Feld {
     public String getFeldtyp() {
     if (this.Startfeld){
     return "Startfeld";} 
+    if (this.eFeld){
+    return "zeFeld";} 
     if (this.aFeld){
     return "aFeld";} 
     if (this.Zielfeld){

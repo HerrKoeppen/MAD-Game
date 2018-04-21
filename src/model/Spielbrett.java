@@ -111,7 +111,7 @@ public class Spielbrett {
         this.Output = derOutput;
         log = logger;
         
-        Feld blauAnfang = new Feld(log, "blauAnfang", this, "Anfangsfeld", 10, 0, "blau");
+        Feld blauAnfang = new Feld(log, "blauAnfang", this, "Anfangsfeld", 10, 0, "blau"); //0
 
         Feld standard1 = new Feld(log, "standard1", this, "Standardfeld", 11, 2, "weiss");
         Feld standard2 = new Feld(log, "standard2", this, "Standardfeld", 12, 4, "weiss");
@@ -119,7 +119,7 @@ public class Spielbrett {
         Feld standard4 = new Feld(log, "standard4", this, "Standardfeld", 15, 6, "weiss");
         Feld standard5 = new Feld(log, "standard5", this, "Standardfeld", 17, 5, "weiss");
 
-        Feld rotAnfang = new Feld(log, "", this, "Anfangsfeld", 19, 4, "rot");
+        Feld rotAnfang = new Feld(log, "", this, "Anfangsfeld", 19, 4, "rot"); //
 
         Feld standard7 = new Feld(log, "", this, "Standardfeld", 18, 7, "weiss");
         Feld standard8 = new Feld(log, "",this, "Standardfeld", 17, 9, "weiss");
@@ -127,7 +127,7 @@ public class Spielbrett {
         Feld standard10 = new Feld(log, "", this, "Standardfeld", 17, 12, "weiss");
         Feld standard11 = new Feld(log, "", this, "Standardfeld", 19, 13, "weiss");
 
-        Feld gruenAnfang = new Feld(log, "", this, "Anfangsfeld", 20, 14, "cyan");
+        Feld gruenAnfang = new Feld(log, "", this, "Anfangsfeld", 20, 15, "cyan");
 
         Feld standard13 = new Feld(log, "", this, "Standardfeld", 18, 16, "weiss");
         Feld standard14 = new Feld(log, "", this, "Standardfeld", 16, 16, "weiss");
@@ -139,7 +139,7 @@ public class Spielbrett {
 
         Feld standard19 = new Feld(log, "", this, "Standardfeld", 12, 22, "weiss");
         Feld standard20 = new Feld(log, "", this, "Standardfeld", 11, 20, "weiss");
-        Feld standard21 = new Feld(log, "", this, "Standardfeld", 10, 19, "weiss");
+        Feld standard21 = new Feld(log, "", this, "Standardfeld", 10, 18, "weiss");
         Feld standard22 = new Feld(log, "", this, "Standardfeld", 9, 20, "weiss");
         Feld standard23 = new Feld(log, "", this, "Standardfeld", 8, 22, "weiss");
 
@@ -151,7 +151,7 @@ public class Spielbrett {
         Feld standard28 = new Feld(log, "", this, "Standardfeld", 4, 16, "weiss");
         Feld standard29 = new Feld(log, "", this, "Standardfeld", 2, 16, "weiss");
 
-        Feld schwarzAnfang = new Feld(log, "", this, "Anfangsfeld", 0, 14, "schwarz");
+        Feld schwarzAnfang = new Feld(log, "", this, "Anfangsfeld", 0, 15, "schwarz");
 
         Feld standard31 = new Feld(log, "", this, "Standardfeld", 1, 13, "weiss");
         Feld standard32 = new Feld(log, "", this, "Standardfeld", 3, 12, "weiss");
@@ -166,65 +166,67 @@ public class Spielbrett {
         Feld standard39 = new Feld(log, "", this, "Standardfeld", 8, 7, "weiss");
         Feld standard40 = new Feld(log, "", this, "Standardfeld", 8, 4, "weiss");
         Feld standard41 = new Feld(log, "", this, "Standardfeld", 9, 2, "weiss");
-/**
-        //erzeugt startfelder von blau
-        Feld blauStart1 = new Feld(log, "", this, "Startfeld", 0, 0, "blau");
-        Feld blauStart2 = new Feld(log, "", this, "Startfeld", 0, 0, "blau");
-        Feld blauStart3 = new Feld(log, "", this, "Startfeld", 0, 0, "blau");
-        //erzeugt startfelder von rot
-        Feld rotStart1 = new Feld(log, "", this, "Startfeld", 0, 0, "rot");
-        Feld rotStart2 = new Feld(log, "", this, "Startfeld", 0, 0, "rot");
-        Feld rotStart3 = new Feld(log, "", this, "Startfeld", 0, 0, "rot");
-        //erzeugt startfelder von gruen
-        Feld gruenStart1 = new Feld(log, "", this, "Startfeld", 0, 0, "gruen");
-        Feld gruenStart2 = new Feld(log, "", this, "Startfeld", 0, 0, "gruen");
-        Feld gruenStart3 = new Feld(log, "", this, "Startfeld", 0, 0, "gruen");
-        //erzeugt startfelder von pink
-        Feld pinkStart1 = new Feld(log, "", this, "Startfeld", 0, 0, "pink");
-        Feld pinkStart2 = new Feld(log, "", this, "Startfeld", 0, 0, "pink");
-        Feld pinkStart3 = new Feld(log, "", this, "Startfeld", 0, 0, "pink");
-        //erzeugt startfelder von gelb
-        Feld gelbStart1 = new Feld(log, "", this, "Startfeld", 0, 0, "gelb");
-        Feld gelbStart2 = new Feld(log, "", this, "Startfeld", 0, 0, "gelb");
-        Feld gelbStart3 = new Feld(log, "", this, "Startfeld", 0, 0, "gelb");
-        //erzeugt startfelder von schwarz
-        Feld schwarzStart1 = new Feld(log, "", this, "Startfeld", 0, 0, "schwarz");
-        Feld schwarzStart2 = new Feld(log, "", this, "Startfeld", 0, 0, "schwarz");
-        Feld schwarzStart3 = new Feld(log, "", this, "Startfeld", 0, 0, "schwarz");
-        //erzeugt startfelder von braun
-        Feld braunStart1 = new Feld(log, "", this, "Startfeld", 0, 0, "braun");
-        Feld braunStart2 = new Feld(log, "", this, "Startfeld", 0, 0, "braun");
-        Feld braunStart3 = new Feld(log, "", this, "Startfeld", 0, 0, "braun");
-
+        
         //erzeugt Zielfelder von blau
-        Feld blauZiel1 = new Feld(log, "", this, "Zielfeld", 0, 0, "blau");
-        Feld blauZiel2 = new Feld(log, "", this, "Zielfeld", 0, 0, "blau");
-        Feld blauZiel3 = new Feld(log, "", this, "Zielfeld", 0, 0, "blau");
+        Feld blauZiel1 = new Feld(log, "", this, "Zielfeld", 10, 3, "blau");
+        Feld blauZiel2 = new Feld(log, "", this, "Zielfeld", 10, 5, "blau");
+        Feld blauZiel3 = new Feld(log, "", this, "Zielfeld", 10, 7, "blau");
         //erzeugt Zielfelder von rot
-        Feld rotZiel1 = new Feld(log, "", this, "Zielfeld", 0, 0, "rot");
-        Feld rotZiel2 = new Feld(log, "", this, "Zielfeld", 0, 0, "rot");
-        Feld rotZiel3 = new Feld(log, "", this, "Zielfeld", 0, 0, "rot");
+        Feld rotZiel1 = new Feld(log, "", this, "Zielfeld", 17, 6, "rot");
+        Feld rotZiel2 = new Feld(log, "", this, "Zielfeld", 15, 8, "rot");
+        Feld rotZiel3 = new Feld(log, "", this, "Zielfeld", 13, 10, "rot");
         //erzeugt Zielfelder von gruen
-        Feld gruenZiel1 = new Feld(log, "", this, "Zielfeld", 0, 0, "gruen");
-        Feld gruenZiel2 = new Feld(log, "", this, "Zielfeld", 0, 0, "gruen");
-        Feld gruenZiel3 = new Feld(log, "", this, "Zielfeld", 0, 0, "gruen");
+        Feld gruenZiel1 = new Feld(log, "", this, "Zielfeld", 18, 14, "cyan");
+        Feld gruenZiel2 = new Feld(log, "", this, "Zielfeld", 16, 14, "cyan");
+        Feld gruenZiel3 = new Feld(log, "", this, "Zielfeld", 14, 14, "cyan");
         //erzeugt Zielfelder von pink
-        Feld pinkZiel1 = new Feld(log, "", this, "Zielfeld", 0, 0, "pink");
-        Feld pinkZiel2 = new Feld(log, "", this, "Zielfeld", 0, 0, "pink");
-        Feld pinkZiel3 = new Feld(log, "", this, "Zielfeld", 0, 0, "pink");
+        Feld pinkZiel1 = new Feld(log, "", this, "Zielfeld", 13, 21, "pink");
+        Feld pinkZiel2 = new Feld(log, "", this, "Zielfeld", 12, 19, "pink");
+        Feld pinkZiel3 = new Feld(log, "", this, "Zielfeld", 12, 17, "pink");
         //erzeugt Zielfelder von gelb
-        Feld gelbZiel1 = new Feld(log, "", this, "Zielfeld", 0, 0, "gelb");
-        Feld gelbZiel2 = new Feld(log, "", this, "Zielfeld", 0, 0, "gelb");
-        Feld gelbZiel3 = new Feld(log, "", this, "Zielfeld", 0, 0, "gelb");
+        Feld gelbZiel1 = new Feld(log, "", this, "Zielfeld", 7, 21, "gelb");
+        Feld gelbZiel2 = new Feld(log, "", this, "Zielfeld", 8, 19, "gelb");
+        Feld gelbZiel3 = new Feld(log, "", this, "Zielfeld", 8, 17, "gelb");
         //erzeugt Zielfelder von schwarz
-        Feld schwarzZiel1 = new Feld(log, "", this, "Zielfeld", 0, 0, "schwarz");
-        Feld schwarzZiel2 = new Feld(log, "", this, "Zielfeld", 0, 0, "schwarz");
-        Feld schwarzZiel3 = new Feld(log, "", this, "Zielfeld", 0, 0, "schwarz");
+        Feld schwarzZiel1 = new Feld(log, "", this, "Zielfeld", 2, 14, "schwarz");
+        Feld schwarzZiel2 = new Feld(log, "", this, "Zielfeld", 4, 14, "schwarz");
+        Feld schwarzZiel3 = new Feld(log, "", this, "Zielfeld", 6, 14, "schwarz");
         //erzeugt Zielfelder von braun
-        Feld braunZiel1 = new Feld(log, "", this, "Zielfeld", 0, 0, "braun");
-        Feld braunZiel2 = new Feld(log, "", this, "Zielfeld", 0, 0, "braun");
-        Feld braunZiel3 = new Feld(log, "", this, "Zielfeld", 0, 0, "braun");
-*/
+        Feld braunZiel1 = new Feld(log, "", this, "Zielfeld", 3, 6, "braun");
+        Feld braunZiel2 = new Feld(log, "", this, "Zielfeld", 5, 8, "braun");
+        Feld braunZiel3 = new Feld(log, "", this, "Zielfeld", 7, 10, "braun");
+
+        
+        //erzeugt startfelder von blau
+        Feld blauStart1 = new Feld(log, "", this, "Startfeld", 14, 1, "blau");
+        Feld blauStart2 = new Feld(log, "", this, "Startfeld", 16, 2, "blau");
+        Feld blauStart3 = new Feld(log, "", this, "Startfeld", 14, 3, "blau");
+        //erzeugt startfelder von rot
+        Feld rotStart1 = new Feld(log, "", this, "Startfeld", 19, 8, "rot");
+        Feld rotStart2 = new Feld(log, "", this, "Startfeld", 20, 11, "rot");
+        Feld rotStart3 = new Feld(log, "", this, "Startfeld", 18, 10, "rot");
+        //erzeugt startfelder von gruen
+        Feld gruenStart1 = new Feld(log, "", this, "Startfeld", 19, 19, "cyan");
+        Feld gruenStart2 = new Feld(log, "", this, "Startfeld", 18, 21, "cyan");
+        Feld gruenStart3 = new Feld(log, "", this, "Startfeld", 17, 19, "cyan");
+        //erzeugt startfelder von pink
+        Feld pinkStart1 = new Feld(log, "", this, "Startfeld", 11, 24, "pink");
+        Feld pinkStart2 = new Feld(log, "", this, "Startfeld", 9, 24, "pink");
+        Feld pinkStart3 = new Feld(log, "", this, "Startfeld", 10, 22, "pink");
+        //erzeugt startfelder von gelb
+        Feld gelbStart1 = new Feld(log, "", this, "Startfeld", 3, 19, "gelb");
+        Feld gelbStart2 = new Feld(log, "", this, "Startfeld", 2, 21, "gelb");
+        Feld gelbStart3 = new Feld(log, "", this, "Startfeld", 1, 19, "gelb");
+        //erzeugt startfelder von schwarz
+        Feld schwarzStart1 = new Feld(log, "", this, "Startfeld", 1, 8, "schwarz");
+        Feld schwarzStart2 = new Feld(log, "", this, "Startfeld", 2, 10, "schwarz");
+        Feld schwarzStart3 = new Feld(log, "", this, "Startfeld", 0, 11, "schwarz");
+        //erzeugt startfelder von braun
+        Feld braunStart1 = new Feld(log, "", this, "Startfeld", 4, 2, "braun");
+        Feld braunStart2 = new Feld(log, "", this, "Startfeld", 6, 1, "braun");
+        Feld braunStart3 = new Feld(log, "", this, "Startfeld", 6, 3, "braun");
+
+        
         // log.log("Spielbrett ", "steht bereit");
         
     }

@@ -32,7 +32,8 @@ public class SpielerComputer implements Spieler{
     /**
      * den der Spieler sollte wissen wo er startet.
      */
-    private Feld aFeld;      
+    private Feld aFeld;  
+    private Feld zeFeld;   
     public SpielerComputer(){}
     
     public SpielerComputer(String oname, Logger logger){
@@ -63,7 +64,17 @@ public class SpielerComputer implements Spieler{
     public Feld getafeld(){
     return aFeld;
     }
+    @Override
+    public Feld getzefeld(){
+    return zeFeld;
+    }
 
+    
+ 
+    @Override
+    public String getfarbe(){
+    return this.Farbe;
+    }
     /**
      *
      * @return
@@ -82,6 +93,9 @@ public class SpielerComputer implements Spieler{
     public boolean SpielerImStartkreis() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    @Override
+    public Feld getzielfeld() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
