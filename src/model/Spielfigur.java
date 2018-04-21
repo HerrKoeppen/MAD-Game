@@ -286,13 +286,13 @@ public class Spielfigur {
         //Nur für die Syntax
         PositionImFeld = -1;
         //Wenn das Zielfeld besetzt ist
-        if (team.getFelder().get(PositionImFeld + ZuLaufendeFeldanzahl).isIstBesetzt()) {
+        if (team.getFelder().get(PositionImFeld + ZuLaufendeFeldanzahl).getIstBesetzt()) {
             //Wenn das Zielfeld vom gleichen Team besetzt ist
-            if (team.getFelder().get(PositionImFeld + ZuLaufendeFeldanzahl).getSpielfigur().getFarbe().equals(team.getFelder().get(PositionImFeld).getSpielfigur().getFarbe())) {
+            if (team.getFelder().get(PositionImFeld + ZuLaufendeFeldanzahl).getHausbesetzer().getFarbe().equals(team.getFelder().get(PositionImFeld).getHausbesetzer().getFarbe())) {
                 return 0;
             } else {
                 //Wenn das Zielfeld von einer anderen Farbe besetzt ist,die Spielfigur auf dem A-Feld steht und Spieler im Startkreis sind.
-                if (team.getFelder().get(PositionImFeld).isaFeld() && team.SpielerImStartkreis() == true) {
+                if (team.getFelder().get(PositionImFeld).getFeldtyp() =="aFeld" && team.SpielerImStartkreis() == true) {
                     return 3;
                 }
 
@@ -562,8 +562,6 @@ public class Spielfigur {
         this.farbe = farbe;
     }
     
-    public Spieler getTeam(){
-    return this.team;
-    }
+
 
 }
