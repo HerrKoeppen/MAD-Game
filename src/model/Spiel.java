@@ -36,17 +36,7 @@ public class Spiel {
     private Wuerfel derWuerfel;
     public SpielbrettAusgabe output;
 
-    /**
-     * Konstrucktor der klasse Spiel
-     */
-    public Spiel() {
-        //log.log("Spiel ", "baut neues Spiel auf");
-        //setBotAnzahl(BotAnzahl);
-        SpielStarten();
-        spielen();
-        //dasSpielbrett = new Spielbrett();
-        //log.log("Spiel ", "Aye, Spiel ist bereit.");
-    }
+    
 
     public Spiel(Logger logger, String objektname,int diebotanzahl) {
         this.objektname = objektname;
@@ -138,13 +128,13 @@ public class Spiel {
         //aktives Spielen beginnt, Spielreihenfolge im Uhrzeigersinn
         log.log(objektname, "Methode spielen() beendet.");
     }
-
+/*
     public static void main(String args[]) {
         Logger log = new Logger("testlog.txt");
-        Spiel test = new Spiel();
+        Spiel test = new Spiel(log,"test",0);
         log.logBeenden();
     }
-    
+    */
     public Wuerfel getWuerfel(){
     return derWuerfel;
     }

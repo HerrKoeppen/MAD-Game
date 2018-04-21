@@ -47,11 +47,11 @@ public class Feld {
     /**
      * gibt X-Position des Feldes auf dem Spielbrett an integer
      */
-    private int positionX;
+    private int positionX ;
     /**
      * gibt Y-Position des Feldes auf dem Spielbrett an integer
      */
-    private int positionY;
+    private int positionY ;
     /**
      * gibt ID des Feldes auf dem Spielbrett an integer
      */
@@ -85,8 +85,9 @@ public class Feld {
      * @param yposition:int die Y-koordinate des feldes auf dem Spielbrett
      * @param teamfarbe:string die farbe des Feldes
      */
-    public Feld(Spielbrett dasspielbrett, String feldart, int xposition, int yposition, String teamfarbe) {
-
+    public Feld(Logger logger, String oname, Spielbrett dasspielbrett, String feldart, int xposition, int yposition, String teamfarbe) {
+        log = logger;
+        objektname = oname;
         this.istBesetzt = false;
         this.positionX = xposition;
         this.positionY = yposition;
@@ -134,11 +135,6 @@ public class Feld {
         dasspielbrett.getOutput().feldeinfuegen(this);
     }
 
-    public Feld(String oname, Logger logger, Spielbrett dasspielbrett, String feldart, int xposition, int yposition, String teamfarbe) {
-        this(dasspielbrett, feldart, xposition, yposition, teamfarbe);
-        log = logger;
-        objektname = oname;
-    }
 
     /**
      * getter-methode von id

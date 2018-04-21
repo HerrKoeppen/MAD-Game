@@ -33,7 +33,11 @@ public class SpielbrettAusgabe {
     private static final String ANSI_bPurpel = "\u001B[45m";
     private static final String ANSI_bCyan = "\u001B[46m";
     private static final String ANSI_bWhite = "\u001B[47m";
-    private String[][] AnsiSpielbrett = new String[25][21];
+    
+    private static final int groesseX = 21 ; 
+    private static final int groesseY = 25 ;
+    
+    private String[][] AnsiSpielbrett = new String[groesseX][groesseY];
     public boolean Ansiausgabean ;
     
             
@@ -102,8 +106,8 @@ public class SpielbrettAusgabe {
                                 {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '}};*/
     //way more elegant
     
-    for (int i = 0; i < 25;i++){
-            for (int k = 0; k < 21;k++){
+    for (int i = 0; i < groesseX;i++){
+            for (int k = 0; k < groesseY ;k++){
                 this.AnsiSpielbrett[i][k]= ANSI_bWhite +ANSI_fWhite +".." + ANSI_RESET ;   //+ ANSI_fBlue ANSI_RESET
         }
     }
@@ -113,28 +117,28 @@ public class SpielbrettAusgabe {
     String farbe = "s";
     switch (dasFeld.getFarbe().toLowerCase()) { // sehr netter Switch der den Typ des Feldes festlegt
             case "blau":
-            farbe = ANSI_bBlue+"b"  ;    
+            farbe = ANSI_bBlue+" "  ;    
                 break;
             case "rot":
-            farbe = ANSI_bRed+"r"  ;  
+            farbe = ANSI_bRed+" "  ;  
                 break;
             case "cyan":
-            farbe = ANSI_bCyan+"c"  ;    
+            farbe = ANSI_bCyan+" "  ;    
                 break;
             case "gelb":
-            farbe = ANSI_bYellow+"g"  ;
+            farbe = ANSI_bYellow+" "  ;
                 break;
             case "pink":
-            farbe = ANSI_bPurpel+"p"  ;    
+            farbe = ANSI_bPurpel+" "  ;    
                 break;
             case "schwarz":
-            farbe = ANSI_bBlack+"s"  ;    
+            farbe = ANSI_bBlack+" "  ;    
                 break;
             case "orange":
-            farbe = ANSI_bGreen+"o"  ;   
+            farbe = ANSI_bGreen+" "  ;   
                 break;
-            case "zielfeld":
-            farbe = ANSI_RESET  ;    
+            case "weiss":
+            farbe = ANSI_RESET + " "  ;    
                 break;
             default:
                 break;
@@ -144,7 +148,7 @@ public class SpielbrettAusgabe {
             case "start":
             case "startfeld":
             case "Startfeld":
-                Caption = "s";
+                Caption = " ";
                 break;
             case "a":
             case "afeld":
@@ -152,19 +156,20 @@ public class SpielbrettAusgabe {
             case "A-Feld":
             case "Anfangsfeld":
             case "anfangsfeld":
-                Caption = "a";
+                Caption = " ";
                 break;
             case "ziel":
             case "Zielfeld":
             case "zielfeld":
-                Caption = "z";
+                Caption = " ";
                 break;
             case "standart":
             case "standartfeld":
             case "Standartfeld":
-                Caption = "n";
+                Caption = " ";
                 break;
             default:
+                Caption = " ";
                 break;
         }
     this.AnsiSpielbrett[dasFeld.getPositionX()][dasFeld.getPositionY()] = farbe + Caption + ANSI_RESET;  
@@ -175,8 +180,8 @@ public class SpielbrettAusgabe {
     public void spielAudgabe(){
        System.out.println("ANSI-Spielbrett steht bereit:");
        if(this.Ansiausgabean){
-        for (int i = 0; i<25;i++){
-            for (int k = 0; k<21;k++){
+        for (int i = 0; i<groesseX;i++){
+            for (int k = 0; k<groesseY;k++){
             System.out.print(AnsiSpielbrett[i][k]);    
         }
             System.out.println();
