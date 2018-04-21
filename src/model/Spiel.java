@@ -5,6 +5,8 @@
  */
 package model;
 
+import java.util.Arrays;
+
 /**
  * Die Klasse Spiel verwaltet die Variablen die fuer den generellen Spielablauf
  * wichtig sind:
@@ -55,7 +57,9 @@ public class Spiel {
      
     public void setBotAnzahl(int Botanzahl) {
         log.log(objektname, "Methode setBotAnzahl() gestartet mit Parameter " + Botanzahl + " .");
-        int a = Botanzahl;
+
+        this.BotAnzahl = Botanzahl;
+
         log.log(objektname, "Methode setBotAnzahl() beendet.");
     }
     */
@@ -66,7 +70,7 @@ public class Spiel {
      */
     public void setSpielerAnzahl(int Spieleranzahl) {
         log.log(objektname, "Methode setSpieleranzahl() gestartet mit Parameter " + Spieleranzahl + " .");
-
+        this.SpielerAnzahl = Spieleranzahl;
         log.log(objektname, "Methode setSpieleranzahl() beendet.");
     }
 
@@ -78,7 +82,7 @@ public class Spiel {
      */
     public void setGesamtSpielerAnzahl(int Gesamtspieleranzahl) {
         log.log(objektname, "Methode setGesamtspieleranzahl() gestartet mit Parameter " + Gesamtspieleranzahl + " .");
-
+        this.GesamtSpielerAnzahl = Gesamtspieleranzahl;
         log.log(objektname, "Methode setGesamtspieleranzahl() beendet.");
     }
 
@@ -106,23 +110,56 @@ public class Spiel {
      */
     public void NeuesSpiel() {
         log.log(objektname, "Methode NeuesSpiel() gestartet.");
+        dasSpielbrett = null;
+        Runde = 0;
+        BotAnzahl = 0;
+        SpielerAnzahl = 0;
+        GesamtSpielerAnzahl = 0;
+        beendet = false;
+        aktiverSpieler = null;
+        objektname = null;
+        log = null;
+        derWuerfel = null;
+        this.output = null;
+        AlleSpielfiguren = null;
+        AlleSpieler = null;
 
         log.log(objektname, "Methode NeuesSpiel() beendet.");
 
     }
 
     /**
-     * Die Funktion spielen sorgt fuer das eigentliche Spiel. Ein neuer Integer
-     * "i" wird eingefuehrt. 1.i wird auf 0 gesetzt. 2.Die Funktion setzt die
-     * Variable aktiverSpieler auf das Objekt der Liste AllerSpieler mit den
-     * Index-Wert von der Variable i. 3.Solange die Variable beendet=false
-     * ist,wird Schritt 3 wiederhohlt.(Schleife) Das Objekt das mit der Variable
-     * aktiverSpieler referenziert ist darf einen Zug machen. i wird um eins
-     * erhoeht.
+     * Die Funktion spielen sorgt fuer das eigentliche Spiel. Alle Spieler
+     * würfeln erst.Der mit der höchsten Würfelzahl beginnt das Spiel. Dannach
+     * wird der nächste Spieler in der ArrayListe ermittelt.Wenn die ArrayListe
+     * am Ende angekommen ist,dann fängt sie wieder vorne an. BEMERKUNGEN:Die
+     * Methode ermittelt nicht wer als erstes die 6 gewürfelt hat.
      *
      */
     public void spielen() {
         log.log(objektname, "Methode spielen() gestartet.");
+        int i = 0;
+        int[] Ergebnisse = new int[7];
+        while (AlleSpieler[i] != null) {
+            Ergebnisse[i] = AlleSpieler[i].wuerfeln();
+
+        }
+        int[] ErgebnisseKopie = Ergebnisse;
+        Arrays.sort(Ergebnisse);
+        i = 0;
+        while (ErgebnisseKopie[0] != Ergebnisse[i]) {
+            i++;
+
+        }
+        while (beendet != true) {
+            if (AlleSpieler[i] != null) {
+                AlleSpieler[i].ziehen(AlleSpieler[i].wuerfeln());
+                i++;
+            }
+
+            i = 0;
+
+        }
 
         //Startspieler ermitteln fehlt
         //aktives Spielen beginnt, Spielreihenfolge im Uhrzeigersinn
@@ -138,10 +175,11 @@ public class Spiel {
     public Wuerfel getWuerfel(){
     return derWuerfel;
     }
-    
-    public Spielbrett getSpielbrett(){
-    return dasSpielbrett;
+
+    public Spielbrett getSpielbrett() {
+        return dasSpielbrett;
     }
-    
-   
+
+
+
 }

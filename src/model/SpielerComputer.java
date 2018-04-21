@@ -82,7 +82,6 @@ public class SpielerComputer implements Spieler{
     public boolean SpielerImStartkreis() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
+
     
 }
