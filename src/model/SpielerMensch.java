@@ -44,9 +44,9 @@ public class SpielerMensch implements Spieler {
      */
     private Spiel dasSpiel;
     /**
-     * Eine Liste mit 4 Spielfiguren.
+     * Eine Liste mit 3 Spielfiguren.
      */
-    public Spielfigur[] Spielfiguren = new Spielfigur[4];
+    public Spielfigur[] Spielfiguren = new Spielfigur[3];
 
     /**
      * Logger zu Diagnosezwecken
@@ -57,9 +57,13 @@ public class SpielerMensch implements Spieler {
     public SpielerMensch(String oname, Logger logger, Spiel dasspiel) {
     objektname = oname;
     log = logger;
+    log.log(objektname, "konstrucktor SpielerMensch() gestartet.");
     this.dasSpiel = dasspiel;
     this.id = this.dasSpiel.setSpieler(this);
     this.Farbe = this.dasSpiel.Farben[id];
+    log.log(objektname, "Spieler hat die FArbe: " + Farbe);
+
+
         switch (Farbe.toLowerCase()) { // sehr uneleganter Switch: nochmal überarbeiten!!!!!!!
             case "blau":
                 this.aFeld = this.dasSpiel.getSpielbrett().getFelder().get(0);
@@ -102,6 +106,29 @@ public class SpielerMensch implements Spieler {
                 break;
         }
         this.dasSpiel.spielfigurenVerteilen();
+        String Figuren = " ";
+       /*
+        for (Spielfigur fig: this.Spielfiguren){
+            if(fig == null){
+            Figuren = Figuren + " Error";}
+            else  {Figuren = Figuren + " " + fig.getobjektname();
+            }
+        }
+        * **/
+        for(int k = 0 ; k < 3; k++){
+            if(this.Spielfiguren[k] == null){
+                Figuren = "Error";
+                break;}
+            else  {Figuren = Figuren + " " + this.Spielfiguren[k].getobjektname();
+      
+        }
+        }    
+        if(!Figuren.equals("Error")){
+        log.log(objektname, "Spieler hat die Spielfiguren:" + Figuren);
+        //System.out.println(Figuren);
+        }
+        log.log(objektname, "Methode SpielrMensch() beendet.");
+    
     }
     
     /**
@@ -111,12 +138,16 @@ public class SpielerMensch implements Spieler {
      */
     public void setSpielfigur(Spielfigur dieSpielfigur) {
         log.log(objektname, "Methode setSpielfigur() gestartet mit Parameter " + dieSpielfigur + " .");
-        int i = 0;
-        while (Spielfiguren[i] != null) {
-            i++;
+        for(int i = 0;  i < 3 ;i++) {
+            if(Spielfiguren[i] == null){
+            Spielfiguren[i] = dieSpielfigur;
+            log.log(objektname, "Methode setSpielfigur() beendet.");
+            return;
+               
+            }
         }
-        Spielfiguren[i] = dieSpielfigur;
-        log.log(objektname, "Methode setSpielfigur() beendet.");
+        
+        
 
     }
 
@@ -149,7 +180,7 @@ public class SpielerMensch implements Spieler {
              //habe ich nur Spielfiguren im Startkreis
             if(this.SpielerImStartkreis()){
               //-> ja, dann bis zu dreimal würfeln und hoffe auf eine 6
-                for ( int i = 0; i > 3; i++ ) {
+                for ( int i = 0; i < 3; i++ ) {
                     // ist es eine 6?
                     if(this.wuerfeln()==6){
                         gezogen++;
@@ -256,12 +287,12 @@ public class SpielerMensch implements Spieler {
 
     @Override
     public List<Feld> getFelder() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       return null;
     }
 
     @Override
     public Spiel getSpiel() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.dasSpiel;
     }
 
     /**
@@ -276,7 +307,7 @@ public class SpielerMensch implements Spieler {
 
     @Override
     public String getfarbe() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.Farbe;
     }
 
     @Override
@@ -287,6 +318,17 @@ public class SpielerMensch implements Spieler {
     @Override
     public Spielfigur[] getSpielfiguren() {
        return Spielfiguren;
+    }
+    
+    
+     /**
+     * @return the farbe
+     */
+    public String getobjektname() {
+        log.log(objektname, "Methode getobjektname() gestartet.");
+        log.log(objektname, "Methodenrückgabe: " + objektname);
+        log.log(objektname, "Methode getobjektname() beendet.");
+        return objektname;
     }
     
 

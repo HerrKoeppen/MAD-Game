@@ -91,7 +91,7 @@ public class Spielfigur {
      * wird
      * @param spieler die SpielerzugehÃ¶rigkeit
      */
-    public Spielfigur( Feld starterfeld, int SpielerId ) {
+    public Spielfigur( Feld starterfeld, int SpielerId, Spiel dasSpiel ) {
         this.Spielerid = SpielerId;
         this.startfeld = starterfeld;
         this.positionX = this.startfeld.getPositionX();
@@ -105,25 +105,32 @@ public class Spielfigur {
         this.aufStandardfeld = false;
         this.aufzefeld = false;
         this.zugfaehigkeit = false;
+        this.id = dasSpiel.setSpielfigur(this);
         
 
     }
 
-    public Spielfigur(String oname, Logger logger, Feld starterfeld, int SpielerId) {
+    public Spielfigur(String oname, Logger logger, Feld starterfeld, int SpielerId, Spiel dasSpiel) {
 
-        this( starterfeld, SpielerId);
+        this( starterfeld, SpielerId, dasSpiel);
         objektname = oname;
         log = logger;
+        log.log(objektname, "Konstrucktor SpielFigur() beendet mit Parameter ");
 
     }
     
     public void Spielersetzen(Spiel dasSpiel){
+        log.log(objektname, "Methode Spielersetzen() gestartet.");
+       
         if (!(dasSpiel.AlleSpieler[Spielerid] == null)){
         this.team = dasSpiel.AlleSpieler[Spielerid];
+        this.team.setSpielfigur(this);
         this.farbe = this.team.getfarbe();
         this.team.getSpiel().getoutput().SpielerSetzen(this);
-        this.id = this.team.getSpiel().setSpielfigur(this);
+        
         }
+        log.log(objektname, "Methodenrückgabe: " + 1);
+        log.log(objektname, "Methode Spielersetzen() beendet.");
     }
 
     /**
@@ -162,11 +169,12 @@ public class Spielfigur {
          * um einen Schritt voran zu gehen, muss man die id des aktuellen Feldes um 1 erhoehen
          * 
          */
+         log.log(objektname, "Methode bewegen() gestartet.");
         this.setzten(this.team.getSpiel().getSpielbrett().getFelder().get(this.aktfeld.getID() + 1));    
         this.team.getSpiel().getoutput().SpielerSetzen(this);
         
         
-        log.log(objektname, "Methode bewegen() gestartet.");
+       
         log.log(objektname, "Methodenrückgabe: " + 1);
         log.log(objektname, "Methode bewegen() beendet.");
         return 1;
@@ -176,7 +184,8 @@ public class Spielfigur {
      * @return 
      */
     public Feld holpfad(){
-       switch (this.aktfeld.getFeldtyp().toLowerCase()) { // bester und elegantester Switch von allen
+        log.log(objektname, "Methode holpfad() gestartet.");
+        switch (this.aktfeld.getFeldtyp().toLowerCase()) { // bester und elegantester Switch von allen
             case "Startfeld":
                 return this.team.getafeld(); 
             case "zefeld":
@@ -192,6 +201,8 @@ public class Spielfigur {
             default:
                 break;       
         } 
+        log.log(objektname, "Methodenrückgabe: " + aktfeld);
+        log.log(objektname, "Methode holpfad() beendet.");
         return this.aktfeld;  
     }
     /**
@@ -620,6 +631,19 @@ public class Spielfigur {
         log.log(objektname, "Methode getFarbe() beendet.");
         return farbe;
     }
+    
+    
+     /**
+     * @return the farbe
+     */
+    public String getobjektname() {
+        log.log(objektname, "Methode getobjektname() gestartet.");
+        log.log(objektname, "Methodenrückgabe: " + objektname);
+        log.log(objektname, "Methode getobjektname() beendet.");
+        return objektname;
+    }
+    
+    
     public Feld getaktFeld() {
         log.log(objektname, "Methode getFarbe() gestartet.");
         log.log(objektname, "Methodenrückgabe: " + "Feld " + this.aktfeld.getID());

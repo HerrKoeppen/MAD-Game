@@ -103,4 +103,19 @@ public class SpielerComputer implements Spieler{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
+    @Override
+    public void setSpielfigur(Spielfigur dieSpielfigur){
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
+     /**
+     * @return the farbe
+     */
+    public String getobjektname() {
+        log.log(objektname, "Methode getobjektname() gestartet.");
+        log.log(objektname, "Methodenrückgabe: " + objektname);
+        log.log(objektname, "Methode getobjektname() beendet.");
+        return objektname;
+    }
 }

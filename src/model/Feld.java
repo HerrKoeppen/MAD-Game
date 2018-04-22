@@ -251,5 +251,16 @@ public class Feld {
     return this.farbe;
     }
     
+    
+     /**
+     * @return the farbe
+     */
+    public String getobjektname() {
+        log.log(objektname, "Methode getobjektname() gestartet.");
+        log.log(objektname, "Methodenrückgabe: " + objektname);
+        log.log(objektname, "Methode getobjektname() beendet.");
+        return objektname;
+    }
+    
 
 }

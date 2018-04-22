@@ -32,5 +32,7 @@ public interface Spieler {
     public String getfarbe();
     public Feld getzielfeld();
     public Spielfigur[] getSpielfiguren();
+    public void setSpielfigur(Spielfigur dieSpielfigur);
+    public String getobjektname();
 
 }

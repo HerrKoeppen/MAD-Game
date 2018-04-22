@@ -38,6 +38,7 @@ public class Spielbrett {
     private Logger log;
     private String objektname;
     private Spiel dasSpiel;
+  
 
     /**
      * konstruktor der klasse Spielbrett:
@@ -103,10 +104,12 @@ public class Spielbrett {
      *
      *
      */
-    public Spielbrett(Logger logger, SpielbrettAusgabe derOutput , Spiel dasspiel) {
-        this.Output = derOutput;
+    public Spielbrett(Logger logger, SpielbrettAusgabe derOutput , Spiel dasspiel, String oname) {
+        this.objektname = oname;
         log = logger;
+        log.log(objektname, "Konstrucktor Spielbrett() gestartet mit Parameter " + oname + " .");
         dasSpiel = dasspiel;
+        this.Output = derOutput;
          
         Feld blauAnfang = new Feld(log, "blauAnfang", this, "Anfangsfeld", 10, 0, "blau"); //0
 
@@ -225,36 +228,37 @@ public class Spielbrett {
 
         //public Spielfigur(String oname, Logger logger, Feld starterfeld, Spieler derSpieler) {
         
-        Spielfigur Blau1 = new Spielfigur("Blau1",log, blauStart1 , 0);
-        Spielfigur Blau2 = new Spielfigur("Blau2",log, blauStart2 , 0);
-        Spielfigur Blau3 = new Spielfigur("Blau3",log, blauStart3 , 0);
+        Spielfigur Blau1 = new Spielfigur("Blau1",log, blauStart1 , 0, dasspiel);
+        Spielfigur Blau2 = new Spielfigur("Blau2",log, blauStart2 , 0, dasspiel);
+        Spielfigur Blau3 = new Spielfigur("Blau3",log, blauStart3 , 0, dasspiel);
         
         
-        Spielfigur Rot1 = new Spielfigur("Rot1",log, rotStart1 , 1);
-        Spielfigur Rot2 = new Spielfigur("Rot2",log, rotStart2 , 1);
-        Spielfigur Rot3 = new Spielfigur("Rot3",log, rotStart3 ,1);
+        Spielfigur Rot1 = new Spielfigur("Rot1",log, rotStart1 , 1, dasspiel);
+        Spielfigur Rot2 = new Spielfigur("Rot2",log, rotStart2 , 1, dasspiel);
+        Spielfigur Rot3 = new Spielfigur("Rot3",log, rotStart3 ,1, dasspiel);
         
-        Spielfigur Cyan1 = new Spielfigur("Cyan1",log, gruenStart1 , 2);
-        Spielfigur Cyan2 = new Spielfigur("Cyan2",log, gruenStart1 , 2);
-        Spielfigur Cyan3 = new Spielfigur("Cyan3",log, gruenStart1 , 2);
+        Spielfigur Cyan1 = new Spielfigur("Cyan1",log, gruenStart1 , 2, dasspiel);
+        Spielfigur Cyan2 = new Spielfigur("Cyan2",log, gruenStart2 , 2, dasspiel);
+        Spielfigur Cyan3 = new Spielfigur("Cyan3",log, gruenStart3 , 2, dasspiel);
       
         
-        Spielfigur Pink1 = new Spielfigur("Pink1",log, gruenStart1 , 3);
-        Spielfigur Pink2 = new Spielfigur("Pink2",log, gruenStart1 , 3);
-        Spielfigur Pink3 = new Spielfigur("Pink3",log, gruenStart1 , 3);
+        Spielfigur Pink1 = new Spielfigur("Pink1",log, gruenStart1 , 3, dasspiel);
+        Spielfigur Pink2 = new Spielfigur("Pink2",log, gruenStart2 , 3, dasspiel);
+        Spielfigur Pink3 = new Spielfigur("Pink3",log, gruenStart3 , 3, dasspiel);
         
-        Spielfigur Gelb1 = new Spielfigur("Gelb1",log, gruenStart1 , 4);
-        Spielfigur Gelb2 = new Spielfigur("Gelb2",log, gruenStart1 , 4);
-        Spielfigur Gelb3 = new Spielfigur("Gelb3",log, gruenStart1 , 4);
+        Spielfigur Gelb1 = new Spielfigur("Gelb1",log, gruenStart1 , 4, dasspiel);
+        Spielfigur Gelb2 = new Spielfigur("Gelb2",log, gruenStart2 , 4, dasspiel);
+        Spielfigur Gelb3 = new Spielfigur("Gelb3",log, gruenStart3 , 4, dasspiel);
         
-        Spielfigur Schwarz1 = new Spielfigur("Schwarz1",log, gruenStart1 , 5);
-        Spielfigur Schwarz2 = new Spielfigur("Schwarz2",log, gruenStart1 , 5);
-        Spielfigur Schwarz3 = new Spielfigur("Schwarz3",log, gruenStart1 , 5);
+        Spielfigur Schwarz1 = new Spielfigur("Schwarz1",log, gruenStart1 , 5, dasspiel);
+        Spielfigur Schwarz2 = new Spielfigur("Schwarz2",log, gruenStart2 , 5, dasspiel);
+        Spielfigur Schwarz3 = new Spielfigur("Schwarz3",log, gruenStart3 , 5, dasspiel);
         
-        Spielfigur Orange1 = new Spielfigur("Orange1",log, gruenStart1 , 6);
-        Spielfigur Orange2 = new Spielfigur("Orange2",log, gruenStart1 , 6);
-        Spielfigur Orange3 = new Spielfigur("Orange3",log, gruenStart1 , 6);
-        
+        Spielfigur Orange1 = new Spielfigur("Orange1",log, gruenStart1 , 6, dasspiel);
+        Spielfigur Orange2 = new Spielfigur("Orange2",log, gruenStart2 , 6, dasspiel);
+        Spielfigur Orange3 = new Spielfigur("Orange3",log, gruenStart3 , 6, dasspiel);
+       
+        log.log(objektname, "Methode Spielbrett() beendet.");
         
         
     }
@@ -266,11 +270,11 @@ public class Spielbrett {
      * @return innteger index des neu hinzugefügten objektes
      */
     public int feldhinzufuegen(Feld dasFeld) {
-        log.log(objektname, "Methode getPositionY() gestartet mit Parameter " + dasFeld + " .");
+        log.log(objektname, "Methode feldhinzufuegen() gestartet mit Parameter " + dasFeld + " .");
 
         felder.add(dasFeld);
         log.log(objektname, "Methodenrückgabe: " + felder.lastIndexOf(dasFeld));
-        log.log(objektname, "Methode getPositionY() beendet.");
+        log.log(objektname, "Methode feldhinzufuegen() beendet.");
         return felder.lastIndexOf(dasFeld);
     }
       
@@ -281,9 +285,9 @@ public class Spielbrett {
      * @return innteger index des neu hinzugefügten objektes
      */
     public void kreisfeldhinzufuegen(Feld dasFeld) {
-        log.log(objektname, "Methode getPositionY() gestartet mit Parameter " + dasFeld + " .");
+        log.log(objektname, "Methode kreisfeldhinzufuegen() gestartet mit Parameter " + dasFeld + " .");
         this.spielkreis.add(dasFeld);
-        log.log(objektname, "Methode getPositionY() beendet.");
+        log.log(objektname, "Methode kreisfeldhinzufuegen() beendet.");
     }
 
     /**
@@ -310,6 +314,17 @@ public class Spielbrett {
     }
     public SpielbrettAusgabe getOutput(){
     return Output;
+    }
+    
+    
+     /**
+     * @return the farbe
+     */
+    public String getobjektname() {
+        log.log(objektname, "Methode getobjektname() gestartet.");
+        log.log(objektname, "Methodenrückgabe: " + objektname);
+        log.log(objektname, "Methode getobjektname() beendet.");
+        return objektname;
     }
 
 }

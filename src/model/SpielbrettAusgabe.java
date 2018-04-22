@@ -39,6 +39,9 @@ public class SpielbrettAusgabe {
     
     private String[][] AnsiSpielbrett = new String[groesseX][groesseY];
     public boolean Ansiausgabean ;
+    private Logger log;
+    private Spiel dasSpiel;
+    private String objektname;
     
             
     
@@ -71,8 +74,8 @@ public class SpielbrettAusgabe {
      * |26|. |. | .| .| .| .| .|AP|. |. |. | .| .| .|..|AG| .| .| .| .| .| .| 
      **/
 
-    public SpielbrettAusgabe() {
-    /*Char[][] AsciiSpielbrett = {{' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '},
+    public SpielbrettAusgabe(Spiel soNSpiel, Logger logger, String oname) {
+    /*Char[][] AsciiSpielbrett = {{"..............................................................................."},
                                 {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '},
                                 {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '},
                                 {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '},
@@ -105,7 +108,9 @@ public class SpielbrettAusgabe {
                                 {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '},
                                 {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '}};*/
     //way more elegant:
-    
+    this.dasSpiel = soNSpiel;
+    this.objektname = oname;
+    log = logger;
     for (int i = 0; i < groesseX;i++){
             for (int k = 0; k < groesseY ;k++){
                 this.AnsiSpielbrett[i][k]= ANSI_RESET +ANSI_bGrey +ANSI_fWhite +"  " ;   //+ ANSI_fBlue ANSI_RESET
@@ -115,6 +120,7 @@ public class SpielbrettAusgabe {
     this.Ansiausgabean = true;
     }
     public void feldeinfuegen(Feld dasFeld){
+    log.log(objektname,"Methode feldeinfuegen() gestartet mit parameter "+ dasFeld + ".");
     String farbe = "s";
     switch (dasFeld.getFarbe().toLowerCase()) { // sehr netter Switch der den Typ des Feldes festlegt
             case "blau":
@@ -180,7 +186,8 @@ public class SpielbrettAusgabe {
                 break;
         }
     this.AnsiSpielbrett[dasFeld.getPositionX()][dasFeld.getPositionY()] = ANSI_RESET + farbe + Caption ;  
-    
+    log.log(objektname, "Methodenrückgabe: " + ANSI_RESET + farbe + Caption );
+        log.log(objektname, "Methode feldeinfuegen() beendet.");
     
     }
     /* X und Y achse vertauscht: (100% gewollt, sieht aber wirklich besser aus)
@@ -281,7 +288,9 @@ public class SpielbrettAusgabe {
     }    
     public void SpielerSetzen(Spielfigur diefigur)
     {
-       Feld dasFeld = diefigur.getAktfeld();
+        log.log(objektname, "Methode SpielerSetzen() gestartet.");
+        if(diefigur != null && diefigur.getAktfeld() != null){
+        Feld dasFeld = diefigur.getAktfeld();
         String farbe = ANSI_RESET;
         switch (dasFeld.getFarbe().toLowerCase()) { // sehr netter Switch der den Typ des Feldes festlegt
             case "blau":
@@ -320,6 +329,7 @@ public class SpielbrettAusgabe {
                 break;
          }
         }
+        //System.out.println(nummer);
         switch (diefigur.getFarbe().toLowerCase()) { // sehr netter Switch der den Typ des Feldes festlegt
             case "blau":
                 Caption = "B"  ;    
@@ -347,25 +357,52 @@ public class SpielbrettAusgabe {
             default:
                 break;
         }
-    
+         //System.out.println(Caption);
+        
+        
+       
     this.AnsiSpielbrett[dasFeld.getPositionX()][dasFeld.getPositionY()] = ANSI_RESET + farbe + ANSI_fWhite + Caption + nummer;  
-    
-    
+        log.log(objektname, "Methodenrückgabe: " + ANSI_RESET + farbe + ANSI_fWhite + Caption + nummer );
+        log.log(objektname, "Methode SpielerSetzen() erfolgreich beendet.");
+        return;
+       }
+        log.log(objektname, "Methodenrückgabe: " + false);
+        log.log(objektname, "Methode SpielerSetzen() beendet.");
     }    
             
+    
+     /**
+     * @return the farbe
+     */
+    public String getobjektname() {
+        log.log(objektname, "Methode getobjektname() gestartet.");
+        log.log(objektname, "Methodenrückgabe: " + objektname);
+        log.log(objektname, "Methode getobjektname() beendet.");
+        return objektname;
+    }
+    
      public static void main(String args[]) {
      //System.out.println("\u001B[41m" + "\u001B[37m"  + "Hello World!" + "\u001B[0m");
-     Logger log = new Logger("LogLog.txt");
+     Logger log = new Logger("SherLog.txt");
      Spiel test = new Spiel(log,"testSpiel",0);
      test.output.spielAusgabe();
-     Spieler tester = new SpielerMensch("Albert",log,test);
-     Spieler tester2 = new SpielerMensch("Barbarianna",log,test);
-     Spieler teste3 = new SpielerMensch("Charles der II",log,test);
+     Spieler tester = new SpielerMensch("Alice",log,test);
+     Spieler tester2 = new SpielerMensch("Bob",log,test);
+     Spieler tester3 = new SpielerMensch("Charly",log,test);
      Spieler tester4 = new SpielerMensch("Eve",log,test);
      Spieler tester5 = new SpielerMensch("Dave",log,test);
-     Spieler tester6 = new SpielerMensch("El Testeros",log,test);
-     Spieler tester7 = new SpielerMensch("Fynnia",log,test);
+     Spieler tester6 = new SpielerMensch("Fynnia",log,test);
+     Spieler tester7 = new SpielerMensch("Gargamel",log,test);
+     test.output.SpielerSetzen(tester.getSpielfiguren()[1]);
      test.output.spielAusgabe();
+     test.AlleSpielfiguren[0].herauskommen();
+     test.output.spielAusgabe();
+     for( int a = 0; a< 8; a++){
+     test.AlleSpielfiguren[0].laufen(3);
+     test.output.spielAusgabe();}
+     
+     
+     
      }
 }
     

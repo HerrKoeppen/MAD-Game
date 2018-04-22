@@ -94,6 +94,17 @@ public class Wuerfel {
     public void loggerSetzen(Logger logger) {
         log = logger;
     }
+    
+    
+     /**
+     * @return the farbe
+     */
+    public String getobjektname() {
+        log.log(objektname, "Methode getobjektname() gestartet.");
+        log.log(objektname, "Methodenrückgabe: " + objektname);
+        log.log(objektname, "Methode getobjektname() beendet.");
+        return objektname;
+    }
 
     public static void main(String args[]) {
         Logger myLogger = new Logger();
