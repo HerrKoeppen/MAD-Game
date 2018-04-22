@@ -461,7 +461,7 @@ public class SpielbrettAusgabe {
      test.output.spielAusgabe();
 
     /**
-     for( int a = 0; a //<> 16 ; a++){
+     for( int a = 0; a // 16 ; a++){
         test.AlleSpielfiguren[0].laufen(test.getWuerfel().wuerfeln());
         test.output.spielAusgabe();
         test.AlleSpielfiguren[3].laufen(test.getWuerfel().wuerfeln());
@@ -490,5 +490,5 @@ public class SpielbrettAusgabe {
      
      
      }
-}
+
     
