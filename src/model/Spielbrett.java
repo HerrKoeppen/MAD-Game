@@ -244,21 +244,21 @@ public class Spielbrett {
         Spielfigur Cyan3 = new Spielfigur("Cyan3",log, gruenStart3 , 2, dasspiel);
       
         
-        Spielfigur Pink1 = new Spielfigur("Pink1",log, gruenStart1 , 3, dasspiel);
-        Spielfigur Pink2 = new Spielfigur("Pink2",log, gruenStart2 , 3, dasspiel);
-        Spielfigur Pink3 = new Spielfigur("Pink3",log, gruenStart3 , 3, dasspiel);
+        Spielfigur Pink1 = new Spielfigur("Pink1",log, pinkStart1 , 3, dasspiel);
+        Spielfigur Pink2 = new Spielfigur("Pink2",log, pinkStart2 , 3, dasspiel);
+        Spielfigur Pink3 = new Spielfigur("Pink3",log, pinkStart3 , 3, dasspiel);
         
-        Spielfigur Gelb1 = new Spielfigur("Gelb1",log, gruenStart1 , 4, dasspiel);
-        Spielfigur Gelb2 = new Spielfigur("Gelb2",log, gruenStart2 , 4, dasspiel);
-        Spielfigur Gelb3 = new Spielfigur("Gelb3",log, gruenStart3 , 4, dasspiel);
+        Spielfigur Gelb1 = new Spielfigur("Gelb1",log, gelbStart1 , 4, dasspiel);
+        Spielfigur Gelb2 = new Spielfigur("Gelb2",log, gelbStart2 , 4, dasspiel);
+        Spielfigur Gelb3 = new Spielfigur("Gelb3",log, gelbStart3 , 4, dasspiel);
         
-        Spielfigur Schwarz1 = new Spielfigur("Schwarz1",log, gruenStart1 , 5, dasspiel);
-        Spielfigur Schwarz2 = new Spielfigur("Schwarz2",log, gruenStart2 , 5, dasspiel);
-        Spielfigur Schwarz3 = new Spielfigur("Schwarz3",log, gruenStart3 , 5, dasspiel);
+        Spielfigur Schwarz1 = new Spielfigur("Schwarz1",log, schwarzStart1 , 5, dasspiel);
+        Spielfigur Schwarz2 = new Spielfigur("Schwarz2",log, schwarzStart2 , 5, dasspiel);
+        Spielfigur Schwarz3 = new Spielfigur("Schwarz3",log, schwarzStart3 , 5, dasspiel);
         
-        Spielfigur Orange1 = new Spielfigur("Orange1",log, gruenStart1 , 6, dasspiel);
-        Spielfigur Orange2 = new Spielfigur("Orange2",log, gruenStart2 , 6, dasspiel);
-        Spielfigur Orange3 = new Spielfigur("Orange3",log, gruenStart3 , 6, dasspiel);
+        Spielfigur Orange1 = new Spielfigur("Orange1",log, braunStart1 , 6, dasspiel);
+        Spielfigur Orange2 = new Spielfigur("Orange2",log, braunStart2 , 6, dasspiel);
+        Spielfigur Orange3 = new Spielfigur("Orange3",log, braunStart3 , 6, dasspiel);
        
         //public Wuerfel(Logger logger, String name, int wuerfelmin, int wuerfelmax, SpielbrettAusgabe out) {
         

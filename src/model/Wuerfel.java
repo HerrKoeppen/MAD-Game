@@ -84,7 +84,7 @@ public class Wuerfel {
         Random rand = new Random();
         augen = rand.nextInt((max - min) + 1) + min;
         this.dieZahl = augen;
-        System.out.println(augen);
+        //System.out.println(augen);
         this.output.wuerfelausgeben(augen);
         log.log(objektname, "Augenzahl " + augen + " gewuerfelt.");
         log.log(objektname, "Methode wuerfeln() beendet.");

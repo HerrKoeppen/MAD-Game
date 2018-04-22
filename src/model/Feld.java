@@ -97,7 +97,8 @@ public class Feld {
         this.positionX = xposition;
         this.positionY = yposition;
         this.farbe = teamfarbe;
-
+        this.hausbesetzer = null;
+        
         this.id = dasspielbrett.feldhinzufuegen(this);
 
         this.Standardfeld = false;
@@ -249,6 +250,10 @@ public class Feld {
      */
     public String getFarbe(){
     return this.farbe;
+    }
+    
+    public void setHausbesetzer(Spielfigur derSchnorrer){
+    this.hausbesetzer = derSchnorrer;
     }
     
     

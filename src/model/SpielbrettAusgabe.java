@@ -271,6 +271,7 @@ public class SpielbrettAusgabe {
         this.AnsiSpielbrett[3][8] = farbe  + ccaption ;
         this.AnsiSpielbrett[4][10] = farbe  + ccaption ;
         this.AnsiSpielbrett[4][12] = farbe  + ccaption ; 
+        this.AnsiSpielbrett[0][14] = farbe  + ccaption ;
         this.AnsiSpielbrett[2][12] = farbe  + ccaption ;
         this.AnsiSpielbrett[1][16] = farbe  + ccaption ;
         this.AnsiSpielbrett[3][16] = farbe  + ccaption ;
@@ -281,7 +282,7 @@ public class SpielbrettAusgabe {
         this.AnsiSpielbrett[6][22] = farbe  + ccaption ;
         this.AnsiSpielbrett[6][23] = farbe  + ccaption ;
         this.AnsiSpielbrett[7][23] = farbe  + ccaption ;
-        this.AnsiSpielbrett[10][19] =farbe  + ccaption ;
+        this.AnsiSpielbrett[8][21] = farbe  + ccaption ;
     
     };
     
@@ -390,26 +391,33 @@ public class SpielbrettAusgabe {
         //System.out.println(nummer);
         switch (diefigur.getFarbe().toLowerCase()) { // sehr netter Switch der den Typ des Feldes festlegt
             case "blau":
+                farbe = farbe + ANSI_fBlue;
                 Caption = "B"  ;    
                 break;
             case "rot":
+                farbe = farbe + ANSI_fRed;
                 Caption = "R" ;  
                 break;
             case "cyan":
             case "gruen":
+                farbe = farbe + ANSI_fCyan;
                 Caption = "C" ;    
                 break;
             case "gelb":
+                farbe = farbe + ANSI_fYellow;
                 Caption = "G" ;
                 break;
             case "pink":
+                farbe = farbe + ANSI_fPurpel;
                 Caption = "P" ;    
                 break;
             case "schwarz":
+                farbe = farbe + ANSI_fBlack;
                 Caption =  "S" ;    
                 break;
             case "orange":
             case "braun":
+                farbe = farbe + ANSI_fGreen;
                 Caption = "O" ;   
                 break;
             default:
@@ -419,7 +427,7 @@ public class SpielbrettAusgabe {
         
         
        
-    this.AnsiSpielbrett[dasFeld.getPositionX()][dasFeld.getPositionY()] = ANSI_RESET + farbe + ANSI_fWhite + Caption + nummer;  
+    this.AnsiSpielbrett[dasFeld.getPositionX()][dasFeld.getPositionY()] = ANSI_RESET + farbe + Caption + nummer;  
         log.log(objektname, "Methodenrückgabe: " + ANSI_RESET + farbe + ANSI_fWhite + Caption + nummer );
         log.log(objektname, "Methode SpielerSetzen() erfolgreich beendet.");
         return;
@@ -457,11 +465,22 @@ public class SpielbrettAusgabe {
      test.AlleSpielfiguren[0].herauskommen();
      test.output.spielAusgabe();
      test.output.wuerfelausgeben(1);
-    
+    /*
      for( int a = 0; a< 8; a++){
-     test.AlleSpielfiguren[0].laufen(test.getWuerfel().wuerfeln());
+         test.getWuerfel().wuerfeln();
+        //test.AlleSpielfiguren[0].laufen(test.getWuerfel().wuerfeln());
      test.output.spielAusgabe();}
-     
+     */
+     test.AlleSpielfiguren[3].setzten(test.getSpielbrett().getFelder().get(7));
+     test.output.spielAusgabe();
+     test.AlleSpielfiguren[0].setzten(test.getSpielbrett().getFelder().get(3));
+     test.output.spielAusgabe();
+
+
+     test.AlleSpielfiguren[0].schlagen(test.getSpielbrett().getFelder().get(7));
+     test.AlleSpielfiguren[0].setzten(test.getSpielbrett().getFelder().get(7));
+     test.output.spielAusgabe();
+
      
      /*
      Logger log = new Logger("SherLog.txt");

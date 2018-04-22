@@ -243,6 +243,7 @@ public class Spielfigur {
         log.log(objektname, "Methode setzen() gestartet.");
         this.team.getSpiel().getoutput().feldeinfuegen(this.aktfeld);
         this.aktfeld.setIstBesetzt(false);
+        this.aktfeld.setHausbesetzer(null);
         this.aktfeld = zielfeld;
         this.positionX = this.aktfeld.getPositionX();
         this.positionY = this.aktfeld.getPositionY();
@@ -276,6 +277,7 @@ public class Spielfigur {
         }
         this.team.getSpiel().getoutput().SpielerSetzen(this);
         this.aktfeld.setIstBesetzt(true);
+        this.aktfeld.setHausbesetzer(this);
         log.log(objektname, "Methode setzen() beendet.");
         log.log(objektname, "Methodenrückgabe: " + 0);
         return 0;
