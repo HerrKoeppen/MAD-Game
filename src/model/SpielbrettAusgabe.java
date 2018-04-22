@@ -108,7 +108,7 @@ public class SpielbrettAusgabe {
     
     for (int i = 0; i < groesseX;i++){
             for (int k = 0; k < groesseY ;k++){
-                this.AnsiSpielbrett[i][k]= ANSI_bGrey +ANSI_fWhite +"  " + ANSI_RESET ;   //+ ANSI_fBlue ANSI_RESET
+                this.AnsiSpielbrett[i][k]= ANSI_RESET +ANSI_bGrey +ANSI_fWhite +"  " ;   //+ ANSI_fBlue ANSI_RESET
         }
     }
     this.sternZeichnen();
@@ -179,7 +179,7 @@ public class SpielbrettAusgabe {
                 Caption = "";
                 break;
         }
-    this.AnsiSpielbrett[dasFeld.getPositionX()][dasFeld.getPositionY()] = farbe + Caption + ANSI_RESET;  
+    this.AnsiSpielbrett[dasFeld.getPositionX()][dasFeld.getPositionY()] = ANSI_RESET + farbe + Caption ;  
     
     
     }
@@ -219,59 +219,58 @@ public class SpielbrettAusgabe {
     }
     private void sternZeichnen(){
         String ccaption = "::";
-        this.AnsiSpielbrett[11][1] = ANSI_bGrey  + ccaption + ANSI_RESET;
-        this.AnsiSpielbrett[12][3] = ANSI_bGrey  + ccaption + ANSI_RESET;
-        this.AnsiSpielbrett[12][5] = ANSI_bGrey  + ccaption + ANSI_RESET;
-        this.AnsiSpielbrett[12][6] = ANSI_bGrey  + ccaption + ANSI_RESET;
-        this.AnsiSpielbrett[13][7] = ANSI_bGrey  + ccaption + ANSI_RESET;
-        this.AnsiSpielbrett[14][6] = ANSI_bGrey  + ccaption + ANSI_RESET;
-        this.AnsiSpielbrett[16][5] = ANSI_bGrey  + ccaption + ANSI_RESET;
-        this.AnsiSpielbrett[18][4] = ANSI_bGrey  + ccaption + ANSI_RESET;
-        this.AnsiSpielbrett[19][5] = ANSI_bGrey  + ccaption + ANSI_RESET;
-        this.AnsiSpielbrett[18][6] = ANSI_bGrey  + ccaption + ANSI_RESET;
-        this.AnsiSpielbrett[17][8] = ANSI_bGrey  + ccaption + ANSI_RESET;
-        this.AnsiSpielbrett[16][10] = ANSI_bGrey  + ccaption + ANSI_RESET;
-        this.AnsiSpielbrett[16][12] = ANSI_bGrey  + ccaption + ANSI_RESET; 
-        this.AnsiSpielbrett[18][12] = ANSI_bGrey  + ccaption + ANSI_RESET;
-        this.AnsiSpielbrett[20][14] = ANSI_bGrey  + ccaption+ ANSI_RESET;
-        this.AnsiSpielbrett[19][16] = ANSI_bGrey  + ccaption + ANSI_RESET;
-        this.AnsiSpielbrett[17][16] = ANSI_bGrey  + ccaption + ANSI_RESET;
-        this.AnsiSpielbrett[15][16] = ANSI_bGrey  + ccaption + ANSI_RESET;
-        this.AnsiSpielbrett[14][17] = ANSI_bGrey  + ccaption + ANSI_RESET;
-        this.AnsiSpielbrett[14][18] = ANSI_bGrey  + ccaption + ANSI_RESET;
-        this.AnsiSpielbrett[14][20] = ANSI_bGrey  + ccaption + ANSI_RESET;
-        this.AnsiSpielbrett[14][22] = ANSI_bGrey  + ccaption + ANSI_RESET;
-        this.AnsiSpielbrett[14][23] = ANSI_bGrey  + ccaption + ANSI_RESET;
-        this.AnsiSpielbrett[13][23] = ANSI_bGrey  + ccaption + ANSI_RESET;
-        this.AnsiSpielbrett[12][21] = ANSI_bGrey  + ccaption + ANSI_RESET;
-        this.AnsiSpielbrett[10][19] = ANSI_bGrey  + ccaption + ANSI_RESET;
+        this.AnsiSpielbrett[11][1] = ANSI_RESET +ANSI_bGrey  + ccaption ;
+        this.AnsiSpielbrett[12][3] = ANSI_RESET +ANSI_bGrey  + ccaption;
+        this.AnsiSpielbrett[12][5] = ANSI_RESET +ANSI_bGrey  + ccaption ;
+        this.AnsiSpielbrett[12][6] = ANSI_RESET +ANSI_bGrey  + ccaption ;
+        this.AnsiSpielbrett[13][7] = ANSI_RESET +ANSI_bGrey  + ccaption ;
+        this.AnsiSpielbrett[14][6] = ANSI_RESET +ANSI_bGrey  + ccaption ;
+        this.AnsiSpielbrett[16][5] = ANSI_RESET +ANSI_bGrey  + ccaption ;
+        this.AnsiSpielbrett[18][4] = ANSI_RESET +ANSI_bGrey  + ccaption ;
+        this.AnsiSpielbrett[19][5] = ANSI_RESET +ANSI_bGrey  + ccaption ;
+        this.AnsiSpielbrett[18][6] = ANSI_RESET +ANSI_bGrey  + ccaption ;
+        this.AnsiSpielbrett[17][8] = ANSI_RESET +ANSI_bGrey  + ccaption ;
+        this.AnsiSpielbrett[16][10] = ANSI_RESET +ANSI_bGrey  + ccaption ;
+        this.AnsiSpielbrett[16][12] = ANSI_RESET +ANSI_bGrey  + ccaption ; 
+        this.AnsiSpielbrett[18][12] = ANSI_RESET +ANSI_bGrey  + ccaption ;
+        this.AnsiSpielbrett[20][14] = ANSI_RESET +ANSI_bGrey  + ccaption;
+        this.AnsiSpielbrett[19][16] = ANSI_RESET +ANSI_bGrey  + ccaption ;
+        this.AnsiSpielbrett[17][16] = ANSI_RESET +ANSI_bGrey  + ccaption ;
+        this.AnsiSpielbrett[15][16] = ANSI_RESET +ANSI_bGrey  + ccaption ;
+        this.AnsiSpielbrett[14][17] = ANSI_RESET +ANSI_bGrey  + ccaption ;
+        this.AnsiSpielbrett[14][18] = ANSI_RESET +ANSI_bGrey  + ccaption ;
+        this.AnsiSpielbrett[14][20] = ANSI_RESET +ANSI_bGrey  + ccaption ;
+        this.AnsiSpielbrett[14][22] = ANSI_RESET +ANSI_bGrey  + ccaption ;
+        this.AnsiSpielbrett[14][23] = ANSI_RESET +ANSI_bGrey  + ccaption ;
+        this.AnsiSpielbrett[13][23] = ANSI_RESET +ANSI_bGrey  + ccaption ;
+        this.AnsiSpielbrett[12][21] = ANSI_RESET +ANSI_bGrey  + ccaption ;
+        this.AnsiSpielbrett[10][19] = ANSI_RESET +ANSI_bGrey  + ccaption ;
 
-        this.AnsiSpielbrett[9][1] = ANSI_bGrey  + ccaption + ANSI_RESET;
-        this.AnsiSpielbrett[8][3] = ANSI_bGrey  + ccaption + ANSI_RESET;
-        this.AnsiSpielbrett[8][5] = ANSI_bGrey  + ccaption + ANSI_RESET;
-        this.AnsiSpielbrett[8][6] = ANSI_bGrey  + ccaption + ANSI_RESET;
-        this.AnsiSpielbrett[7][7] = ANSI_bGrey  + ccaption + ANSI_RESET;
-        this.AnsiSpielbrett[6][6] = ANSI_bGrey  + ccaption + ANSI_RESET;
-        this.AnsiSpielbrett[4][5] = ANSI_bGrey  + ccaption + ANSI_RESET;
-        this.AnsiSpielbrett[2][4] = ANSI_bGrey  + ccaption + ANSI_RESET;
-        this.AnsiSpielbrett[1][5] = ANSI_bGrey  + ccaption + ANSI_RESET;
-        this.AnsiSpielbrett[2][6] = ANSI_bGrey  + ccaption + ANSI_RESET;
-        this.AnsiSpielbrett[3][8] = ANSI_bGrey  + ccaption + ANSI_RESET;
-        this.AnsiSpielbrett[4][10] = ANSI_bGrey  + ccaption + ANSI_RESET;
-        this.AnsiSpielbrett[4][12] = ANSI_bGrey  + ccaption + ANSI_RESET; 
-        this.AnsiSpielbrett[2][12] = ANSI_bGrey  + ccaption + ANSI_RESET;
-        this.AnsiSpielbrett[0][14] = ANSI_bGrey  + ccaption+ ANSI_RESET;
-        this.AnsiSpielbrett[1][16] = ANSI_bGrey  + ccaption + ANSI_RESET;
-        this.AnsiSpielbrett[3][16] = ANSI_bGrey  + ccaption + ANSI_RESET;
-        this.AnsiSpielbrett[5][16] = ANSI_bGrey  + ccaption + ANSI_RESET;
-        this.AnsiSpielbrett[6][17] = ANSI_bGrey  + ccaption + ANSI_RESET;
-        this.AnsiSpielbrett[6][18] = ANSI_bGrey  + ccaption + ANSI_RESET;
-        this.AnsiSpielbrett[6][20] = ANSI_bGrey  + ccaption + ANSI_RESET;
-        this.AnsiSpielbrett[6][22] = ANSI_bGrey  + ccaption + ANSI_RESET;
-        this.AnsiSpielbrett[6][23] = ANSI_bGrey  + ccaption + ANSI_RESET;
-        this.AnsiSpielbrett[7][23] = ANSI_bGrey  + ccaption + ANSI_RESET;
-        this.AnsiSpielbrett[8][21] = ANSI_bGrey  + ccaption + ANSI_RESET;
-        this.AnsiSpielbrett[10][19] = ANSI_bGrey  + ccaption + ANSI_RESET;
+        this.AnsiSpielbrett[9][1] = ANSI_RESET +ANSI_bGrey  + ccaption ;
+        this.AnsiSpielbrett[8][3] = ANSI_RESET +ANSI_bGrey  + ccaption ;
+        this.AnsiSpielbrett[8][5] = ANSI_RESET +ANSI_bGrey  + ccaption ;
+        this.AnsiSpielbrett[8][6] = ANSI_RESET +ANSI_bGrey  + ccaption ;
+        this.AnsiSpielbrett[7][7] = ANSI_RESET +ANSI_bGrey  + ccaption ;
+        this.AnsiSpielbrett[6][6] = ANSI_RESET +ANSI_bGrey  + ccaption ;
+        this.AnsiSpielbrett[4][5] = ANSI_RESET +ANSI_bGrey  + ccaption ;
+        this.AnsiSpielbrett[2][4] = ANSI_RESET +ANSI_bGrey  + ccaption ;
+        this.AnsiSpielbrett[1][5] = ANSI_RESET +ANSI_bGrey  + ccaption ;
+        this.AnsiSpielbrett[2][6] = ANSI_RESET + ANSI_bGrey  + ccaption ;
+        this.AnsiSpielbrett[3][8] = ANSI_RESET +ANSI_bGrey  + ccaption ;
+        this.AnsiSpielbrett[4][10] = ANSI_RESET +ANSI_bGrey  + ccaption ;
+        this.AnsiSpielbrett[4][12] = ANSI_RESET +ANSI_bGrey  + ccaption ; 
+        this.AnsiSpielbrett[2][12] = ANSI_RESET +ANSI_bGrey  + ccaption ;
+        this.AnsiSpielbrett[1][16] = ANSI_RESET +ANSI_bGrey  + ccaption ;
+        this.AnsiSpielbrett[3][16] = ANSI_RESET +ANSI_bGrey  + ccaption ;
+        this.AnsiSpielbrett[5][16] = ANSI_RESET +ANSI_bGrey  + ccaption ;
+        this.AnsiSpielbrett[6][17] = ANSI_RESET +ANSI_bGrey  + ccaption ;
+        this.AnsiSpielbrett[6][18] = ANSI_RESET + ANSI_bGrey  + ccaption ;
+        this.AnsiSpielbrett[6][20] = ANSI_RESET +ANSI_bGrey  + ccaption ;
+        this.AnsiSpielbrett[6][22] = ANSI_RESET +ANSI_bGrey  + ccaption ;
+        this.AnsiSpielbrett[6][23] = ANSI_RESET +ANSI_bGrey  + ccaption ;
+        this.AnsiSpielbrett[7][23] = ANSI_RESET +ANSI_bGrey  + ccaption ;
+        this.AnsiSpielbrett[8][21] = ANSI_RESET +ANSI_bGrey  + ccaption ;
+        this.AnsiSpielbrett[10][19] =ANSI_RESET + ANSI_bGrey  + ccaption ;
     
     };
     
@@ -282,14 +281,90 @@ public class SpielbrettAusgabe {
     }    
     public void SpielerSetzen(Spielfigur diefigur)
     {
+       Feld dasFeld = diefigur.getAktfeld();
+        String farbe = ANSI_RESET;
+        switch (dasFeld.getFarbe().toLowerCase()) { // sehr netter Switch der den Typ des Feldes festlegt
+            case "blau":
+            farbe = ANSI_bBlue  ;    
+                break;
+            case "rot":
+            farbe = ANSI_bRed  ;  
+                break;
+            case "cyan":
+            farbe = ANSI_bCyan  ;    
+                break;
+            case "gelb":
+            farbe = ANSI_bYellow ;
+                break;
+            case "pink":
+            farbe = ANSI_bPurpel;    
+                break;
+            case "schwarz":
+            farbe = ANSI_bWhite;    
+                break;
+            case "orange":
+            case "braun":
+            farbe = ANSI_bGreen ;   
+                break;
+            case "weiss":
+            farbe = ANSI_RESET   ;    
+                break;
+            default:
+                break;
+        }
+        String Caption = "default";
+        int nummer = 0;
+        for (int i = 0; i < 3; i++ ){
+            if (diefigur.getTeam().getSpielfiguren()[i].equals(diefigur)){
+                nummer = i;
+                break;
+         }
+        }
+        switch (diefigur.getFarbe().toLowerCase()) { // sehr netter Switch der den Typ des Feldes festlegt
+            case "blau":
+                Caption = "B"  ;    
+                break;
+            case "rot":
+                Caption = "R" ;  
+                break;
+            case "cyan":
+            case "gruen":
+                Caption = "C" ;    
+                break;
+            case "gelb":
+                Caption = "G" ;
+                break;
+            case "pink":
+                Caption = "P" ;    
+                break;
+            case "schwarz":
+                Caption =  "S" ;    
+                break;
+            case "orange":
+            case "braun":
+                Caption = "O" ;   
+                break;
+            default:
+                break;
+        }
+    
+    this.AnsiSpielbrett[dasFeld.getPositionX()][dasFeld.getPositionY()] = ANSI_RESET + farbe + ANSI_fWhite + Caption + nummer;  
     
     
     }    
             
      public static void main(String args[]) {
      //System.out.println("\u001B[41m" + "\u001B[37m"  + "Hello World!" + "\u001B[0m");
-     Logger log = new Logger("TestLog.txt");
+     Logger log = new Logger("LogLog.txt");
      Spiel test = new Spiel(log,"testSpiel",0);
+     test.output.spielAusgabe();
+     Spieler tester = new SpielerMensch("Albert",log,test);
+     Spieler tester2 = new SpielerMensch("Barbarianna",log,test);
+     Spieler teste3 = new SpielerMensch("Charles der II",log,test);
+     Spieler tester4 = new SpielerMensch("Eve",log,test);
+     Spieler tester5 = new SpielerMensch("Dave",log,test);
+     Spieler tester6 = new SpielerMensch("El Testeros",log,test);
+     Spieler tester7 = new SpielerMensch("Fynnia",log,test);
      test.output.spielAusgabe();
      }
 }

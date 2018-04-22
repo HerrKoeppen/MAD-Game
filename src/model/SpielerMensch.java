@@ -17,6 +17,8 @@ import java.util.List;
  */
 public class SpielerMensch implements Spieler {
 
+    
+    private int id;
     /**
      * Die Namen der Spieler.
      */
@@ -52,10 +54,13 @@ public class SpielerMensch implements Spieler {
     private Logger log;
     private String objektname;
     
-    public SpielerMensch(Spiel dasspiel,String farbe) {
+    public SpielerMensch(String oname, Logger logger, Spiel dasspiel) {
+    objektname = oname;
+    log = logger;
     this.dasSpiel = dasspiel;
-    this.Farbe = farbe;
-        switch (farbe.toLowerCase()) { // sehr uneleganter Switch: nochmal überarbeiten!!!!!!!
+    this.id = this.dasSpiel.setSpieler(this);
+    this.Farbe = this.dasSpiel.Farben[id];
+        switch (Farbe.toLowerCase()) { // sehr uneleganter Switch: nochmal überarbeiten!!!!!!!
             case "blau":
                 this.aFeld = this.dasSpiel.getSpielbrett().getFelder().get(0);
                 this.zeFeld = this.dasSpiel.getSpielbrett().getFelder().get(41);
@@ -96,15 +101,9 @@ public class SpielerMensch implements Spieler {
             default:
                 break;
         }
-    
+        this.dasSpiel.spielfigurenVerteilen();
     }
     
-    public SpielerMensch(String oname, Logger logger, Spiel dasspiel,String farbe) {
-        this( dasspiel , farbe);
-        objektname = oname;
-        log = logger;
-    }
-
     /**
      * Setzt die Spielfigur an die letzte Stelle der Liste Spielfiguren.
      *
@@ -283,6 +282,11 @@ public class SpielerMensch implements Spieler {
     @Override
     public Feld getzielfeld() {
         return zielfeld;
+    }
+
+    @Override
+    public Spielfigur[] getSpielfiguren() {
+       return Spielfiguren;
     }
     
 

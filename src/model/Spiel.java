@@ -30,13 +30,19 @@ public class Spiel {
     //Die ArrayListe AlleSpieler beinhaltet alle Spieler im Spiel
     public Spieler[] AlleSpieler = new Spieler[7];
     //Die Arrayliste AlleSpielfiguren beeinhaltet alle Spielfiguren im Spiel.
-    public Spielfigur[] AlleSpielfiguren = new Spielfigur[28];
+    public Spielfigur[] AlleSpielfiguren = new Spielfigur[21];
     //Das Objekt aktiverSpieler der Klasse Spieler gibt an welcher Spieler momentan am Zug ist.   
     public Spieler aktiverSpieler;
     private String objektname;
     private Logger log;
     private Wuerfel derWuerfel;
     public SpielbrettAusgabe output;
+    /**
+     * array mit allen moeglichen farben, die reinfolge ist folgende: Blau, Rot,
+     * GrÃ¼n, Pink, Gelb, Schwarz, Braun und wird bei allen möglichen funktionen
+     * so übernommen die farbe eines spielers ist spielbrett[spieler.id];
+     */
+    public String[] Farben = {"blau", "rot", "gruen", "pink", "gelb", "schwarz", "braun"};
 
     
 
@@ -100,7 +106,7 @@ public class Spiel {
     public void SpielStarten() {
         //Spielbrett erzeugen
         log.log(objektname, "Methode SpielStarten() gestartet.");
-        dasSpielbrett = new Spielbrett(log,output);
+        dasSpielbrett = new Spielbrett(log,output,this);
         log.log(objektname, "Methode hat das Spielbrett erzeugt");
         log.log(objektname, "Methode SpielStarten() beendet.");
     }
@@ -182,6 +188,36 @@ public class Spiel {
     
      public SpielbrettAusgabe getoutput() {
         return this.output;
+    }
+     public void spielfigurenVerteilen(){
+     for(Spielfigur i :this.AlleSpielfiguren){
+         if (i != null){
+         i.Spielersetzen(this);}
+     }
+
+     
+     }
+     
+      public int setSpielfigur(Spielfigur dieSpielfigur) {
+        log.log(objektname, "Methode setSpielfigur() gestartet mit Parameter " + dieSpielfigur + " .");
+        int i = 0;
+        while (AlleSpielfiguren[i] != null) {
+            i++;
+        }
+        AlleSpielfiguren[i] = dieSpielfigur;
+        log.log(objektname, "Methode setSpielfigur() beendet.");
+        return i;
+
+    }
+       public int setSpieler(Spieler derSpieler) {
+        log.log(objektname, "Methode setSpielfigur() gestartet mit Parameter " + derSpieler + " .");
+        int i = 0;
+        while (AlleSpieler[i] != null) {
+            i++;
+        }
+        this.AlleSpieler[i] = derSpieler;
+        log.log(objektname, "Methode setSpielfigur() beendet.");
+        return i;
     }
 
 

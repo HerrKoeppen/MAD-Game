@@ -73,6 +73,7 @@ public class Spielfigur {
     private String farbe;
     private Logger log;
     private String objektname;
+    private int Spielerid;
 
     /**
      * boolean, gett an, ob sich Spielfigur bewegen kann oder nicht Zugpflichten
@@ -90,7 +91,8 @@ public class Spielfigur {
      * wird
      * @param spieler die SpielerzugehÃ¶rigkeit
      */
-    public Spielfigur(int id, Feld starterfeld, Spieler derSpieler) {
+    public Spielfigur( Feld starterfeld, int SpielerId ) {
+        this.Spielerid = SpielerId;
         this.startfeld = starterfeld;
         this.positionX = this.startfeld.getPositionX();
         this.positionY = this.startfeld.getPositionY();
@@ -100,17 +102,28 @@ public class Spielfigur {
         this.aufspielfeld = false;
         this.aufstartfeld = true;
         this.aufzielfeld = false;
+        this.aufStandardfeld = false;
+        this.aufzefeld = false;
         this.zugfaehigkeit = false;
-        this.team = derSpieler;
-        this.farbe = this.team.getfarbe();
+        
+
     }
 
-    public Spielfigur(String oname, Logger logger, int id, Feld starterfeld, Spieler derSpieler) {
+    public Spielfigur(String oname, Logger logger, Feld starterfeld, int SpielerId) {
 
-        this(id, starterfeld, derSpieler);
+        this( starterfeld, SpielerId);
         objektname = oname;
         log = logger;
 
+    }
+    
+    public void Spielersetzen(Spiel dasSpiel){
+        if (!(dasSpiel.AlleSpieler[Spielerid] == null)){
+        this.team = dasSpiel.AlleSpieler[Spielerid];
+        this.farbe = this.team.getfarbe();
+        this.team.getSpiel().getoutput().SpielerSetzen(this);
+        this.id = this.team.getSpiel().setSpielfigur(this);
+        }
     }
 
     /**
@@ -214,7 +227,6 @@ public class Spielfigur {
         log.log(objektname, "Methode setzen() gestartet.");
         this.team.getSpiel().getoutput().feldeinfuegen(this.aktfeld);
         this.aktfeld.setIstBesetzt(false);
-        this.team.getSpiel().getoutput().feldeinfuegen(this.aktfeld);
         this.aktfeld = zielfeld;
         this.positionX = this.aktfeld.getPositionX();
         this.positionY = this.aktfeld.getPositionY();
@@ -246,6 +258,7 @@ public class Spielfigur {
             default:
                 break;
         }
+        this.team.getSpiel().getoutput().SpielerSetzen(this);
         this.aktfeld.setIstBesetzt(true);
         log.log(objektname, "Methode setzen() beendet.");
         log.log(objektname, "Methodenrückgabe: " + 0);
@@ -259,9 +272,10 @@ public class Spielfigur {
      */
     public int schlagen(Feld dasFEld) {
         log.log(objektname, "Methode schlagen() gestartet.");
+        dasFEld.getHausbesetzer().zurueckgehen();
         log.log(objektname, "Methodenrückgabe: " + 1);
         log.log(objektname, "Methode schlagen() beendet.");
-        return 1;
+        return 0;
     }
 
     /**
@@ -293,6 +307,23 @@ public class Spielfigur {
      */
     public boolean kannSichBewegen(int felderAnzahl) {
         log.log(objektname, "Methode kannSichBewegen() gestartet mit Parameter " + felderAnzahl + " .");
+        if (this.aufstartfeld) {
+            if ( felderAnzahl == 6){
+                this.zugfaehigkeit = true;
+                return zugfaehigkeit;}
+            this.zugfaehigkeit = false;
+            return this.zugfaehigkeit;
+        }
+        Feld zielfeld = this.aktfeld;
+        for(int i = 0; i > felderAnzahl; i++){
+            zielfeld = this.holpfad();
+            }
+        if(zielfeld.getIstBesetzt() && zielfeld.getHausbesetzer().getFarbe().equals(this.farbe)){
+           this.zugfaehigkeit = false;
+            return this.zugfaehigkeit; 
+        }
+        this.zugfaehigkeit = true;
+
         log.log(objektname, "Methodenrückgabe: " + zugfaehigkeit);
         log.log(objektname, "Methode kannSichBewegen() beendet.");
 
@@ -588,6 +619,12 @@ public class Spielfigur {
         log.log(objektname, "Methodenrückgabe: " + farbe);
         log.log(objektname, "Methode getFarbe() beendet.");
         return farbe;
+    }
+    public Feld getaktFeld() {
+        log.log(objektname, "Methode getFarbe() gestartet.");
+        log.log(objektname, "Methodenrückgabe: " + "Feld " + this.aktfeld.getID());
+        log.log(objektname, "Methode getFarbe() beendet.");
+        return this.aktfeld;
     }
 
     /**

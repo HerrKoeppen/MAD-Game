@@ -31,5 +31,6 @@ public interface Spieler {
     public Feld getzefeld();
     public String getfarbe();
     public Feld getzielfeld();
+    public Spielfigur[] getSpielfiguren();
 
 }
