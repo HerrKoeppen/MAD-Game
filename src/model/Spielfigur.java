@@ -183,7 +183,7 @@ public class Spielfigur {
      * 
      * @return 
      */
-    public Feld holpfad(){
+    public Feld holpfad( Feld Baka ){
         
         /*public String getFeldtyp() {
          if (this.Startfeld){return "Startfeld";} 
@@ -193,31 +193,32 @@ public class Spielfigur {
          if (this.Standardfeld){return "Standardfeld";} 
         */
         log.log(objektname, "Methode holpfad() gestartet.");
-        System.out.println("Figur steht auf dem Feld mit dder id:" + this.feldnummer);
-        System.out.println("Figur dteht auf einem " + this.aktfeld.getFeldtyp());
-        switch(this.aktfeld.getFeldtyp().toLowerCase()){ // bester und elegantester Switch von allen
+ 
+        switch(Baka.getFeldtyp().toLowerCase()){ // bester und elegantester Switch von allen
             case "startfeld":
-                System.out.println("MarkeStartfeld");
                 return this.team.getafeld(); 
             case "zefeld":
-                if(this.team.getzefeld().getID() == this.feldnummer){
+                if(this.team.getzefeld().getID() == Baka.getID()){
                     return this.team.getzielfeld();
                 }
             case "afeld":
             case "standardfeld":
-                if(this.feldnummer == 41){
+            case "standartfeld":
+                if(Baka.getID() == 41){
                 return this.team.getSpiel().getSpielbrett().getFelder().get(0);  
                 }
-                return this.team.getSpiel().getSpielbrett().getFelder().get(this.feldnummer + 1);  
+                return this.team.getSpiel().getSpielbrett().getFelder().get(Baka.getID() + 1);  
             case "zielfeld":
-                if ( this.team.getSpiel().getSpielbrett().getFelder().get(this.feldnummer + 1).getFarbe().equals(this.aktfeld.getFarbe())){
-                    return this.team.getSpiel().getSpielbrett().getFelder().get(this.feldnummer + 1);}   
+                if ( this.team.getSpiel().getSpielbrett().getFelder().get(Baka.getID() + 1).getFarbe().equals(Baka.getFarbe())){
+                    return this.team.getSpiel().getSpielbrett().getFelder().get(Baka.getID() + 1);}   
             default:
-                break;       
+                return this.team.getSpiel().getSpielbrett().getFelder().get(Baka.getID() + 1);}   
+                /**break;       
         } 
-        log.log(objektname, "Methodenrückgabe: " + aktfeld);
+        log.log(objektname, "Methodenrückgabe: " + Baka);
         log.log(objektname, "Methode holpfad() beendet.");
-        return this.aktfeld;  
+        return this.aktfeld; */
+    
     }
     /**
      * 
@@ -228,9 +229,10 @@ public class Spielfigur {
         
         Feld zielfeld = this.aktfeld;
         for(int i = 0; i < augen; i++){
-            zielfeld = this.holpfad();
+            zielfeld = this.holpfad(zielfeld);
+            System.out.println(zielfeld.getID());
         }
-        System.out.println(zielfeld.getID());
+
         if (zielfeld.getIstBesetzt() &&  zielfeld.getHausbesetzer().getFarbe().equals(this.farbe)){
             schlagen(zielfeld);
         }
@@ -344,7 +346,7 @@ public class Spielfigur {
         }
         Feld zielfeld = this.aktfeld;
         for(int i = 0; i > felderAnzahl; i++){
-            zielfeld = this.holpfad();
+            zielfeld = this.holpfad(zielfeld);
             }
         if(zielfeld.getIstBesetzt() && zielfeld.getHausbesetzer().getFarbe().equals(this.farbe)){
            this.zugfaehigkeit = false;
