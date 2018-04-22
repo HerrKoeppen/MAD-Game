@@ -119,7 +119,7 @@ public class Spielbrett {
         Feld standard2 = new Feld(log, "standard2", this, "Standardfeld", 12, 4, "weiss");
         Feld standard3 = new Feld(log, "standard3", this, "Standardfeld", 12, 7, "weiss");
         Feld standard4 = new Feld(log, "standard4", this, "Standardfeld", 15, 6, "weiss");
-        Feld standard5 = new Feld(log, "standard5", this, "Standardfeld", 17, 5, "weiss");
+        Feld standard5 = new Feld(log, "standard5", this, "zeFeld", 17, 5, "weiss");
 
         Feld rotAnfang = new Feld(log, "rotAnfang", this, "Anfangsfeld", 19, 4, "rot"); //
 
@@ -127,7 +127,7 @@ public class Spielbrett {
         Feld standard8 = new Feld(log, "standard8",this, "Standardfeld", 17, 9, "weiss");
         Feld standard9 = new Feld(log, "standard9", this, "Standardfeld", 15, 11, "weiss");
         Feld standard10 = new Feld(log, "standard10", this, "Standardfeld", 17, 12, "weiss");
-        Feld standard11 = new Feld(log, "standard11", this, "Standardfeld", 19, 13, "weiss");
+        Feld standard11 = new Feld(log, "standard11", this, "zeFeld", 19, 13, "weiss");
 
         Feld gruenAnfang = new Feld(log, "gruenAnfang", this, "Anfangsfeld", 20, 15, "cyan");
 
@@ -135,7 +135,7 @@ public class Spielbrett {
         Feld standard14 = new Feld(log, "standard14", this, "Standardfeld", 16, 16, "weiss");
         Feld standard15 = new Feld(log, "standard15", this, "Standardfeld", 14, 16, "weiss");
         Feld standard16 = new Feld(log, "standard16", this, "Standardfeld", 14, 19, "weiss");
-        Feld standard17 = new Feld(log, "standard17", this, "Standardfeld", 14, 21, "weiss");
+        Feld standard17 = new Feld(log, "standard17", this, "zeFeld", 14, 21, "weiss");
 
         Feld pinkAnfang = new Feld(log, "pinkAnfang", this, "Anfangsfeld", 14, 24, "pink");
 
@@ -143,7 +143,7 @@ public class Spielbrett {
         Feld standard20 = new Feld(log, "standard120", this, "Standardfeld", 11, 20, "weiss");
         Feld standard21 = new Feld(log, "standard21", this, "Standardfeld", 10, 18, "weiss");
         Feld standard22 = new Feld(log, "standard22", this, "Standardfeld", 9, 20, "weiss");
-        Feld standard23 = new Feld(log, "standard23", this, "Standardfeld", 8, 22, "weiss");
+        Feld standard23 = new Feld(log, "standard23", this, "zeFeld", 8, 22, "weiss");
 
         Feld gelbAnfang = new Feld(log, "gelbAnfang", this, "Anfangsfeld", 6, 24, "gelb");
 
@@ -151,7 +151,7 @@ public class Spielbrett {
         Feld standard26 = new Feld(log, "standard26", this, "Standardfeld", 6, 19, "weiss");
         Feld standard27 = new Feld(log, "standard27", this, "Standardfeld", 6, 16, "weiss");
         Feld standard28 = new Feld(log, "standard28", this, "Standardfeld", 4, 16, "weiss");
-        Feld standard29 = new Feld(log, "standard29", this, "Standardfeld", 2, 16, "weiss");
+        Feld standard29 = new Feld(log, "standard29", this, "zeFeld", 2, 16, "weiss");
 
         Feld schwarzAnfang = new Feld(log, "schwarzAnfang", this, "Anfangsfeld", 0, 15, "schwarz");
 
@@ -159,7 +159,7 @@ public class Spielbrett {
         Feld standard32 = new Feld(log, "standard32", this, "Standardfeld", 3, 12, "weiss");
         Feld standard33 = new Feld(log, "standard33", this, "Standardfeld", 5, 11, "weiss");
         Feld standard34 = new Feld(log, "standard34", this, "Standardfeld", 3, 9, "weiss");
-        Feld standard35 = new Feld(log, "standard35", this, "Standardfeld", 2, 7, "weiss");
+        Feld standard35 = new Feld(log, "standard35", this, "zeFeld", 2, 7, "weiss");
 
         Feld braunAnfang = new Feld(log, "braunAnfang", this, "Anfangsfeld", 1, 4, "orange");
 
@@ -167,7 +167,7 @@ public class Spielbrett {
         Feld standard38 = new Feld(log, "standard38", this, "Standardfeld", 5, 6, "weiss");
         Feld standard39 = new Feld(log, "standard39", this, "Standardfeld", 8, 7, "weiss");
         Feld standard40 = new Feld(log, "standard40", this, "Standardfeld", 8, 4, "weiss");
-        Feld standard41 = new Feld(log, "standard41", this, "Standardfeld", 9, 2, "weiss");
+        Feld standard41 = new Feld(log, "standard41", this, "zeFeld", 9, 2, "weiss");
         
         //erzeugt Zielfelder von blau
         Feld blauZiel1 = new Feld(log, "blauZiel1", this, "Zielfeld", 10, 3, "blau");

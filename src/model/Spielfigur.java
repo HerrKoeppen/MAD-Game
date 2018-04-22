@@ -184,21 +184,32 @@ public class Spielfigur {
      * @return 
      */
     public Feld holpfad(){
+        
+        /*public String getFeldtyp() {
+         if (this.Startfeld){return "Startfeld";} 
+         if (this.eFeld){return "zeFeld";} 
+         if (this.aFeld){return "aFeld";} 
+         if (this.Zielfeld){return "Zielfeld";} 
+         if (this.Standardfeld){return "Standardfeld";} 
+        */
         log.log(objektname, "Methode holpfad() gestartet.");
-        switch (this.aktfeld.getFeldtyp().toLowerCase()) { // bester und elegantester Switch von allen
-            case "Startfeld":
+        System.out.println("Figur steht auf dem Feld mit dder id:" + this.feldnummer);
+        System.out.println("Figur dteht auf einem " + this.aktfeld.getFeldtyp());
+        switch(this.aktfeld.getFeldtyp().toLowerCase()){ // bester und elegantester Switch von allen
+            case "startfeld":
+                System.out.println("MarkeStartfeld");
                 return this.team.getafeld(); 
             case "zefeld":
                 if(this.team.getzefeld().getID() == this.feldnummer){
                     return this.team.getzielfeld();
                 }
-            case "aFeld":
-            case "Standardfeld":
+            case "afeld":
+            case "standardfeld":
                 if(this.feldnummer == 41){
                 return this.team.getSpiel().getSpielbrett().getFelder().get(0);  
                 }
                 return this.team.getSpiel().getSpielbrett().getFelder().get(this.feldnummer + 1);  
-            case "Zielfeld":
+            case "zielfeld":
                 if ( this.team.getSpiel().getSpielbrett().getFelder().get(this.feldnummer + 1).getFarbe().equals(this.aktfeld.getFarbe())){
                     return this.team.getSpiel().getSpielbrett().getFelder().get(this.feldnummer + 1);}   
             default:
@@ -214,17 +225,15 @@ public class Spielfigur {
      * @return 
      */
     public int laufen(int augen){
-        Feld backup = this.aktfeld;
         
         Feld zielfeld = this.aktfeld;
         for(int i = 0; i < augen; i++){
             zielfeld = this.holpfad();
         }
         System.out.println(zielfeld.getID());
-        if (zielfeld.getIstBesetzt()){
-            if (zielfeld.getHausbesetzer().getFarbe().equals(this.farbe)){
+        if (zielfeld.getIstBesetzt() &&  zielfeld.getHausbesetzer().getFarbe().equals(this.farbe)){
             schlagen(zielfeld);
-        }}
+        }
         this.setzten(zielfeld);
         return 0;
     }
@@ -252,23 +261,23 @@ public class Spielfigur {
         this.aufstartfeld = false;
         this.aufzielfeld = false;
         switch (this.aktfeld.getFeldtyp().toLowerCase()) { // sehr netter Switch der den Typ des Feldes festlegt
-            case "Startfeld":
+            case "startfeld":
                 this.aufstartfeld = true;
                 break;
-            case "aFeld":
+            case "afeld":
                 this.aufspielfeld = true;
                 this.aufafeld = true;
                 break;
-            case "Zielfeld":
+            case "zielfeld":
                 this.aufspielfeld = true;
                 this.aufzielfeld = true;
                 break;
-            case "Standartfeld":
+            case "standartfeld":
                 this.aufspielfeld = true;
                 this.aufStandardfeld = true;
                 break;
-            case "eFeld":
-            case "zeFeld":
+            case "efeld":
+            case "zefeld":
                 this.aufzefeld = true;
                 this.aufspielfeld = true;
                 break;
@@ -290,7 +299,8 @@ public class Spielfigur {
      */
     public int schlagen(Feld dasFEld) {
         log.log(objektname, "Methode schlagen() gestartet.");
-        dasFEld.getHausbesetzer().zurueckgehen();
+        if (dasFEld.getHausbesetzer() != null){
+        dasFEld.getHausbesetzer().zurueckgehen();}
         log.log(objektname, "Methodenrückgabe: " + 1);
         log.log(objektname, "Methode schlagen() beendet.");
         return 0;

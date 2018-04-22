@@ -159,29 +159,26 @@ public class SpielbrettAusgabe {
     switch (dasFeld.getFeldtyp().toLowerCase()) { // sehr netter Switch der den Typ des Feldes festlegt
             case "start":
             case "startfeld":
-            case "Startfeld":
+            case "sfeld":
                 Caption = "";
                 break;
             case "a":
             case "afeld":
-            case "Afeld":
-            case "A-Feld":
-            case "Anfangsfeld":
+            case "a-feld":
             case "anfangsfeld":
                 Caption = "";
                 break;
             case "ziel":
-            case "Zielfeld":
+            case "zfeld":
             case "zielfeld":
                 Caption = "";
                 break;
             case "standart":
             case "standartfeld":
-            case "Standartfeld":
+            case "standardfeld":
                 Caption = "";
                 break;
-            case "eFeld":
-            case "zeFeld":
+            case "efeld":
             case "zefeld":
                 Caption = "";
                 break;
@@ -465,12 +462,14 @@ public class SpielbrettAusgabe {
      test.AlleSpielfiguren[0].herauskommen();
      test.output.spielAusgabe();
      test.output.wuerfelausgeben(1);
-    /*
-     for( int a = 0; a< 8; a++){
-         test.getWuerfel().wuerfeln();
-        //test.AlleSpielfiguren[0].laufen(test.getWuerfel().wuerfeln());
-     test.output.spielAusgabe();}
-     */
+    
+     for( int a = 0; a< 8 ; a++){
+        test.getWuerfel().wuerfeln();
+        test.AlleSpielfiguren[0].laufen(test.getWuerfel().wuerfeln());
+        test.output.spielAusgabe();}
+     
+    
+     /*
      test.AlleSpielfiguren[3].setzten(test.getSpielbrett().getFelder().get(7));
      test.output.spielAusgabe();
      test.AlleSpielfiguren[0].setzten(test.getSpielbrett().getFelder().get(3));
@@ -481,14 +480,6 @@ public class SpielbrettAusgabe {
      test.AlleSpielfiguren[0].setzten(test.getSpielbrett().getFelder().get(7));
      test.output.spielAusgabe();
 
-     
-     /*
-     Logger log = new Logger("SherLog.txt");
-     Spiel test = new Spiel(log,"testSpiel",0);
-     SpielbrettAusgabe nyan = new SpielbrettAusgabe(test, log,"nyanya");
-     // public Wuerfel(Logger logger, String name, int wuerfelmin, int wuerfelmax, SpielbrettAusgabe out) {
-     Wuerfel paul = new Wuerfel(log,"paul",1,6,nyan);
-     paul.wuerfeln();
      */
      
      

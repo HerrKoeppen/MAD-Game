@@ -109,34 +109,29 @@ public class Feld {
         switch (feldart.toLowerCase()) { // sehr netter Switch der den Typ des Feldes festlegt
             case "start":
             case "startfeld":
-            case "Startfeld":
                 this.Startfeld = true;
                 break;
             case "a":
             case "afeld":
-            case "Afeld":
-            case "A-Feld":
-            case "Anfangsfeld":
+            case "a-feld":
             case "anfangsfeld":
                 this.aFeld = true;
                 this.imSpielkreis = true;
                 dasspielbrett.kreisfeldhinzufuegen(this);
                 break;
             case "ziel":
-            case "Zielfeld":
             case "zielfeld":
                 this.Zielfeld = true;
                 break;
             case "standart":
             case "standartfeld":
-            case "Standartfeld":
                 this.Standardfeld = true;
                 this.imSpielkreis = true;
                 dasspielbrett.kreisfeldhinzufuegen(this);
                 break;
-            case "eFeld":
-            case "zeFeld":
-            case "Zieleintrittsfeld":
+            case "efeld":
+            case "zefeld":
+            case "zieleintrittsfeld":
                 this.eFeld = true;
                 this.imSpielkreis = true;
                 dasspielbrett.kreisfeldhinzufuegen(this);
