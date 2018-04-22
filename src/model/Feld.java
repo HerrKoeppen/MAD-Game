@@ -151,9 +151,9 @@ public class Feld {
      * @return id
      */
     public int getID() {
-        log.log(objektname,"Methode gibID() gestartet.");
+        log.log(objektname,"Methode getID() gestartet.");
         log.log(objektname,"Methodenrückgabe: "+id);
-        log.log(objektname,"Methode gibID() beendet.");
+        log.log(objektname,"Methode getID() beendet.");
         return id;
     }
 
@@ -163,9 +163,9 @@ public class Feld {
      * @return positionX
      */
     public int getPositionX() {
-        log.log(objektname,"Methode gibPositionX() gestartet.");
+        log.log(objektname,"Methode getPositionX() gestartet.");
         log.log(objektname,"Methodenrückgabe: "+positionX);
-        log.log(objektname,"Methode gibPositionX() beendet.");
+        log.log(objektname,"Methode getPositionX() beendet.");
         return positionX;
     }
     /**
@@ -174,9 +174,9 @@ public class Feld {
      * @return positionX
      */
     public boolean getImSpielkreis() {
-        log.log(objektname,"Methode gibPositionX() gestartet.");
+        log.log(objektname,"Methode getPositionX() gestartet.");
         log.log(objektname,"Methodenrückgabe: "+this.imSpielkreis);
-        log.log(objektname,"Methode gibPositionX() beendet.");
+        log.log(objektname,"Methode getPositionX() beendet.");
         return this.imSpielkreis;
     }
 
@@ -186,9 +186,9 @@ public class Feld {
      * @return positionY
      */
     public int getPositionY() {
-        log.log(objektname,"Methode gibPositionY() gestartet.");
+        log.log(objektname,"Methode getPositionY() gestartet.");
         log.log(objektname,"Methodenrückgabe: "+positionY);
-        log.log(objektname,"Methode gibPositionY() beendet.");
+        log.log(objektname,"Methode getPositionY() beendet.");
         return positionY;
     }
     /**

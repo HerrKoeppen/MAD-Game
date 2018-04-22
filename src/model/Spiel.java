@@ -39,10 +39,10 @@ public class Spiel {
     public SpielbrettAusgabe output;
     /**
      * array mit allen moeglichen farben, die reinfolge ist folgende: Blau, Rot,
-     * GrÃ¼n, Pink, Gelb, Schwarz, Braun und wird bei allen möglichen funktionen
+     * GrÃ¼n, Pink, Gelb, Schwarz, Tuerkis und wird bei allen möglichen funktionen
      * so übernommen die farbe eines spielers ist spielbrett[spieler.id];
      */
-    public final String[] Farben = {"blau", "rot", "gruen", "pink", "gelb", "schwarz", "braun"};
+    public final String[] Farben = {"blau", "rot", "gruen", "pink", "gelb", "schwarz", "tuerkis"};
 
     
 
@@ -103,7 +103,7 @@ public class Spiel {
      * AlleSpielfiguren 2.Die Spielfiguren werden wie folgt mit Farben belegt
      * und den Spielern zugeordnet: 1-4 Blau (Spieler 1) 5-8 Rot (SP 2) 9-12
      * GrÃ¼n (SP 3) 13-16 Pink (SP 4) 17-20 Gelb (SP 5) 21-24 Schwarz(SP 7)
-     * 25-28 Braun(SP 8)
+     * 25-28 Tuerkis(SP 8)
      */
     public void SpielStarten() {
         //Spielbrett erzeugen

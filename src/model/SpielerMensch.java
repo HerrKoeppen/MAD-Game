@@ -61,7 +61,7 @@ public class SpielerMensch implements Spieler {
     this.dasSpiel = dasspiel;
     this.id = this.dasSpiel.setSpieler(this);
     this.Farbe = this.dasSpiel.Farben[id];
-    log.log(objektname, "Spieler hat die FArbe: " + Farbe);
+    log.log(objektname, "Spieler hat die Farbe: " + Farbe);
 
 
         switch (Farbe.toLowerCase()) { // sehr uneleganter Switch: nochmal überarbeiten!!!!!!!
@@ -75,7 +75,7 @@ public class SpielerMensch implements Spieler {
                 this.zeFeld = this.dasSpiel.getSpielbrett().getFelder().get(5);
                 this.zielfeld = this.dasSpiel.getSpielbrett().getFelder().get(45);
                 break;
-            case "cyan":
+            case "gruen":
                 this.aFeld = this.dasSpiel.getSpielbrett().getFelder().get(12);
                 this.zeFeld = this.dasSpiel.getSpielbrett().getFelder().get(11);
                 this.zielfeld = this.dasSpiel.getSpielbrett().getFelder().get(48);
@@ -95,8 +95,7 @@ public class SpielerMensch implements Spieler {
                 this.zeFeld = this.dasSpiel.getSpielbrett().getFelder().get(29);
                 this.zielfeld = this.dasSpiel.getSpielbrett().getFelder().get(57);
                 break;
-            case "orange":
-            case "braun":
+            case "tuerkis":
                 this.aFeld = this.dasSpiel.getSpielbrett().getFelder().get(36);
                 this.zeFeld = this.dasSpiel.getSpielbrett().getFelder().get(35);
                 this.zielfeld = this.dasSpiel.getSpielbrett().getFelder().get(60);
@@ -127,7 +126,7 @@ public class SpielerMensch implements Spieler {
         log.log(objektname, "Spieler hat die Spielfiguren:" + Figuren);
         //System.out.println(Figuren);
         }
-        log.log(objektname, "Methode SpielrMensch() beendet.");
+        log.log(objektname, "Methode SpielerMensch() beendet.");
     
     }
     
