@@ -105,9 +105,11 @@ public class Spielbrett {
      *
      */
     public Spielbrett(Logger logger, SpielbrettAusgabe derOutput , Spiel dasspiel, String oname) {
+        
         this.objektname = oname;
-        log = logger;
+        log = logger; 
         log.log(objektname, "Konstrucktor Spielbrett() gestartet mit Parameter " + oname + " .");
+        log.deactivate();
         dasSpiel = dasspiel;
         this.Output = derOutput;
          
@@ -227,7 +229,7 @@ public class Spielbrett {
         Feld braunStart3 = new Feld(log, "braunStart3", this, "Startfeld", 6, 3, "braun");
 
         //public Spielfigur(String oname, Logger logger, Feld starterfeld, Spieler derSpieler) {
-        
+        log.activate();
         Spielfigur Blau1 = new Spielfigur("Blau1",log, blauStart1 , 0, dasspiel);
         Spielfigur Blau2 = new Spielfigur("Blau2",log, blauStart2 , 0, dasspiel);
         Spielfigur Blau3 = new Spielfigur("Blau3",log, blauStart3 , 0, dasspiel);
@@ -258,6 +260,10 @@ public class Spielbrett {
         Spielfigur Orange2 = new Spielfigur("Orange2",log, gruenStart2 , 6, dasspiel);
         Spielfigur Orange3 = new Spielfigur("Orange3",log, gruenStart3 , 6, dasspiel);
        
+        //public Wuerfel(Logger logger, String name, int wuerfelmin, int wuerfelmax, SpielbrettAusgabe out) {
+        
+        Wuerfel derWuerfel = new Wuerfel(log,"Wuerfel",1,6,this.Output);
+        this.dasSpiel.setWuerfel(derWuerfel);
         log.log(objektname, "Methode Spielbrett() beendet.");
         
         

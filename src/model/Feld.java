@@ -252,6 +252,7 @@ public class Feld {
     }
     
     
+    
      /**
      * @return the farbe
      */

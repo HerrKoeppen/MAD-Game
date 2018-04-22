@@ -18,8 +18,8 @@ public class Wuerfel {
     /**
      * name des objekts fuer den log
      */
-    String objektname;
-    Logger log;
+    private String objektname;
+    private Logger log;
     /**
      * ist die aktuelle Augenzahl des Wuerfels
      */
@@ -32,6 +32,7 @@ public class Wuerfel {
      * ist die hoechstmoegliche Augenzahl
      */
     private int max;
+    private SpielbrettAusgabe output;
 
     /**
      * kostruktor:erzeugt ein Objekt der klasse wuerfel
@@ -39,8 +40,8 @@ public class Wuerfel {
      * @param wuerfelmin:integer die niedrigste Augenzahl
      * @param wuerfelmax:integer ist die hÃ¶chstmÃ¶gliche Augenzahl
      */
-    public Wuerfel(int wuerfelmin, int wuerfelmax) {
-        
+    public Wuerfel(int wuerfelmin, int wuerfelmax, SpielbrettAusgabe out) {
+        this.output = out;
         min = wuerfelmin;
         max = wuerfelmax;
     }
@@ -51,7 +52,8 @@ public class Wuerfel {
      * @param wuerfelmin die niedrigste Augenzahl
      * @param wuerfelmax ist die hoechstmoegliche Augenzahl
      */
-    public Wuerfel(Logger logger, String name, int wuerfelmin, int wuerfelmax) {
+    public Wuerfel(Logger logger, String name, int wuerfelmin, int wuerfelmax, SpielbrettAusgabe out) {
+        this.output = out;
         objektname = name;
         log = logger;
         min = wuerfelmin;
@@ -78,9 +80,12 @@ public class Wuerfel {
      */
     public int wuerfeln() {
         log.log(objektname, "Start der Methode wuerfeln().");
+        int augen = 0;
         Random rand = new Random();
-        int augen = rand.nextInt((max - min) + 1) + min;
-        dieZahl = augen;
+        augen = rand.nextInt((max - min) + 1) + min;
+        this.dieZahl = augen;
+        System.out.println(augen);
+        this.output.wuerfelausgeben(augen);
         log.log(objektname, "Augenzahl " + augen + " gewuerfelt.");
         log.log(objektname, "Methode wuerfeln() beendet.");
 
@@ -106,13 +111,5 @@ public class Wuerfel {
         return objektname;
     }
 
-    public static void main(String args[]) {
-        Logger myLogger = new Logger();
-        Wuerfel w1 = new Wuerfel(myLogger,"w1", 1, 6);
-        for (int i = 0; i < 50; i++) {
-            w1.wuerfeln();
-        }
-        myLogger.logBeenden();
-    }
-
+    
 }

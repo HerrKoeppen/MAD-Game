@@ -183,6 +183,10 @@ public class Spiel {
     public Wuerfel getWuerfel(){
     return derWuerfel;
     }
+    
+    public void setWuerfel(Wuerfel ww){
+    this.derWuerfel = ww;
+    }
 
     public Spielbrett getSpielbrett() {
         return dasSpielbrett;

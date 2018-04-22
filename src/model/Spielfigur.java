@@ -189,15 +189,18 @@ public class Spielfigur {
             case "Startfeld":
                 return this.team.getafeld(); 
             case "zefeld":
-                if(this.team.getzefeld().equals(this.aktfeld)){
+                if(this.team.getzefeld().getID() == this.feldnummer){
                     return this.team.getzielfeld();
                 }
             case "aFeld":
             case "Standardfeld":
-                return this.team.getSpiel().getSpielbrett().getFelder().get(this.aktfeld.getID() + 1);  
+                if(this.feldnummer == 41){
+                return this.team.getSpiel().getSpielbrett().getFelder().get(0);  
+                }
+                return this.team.getSpiel().getSpielbrett().getFelder().get(this.feldnummer + 1);  
             case "Zielfeld":
-                if (this.team.getSpiel().getSpielbrett().getFelder().get(this.aktfeld.getID() + 1).getFarbe().equals(this.aktfeld.getFarbe())){
-                    return this.team.getSpiel().getSpielbrett().getFelder().get(this.aktfeld.getID() + 1);}   
+                if ( this.team.getSpiel().getSpielbrett().getFelder().get(this.feldnummer + 1).getFarbe().equals(this.aktfeld.getFarbe())){
+                    return this.team.getSpiel().getSpielbrett().getFelder().get(this.feldnummer + 1);}   
             default:
                 break;       
         } 
@@ -213,13 +216,15 @@ public class Spielfigur {
     public int laufen(int augen){
         Feld backup = this.aktfeld;
         
-        if (this.team.getSpiel().getSpielbrett().getFelder().get((aktfeld.getID() + augen)).getImSpielkreis() && !this.team.getSpiel().getSpielbrett().getFelder().get((aktfeld.getID() + augen)).getHausbesetzer().getFarbe().equals(this.farbe)){
-        this.schlagen(this.team.getSpiel().getSpielbrett().getFelder().get((aktfeld.getID() + augen)));
-        }
         Feld zielfeld = this.aktfeld;
-        for(int i = 0; i > augen; i++){
+        for(int i = 0; i < augen; i++){
             zielfeld = this.holpfad();
-            }
+        }
+        System.out.println(zielfeld.getID());
+        if (zielfeld.getIstBesetzt()){
+            if (zielfeld.getHausbesetzer().getFarbe().equals(this.farbe)){
+            schlagen(zielfeld);
+        }}
         this.setzten(zielfeld);
         return 0;
     }
