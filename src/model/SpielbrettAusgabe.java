@@ -457,16 +457,22 @@ public class SpielbrettAusgabe {
      Spieler tester5 = new SpielerMensch("Dave",log,test);
      Spieler tester6 = new SpielerMensch("Fynnia",log,test);
      Spieler tester7 = new SpielerMensch("Gargamel",log,test);
-     test.output.SpielerSetzen(tester.getSpielfiguren()[1]);
+  
      test.output.spielAusgabe();
-     test.AlleSpielfiguren[0].herauskommen();
-     test.output.spielAusgabe();
-     test.output.wuerfelausgeben(1);
-    
-     for( int a = 0; a< 8 ; a++){
-        test.getWuerfel().wuerfeln();
+
+    /**
+     for( int a = 0; a // 16 ; a++){
         test.AlleSpielfiguren[0].laufen(test.getWuerfel().wuerfeln());
-        test.output.spielAusgabe();}
+        test.output.spielAusgabe();
+        test.AlleSpielfiguren[3].laufen(test.getWuerfel().wuerfeln());
+        test.output.spielAusgabe();
+    /*       test.AlleSpielfiguren[6].laufen(test.getWuerfel().wuerfeln());
+        test.output.spielAusgabe();
+        test.AlleSpielfiguren[9].laufen(test.getWuerfel().wuerfeln());
+        test.output.spielAusgabe();
+        test.AlleSpielfiguren[12].laufen(test.getWuerfel().wuerfeln());
+        test.output.spielAusgabe();*/
+     }
      
     
      /*
@@ -484,5 +490,5 @@ public class SpielbrettAusgabe {
      
      
      }
-}
+
     
