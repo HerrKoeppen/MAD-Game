@@ -80,12 +80,12 @@ public class SpielerMensch implements Spieler {
                 this.zeFeld = this.dasSpiel.getSpielbrett().getFelder().get(11);
                 this.zielfeld = this.dasSpiel.getSpielbrett().getFelder().get(48);
                 break;
-            case "gelb":
+            case "pink":
                 this.aFeld = this.dasSpiel.getSpielbrett().getFelder().get(18);
                 this.zeFeld = this.dasSpiel.getSpielbrett().getFelder().get(17);
                 this.zielfeld = this.dasSpiel.getSpielbrett().getFelder().get(51);
                 break;
-            case "pink":
+            case "gelb":
                 this.aFeld = this.dasSpiel.getSpielbrett().getFelder().get(24);
                 this.zeFeld = this.dasSpiel.getSpielbrett().getFelder().get(23);
                 this.zielfeld = this.dasSpiel.getSpielbrett().getFelder().get(54);

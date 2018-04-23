@@ -203,23 +203,24 @@ public class Spielfigur {
                 }
             case "afeld":
             case "standardfeld":
-            case "standartfeld":
                 if(Baka.getID() == 41){
                 return this.team.getSpiel().getSpielbrett().getFelder().get(0);  
                 }
                 return this.team.getSpiel().getSpielbrett().getFelder().get(Baka.getID() + 1);  
             case "zielfeld":
                 if ( this.team.getSpiel().getSpielbrett().getFelder().get(Baka.getID() + 1).getFarbe().equals(Baka.getFarbe())){
-                    return this.team.getSpiel().getSpielbrett().getFelder().get(Baka.getID() + 1);}   
+                    return this.team.getSpiel().getSpielbrett().getFelder().get(Baka.getID() + 1);} 
+                return this.aktfeld;
             default:
                System.out.println("Error: Holpfad()-Switch hat mal wieder nicht angeschlagen");
-                return this.team.getSpiel().getSpielbrett().getFelder().get(Baka.getID() + 1);}   
+               return this.aktfeld;}   
                 /**break;       
         } 
         log.log(objektname, "Methodenrückgabe: " + Baka);
         log.log(objektname, "Methode holpfad() beendet.");
         return this.aktfeld; */
     
+  
     }
     /**
      * 
@@ -231,7 +232,6 @@ public class Spielfigur {
         Feld zielfeld = this.aktfeld;
         for(int i = 0; i < augen; i++){
             zielfeld = this.holpfad(zielfeld);
-            System.out.println(zielfeld.getID());
         }
 
         if (zielfeld.getIstBesetzt() &&  zielfeld.getHausbesetzer().getFarbe().equals(this.farbe)){
@@ -275,7 +275,7 @@ public class Spielfigur {
                 this.aufspielfeld = true;
                 this.aufzielfeld = true;
                 break;
-            case "standartfeld":
+            case "standardfeld":
                 this.aufspielfeld = true;
                 this.aufStandardfeld = true;
                 break;

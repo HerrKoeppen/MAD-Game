@@ -1,4 +1,4 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -105,7 +105,6 @@ public class Feld {
         this.Startfeld = false;
         this.Zielfeld = false;
         this.aFeld = false;
-
         switch (feldart.toLowerCase()) { // sehr netter Switch der den Typ des Feldes festlegt
             case "start":
             case "startfeld":
@@ -123,8 +122,9 @@ public class Feld {
             case "zielfeld":
                 this.Zielfeld = true;
                 break;
-            case "standart":
-            case "standartfeld":
+            case "standard":
+            case "Standardfeld":
+             case "standardfeld":
                 this.Standardfeld = true;
                 this.imSpielkreis = true;
                 dasspielbrett.kreisfeldhinzufuegen(this);

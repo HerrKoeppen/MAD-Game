@@ -7,10 +7,60 @@ import java.util.Random;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+/*                      ss    ::sa                  
+ *        ca::    ss        ws    ::    ys          
+ *        ::  ::we    ss  ::  sz  we        ys      
+ *          wscz  ::ws    ws      ::    ys          
+ *    cs    ::        ::  ::  sz  ws                
+ *            ws  cz    ws        ::                
+ *  cs  cs    ::              sz  ws::::ws::ws::::ya
+ *              ::    cz                    yz  ::  
+ *      ::ws::::ws                  yz  yz  ::we    
+ *  ::we                                  ws      ps
+ *ba    bz  bz  bz                    ws::    ps    
+ *  ::ws                                  ws      ps
+ *      ::ws::::ws                  pz  pz  ::ws    
+ *              ::    rz                    pz  ::  
+ *  bs  bs    ::              gz  ws::::ws::we::::pa
+ *            ws  rz    ws        ::                
+ *    bs    ::        ::  ::  gz  ws                
+ *          werz  ::ws    ws      ::    gs          
+ *        ::  ::ws    rs  ::  gz  ws        gs      
+ *        ra::    rs        we    ::    gs          
+ *                     rs    ::ga           
+ *                                                                      @Johanna
+ */
 /**
- * Beste KLasse der Weld super legitim und so 
- * need more Space.
+ * Klasse SpielbrettAusgabe
+ * Diese Klasse erzeugt eine einfache ANSI-Ausgabe des Spielbrettes im Output
+ * 
+ * Was ist ANSI?
+ *      
+ *      ANSI steht fuer A merican N national S tandards I nstitute
+ *      ANSI-Zeichencode ist eine erweiterung von ASCII (7 bits -> 128 zeichen)
+ *      und umfaesst 256 zeichen (8bit). 
+ *      
+ *      (Heutzutage beruft man sich eher auf den ISO Standard 8859-1, wobei 
+ *      dieser nicht deckungsgleich ist, weshalb sich ANSI zumindestens bei
+ *      Windows-usern haelt)
+ * 
+ * 
+ * 
+ * Was ist eine ANSI-Escape-Sequenz?
+ * 
+ *      Schon im damaligen 7-bit system gab es steuersequenzen(im Bereich dez(0-31))
+ *      bekannt als C0-Steuerzeichen. Mit dem 8-bit system kam  auch eine 
+ *      Erweiterung dieser Steuerzeichen, bekannt als C1-Steuerzeichen bzw.
+ *      wurden Befehle über Steuersequenzen hinzugefügt, da der Platz noch 
+ *      immer recht knapp war.(sie konnten also aus mehreren Zeichen bestehen)
+ *      diese waren, jedoch nicht mehr mit den 7-bit system kompatieble.
+ *      Darum gibt es die ANSI-Escape-Commands.Zu fast jedem C1 befehl 
+ *      gibt es  
+ *      heißen diese, da sie mit einem Escapezeichen eingeleitet werden
+ * 
+ * 
+ *  
+        
  * @author Commander
  */
 public class SpielbrettAusgabe {
@@ -26,6 +76,15 @@ public class SpielbrettAusgabe {
     private static final String ANSI_fPurpel = "\u001B[35m";
     private static final String ANSI_fCyan = "\u001B[36m";
     private static final String ANSI_fWhite = "\u001B[37m";
+    
+    private static final String ANSI_fbBlack = "\u001B[30;1m"; 
+    private static final String ANSI_fbRed = "\u001B[31;1m";
+    private static final String ANSI_fbGreen = "\u001B[32;1m";
+    private static final String ANSI_fbYellow = "\u001B[33;1m";
+    private static final String ANSI_fbBlue = "\u001B[34;1m";
+    private static final String ANSI_fbPurpel = "\u001B[35;1m";
+    private static final String ANSI_fbCyan = "\u001B[36;1m";
+    private static final String ANSI_fbWhite = "\u001B[37;1m";
    
     private static final String ANSI_bWhite = "\u001B[40m"; 
     private static final String ANSI_bRed = "\u001B[41m";
@@ -36,82 +95,33 @@ public class SpielbrettAusgabe {
     private static final String ANSI_bCyan = "\u001B[46m";
     private static final String ANSI_bGrey = "\u001B[47m";
     
-    private final String[] fColor = { ANSI_fBlue, ANSI_fRed, ANSI_fCyan, ANSI_fPurpel, ANSI_fYellow, ANSI_fGreen, ANSI_fWhite, ANSI_fBlack };
     
-    private static final int groesseX = 21 ; 
-    private static final int groesseY = 25 ;
-    
+    private final String[] fColor = { ANSI_fBlue, ANSI_fRed, ANSI_fCyan, ANSI_fPurpel, ANSI_fYellow, ANSI_fGreen, ANSI_fbBlue, ANSI_fbRed, ANSI_fbCyan, ANSI_fbPurpel, ANSI_fbYellow, ANSI_fbGreen, ANSI_fbWhite, ANSI_fbBlack };
+    /**
+     * groesseX ist eine Konstante (darum final) die die Elementanzahl der Array
+     * AnsiSpielbrett[] und somit die Zeilen des Spielbrett bzw. die höhe bestimmt  
+     */
+    private final int groesseX = 21 ; 
+    /**
+     * groesseX ist eine Konstante (darum final) die die Elementanzahl der Array
+     * AnsiSpielbrett[] und somit die Zeilen des Spielbrett bzw. die höhe bestimmt
+     * 
+     * @see AnsiSpielbrett[][]
+     */
+    private final int groesseY = 25 ;
+    /**
+     * hallo
+     */
     private String[][] AnsiSpielbrett = new String[groesseX][groesseY];
     public boolean Ansiausgabean ;
     Logger log;
     private Spiel dasSpiel;
     private String objektname;
     
-            
-    
-          /**| a| b| c| d| e| f| g| h| i| j| k| l| m| n| o| p| q| r| s| t| u| v| 
-     * | 1|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  
-     * | 2|  |  |  |  |  |  |  |  |  |  |  |AB|  |  |  |  |  |  |  |  |  |  |  
-     * | 3|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 
-     * | 4|  |  |  |  |  |  |  |  |  |  |SW|  |SW|  |  |  |  |  |  |  |  |  | 
-     * | 5|  |  |  |  |  |  |  |  |. |. |. |. |. |. |. |. |. |. |. |. |. |. | 
-     * | 6|. |. |AB|. |. |. |. |. |. |SW|. |. |. |SW|. |. |. |..|. |. |AR|. | 
-     * | 7|. |. |. |. |SW|. |. |. |. |. |. |. |. |. |. |. |. |. |SW|. |. |. | 
-     * | 8|. |. |..|. |..|. |SW|. |. |. |. |. |. |. |. |. |SW|. |. |. |. |. | 
-     * | 9|. |. |. |SW|. |. |. |. |. |SW|. |. |..|SW|. |. |. |. |. |SW|. |. | 
-     * |10|. |. |. |. |. |. |. |. |. |. |. |. |. |. |. |. |. |. |. |. |. |. | 
-     * |11|. |. |. |. |SW|. |. |. |. |. |. |. |. |. |. |. |. |. |SW|. |. |. | 
-     * |12|. |. |. |. |. |. |. |. |. |..| .|. |. |. |. |. |. |. |. |. |. |. | 
-     * |13|. |. |. |. |. |. |SW|. |. |. |. |. |. |. |. |. |SW|. |. |. |..|. | 
-     * |14|. |. |. |. |SW|. |. |. |. |. |. |. |. | .| .| .| .| .|SW| .| .|. | 
-     * |15|. |. |SW|. |. |..|. |. |. | .| .| .|. |. |. |. |. |. |. | .|SW| .| 
-     * |16|. |AS|. |. |. |. |. |. |. |. | .| .| .| .| .|. |..| .| .| .|. |AG| 
-     * |17|. |. | .| .|. |. | .| .| .| .| .| .| .| .| .| .| .|. | .| .| .|. | 
-     * |18|. |. |..|SW|. |SW|. |SW|. | .|. |. |. |. |. |SW|. |SW|. |SW|. |. | 
-     * |19|. |. | .| .| .| .| .| .| .| .| .|..|. |. |. |. |. |. |. |. |. |. | 
-     * |20|. |. | .| .| .| .| .| .| .| .| .|SW| .| .| .| .| .| .| .| .| .| .|
-     * |21|. |. | .| .| .| .|. |SW| .| .| .| .|. |. | .|SW|. | .| .| .| .| .| 
-     * |22|. |. | .| .| .| .| .| .| .| .|SW| .|SW| .| .| .| .| .| .| .| .| .| 
-     * |23|. |. | .| .|. |..| .|SW| .|. |. |. | .| .| .|SW| .| .|..|. |. |. | 
-     * |24|. |. | .| .| .| .| .|. | .|SW| .| .| .|SW| .| .| .| .| .| .| .| .| 
-     * |25|. |. | .| .|..| .|. |. |. |. |. |. |. | .|. |. |. |. |. |. |. |. | 
-     * |26|. |. | .| .| .| .| .|AP|. |. |. | .| .| .|..|AG| .| .| .| .| .| .| 
-     **/
+     
 
     public SpielbrettAusgabe(Spiel soNSpiel, Logger logger, String oname) {
-    /*Char[][] AsciiSpielbrett = {{"..............................................................................."},
-                                {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '},
-                                {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '},
-                                {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '},
-                                {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '},
-                                {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '},
-                                {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '},
-                                {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '},
-                                {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '},
-                                {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '},
-                                {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '},
-                                {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '},
-                                {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '},
-                                {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '},
-                                {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '},
-                                {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '},
-                                {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '},
-                                {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '},
-                                {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '},
-                                {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '},
-                                {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '},
-                                {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '},
-                                {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '},
-                                {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '},
-                                {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '},
-                                {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '},
-                                {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '},
-                                {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '},
-                                {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '},
-                                {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '},
-                                {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '},
-                                {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '}};*/
-    //way more elegant:
+    
     this.dasSpiel = soNSpiel;
     this.objektname = oname;
     log = logger;
@@ -128,29 +138,29 @@ public class SpielbrettAusgabe {
     String farbe = "s";
     switch (dasFeld.getFarbe().toLowerCase()) { // sehr netter Switch der den Typ des Feldes festlegt
             case "blau":
-            farbe = ANSI_bBlue+"  "  ;    
+            farbe = ANSI_bBlue+ANSI_fbBlue +"b"  ;    
                 break;
             case "rot":
-            farbe = ANSI_bRed+"  "  ;  
+            farbe = ANSI_bRed+ANSI_fbRed +"r"  ;  
                 break;
             case "gruen":
-            farbe = ANSI_bCyan+"  "  ;    
+            farbe = ANSI_bGreen + ANSI_fbGreen+"g"  ;    
                 break;
             case "gelb":
-            farbe = ANSI_bYellow+"  "  ;
+            farbe = ANSI_bYellow+ ANSI_fbYellow +"y"  ;
                 break;
             case "pink":
-            farbe = ANSI_bPurpel+"  "  ;    
+            farbe = ANSI_bPurpel+"p"  ;    
                 break;
             case "schwarz":
-            farbe = ANSI_bWhite+"§§"  ;    
+            farbe = ANSI_bWhite+"s"  ;    
                 break;
             case "orange":
             case "tuerkis":
-            farbe = ANSI_bGreen+"  "  ;   
+            farbe = ANSI_bCyan + ANSI_fbCyan +"c"  ;   
                 break;
             case "weiss":
-            farbe = ANSI_RESET + "  "  ;    
+            farbe = ANSI_RESET+ ANSI_fWhite + "w"  ;    
                 break;
             default:
                 break;
@@ -160,27 +170,26 @@ public class SpielbrettAusgabe {
             case "start":
             case "startfeld":
             case "sfeld":
-                Caption = "";
+                Caption = "s";
                 break;
             case "a":
             case "afeld":
             case "a-feld":
             case "anfangsfeld":
-                Caption = "";
+                Caption = "a";
                 break;
             case "ziel":
             case "zfeld":
             case "zielfeld":
-                Caption = "";
+                Caption = "z";
                 break;
-            case "standart":
-            case "standartfeld":
+            case "standard":
             case "standardfeld":
-                Caption = "";
+                Caption = "s";
                 break;
             case "efeld":
             case "zefeld":
-                Caption = "";
+                Caption = "e";
                 break;
             default:
                 Caption = "";
@@ -191,29 +200,7 @@ public class SpielbrettAusgabe {
         log.log(objektname, "Methode feldeinfuegen() beendet.");
     
     }
-    /* X und Y achse vertauscht: (100% gewollt, sieht aber wirklich besser aus)
-    * ..............................SA..................
-    * ........GA................WS......................
-    * ..............WS................WS................
-    * ..........WS......WS....WS........................
-    * ................................WS................
-    * ............WS........WS..........................
-    * ................................WS....WS..WS....GA
-    * ..................................................
-    * ........WS....WS............................WS....
-    * ....WS..................................WS........
-    * BA..................................WS............
-    * ....WS..................................WS........
-    * ........WS....WS............................WS....
-    * ..................................................
-    * ................................WS....WS..WS....PA
-    * ............WS........WS..........................
-    * ................................WS................
-    * ..........WS......WS....WS........................
-    * ..............WS................WS................
-    * ........RS................WS......................
-    * ..............................CA..................*/
-    
+  
     public void spielAusgabe(){
        System.out.println("\u001B[0m\u001B[35mA\u001B[34mN\u001B[36mS\u001B[32mI\u001B[0m-\u001B[33mS\u001B[31mp\u001B[35mi\u001B[34me\u001B[36ml\u001B[32mb\u001B[33mr\u001B[31me\u001B[35mt\u001B[36mt\u001B[0m steht bereit:\u001B[0m");
        if(this.Ansiausgabean){
@@ -291,7 +278,7 @@ public class SpielbrettAusgabe {
         }
         String ccaption = "QQ";
          Random rand = new Random();
-        int fau = rand.nextInt(6);
+        int fau = rand.nextInt(11);
         String farbe =ANSI_RESET  +ANSI_bGrey   + this.fColor[fau];
        
         
@@ -356,7 +343,7 @@ public class SpielbrettAusgabe {
             farbe = ANSI_bRed  ;  
                 break;
             case "gruen":
-            farbe = ANSI_bCyan  ;    
+            farbe = ANSI_bGreen  ;    
                 break;
             case "gelb":
             farbe = ANSI_bYellow ;
@@ -369,7 +356,7 @@ public class SpielbrettAusgabe {
                 break;
             case "orange":
             case "tuerkis":
-            farbe = ANSI_bGreen ;   
+            farbe = ANSI_bCyan ;   
                 break;
             case "weiss":
             farbe = ANSI_RESET   ;    
@@ -395,9 +382,8 @@ public class SpielbrettAusgabe {
                 farbe = farbe + ANSI_fRed;
                 Caption = "R" ;  
                 break;
-            case "cyan":
             case "gruen":
-                farbe = farbe + ANSI_fCyan;
+                farbe = farbe + ANSI_fGreen;
                 Caption = "C" ;    
                 break;
             case "gelb":
@@ -412,9 +398,9 @@ public class SpielbrettAusgabe {
                 farbe = farbe + ANSI_fBlack;
                 Caption =  "S" ;    
                 break;
-            case "orange":
+            case "cyan":
             case "tuerkis":
-                farbe = farbe + ANSI_fGreen;
+                farbe = farbe + ANSI_fCyan;
                 Caption = "O" ;   
                 break;
             default:
@@ -445,7 +431,13 @@ public class SpielbrettAusgabe {
     }
     
      public static void main(String args[]) {
-     //System.out.println("\u001B[41m" + "\u001B[37m"  + "Hello World!" + "\u001B[0m");
+         
+         //hier ein paar beispiele zum printen mit ANSI-Escape code
+         System.out.println(ANSI_bRed+"MA"+ANSI_bYellow+"Dn" +ANSI_bGreen+"es"+ANSI_bCyan+"s O"+ANSI_bBlue+"ve"+ANSI_bPurpel+"rf"+ANSI_bWhite+"low"+ANSI_RESET);
+         //Ein schönerer code wäre gewesen, hätte man die String in eine char[] 
+         //umgewandelt und mit einer For-schleife durchlaufen in den man den char[index]
+         //und von einer Regenbogenfarbenarray[index] System.ou.print()-tet
+         System.out.println(ANSI_fRed+"M"+ANSI_fbRed+"A"+ANSI_fYellow+"D" +ANSI_fbYellow+"n" +ANSI_fbGreen+"e"+ANSI_fGreen+"s"+ANSI_fCyan+"s "+ANSI_fbCyan+"O"+ANSI_fbBlue+"v"+ANSI_fbBlue+"e"+ANSI_fbPurpel+"r"+ANSI_fPurpel+"f"+ANSI_fBlack+"l"+ANSI_fbBlack+"o"+ANSI_fbWhite+"w"+ANSI_RESET);
      Logger log = new Logger("SherLog.txt");
      Spiel test = new Spiel(log,"testSpiel",0);
      test.output.spielAusgabe();
@@ -461,10 +453,20 @@ public class SpielbrettAusgabe {
      test.output.spielAusgabe();
 
     
-     for( int a = 0; a < 16 ; a++){
+     for( int a = 0; a < 18 ; a++){
         test.AlleSpielfiguren[0].laufen(test.getWuerfel().wuerfeln());
         test.output.spielAusgabe();
         test.AlleSpielfiguren[3].laufen(test.getWuerfel().wuerfeln());
+        test.output.spielAusgabe();
+         test.AlleSpielfiguren[6].laufen(test.getWuerfel().wuerfeln());
+        test.output.spielAusgabe();
+        test.AlleSpielfiguren[9].laufen(test.getWuerfel().wuerfeln());
+        test.output.spielAusgabe();
+        test.AlleSpielfiguren[12].laufen(test.getWuerfel().wuerfeln());
+        test.output.spielAusgabe();
+        test.AlleSpielfiguren[15].laufen(test.getWuerfel().wuerfeln());
+        test.output.spielAusgabe();
+        test.AlleSpielfiguren[18].laufen(test.getWuerfel().wuerfeln());
         test.output.spielAusgabe();
     /*       test.AlleSpielfiguren[6].laufen(test.getWuerfel().wuerfeln());
         test.output.spielAusgabe();
