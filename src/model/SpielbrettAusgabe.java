@@ -133,7 +133,7 @@ public class SpielbrettAusgabe {
             case "rot":
             farbe = ANSI_bRed+"  "  ;  
                 break;
-            case "cyan":
+            case "gruen":
             farbe = ANSI_bCyan+"  "  ;    
                 break;
             case "gelb":
@@ -146,7 +146,7 @@ public class SpielbrettAusgabe {
             farbe = ANSI_bWhite+"§§"  ;    
                 break;
             case "orange":
-            case "braun":
+            case "tuerkis":
             farbe = ANSI_bGreen+"  "  ;   
                 break;
             case "weiss":
@@ -355,7 +355,7 @@ public class SpielbrettAusgabe {
             case "rot":
             farbe = ANSI_bRed  ;  
                 break;
-            case "cyan":
+            case "gruen":
             farbe = ANSI_bCyan  ;    
                 break;
             case "gelb":
@@ -368,7 +368,7 @@ public class SpielbrettAusgabe {
             farbe = ANSI_bWhite;    
                 break;
             case "orange":
-            case "braun":
+            case "tuerkis":
             farbe = ANSI_bGreen ;   
                 break;
             case "weiss":
@@ -413,7 +413,7 @@ public class SpielbrettAusgabe {
                 Caption =  "S" ;    
                 break;
             case "orange":
-            case "braun":
+            case "tuerkis":
                 farbe = farbe + ANSI_fGreen;
                 Caption = "O" ;   
                 break;
@@ -450,9 +450,9 @@ public class SpielbrettAusgabe {
      Spiel test = new Spiel(log,"testSpiel",0);
      test.output.spielAusgabe();
     // die 7 mitspieler
-     Spieler tester = new SpielerMensch("Alice",log,test);
-     Spieler tester2 = new SpielerMensch("Bob",log,test);
-     Spieler tester3 = new SpielerMensch("Charly",log,test);
+     Spieler tester = new SpielerMensch("Azrael",log,test);
+     Spieler tester2 = new SpielerMensch("Barbarianna",log,test);
+     Spieler tester3 = new SpielerMensch("Charles der II",log,test);
      Spieler tester4 = new SpielerMensch("Eve",log,test);
      Spieler tester5 = new SpielerMensch("Dave",log,test);
      Spieler tester6 = new SpielerMensch("Fynnia",log,test);
@@ -460,8 +460,8 @@ public class SpielbrettAusgabe {
   
      test.output.spielAusgabe();
 
-    /**
-     for( int a = 0; a // 16 ; a++){
+    
+     for( int a = 0; a < 16 ; a++){
         test.AlleSpielfiguren[0].laufen(test.getWuerfel().wuerfeln());
         test.output.spielAusgabe();
         test.AlleSpielfiguren[3].laufen(test.getWuerfel().wuerfeln());
@@ -474,7 +474,7 @@ public class SpielbrettAusgabe {
         test.output.spielAusgabe();*/
      }
      
-    
+     }
      /*
      test.AlleSpielfiguren[3].setzten(test.getSpielbrett().getFelder().get(7));
      test.output.spielAusgabe();

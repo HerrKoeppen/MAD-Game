@@ -212,6 +212,7 @@ public class Spielfigur {
                 if ( this.team.getSpiel().getSpielbrett().getFelder().get(Baka.getID() + 1).getFarbe().equals(Baka.getFarbe())){
                     return this.team.getSpiel().getSpielbrett().getFelder().get(Baka.getID() + 1);}   
             default:
+               System.out.println("Error: Holpfad()-Switch hat mal wieder nicht angeschlagen");
                 return this.team.getSpiel().getSpielbrett().getFelder().get(Baka.getID() + 1);}   
                 /**break;       
         } 
