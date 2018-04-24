@@ -1,6 +1,8 @@
 package model;
 
+import java.io.*;
 import java.util.Random;
+import java.util.logging.Level;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -270,6 +272,91 @@ public class SpielbrettAusgabe {
     
     };
     
+    public void MADsh(){
+    String echo = "error";
+    InputStreamReader isr = new InputStreamReader(System.in);
+    BufferedReader br = new BufferedReader(isr);
+    
+    while(true){
+    System.out.println("echo>>");
+        try {
+            echo = br.readLine();
+        } catch (IOException ex) {
+            return;
+        }
+    if (echo.equals("esc")){
+    return;
+    }
+    System.out.println(echo);
+    }
+    }
+    public void echo(){
+    String echo = "error";
+    InputStreamReader isr = new InputStreamReader(System.in);
+    BufferedReader br = new BufferedReader(isr);
+    System.out.println("echo>>");
+        try {
+            echo = br.readLine();
+        } catch (IOException ex) {
+           
+        }
+    System.out.println(echo);
+    }
+    
+    public boolean wuerfeln(){
+    String echo = "error";
+    InputStreamReader isr = new InputStreamReader(System.in);
+    BufferedReader br = new BufferedReader(isr);
+    
+    while(true){
+    System.out.println(">>Wuerfeln:");
+        try {
+            echo = br.readLine();
+        } catch (IOException ex) {
+            return false;
+        }
+    if (echo.equals("run")){
+    return true;
+    }
+    if (echo.equals("esc")){
+    return false;
+    }
+    System.out.println("what's this?");
+    }
+    
+    }
+     public int Spielerwaehlen(){
+    String echo = "error";
+    InputStreamReader isr = new InputStreamReader(System.in);
+    BufferedReader br = new BufferedReader(isr);
+    
+    while(true){
+    System.out.println(">>Waehle einen Spieler (0,1 oder 2):");
+        try {
+            echo = br.readLine();
+        } catch (IOException ex) {
+            return -1;
+        }
+    if (echo.equals("0")){
+    return 0;
+    }
+    if (echo.equals("1")){
+    return 1;
+    }
+    if (echo.equals("2")){
+    return 2;
+    }
+    if (echo.equals("esc")){
+    return -1;
+    }
+    System.out.println("what's this?");
+    }
+    
+    }
+    
+    
+    
+    
     public void wuerfelausgeben(int augen)
     {
         for (int i = 9; i < 12 ;i++){
@@ -433,26 +520,23 @@ public class SpielbrettAusgabe {
      public static void main(String args[]) {
          
          //hier ein paar beispiele zum printen mit ANSI-Escape code
-         System.out.println(ANSI_bRed+"MA"+ANSI_bYellow+"Dn" +ANSI_bGreen+"es"+ANSI_bCyan+"s O"+ANSI_bBlue+"ve"+ANSI_bPurpel+"rf"+ANSI_bWhite+"low"+ANSI_RESET);
+         //System.out.println(ANSI_bRed+"MA"+ANSI_bYellow+"Dn" +ANSI_bGreen+"es"+ANSI_bCyan+"s O"+ANSI_bBlue+"ve"+ANSI_bPurpel+"rf"+ANSI_bWhite+"low"+ANSI_RESET);
          //Ein schönerer code wäre gewesen, hätte man die String in eine char[] 
          //umgewandelt und mit einer For-schleife durchlaufen in den man den char[index]
          //und von einer Regenbogenfarbenarray[index] System.ou.print()-tet
-         System.out.println(ANSI_fRed+"M"+ANSI_fbRed+"A"+ANSI_fYellow+"D" +ANSI_fbYellow+"n" +ANSI_fbGreen+"e"+ANSI_fGreen+"s"+ANSI_fCyan+"s "+ANSI_fbCyan+"O"+ANSI_fbBlue+"v"+ANSI_fbBlue+"e"+ANSI_fbPurpel+"r"+ANSI_fPurpel+"f"+ANSI_fBlack+"l"+ANSI_fbBlack+"o"+ANSI_fbWhite+"w"+ANSI_RESET);
-     Logger log = new Logger("SherLog.txt");
-     Spiel test = new Spiel(log,"testSpiel",0);
-     test.output.spielAusgabe();
-    // die 7 mitspieler
-     Spieler tester = new SpielerMensch("Azrael",log,test);
-     Spieler tester2 = new SpielerMensch("Barbarianna",log,test);
-     Spieler tester3 = new SpielerMensch("Charles der II",log,test);
-     Spieler tester4 = new SpielerMensch("Eve",log,test);
-     Spieler tester5 = new SpielerMensch("Dave",log,test);
-     Spieler tester6 = new SpielerMensch("Fynnia",log,test);
-     Spieler tester7 = new SpielerMensch("Gargamel",log,test);
-  
-     test.output.spielAusgabe();
+         //System.out.println(ANSI_fRed+"M"+ANSI_fbRed+"A"+ANSI_fYellow+"D" +ANSI_fbYellow+"n" +ANSI_fbGreen+"e"+ANSI_fGreen+"s"+ANSI_fCyan+"s "+ANSI_fbCyan+"O"+ANSI_fbBlue+"v"+ANSI_fbBlue+"e"+ANSI_fbPurpel+"r"+ANSI_fPurpel+"f"+ANSI_fBlack+"l"+ANSI_fbBlack+"o"+ANSI_fbWhite+"w"+ANSI_RESET);
+         Logger log = new Logger("SherLog.txt");
+         Spiel test = new Spiel(log,"testSpiel",0);
+         // die 7 mitspieler
+         Spieler tester = new SpielerMensch("Azrael",log,test);
+         Spieler tester2 = new SpielerMensch("Barbarianna",log,test);
+         Spieler tester3 = new SpielerMensch("Charles der II",log,test);
+         Spieler tester4 = new SpielerMensch("Dave",log,test);
+         Spieler tester5 = new SpielerMensch("Eve",log,test);
+         Spieler tester6 = new SpielerMensch("Fynnia",log,test);
+         Spieler tester7 = new SpielerMensch("Gargamel",log,test);
 
-    
+    /*
      for( int a = 0; a < 18 ; a++){
         test.AlleSpielfiguren[0].laufen(test.getWuerfel().wuerfeln());
         test.output.spielAusgabe();
@@ -468,28 +552,19 @@ public class SpielbrettAusgabe {
         test.output.spielAusgabe();
         test.AlleSpielfiguren[18].laufen(test.getWuerfel().wuerfeln());
         test.output.spielAusgabe();
-    /*       test.AlleSpielfiguren[6].laufen(test.getWuerfel().wuerfeln());
-        test.output.spielAusgabe();
-        test.AlleSpielfiguren[9].laufen(test.getWuerfel().wuerfeln());
-        test.output.spielAusgabe();
-        test.AlleSpielfiguren[12].laufen(test.getWuerfel().wuerfeln());
-        test.output.spielAusgabe();*/
      }
-     
-     }
-     /*
-     test.AlleSpielfiguren[3].setzten(test.getSpielbrett().getFelder().get(7));
-     test.output.spielAusgabe();
-     test.AlleSpielfiguren[0].setzten(test.getSpielbrett().getFelder().get(3));
-     test.output.spielAusgabe();
-
-
-     test.AlleSpielfiguren[0].schlagen(test.getSpielbrett().getFelder().get(7));
-     test.AlleSpielfiguren[0].setzten(test.getSpielbrett().getFelder().get(7));
-     test.output.spielAusgabe();
-
      */
-     
+     //test.output.MADsh();
+     for( int a = 0; a < 3 ; a++){
+    tester.ziehen(0);
+    tester2.ziehen(0);
+    tester3.ziehen(0);
+    tester4.ziehen(0); 
+    tester5.ziehen(0);
+    tester6.ziehen(0);
+     }
+         
+     }
      
      }
 

@@ -88,7 +88,7 @@ public class Wuerfel {
         this.output.wuerfelausgeben(augen);
         log.log(objektname, "Augenzahl " + augen + " gewuerfelt.");
         log.log(objektname, "Methode wuerfeln() beendet.");
-
+        System.out.println("Du hast eine " + augen + " gewuerfelt.");
         return augen;
     }
     /**
