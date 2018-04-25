@@ -109,7 +109,6 @@ public class Spielbrett {
         this.objektname = oname;
         log = logger; 
         log.log(objektname, "Konstrucktor Spielbrett() gestartet mit Parameter " + oname + " .");
-        log.deactivate();
         dasSpiel = dasspiel;
         this.Output = derOutput;
          
@@ -229,7 +228,6 @@ public class Spielbrett {
         Feld tuerkisStart3 = new Feld(log, "tuerkisStart3", this, "Startfeld", 6, 3, "tuerkis");
 
         //public Spielfigur(String oname, Logger logger, Feld starterfeld, Spieler derSpieler) {
-        log.activate();
         Spielfigur Blau1 = new Spielfigur("Blau1",log, blauStart1 , 0, dasspiel);
         Spielfigur Blau2 = new Spielfigur("Blau2",log, blauStart2 , 0, dasspiel);
         Spielfigur Blau3 = new Spielfigur("Blau3",log, blauStart3 , 0, dasspiel);

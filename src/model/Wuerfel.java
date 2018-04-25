@@ -86,6 +86,7 @@ public class Wuerfel {
         this.dieZahl = augen;
         //System.out.println(augen);
         this.output.wuerfelausgeben(augen);
+        this.output.spielAusgabe();
         log.log(objektname, "Augenzahl " + augen + " gewuerfelt.");
         log.log(objektname, "Methode wuerfeln() beendet.");
         System.out.println("Du hast eine " + augen + " gewuerfelt.");
