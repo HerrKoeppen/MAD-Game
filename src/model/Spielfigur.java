@@ -91,7 +91,7 @@ public class Spielfigur {
      * wird
      * @param spieler die SpielerzugehÃ¶rigkeit
      */
-    public Spielfigur( Feld starterfeld, int SpielerId, Spiel dasSpiel ) {
+    public Spielfigur(Feld starterfeld, int SpielerId, Spiel dasSpiel) {
         this.Spielerid = SpielerId;
         this.startfeld = starterfeld;
         this.positionX = this.startfeld.getPositionX();
@@ -106,28 +106,27 @@ public class Spielfigur {
         this.aufzefeld = false;
         this.zugfaehigkeit = false;
         this.id = dasSpiel.setSpielfigur(this);
-        
 
     }
 
     public Spielfigur(String oname, Logger logger, Feld starterfeld, int SpielerId, Spiel dasSpiel) {
 
-        this( starterfeld, SpielerId, dasSpiel);
+        this(starterfeld, SpielerId, dasSpiel);
         objektname = oname;
         log = logger;
         log.log(objektname, "Konstrucktor SpielFigur() beendet mit Parameter ");
 
     }
-    
-    public void Spielersetzen(Spiel dasSpiel){
+
+    public void Spielersetzen(Spiel dasSpiel) {
         log.log(objektname, "Methode Spielersetzen() gestartet.");
-       
-        if (!(dasSpiel.AlleSpieler[Spielerid] == null)){
-        this.team = dasSpiel.AlleSpieler[Spielerid];
-        this.team.setSpielfigur(this);
-        this.farbe = this.team.getfarbe();
-        this.team.getSpiel().getoutput().SpielerSetzen(this);
-        
+
+        if (!(dasSpiel.AlleSpieler[Spielerid] == null)) {
+            this.team = dasSpiel.AlleSpieler[Spielerid];
+            this.team.setSpielfigur(this);
+            this.farbe = this.team.getfarbe();
+            this.team.getSpiel().getoutput().SpielerSetzen(this);
+
         }
         log.log(objektname, "Methodenrückgabe: " + 1);
         log.log(objektname, "Methode Spielersetzen() beendet.");
@@ -141,106 +140,103 @@ public class Spielfigur {
     public int herauskommen() {
         log.log(objektname, "Methode herauskommen() gestartet.");
 
-        if (this.setzten(this.team.getafeld())== 0)
-        {
-             log.log(objektname, "Methodenrückgabe: " + 0);
-             log.log(objektname, "Methode herauskommen() beendet.");
+        if (this.setzten(this.team.getafeld()) == 0) {
+            log.log(objektname, "Methodenrückgabe: " + 0);
+            log.log(objektname, "Methode herauskommen() beendet.");
             return 0;
-        }
-         else   
-        {
+        } else {
             log.log(objektname, "Methodenrückgabe: " + 1);
             log.log(objektname, "Methode herauskommen() beendet.");
-            return 1;  
+            return 1;
         }
-       
+
     }
 
     /**
-     * bewegt eine Figur um ein Feld
-     *je nach dem, welche Augenzahl man gewuerfelt hat, fuehrt man diese Funktion
-     * dementsprechend oft aus
+     * bewegt eine Figur um ein Feld je nach dem, welche Augenzahl man
+     * gewuerfelt hat, fuehrt man diese Funktion dementsprechend oft aus
+     *
      * @return 1 bei fehler sonst 0
      */
     public int bewegen() {
-        
+
         /**
-         * ID des aktuellen Feldes wird angegeben
-         * um einen Schritt voran zu gehen, muss man die id des aktuellen Feldes um 1 erhoehen
-         * 
+         * ID des aktuellen Feldes wird angegeben um einen Schritt voran zu
+         * gehen, muss man die id des aktuellen Feldes um 1 erhoehen
+         *
          */
-         log.log(objektname, "Methode bewegen() gestartet.");
-        this.setzten(this.team.getSpiel().getSpielbrett().getFelder().get(this.aktfeld.getID() + 1));    
+        log.log(objektname, "Methode bewegen() gestartet.");
+        this.setzten(this.team.getSpiel().getSpielbrett().getFelder().get(this.aktfeld.getID() + 1));
         this.team.getSpiel().getoutput().SpielerSetzen(this);
-        
-        
-       
+
         log.log(objektname, "Methodenrückgabe: " + 1);
         log.log(objektname, "Methode bewegen() beendet.");
         return 1;
     }
+
     /**
-     * 
-     * @return 
+     *
+     * @return
      */
-    public Feld holpfad( Feld Baka ){
-        
+    public Feld holpfad(Feld Baka) {
+
         /*public String getFeldtyp() {
          if (this.Startfeld){return "Startfeld";} 
          if (this.eFeld){return "zeFeld";} 
          if (this.aFeld){return "aFeld";} 
          if (this.Zielfeld){return "Zielfeld";} 
          if (this.Standardfeld){return "Standardfeld";} 
-        */
+         */
         log.log(objektname, "Methode holpfad() gestartet.");
- 
-        switch(Baka.getFeldtyp().toLowerCase()){ // bester und elegantester Switch von allen
+
+        switch (Baka.getFeldtyp().toLowerCase()) { // bester und elegantester Switch von allen
             case "startfeld":
-                return this.team.getafeld(); 
+                return this.team.getafeld();
             case "zefeld":
-                if(this.team.getzefeld().getID() == Baka.getID()){
+                if (this.team.getzefeld().getID() == Baka.getID()) {
                     return this.team.getzielfeld();
                 }
             case "afeld":
             case "standardfeld":
-                if(Baka.getID() == 41){
-                return this.team.getSpiel().getSpielbrett().getFelder().get(0);  
+                if (Baka.getID() == 41) {
+                    return this.team.getSpiel().getSpielbrett().getFelder().get(0);
                 }
-                return this.team.getSpiel().getSpielbrett().getFelder().get(Baka.getID() + 1);  
+                return this.team.getSpiel().getSpielbrett().getFelder().get(Baka.getID() + 1);
             case "zielfeld":
-                if ( this.team.getSpiel().getSpielbrett().getFelder().get(Baka.getID() + 1).getFarbe().equals(Baka.getFarbe())){
-                    return this.team.getSpiel().getSpielbrett().getFelder().get(Baka.getID() + 1);} 
+                if (this.team.getSpiel().getSpielbrett().getFelder().get(Baka.getID() + 1).getFarbe().equals(Baka.getFarbe())) {
+                    return this.team.getSpiel().getSpielbrett().getFelder().get(Baka.getID() + 1);
+                }
                 return this.aktfeld;
             default:
-               System.out.println("Error: Holpfad()-Switch hat mal wieder nicht angeschlagen");
-               return this.aktfeld;}   
-                /**break;       
-        } 
-        log.log(objektname, "Methodenrückgabe: " + Baka);
-        log.log(objektname, "Methode holpfad() beendet.");
-        return this.aktfeld; */
-    
-  
+                System.out.println("Error: Holpfad()-Switch hat mal wieder nicht angeschlagen");
+                return this.aktfeld;
+        }
+        /**
+         * break; } log.log(objektname, "Methodenrückgabe: " + Baka);
+         * log.log(objektname, "Methode holpfad() beendet."); return
+         * this.aktfeld;
+         */
+
     }
+
     /**
-     * 
+     *
      * @param augen
-     * @return 
+     * @return
      */
-    public int laufen(int augen){
-        
+    public int laufen(int augen) {
+
         Feld zielfeld = this.aktfeld;
-        for(int i = 0; i < augen; i++){
+        for (int i = 0; i < augen; i++) {
             zielfeld = this.holpfad(zielfeld);
         }
 
-        if (zielfeld.getIstBesetzt() &&  zielfeld.getHausbesetzer().getFarbe().equals(this.farbe)){
+        if (zielfeld.getIstBesetzt() && zielfeld.getHausbesetzer().getFarbe().equals(this.farbe)) {
             schlagen(zielfeld);
         }
         this.setzten(zielfeld);
         return 0;
     }
-        
 
     /**
      * setzt Figur auf ein Feld: Zielfeld Methode ist fuer sprunge geeignet (zb.
@@ -261,11 +257,11 @@ public class Spielfigur {
         this.positionY = this.aktfeld.getPositionY();
         this.feldnummer = this.aktfeld.getID();
         this.aufspielfeld = false;
-        this.aufstartfeld = false;
+        this.setAufstartfeld(false);
         this.aufzielfeld = false;
         switch (this.aktfeld.getFeldtyp().toLowerCase()) { // sehr netter Switch der den Typ des Feldes festlegt
             case "startfeld":
-                this.aufstartfeld = true;
+                this.setAufstartfeld(true);
                 break;
             case "afeld":
                 this.aufspielfeld = true;
@@ -302,8 +298,9 @@ public class Spielfigur {
      */
     public int schlagen(Feld dasFEld) {
         log.log(objektname, "Methode schlagen() gestartet.");
-        if (dasFEld.getHausbesetzer() != null){
-        dasFEld.getHausbesetzer().zurueckgehen();}
+        if (dasFEld.getHausbesetzer() != null) {
+            dasFEld.getHausbesetzer().zurueckgehen();
+        }
         log.log(objektname, "Methodenrückgabe: " + 1);
         log.log(objektname, "Methode schlagen() beendet.");
         return 0;
@@ -338,20 +335,21 @@ public class Spielfigur {
      */
     public boolean kannSichBewegen(int felderAnzahl) {
         log.log(objektname, "Methode kannSichBewegen() gestartet mit Parameter " + felderAnzahl + " .");
-        if (this.aufstartfeld) {
-            if ( felderAnzahl == 6){
+        if (this.isAufstartfeld()) {
+            if (felderAnzahl == 6) {
                 this.zugfaehigkeit = true;
-                return zugfaehigkeit;}
+                return zugfaehigkeit;
+            }
             this.zugfaehigkeit = false;
             return this.zugfaehigkeit;
         }
         Feld zielfeld = this.aktfeld;
-        for(int i = 0; i > felderAnzahl; i++){
+        for (int i = 0; i > felderAnzahl; i++) {
             zielfeld = this.holpfad(zielfeld);
-            }
-        if(zielfeld.getIstBesetzt() && zielfeld.getHausbesetzer().getFarbe().equals(this.farbe)){
-           this.zugfaehigkeit = false;
-            return this.zugfaehigkeit; 
+        }
+        if (zielfeld.getIstBesetzt() && zielfeld.getHausbesetzer().getFarbe().equals(this.farbe)) {
+            this.zugfaehigkeit = false;
+            return this.zugfaehigkeit;
         }
         this.zugfaehigkeit = true;
 
@@ -373,46 +371,56 @@ public class Spielfigur {
      * @return
      */
     public int getPrioritaet(int ZuLaufendeFeldanzahl) {
-        int PositionImFeld;
+        int PositionImFeld = -1;
         //Sucht die Postion des Feldes in der Liste der Spielfigur
         for (int i = 0; i < 200; i++) {
             if (team.getFelder().get(i).equals(this.aktfeld)) {
                 PositionImFeld = i;
             }
 
-            return 4;
-
         }
-        //Nur für die Syntax
-        PositionImFeld = -1;
-        //Wenn das Zielfeld besetzt ist
-        if (team.getFelder().get(PositionImFeld + ZuLaufendeFeldanzahl).getIstBesetzt()) {
-            //Wenn das Zielfeld vom gleichen Team besetzt ist
-            if (team.getFelder().get(PositionImFeld + ZuLaufendeFeldanzahl).getHausbesetzer().getFarbe().equals(team.getFelder().get(PositionImFeld).getHausbesetzer().getFarbe())) {
-                return 0;
-            } else {
-                //Wenn das Zielfeld von einer anderen Farbe besetzt ist,die Spielfigur auf dem A-Feld steht und Spieler im Startkreis sind.
-                if (team.getFelder().get(PositionImFeld).getFeldtyp().equals("aFeld") && team.SpielerImStartkreis()) {
-                    return 3;
-                }
+        if (PositionImFeld == -1) {
+            return 4;
+        }
 
-                //Wenn das Zielfeld von einer anderen Farbe besetzt ist.
-                return 2;
-
-            }
-
-        } //Wenn das Zielfeld nicht exestiert.(Ende der ArrayListe)
-        else if (team.getFelder().get(PositionImFeld + ZuLaufendeFeldanzahl) == null) {
+        //Wenn das Zielfeld von einen Gegner besetzt ist
+        if (team.getFelder().get(PositionImFeld + ZuLaufendeFeldanzahl).getHausbesetzer().getId() != this.getId()) {
+            return 2;
+        }
+        //Wenn das Zielfeld von dem gleichen Team besetzt ist
+        if (team.getFelder().get(PositionImFeld + ZuLaufendeFeldanzahl).getHausbesetzer().getId() == this.getId()) {
             return 0;
         }
-        return 1;
-    }
         
-    
+        if (team.getFelder().get(PositionImFeld).getFeldtyp().toLowerCase().equalsIgnoreCase("afeld") && team.SpielerImStartkreis()) {
+            if (team.getFelder().get(PositionImFeld + ZuLaufendeFeldanzahl).getHausbesetzer().getId() != this.getId()) {
+            //Wenn die Spielfigur auf einen A-Feld steht und Spielfiguren im Startkreis und das Zielfeld von einen anderen Team besetzt ist.   
+                return 3;
+
+            }
+            //Wenn die Spielfigur auf einen A-Feld steht und Spielfiguren im Startkreis
+            return 2;
+
+        }
+        //Wenn eine 6 gewürfelt wurde und die Spielfigur im Startkreis steht.
+        if(ZuLaufendeFeldanzahl==6&&this.getaufStartfeld()){
+            return 2;
+        }
+        //Wenn das Zielfeld nicht exestiert
+        if(team.getFelder().get(ZuLaufendeFeldanzahl+PositionImFeld)==null){
+            return 0;
+            
+        }
+        return 1;
+        
+        
+        
+
+    }
 
     /**
-     * gett zurueck, ob sich figur auf einem spielfeld befindet getter methode für
-     * aufzielfeld
+     * gett zurueck, ob sich figur auf einem spielfeld befindet getter methode
+     * für aufzielfeld
      *
      * @return aufzielfeld:boolean
      */
@@ -651,9 +659,8 @@ public class Spielfigur {
         log.log(objektname, "Methode getFarbe() beendet.");
         return farbe;
     }
-    
-    
-     /**
+
+    /**
      * @return the farbe
      */
     public String getobjektname() {
@@ -662,8 +669,7 @@ public class Spielfigur {
         log.log(objektname, "Methode getobjektname() beendet.");
         return objektname;
     }
-    
-    
+
     public Feld getaktFeld() {
         log.log(objektname, "Methode getFarbe() gestartet.");
         log.log(objektname, "Methodenrückgabe: " + "Feld " + this.aktfeld.getID());
@@ -681,5 +687,14 @@ public class Spielfigur {
         this.farbe = farbe;
     }
     
+    
+    public boolean getaufStartfeld(){
+        return this.aufstartfeld;
+        
+        
+        
+        
+        
+    }
 
 }
