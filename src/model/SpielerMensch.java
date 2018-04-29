@@ -279,6 +279,49 @@ public class SpielerMensch implements Spieler {
 
     }
 
+    /**
+     * Methode gibt alle Spielfiguren zurück die für diesen Zug möglich währen
+     * und benötigt dafür die gewürfelte Zahl.
+     *
+     *
+     *
+     *
+     *
+     * @param ZuLaufendeFeldanzahl
+     * @return
+     */
+
+    public List<Spielfigur> moeglSpielfgiguren(int ZuLaufendeFeldanzahl) {
+        List<Spielfigur> moeglSpielfiguren = new LinkedList<Spielfigur>();
+        List<Spielfigur> DPflichtSpielfiguren = new LinkedList<Spielfigur>();
+        for (int i = 0; i < this.Spielfiguren.length; i++) {
+            //Wenn die Spielfigur ziehen kann.
+            if (Spielfiguren[i].getPrioritaet(ZuLaufendeFeldanzahl) == 1) {
+                moeglSpielfiguren.add(Spielfiguren[i]);
+
+                //Wenn die Spielfigur ziehen muss    
+            } else if (Spielfiguren[i].getPrioritaet(ZuLaufendeFeldanzahl) == 2) {
+                DPflichtSpielfiguren.add(Spielfiguren[i]);
+
+                //Wenn die Spielfigur doppelt ziehen muss.    
+            } else if (Spielfiguren[i].getPrioritaet(ZuLaufendeFeldanzahl) == 3) {
+                List<Spielfigur> DDPflichtSpielfiguren = new LinkedList<Spielfigur>();
+                DDPflichtSpielfiguren.add(Spielfiguren[i]);
+                return DDPflichtSpielfiguren;
+
+            }
+
+        }
+        //Wenn es keine PflichtSpielfguren gibt
+        if (DPflichtSpielfiguren.isEmpty()) {
+            return moeglSpielfiguren;
+        //Wenn es PflichtSpielfiguren gibt.
+        } else {
+            return DPflichtSpielfiguren;
+        }
+
+    }
+
     @Override
     public int wuerfeln() {
         log.log(objektname, "Methode wuerfeln() gestartet.");

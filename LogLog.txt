@@ -1,0 +1,913 @@
+14:39:56 LoggerObjekt : Log in Datei LogLog.txt gestartet
+14:39:56 testSpiel : Methode SpielStarten() gestartet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@1540e19d .
+14:39:56 null : Methodenrückgabe: 0
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@1540e19d .
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 blauAnfang : Methode gibPositionX() gestartet.
+14:39:56 blauAnfang : Methodenrückgabe: 10
+14:39:56 blauAnfang : Methode gibPositionX() beendet.
+14:39:56 blauAnfang : Methode gibPositionY() gestartet.
+14:39:56 blauAnfang : Methodenrückgabe: 0
+14:39:56 blauAnfang : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@677327b6 .
+14:39:56 null : Methodenrückgabe: 1
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 standard1 : Methode gibPositionX() gestartet.
+14:39:56 standard1 : Methodenrückgabe: 11
+14:39:56 standard1 : Methode gibPositionX() beendet.
+14:39:56 standard1 : Methode gibPositionY() gestartet.
+14:39:56 standard1 : Methodenrückgabe: 2
+14:39:56 standard1 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@14ae5a5 .
+14:39:56 null : Methodenrückgabe: 2
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 standard2 : Methode gibPositionX() gestartet.
+14:39:56 standard2 : Methodenrückgabe: 12
+14:39:56 standard2 : Methode gibPositionX() beendet.
+14:39:56 standard2 : Methode gibPositionY() gestartet.
+14:39:56 standard2 : Methodenrückgabe: 4
+14:39:56 standard2 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@7f31245a .
+14:39:56 null : Methodenrückgabe: 3
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 standard3 : Methode gibPositionX() gestartet.
+14:39:56 standard3 : Methodenrückgabe: 12
+14:39:56 standard3 : Methode gibPositionX() beendet.
+14:39:56 standard3 : Methode gibPositionY() gestartet.
+14:39:56 standard3 : Methodenrückgabe: 7
+14:39:56 standard3 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@6d6f6e28 .
+14:39:56 null : Methodenrückgabe: 4
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 standard4 : Methode gibPositionX() gestartet.
+14:39:56 standard4 : Methodenrückgabe: 15
+14:39:56 standard4 : Methode gibPositionX() beendet.
+14:39:56 standard4 : Methode gibPositionY() gestartet.
+14:39:56 standard4 : Methodenrückgabe: 6
+14:39:56 standard4 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@135fbaa4 .
+14:39:56 null : Methodenrückgabe: 5
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 standard5 : Methode gibPositionX() gestartet.
+14:39:56 standard5 : Methodenrückgabe: 17
+14:39:56 standard5 : Methode gibPositionX() beendet.
+14:39:56 standard5 : Methode gibPositionY() gestartet.
+14:39:56 standard5 : Methodenrückgabe: 5
+14:39:56 standard5 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@45ee12a7 .
+14:39:56 null : Methodenrückgabe: 6
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@45ee12a7 .
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 rotAnfang : Methode gibPositionX() gestartet.
+14:39:56 rotAnfang : Methodenrückgabe: 19
+14:39:56 rotAnfang : Methode gibPositionX() beendet.
+14:39:56 rotAnfang : Methode gibPositionY() gestartet.
+14:39:56 rotAnfang : Methodenrückgabe: 4
+14:39:56 rotAnfang : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@330bedb4 .
+14:39:56 null : Methodenrückgabe: 7
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 standard7 : Methode gibPositionX() gestartet.
+14:39:56 standard7 : Methodenrückgabe: 18
+14:39:56 standard7 : Methode gibPositionX() beendet.
+14:39:56 standard7 : Methode gibPositionY() gestartet.
+14:39:56 standard7 : Methodenrückgabe: 7
+14:39:56 standard7 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@2503dbd3 .
+14:39:56 null : Methodenrückgabe: 8
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 standard8 : Methode gibPositionX() gestartet.
+14:39:56 standard8 : Methodenrückgabe: 17
+14:39:56 standard8 : Methode gibPositionX() beendet.
+14:39:56 standard8 : Methode gibPositionY() gestartet.
+14:39:56 standard8 : Methodenrückgabe: 9
+14:39:56 standard8 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@4b67cf4d .
+14:39:56 null : Methodenrückgabe: 9
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 standard9 : Methode gibPositionX() gestartet.
+14:39:56 standard9 : Methodenrückgabe: 15
+14:39:56 standard9 : Methode gibPositionX() beendet.
+14:39:56 standard9 : Methode gibPositionY() gestartet.
+14:39:56 standard9 : Methodenrückgabe: 11
+14:39:56 standard9 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@7ea987ac .
+14:39:56 null : Methodenrückgabe: 10
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 standard10 : Methode gibPositionX() gestartet.
+14:39:56 standard10 : Methodenrückgabe: 17
+14:39:56 standard10 : Methode gibPositionX() beendet.
+14:39:56 standard10 : Methode gibPositionY() gestartet.
+14:39:56 standard10 : Methodenrückgabe: 12
+14:39:56 standard10 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@12a3a380 .
+14:39:56 null : Methodenrückgabe: 11
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 standard11 : Methode gibPositionX() gestartet.
+14:39:56 standard11 : Methodenrückgabe: 19
+14:39:56 standard11 : Methode gibPositionX() beendet.
+14:39:56 standard11 : Methode gibPositionY() gestartet.
+14:39:56 standard11 : Methodenrückgabe: 13
+14:39:56 standard11 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@29453f44 .
+14:39:56 null : Methodenrückgabe: 12
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@29453f44 .
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 gruenAnfang : Methode gibPositionX() gestartet.
+14:39:56 gruenAnfang : Methodenrückgabe: 20
+14:39:56 gruenAnfang : Methode gibPositionX() beendet.
+14:39:56 gruenAnfang : Methode gibPositionY() gestartet.
+14:39:56 gruenAnfang : Methodenrückgabe: 15
+14:39:56 gruenAnfang : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@5cad8086 .
+14:39:56 null : Methodenrückgabe: 13
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 standard13 : Methode gibPositionX() gestartet.
+14:39:56 standard13 : Methodenrückgabe: 18
+14:39:56 standard13 : Methode gibPositionX() beendet.
+14:39:56 standard13 : Methode gibPositionY() gestartet.
+14:39:56 standard13 : Methodenrückgabe: 16
+14:39:56 standard13 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@6e0be858 .
+14:39:56 null : Methodenrückgabe: 14
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 standard14 : Methode gibPositionX() gestartet.
+14:39:56 standard14 : Methodenrückgabe: 16
+14:39:56 standard14 : Methode gibPositionX() beendet.
+14:39:56 standard14 : Methode gibPositionY() gestartet.
+14:39:56 standard14 : Methodenrückgabe: 16
+14:39:56 standard14 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@61bbe9ba .
+14:39:56 null : Methodenrückgabe: 15
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 standard15 : Methode gibPositionX() gestartet.
+14:39:56 standard15 : Methodenrückgabe: 14
+14:39:56 standard15 : Methode gibPositionX() beendet.
+14:39:56 standard15 : Methode gibPositionY() gestartet.
+14:39:56 standard15 : Methodenrückgabe: 16
+14:39:56 standard15 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@610455d6 .
+14:39:56 null : Methodenrückgabe: 16
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 standard16 : Methode gibPositionX() gestartet.
+14:39:56 standard16 : Methodenrückgabe: 14
+14:39:56 standard16 : Methode gibPositionX() beendet.
+14:39:56 standard16 : Methode gibPositionY() gestartet.
+14:39:56 standard16 : Methodenrückgabe: 19
+14:39:56 standard16 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@511d50c0 .
+14:39:56 null : Methodenrückgabe: 17
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 standard17 : Methode gibPositionX() gestartet.
+14:39:56 standard17 : Methodenrückgabe: 14
+14:39:56 standard17 : Methode gibPositionX() beendet.
+14:39:56 standard17 : Methode gibPositionY() gestartet.
+14:39:56 standard17 : Methodenrückgabe: 21
+14:39:56 standard17 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@60e53b93 .
+14:39:56 null : Methodenrückgabe: 18
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@60e53b93 .
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 pinkAnfang : Methode gibPositionX() gestartet.
+14:39:56 pinkAnfang : Methodenrückgabe: 14
+14:39:56 pinkAnfang : Methode gibPositionX() beendet.
+14:39:56 pinkAnfang : Methode gibPositionY() gestartet.
+14:39:56 pinkAnfang : Methodenrückgabe: 24
+14:39:56 pinkAnfang : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@5e2de80c .
+14:39:56 null : Methodenrückgabe: 19
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 standard19 : Methode gibPositionX() gestartet.
+14:39:56 standard19 : Methodenrückgabe: 12
+14:39:56 standard19 : Methode gibPositionX() beendet.
+14:39:56 standard19 : Methode gibPositionY() gestartet.
+14:39:56 standard19 : Methodenrückgabe: 22
+14:39:56 standard19 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@1d44bcfa .
+14:39:56 null : Methodenrückgabe: 20
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 standard120 : Methode gibPositionX() gestartet.
+14:39:56 standard120 : Methodenrückgabe: 11
+14:39:56 standard120 : Methode gibPositionX() beendet.
+14:39:56 standard120 : Methode gibPositionY() gestartet.
+14:39:56 standard120 : Methodenrückgabe: 20
+14:39:56 standard120 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@266474c2 .
+14:39:56 null : Methodenrückgabe: 21
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 standard21 : Methode gibPositionX() gestartet.
+14:39:56 standard21 : Methodenrückgabe: 10
+14:39:56 standard21 : Methode gibPositionX() beendet.
+14:39:56 standard21 : Methode gibPositionY() gestartet.
+14:39:56 standard21 : Methodenrückgabe: 18
+14:39:56 standard21 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@6f94fa3e .
+14:39:56 null : Methodenrückgabe: 22
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 standard22 : Methode gibPositionX() gestartet.
+14:39:56 standard22 : Methodenrückgabe: 9
+14:39:56 standard22 : Methode gibPositionX() beendet.
+14:39:56 standard22 : Methode gibPositionY() gestartet.
+14:39:56 standard22 : Methodenrückgabe: 20
+14:39:56 standard22 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@5e481248 .
+14:39:56 null : Methodenrückgabe: 23
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 standard23 : Methode gibPositionX() gestartet.
+14:39:56 standard23 : Methodenrückgabe: 8
+14:39:56 standard23 : Methode gibPositionX() beendet.
+14:39:56 standard23 : Methode gibPositionY() gestartet.
+14:39:56 standard23 : Methodenrückgabe: 22
+14:39:56 standard23 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@66d3c617 .
+14:39:56 null : Methodenrückgabe: 24
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@66d3c617 .
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 gelbAnfang : Methode gibPositionX() gestartet.
+14:39:56 gelbAnfang : Methodenrückgabe: 6
+14:39:56 gelbAnfang : Methode gibPositionX() beendet.
+14:39:56 gelbAnfang : Methode gibPositionY() gestartet.
+14:39:56 gelbAnfang : Methodenrückgabe: 24
+14:39:56 gelbAnfang : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@63947c6b .
+14:39:56 null : Methodenrückgabe: 25
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 standard125 : Methode gibPositionX() gestartet.
+14:39:56 standard125 : Methodenrückgabe: 6
+14:39:56 standard125 : Methode gibPositionX() beendet.
+14:39:56 standard125 : Methode gibPositionY() gestartet.
+14:39:56 standard125 : Methodenrückgabe: 21
+14:39:56 standard125 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@2b193f2d .
+14:39:56 null : Methodenrückgabe: 26
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 standard26 : Methode gibPositionX() gestartet.
+14:39:56 standard26 : Methodenrückgabe: 6
+14:39:56 standard26 : Methode gibPositionX() beendet.
+14:39:56 standard26 : Methode gibPositionY() gestartet.
+14:39:56 standard26 : Methodenrückgabe: 19
+14:39:56 standard26 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@355da254 .
+14:39:56 null : Methodenrückgabe: 27
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 standard27 : Methode gibPositionX() gestartet.
+14:39:56 standard27 : Methodenrückgabe: 6
+14:39:56 standard27 : Methode gibPositionX() beendet.
+14:39:56 standard27 : Methode gibPositionY() gestartet.
+14:39:56 standard27 : Methodenrückgabe: 16
+14:39:56 standard27 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@4dc63996 .
+14:39:56 null : Methodenrückgabe: 28
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 standard28 : Methode gibPositionX() gestartet.
+14:39:56 standard28 : Methodenrückgabe: 4
+14:39:56 standard28 : Methode gibPositionX() beendet.
+14:39:56 standard28 : Methode gibPositionY() gestartet.
+14:39:56 standard28 : Methodenrückgabe: 16
+14:39:56 standard28 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@d716361 .
+14:39:56 null : Methodenrückgabe: 29
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 standard29 : Methode gibPositionX() gestartet.
+14:39:56 standard29 : Methodenrückgabe: 2
+14:39:56 standard29 : Methode gibPositionX() beendet.
+14:39:56 standard29 : Methode gibPositionY() gestartet.
+14:39:56 standard29 : Methodenrückgabe: 16
+14:39:56 standard29 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@6ff3c5b5 .
+14:39:56 null : Methodenrückgabe: 30
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@6ff3c5b5 .
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 schwarzAnfang : Methode gibPositionX() gestartet.
+14:39:56 schwarzAnfang : Methodenrückgabe: 0
+14:39:56 schwarzAnfang : Methode gibPositionX() beendet.
+14:39:56 schwarzAnfang : Methode gibPositionY() gestartet.
+14:39:56 schwarzAnfang : Methodenrückgabe: 15
+14:39:56 schwarzAnfang : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@3764951d .
+14:39:56 null : Methodenrückgabe: 31
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 standard31 : Methode gibPositionX() gestartet.
+14:39:56 standard31 : Methodenrückgabe: 1
+14:39:56 standard31 : Methode gibPositionX() beendet.
+14:39:56 standard31 : Methode gibPositionY() gestartet.
+14:39:56 standard31 : Methodenrückgabe: 13
+14:39:56 standard31 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@4b1210ee .
+14:39:56 null : Methodenrückgabe: 32
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 standard32 : Methode gibPositionX() gestartet.
+14:39:56 standard32 : Methodenrückgabe: 3
+14:39:56 standard32 : Methode gibPositionX() beendet.
+14:39:56 standard32 : Methode gibPositionY() gestartet.
+14:39:56 standard32 : Methodenrückgabe: 12
+14:39:56 standard32 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@4d7e1886 .
+14:39:56 null : Methodenrückgabe: 33
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 standard33 : Methode gibPositionX() gestartet.
+14:39:56 standard33 : Methodenrückgabe: 5
+14:39:56 standard33 : Methode gibPositionX() beendet.
+14:39:56 standard33 : Methode gibPositionY() gestartet.
+14:39:56 standard33 : Methodenrückgabe: 11
+14:39:56 standard33 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@3cd1a2f1 .
+14:39:56 null : Methodenrückgabe: 34
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 standard34 : Methode gibPositionX() gestartet.
+14:39:56 standard34 : Methodenrückgabe: 3
+14:39:56 standard34 : Methode gibPositionX() beendet.
+14:39:56 standard34 : Methode gibPositionY() gestartet.
+14:39:56 standard34 : Methodenrückgabe: 9
+14:39:56 standard34 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@2f0e140b .
+14:39:56 null : Methodenrückgabe: 35
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 standard35 : Methode gibPositionX() gestartet.
+14:39:56 standard35 : Methodenrückgabe: 2
+14:39:56 standard35 : Methode gibPositionX() beendet.
+14:39:56 standard35 : Methode gibPositionY() gestartet.
+14:39:56 standard35 : Methodenrückgabe: 7
+14:39:56 standard35 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@7440e464 .
+14:39:56 null : Methodenrückgabe: 36
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@7440e464 .
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 braunAnfang : Methode gibPositionX() gestartet.
+14:39:56 braunAnfang : Methodenrückgabe: 1
+14:39:56 braunAnfang : Methode gibPositionX() beendet.
+14:39:56 braunAnfang : Methode gibPositionY() gestartet.
+14:39:56 braunAnfang : Methodenrückgabe: 4
+14:39:56 braunAnfang : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@49476842 .
+14:39:56 null : Methodenrückgabe: 37
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 standard37 : Methode gibPositionX() gestartet.
+14:39:56 standard37 : Methodenrückgabe: 3
+14:39:56 standard37 : Methode gibPositionX() beendet.
+14:39:56 standard37 : Methode gibPositionY() gestartet.
+14:39:56 standard37 : Methodenrückgabe: 5
+14:39:56 standard37 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@78308db1 .
+14:39:56 null : Methodenrückgabe: 38
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 standard38 : Methode gibPositionX() gestartet.
+14:39:56 standard38 : Methodenrückgabe: 5
+14:39:56 standard38 : Methode gibPositionX() beendet.
+14:39:56 standard38 : Methode gibPositionY() gestartet.
+14:39:56 standard38 : Methodenrückgabe: 6
+14:39:56 standard38 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@27c170f0 .
+14:39:56 null : Methodenrückgabe: 39
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 standard39 : Methode gibPositionX() gestartet.
+14:39:56 standard39 : Methodenrückgabe: 8
+14:39:56 standard39 : Methode gibPositionX() beendet.
+14:39:56 standard39 : Methode gibPositionY() gestartet.
+14:39:56 standard39 : Methodenrückgabe: 7
+14:39:56 standard39 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@5451c3a8 .
+14:39:56 null : Methodenrückgabe: 40
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 standard40 : Methode gibPositionX() gestartet.
+14:39:56 standard40 : Methodenrückgabe: 8
+14:39:56 standard40 : Methode gibPositionX() beendet.
+14:39:56 standard40 : Methode gibPositionY() gestartet.
+14:39:56 standard40 : Methodenrückgabe: 4
+14:39:56 standard40 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@2626b418 .
+14:39:56 null : Methodenrückgabe: 41
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 standard41 : Methode gibPositionX() gestartet.
+14:39:56 standard41 : Methodenrückgabe: 9
+14:39:56 standard41 : Methode gibPositionX() beendet.
+14:39:56 standard41 : Methode gibPositionY() gestartet.
+14:39:56 standard41 : Methodenrückgabe: 2
+14:39:56 standard41 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@5a07e868 .
+14:39:56 null : Methodenrückgabe: 42
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 blauZiel1 : Methode gibPositionX() gestartet.
+14:39:56 blauZiel1 : Methodenrückgabe: 10
+14:39:56 blauZiel1 : Methode gibPositionX() beendet.
+14:39:56 blauZiel1 : Methode gibPositionY() gestartet.
+14:39:56 blauZiel1 : Methodenrückgabe: 3
+14:39:56 blauZiel1 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@76ed5528 .
+14:39:56 null : Methodenrückgabe: 43
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 blauZiel2 : Methode gibPositionX() gestartet.
+14:39:56 blauZiel2 : Methodenrückgabe: 10
+14:39:56 blauZiel2 : Methode gibPositionX() beendet.
+14:39:56 blauZiel2 : Methode gibPositionY() gestartet.
+14:39:56 blauZiel2 : Methodenrückgabe: 5
+14:39:56 blauZiel2 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@2c7b84de .
+14:39:56 null : Methodenrückgabe: 44
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 blauZiel3 : Methode gibPositionX() gestartet.
+14:39:56 blauZiel3 : Methodenrückgabe: 10
+14:39:56 blauZiel3 : Methode gibPositionX() beendet.
+14:39:56 blauZiel3 : Methode gibPositionY() gestartet.
+14:39:56 blauZiel3 : Methodenrückgabe: 7
+14:39:56 blauZiel3 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@3fee733d .
+14:39:56 null : Methodenrückgabe: 45
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 rotZiel1 : Methode gibPositionX() gestartet.
+14:39:56 rotZiel1 : Methodenrückgabe: 17
+14:39:56 rotZiel1 : Methode gibPositionX() beendet.
+14:39:56 rotZiel1 : Methode gibPositionY() gestartet.
+14:39:56 rotZiel1 : Methodenrückgabe: 6
+14:39:56 rotZiel1 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@5acf9800 .
+14:39:56 null : Methodenrückgabe: 46
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 rotZiel2 : Methode gibPositionX() gestartet.
+14:39:56 rotZiel2 : Methodenrückgabe: 15
+14:39:56 rotZiel2 : Methode gibPositionX() beendet.
+14:39:56 rotZiel2 : Methode gibPositionY() gestartet.
+14:39:56 rotZiel2 : Methodenrückgabe: 8
+14:39:56 rotZiel2 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@4617c264 .
+14:39:56 null : Methodenrückgabe: 47
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 rotZiel3 : Methode gibPositionX() gestartet.
+14:39:56 rotZiel3 : Methodenrückgabe: 13
+14:39:56 rotZiel3 : Methode gibPositionX() beendet.
+14:39:56 rotZiel3 : Methode gibPositionY() gestartet.
+14:39:56 rotZiel3 : Methodenrückgabe: 10
+14:39:56 rotZiel3 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@36baf30c .
+14:39:56 null : Methodenrückgabe: 48
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 gruenZiel1 : Methode gibPositionX() gestartet.
+14:39:56 gruenZiel1 : Methodenrückgabe: 18
+14:39:56 gruenZiel1 : Methode gibPositionX() beendet.
+14:39:56 gruenZiel1 : Methode gibPositionY() gestartet.
+14:39:56 gruenZiel1 : Methodenrückgabe: 14
+14:39:56 gruenZiel1 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@7a81197d .
+14:39:56 null : Methodenrückgabe: 49
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 gruenZiel2 : Methode gibPositionX() gestartet.
+14:39:56 gruenZiel2 : Methodenrückgabe: 16
+14:39:56 gruenZiel2 : Methode gibPositionX() beendet.
+14:39:56 gruenZiel2 : Methode gibPositionY() gestartet.
+14:39:56 gruenZiel2 : Methodenrückgabe: 14
+14:39:56 gruenZiel2 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@5ca881b5 .
+14:39:56 null : Methodenrückgabe: 50
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 gruenZiel3 : Methode gibPositionX() gestartet.
+14:39:56 gruenZiel3 : Methodenrückgabe: 14
+14:39:56 gruenZiel3 : Methode gibPositionX() beendet.
+14:39:56 gruenZiel3 : Methode gibPositionY() gestartet.
+14:39:56 gruenZiel3 : Methodenrückgabe: 14
+14:39:56 gruenZiel3 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@24d46ca6 .
+14:39:56 null : Methodenrückgabe: 51
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 pinkZiel1 : Methode gibPositionX() gestartet.
+14:39:56 pinkZiel1 : Methodenrückgabe: 13
+14:39:56 pinkZiel1 : Methode gibPositionX() beendet.
+14:39:56 pinkZiel1 : Methode gibPositionY() gestartet.
+14:39:56 pinkZiel1 : Methodenrückgabe: 21
+14:39:56 pinkZiel1 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@4517d9a3 .
+14:39:56 null : Methodenrückgabe: 52
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 pinkZiel2 : Methode gibPositionX() gestartet.
+14:39:56 pinkZiel2 : Methodenrückgabe: 12
+14:39:56 pinkZiel2 : Methode gibPositionX() beendet.
+14:39:56 pinkZiel2 : Methode gibPositionY() gestartet.
+14:39:56 pinkZiel2 : Methodenrückgabe: 19
+14:39:56 pinkZiel2 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@372f7a8d .
+14:39:56 null : Methodenrückgabe: 53
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 pinkZiel3 : Methode gibPositionX() gestartet.
+14:39:56 pinkZiel3 : Methodenrückgabe: 12
+14:39:56 pinkZiel3 : Methode gibPositionX() beendet.
+14:39:56 pinkZiel3 : Methode gibPositionY() gestartet.
+14:39:56 pinkZiel3 : Methodenrückgabe: 17
+14:39:56 pinkZiel3 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@2f92e0f4 .
+14:39:56 null : Methodenrückgabe: 54
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 gelbZiel1 : Methode gibPositionX() gestartet.
+14:39:56 gelbZiel1 : Methodenrückgabe: 7
+14:39:56 gelbZiel1 : Methode gibPositionX() beendet.
+14:39:56 gelbZiel1 : Methode gibPositionY() gestartet.
+14:39:56 gelbZiel1 : Methodenrückgabe: 21
+14:39:56 gelbZiel1 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@28a418fc .
+14:39:56 null : Methodenrückgabe: 55
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 gelbZiel2 : Methode gibPositionX() gestartet.
+14:39:56 gelbZiel2 : Methodenrückgabe: 8
+14:39:56 gelbZiel2 : Methode gibPositionX() beendet.
+14:39:56 gelbZiel2 : Methode gibPositionY() gestartet.
+14:39:56 gelbZiel2 : Methodenrückgabe: 19
+14:39:56 gelbZiel2 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@5305068a .
+14:39:56 null : Methodenrückgabe: 56
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 gelbZiel3 : Methode gibPositionX() gestartet.
+14:39:56 gelbZiel3 : Methodenrückgabe: 8
+14:39:56 gelbZiel3 : Methode gibPositionX() beendet.
+14:39:56 gelbZiel3 : Methode gibPositionY() gestartet.
+14:39:56 gelbZiel3 : Methodenrückgabe: 17
+14:39:56 gelbZiel3 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@1f32e575 .
+14:39:56 null : Methodenrückgabe: 57
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 schwarzZiel1 : Methode gibPositionX() gestartet.
+14:39:56 schwarzZiel1 : Methodenrückgabe: 2
+14:39:56 schwarzZiel1 : Methode gibPositionX() beendet.
+14:39:56 schwarzZiel1 : Methode gibPositionY() gestartet.
+14:39:56 schwarzZiel1 : Methodenrückgabe: 14
+14:39:56 schwarzZiel1 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@279f2327 .
+14:39:56 null : Methodenrückgabe: 58
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 schwarzZiel2 : Methode gibPositionX() gestartet.
+14:39:56 schwarzZiel2 : Methodenrückgabe: 4
+14:39:56 schwarzZiel2 : Methode gibPositionX() beendet.
+14:39:56 schwarzZiel2 : Methode gibPositionY() gestartet.
+14:39:56 schwarzZiel2 : Methodenrückgabe: 14
+14:39:56 schwarzZiel2 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@2ff4acd0 .
+14:39:56 null : Methodenrückgabe: 59
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 schwarzZiel3 : Methode gibPositionX() gestartet.
+14:39:56 schwarzZiel3 : Methodenrückgabe: 6
+14:39:56 schwarzZiel3 : Methode gibPositionX() beendet.
+14:39:56 schwarzZiel3 : Methode gibPositionY() gestartet.
+14:39:56 schwarzZiel3 : Methodenrückgabe: 14
+14:39:56 schwarzZiel3 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@54bedef2 .
+14:39:56 null : Methodenrückgabe: 60
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 braunZiel1 : Methode gibPositionX() gestartet.
+14:39:56 braunZiel1 : Methodenrückgabe: 3
+14:39:56 braunZiel1 : Methode gibPositionX() beendet.
+14:39:56 braunZiel1 : Methode gibPositionY() gestartet.
+14:39:56 braunZiel1 : Methodenrückgabe: 6
+14:39:56 braunZiel1 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@5caf905d .
+14:39:56 null : Methodenrückgabe: 61
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 braunZiel2 : Methode gibPositionX() gestartet.
+14:39:56 braunZiel2 : Methodenrückgabe: 5
+14:39:56 braunZiel2 : Methode gibPositionX() beendet.
+14:39:56 braunZiel2 : Methode gibPositionY() gestartet.
+14:39:56 braunZiel2 : Methodenrückgabe: 8
+14:39:56 braunZiel2 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@27716f4 .
+14:39:56 null : Methodenrückgabe: 62
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 braunZiel3 : Methode gibPositionX() gestartet.
+14:39:56 braunZiel3 : Methodenrückgabe: 7
+14:39:56 braunZiel3 : Methode gibPositionX() beendet.
+14:39:56 braunZiel3 : Methode gibPositionY() gestartet.
+14:39:56 braunZiel3 : Methodenrückgabe: 10
+14:39:56 braunZiel3 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@8efb846 .
+14:39:56 null : Methodenrückgabe: 63
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 blauStart1 : Methode gibPositionX() gestartet.
+14:39:56 blauStart1 : Methodenrückgabe: 14
+14:39:56 blauStart1 : Methode gibPositionX() beendet.
+14:39:56 blauStart1 : Methode gibPositionY() gestartet.
+14:39:56 blauStart1 : Methodenrückgabe: 1
+14:39:56 blauStart1 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@2a84aee7 .
+14:39:56 null : Methodenrückgabe: 64
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 blauStart2 : Methode gibPositionX() gestartet.
+14:39:56 blauStart2 : Methodenrückgabe: 16
+14:39:56 blauStart2 : Methode gibPositionX() beendet.
+14:39:56 blauStart2 : Methode gibPositionY() gestartet.
+14:39:56 blauStart2 : Methodenrückgabe: 2
+14:39:56 blauStart2 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@a09ee92 .
+14:39:56 null : Methodenrückgabe: 65
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 blauStart3 : Methode gibPositionX() gestartet.
+14:39:56 blauStart3 : Methodenrückgabe: 14
+14:39:56 blauStart3 : Methode gibPositionX() beendet.
+14:39:56 blauStart3 : Methode gibPositionY() gestartet.
+14:39:56 blauStart3 : Methodenrückgabe: 3
+14:39:56 blauStart3 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@30f39991 .
+14:39:56 null : Methodenrückgabe: 66
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 rotStart1 : Methode gibPositionX() gestartet.
+14:39:56 rotStart1 : Methodenrückgabe: 19
+14:39:56 rotStart1 : Methode gibPositionX() beendet.
+14:39:56 rotStart1 : Methode gibPositionY() gestartet.
+14:39:56 rotStart1 : Methodenrückgabe: 8
+14:39:56 rotStart1 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@452b3a41 .
+14:39:56 null : Methodenrückgabe: 67
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 rotStart2 : Methode gibPositionX() gestartet.
+14:39:56 rotStart2 : Methodenrückgabe: 20
+14:39:56 rotStart2 : Methode gibPositionX() beendet.
+14:39:56 rotStart2 : Methode gibPositionY() gestartet.
+14:39:56 rotStart2 : Methodenrückgabe: 11
+14:39:56 rotStart2 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@4a574795 .
+14:39:56 null : Methodenrückgabe: 68
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 rotStart3 : Methode gibPositionX() gestartet.
+14:39:56 rotStart3 : Methodenrückgabe: 18
+14:39:56 rotStart3 : Methode gibPositionX() beendet.
+14:39:56 rotStart3 : Methode gibPositionY() gestartet.
+14:39:56 rotStart3 : Methodenrückgabe: 10
+14:39:56 rotStart3 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@f6f4d33 .
+14:39:56 null : Methodenrückgabe: 69
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 gruenStart1 : Methode gibPositionX() gestartet.
+14:39:56 gruenStart1 : Methodenrückgabe: 19
+14:39:56 gruenStart1 : Methode gibPositionX() beendet.
+14:39:56 gruenStart1 : Methode gibPositionY() gestartet.
+14:39:56 gruenStart1 : Methodenrückgabe: 19
+14:39:56 gruenStart1 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@23fc625e .
+14:39:56 null : Methodenrückgabe: 70
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 gruenStart2 : Methode gibPositionX() gestartet.
+14:39:56 gruenStart2 : Methodenrückgabe: 18
+14:39:56 gruenStart2 : Methode gibPositionX() beendet.
+14:39:56 gruenStart2 : Methode gibPositionY() gestartet.
+14:39:56 gruenStart2 : Methodenrückgabe: 21
+14:39:56 gruenStart2 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@3f99bd52 .
+14:39:56 null : Methodenrückgabe: 71
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 gruenStart3 : Methode gibPositionX() gestartet.
+14:39:56 gruenStart3 : Methodenrückgabe: 17
+14:39:56 gruenStart3 : Methode gibPositionX() beendet.
+14:39:56 gruenStart3 : Methode gibPositionY() gestartet.
+14:39:56 gruenStart3 : Methodenrückgabe: 19
+14:39:56 gruenStart3 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@4f023edb .
+14:39:56 null : Methodenrückgabe: 72
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 pinkStart1 : Methode gibPositionX() gestartet.
+14:39:56 pinkStart1 : Methodenrückgabe: 11
+14:39:56 pinkStart1 : Methode gibPositionX() beendet.
+14:39:56 pinkStart1 : Methode gibPositionY() gestartet.
+14:39:56 pinkStart1 : Methodenrückgabe: 24
+14:39:56 pinkStart1 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@3a71f4dd .
+14:39:56 null : Methodenrückgabe: 73
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 pinkStart2 : Methode gibPositionX() gestartet.
+14:39:56 pinkStart2 : Methodenrückgabe: 9
+14:39:56 pinkStart2 : Methode gibPositionX() beendet.
+14:39:56 pinkStart2 : Methode gibPositionY() gestartet.
+14:39:56 pinkStart2 : Methodenrückgabe: 24
+14:39:56 pinkStart2 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@7adf9f5f .
+14:39:56 null : Methodenrückgabe: 74
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 pinkStart3 : Methode gibPositionX() gestartet.
+14:39:56 pinkStart3 : Methodenrückgabe: 10
+14:39:56 pinkStart3 : Methode gibPositionX() beendet.
+14:39:56 pinkStart3 : Methode gibPositionY() gestartet.
+14:39:56 pinkStart3 : Methodenrückgabe: 22
+14:39:56 pinkStart3 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@85ede7b .
+14:39:56 null : Methodenrückgabe: 75
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 gelbStart1 : Methode gibPositionX() gestartet.
+14:39:56 gelbStart1 : Methodenrückgabe: 3
+14:39:56 gelbStart1 : Methode gibPositionX() beendet.
+14:39:56 gelbStart1 : Methode gibPositionY() gestartet.
+14:39:56 gelbStart1 : Methodenrückgabe: 19
+14:39:56 gelbStart1 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@5674cd4d .
+14:39:56 null : Methodenrückgabe: 76
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 gelbStart2 : Methode gibPositionX() gestartet.
+14:39:56 gelbStart2 : Methodenrückgabe: 2
+14:39:56 gelbStart2 : Methode gibPositionX() beendet.
+14:39:56 gelbStart2 : Methode gibPositionY() gestartet.
+14:39:56 gelbStart2 : Methodenrückgabe: 21
+14:39:56 gelbStart2 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@63961c42 .
+14:39:56 null : Methodenrückgabe: 77
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 gelbStart3 : Methode gibPositionX() gestartet.
+14:39:56 gelbStart3 : Methodenrückgabe: 1
+14:39:56 gelbStart3 : Methode gibPositionX() beendet.
+14:39:56 gelbStart3 : Methode gibPositionY() gestartet.
+14:39:56 gelbStart3 : Methodenrückgabe: 19
+14:39:56 gelbStart3 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@65b54208 .
+14:39:56 null : Methodenrückgabe: 78
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 schwarzStart1 : Methode gibPositionX() gestartet.
+14:39:56 schwarzStart1 : Methodenrückgabe: 1
+14:39:56 schwarzStart1 : Methode gibPositionX() beendet.
+14:39:56 schwarzStart1 : Methode gibPositionY() gestartet.
+14:39:56 schwarzStart1 : Methodenrückgabe: 8
+14:39:56 schwarzStart1 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@1be6f5c3 .
+14:39:56 null : Methodenrückgabe: 79
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 schwarzStart2 : Methode gibPositionX() gestartet.
+14:39:56 schwarzStart2 : Methodenrückgabe: 2
+14:39:56 schwarzStart2 : Methode gibPositionX() beendet.
+14:39:56 schwarzStart2 : Methode gibPositionY() gestartet.
+14:39:56 schwarzStart2 : Methodenrückgabe: 10
+14:39:56 schwarzStart2 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@6b884d57 .
+14:39:56 null : Methodenrückgabe: 80
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 schwarzStart3 : Methode gibPositionX() gestartet.
+14:39:56 schwarzStart3 : Methodenrückgabe: 0
+14:39:56 schwarzStart3 : Methode gibPositionX() beendet.
+14:39:56 schwarzStart3 : Methode gibPositionY() gestartet.
+14:39:56 schwarzStart3 : Methodenrückgabe: 11
+14:39:56 schwarzStart3 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@38af3868 .
+14:39:56 null : Methodenrückgabe: 81
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 braunStart1 : Methode gibPositionX() gestartet.
+14:39:56 braunStart1 : Methodenrückgabe: 4
+14:39:56 braunStart1 : Methode gibPositionX() beendet.
+14:39:56 braunStart1 : Methode gibPositionY() gestartet.
+14:39:56 braunStart1 : Methodenrückgabe: 2
+14:39:56 braunStart1 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@77459877 .
+14:39:56 null : Methodenrückgabe: 82
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 braunStart2 : Methode gibPositionX() gestartet.
+14:39:56 braunStart2 : Methodenrückgabe: 6
+14:39:56 braunStart2 : Methode gibPositionX() beendet.
+14:39:56 braunStart2 : Methode gibPositionY() gestartet.
+14:39:56 braunStart2 : Methodenrückgabe: 1
+14:39:56 braunStart2 : Methode gibPositionY() beendet.
+14:39:56 null : Methode getPositionY() gestartet mit Parameter model.Feld@5b2133b1 .
+14:39:56 null : Methodenrückgabe: 83
+14:39:56 null : Methode getPositionY() beendet.
+14:39:56 braunStart3 : Methode gibPositionX() gestartet.
+14:39:56 braunStart3 : Methodenrückgabe: 6
+14:39:56 braunStart3 : Methode gibPositionX() beendet.
+14:39:56 braunStart3 : Methode gibPositionY() gestartet.
+14:39:56 braunStart3 : Methodenrückgabe: 3
+14:39:56 braunStart3 : Methode gibPositionY() beendet.
+14:39:56 blauStart1 : Methode gibPositionX() gestartet.
+14:39:56 blauStart1 : Methodenrückgabe: 14
+14:39:56 blauStart1 : Methode gibPositionX() beendet.
+14:39:56 blauStart1 : Methode gibPositionY() gestartet.
+14:39:56 blauStart1 : Methodenrückgabe: 1
+14:39:56 blauStart1 : Methode gibPositionY() beendet.
+14:39:56 blauStart1 : Methode gibID() gestartet.
+14:39:56 blauStart1 : Methodenrückgabe: 63
+14:39:56 blauStart1 : Methode gibID() beendet.
+14:39:56 blauStart2 : Methode gibPositionX() gestartet.
+14:39:56 blauStart2 : Methodenrückgabe: 16
+14:39:56 blauStart2 : Methode gibPositionX() beendet.
+14:39:56 blauStart2 : Methode gibPositionY() gestartet.
+14:39:56 blauStart2 : Methodenrückgabe: 2
+14:39:56 blauStart2 : Methode gibPositionY() beendet.
+14:39:56 blauStart2 : Methode gibID() gestartet.
+14:39:56 blauStart2 : Methodenrückgabe: 64
+14:39:56 blauStart2 : Methode gibID() beendet.
+14:39:56 blauStart3 : Methode gibPositionX() gestartet.
+14:39:56 blauStart3 : Methodenrückgabe: 14
+14:39:56 blauStart3 : Methode gibPositionX() beendet.
+14:39:56 blauStart3 : Methode gibPositionY() gestartet.
+14:39:56 blauStart3 : Methodenrückgabe: 3
+14:39:56 blauStart3 : Methode gibPositionY() beendet.
+14:39:56 blauStart3 : Methode gibID() gestartet.
+14:39:56 blauStart3 : Methodenrückgabe: 65
+14:39:56 blauStart3 : Methode gibID() beendet.
+14:39:56 rotStart1 : Methode gibPositionX() gestartet.
+14:39:56 rotStart1 : Methodenrückgabe: 19
+14:39:56 rotStart1 : Methode gibPositionX() beendet.
+14:39:56 rotStart1 : Methode gibPositionY() gestartet.
+14:39:56 rotStart1 : Methodenrückgabe: 8
+14:39:56 rotStart1 : Methode gibPositionY() beendet.
+14:39:56 rotStart1 : Methode gibID() gestartet.
+14:39:56 rotStart1 : Methodenrückgabe: 66
+14:39:56 rotStart1 : Methode gibID() beendet.
+14:39:56 rotStart2 : Methode gibPositionX() gestartet.
+14:39:56 rotStart2 : Methodenrückgabe: 20
+14:39:56 rotStart2 : Methode gibPositionX() beendet.
+14:39:56 rotStart2 : Methode gibPositionY() gestartet.
+14:39:56 rotStart2 : Methodenrückgabe: 11
+14:39:56 rotStart2 : Methode gibPositionY() beendet.
+14:39:56 rotStart2 : Methode gibID() gestartet.
+14:39:56 rotStart2 : Methodenrückgabe: 67
+14:39:56 rotStart2 : Methode gibID() beendet.
+14:39:56 rotStart3 : Methode gibPositionX() gestartet.
+14:39:56 rotStart3 : Methodenrückgabe: 18
+14:39:56 rotStart3 : Methode gibPositionX() beendet.
+14:39:56 rotStart3 : Methode gibPositionY() gestartet.
+14:39:56 rotStart3 : Methodenrückgabe: 10
+14:39:56 rotStart3 : Methode gibPositionY() beendet.
+14:39:56 rotStart3 : Methode gibID() gestartet.
+14:39:56 rotStart3 : Methodenrückgabe: 68
+14:39:56 rotStart3 : Methode gibID() beendet.
+14:39:56 gruenStart1 : Methode gibPositionX() gestartet.
+14:39:56 gruenStart1 : Methodenrückgabe: 19
+14:39:56 gruenStart1 : Methode gibPositionX() beendet.
+14:39:56 gruenStart1 : Methode gibPositionY() gestartet.
+14:39:56 gruenStart1 : Methodenrückgabe: 19
+14:39:56 gruenStart1 : Methode gibPositionY() beendet.
+14:39:56 gruenStart1 : Methode gibID() gestartet.
+14:39:56 gruenStart1 : Methodenrückgabe: 69
+14:39:56 gruenStart1 : Methode gibID() beendet.
+14:39:56 gruenStart1 : Methode gibPositionX() gestartet.
+14:39:56 gruenStart1 : Methodenrückgabe: 19
+14:39:56 gruenStart1 : Methode gibPositionX() beendet.
+14:39:56 gruenStart1 : Methode gibPositionY() gestartet.
+14:39:56 gruenStart1 : Methodenrückgabe: 19
+14:39:56 gruenStart1 : Methode gibPositionY() beendet.
+14:39:56 gruenStart1 : Methode gibID() gestartet.
+14:39:56 gruenStart1 : Methodenrückgabe: 69
+14:39:56 gruenStart1 : Methode gibID() beendet.
+14:39:56 gruenStart1 : Methode gibPositionX() gestartet.
+14:39:56 gruenStart1 : Methodenrückgabe: 19
+14:39:56 gruenStart1 : Methode gibPositionX() beendet.
+14:39:56 gruenStart1 : Methode gibPositionY() gestartet.
+14:39:56 gruenStart1 : Methodenrückgabe: 19
+14:39:56 gruenStart1 : Methode gibPositionY() beendet.
+14:39:56 gruenStart1 : Methode gibID() gestartet.
+14:39:56 gruenStart1 : Methodenrückgabe: 69
+14:39:56 gruenStart1 : Methode gibID() beendet.
+14:39:56 gruenStart1 : Methode gibPositionX() gestartet.
+14:39:56 gruenStart1 : Methodenrückgabe: 19
+14:39:56 gruenStart1 : Methode gibPositionX() beendet.
+14:39:56 gruenStart1 : Methode gibPositionY() gestartet.
+14:39:56 gruenStart1 : Methodenrückgabe: 19
+14:39:56 gruenStart1 : Methode gibPositionY() beendet.
+14:39:56 gruenStart1 : Methode gibID() gestartet.
+14:39:56 gruenStart1 : Methodenrückgabe: 69
+14:39:56 gruenStart1 : Methode gibID() beendet.
+14:39:56 gruenStart1 : Methode gibPositionX() gestartet.
+14:39:56 gruenStart1 : Methodenrückgabe: 19
+14:39:56 gruenStart1 : Methode gibPositionX() beendet.
+14:39:56 gruenStart1 : Methode gibPositionY() gestartet.
+14:39:56 gruenStart1 : Methodenrückgabe: 19
+14:39:56 gruenStart1 : Methode gibPositionY() beendet.
+14:39:56 gruenStart1 : Methode gibID() gestartet.
+14:39:56 gruenStart1 : Methodenrückgabe: 69
+14:39:56 gruenStart1 : Methode gibID() beendet.
+14:39:56 gruenStart1 : Methode gibPositionX() gestartet.
+14:39:56 gruenStart1 : Methodenrückgabe: 19
+14:39:56 gruenStart1 : Methode gibPositionX() beendet.
+14:39:56 gruenStart1 : Methode gibPositionY() gestartet.
+14:39:56 gruenStart1 : Methodenrückgabe: 19
+14:39:56 gruenStart1 : Methode gibPositionY() beendet.
+14:39:56 gruenStart1 : Methode gibID() gestartet.
+14:39:56 gruenStart1 : Methodenrückgabe: 69
+14:39:56 gruenStart1 : Methode gibID() beendet.
+14:39:56 gruenStart1 : Methode gibPositionX() gestartet.
+14:39:56 gruenStart1 : Methodenrückgabe: 19
+14:39:56 gruenStart1 : Methode gibPositionX() beendet.
+14:39:56 gruenStart1 : Methode gibPositionY() gestartet.
+14:39:56 gruenStart1 : Methodenrückgabe: 19
+14:39:56 gruenStart1 : Methode gibPositionY() beendet.
+14:39:56 gruenStart1 : Methode gibID() gestartet.
+14:39:56 gruenStart1 : Methodenrückgabe: 69
+14:39:56 gruenStart1 : Methode gibID() beendet.
+14:39:56 gruenStart1 : Methode gibPositionX() gestartet.
+14:39:56 gruenStart1 : Methodenrückgabe: 19
+14:39:56 gruenStart1 : Methode gibPositionX() beendet.
+14:39:56 gruenStart1 : Methode gibPositionY() gestartet.
+14:39:56 gruenStart1 : Methodenrückgabe: 19
+14:39:56 gruenStart1 : Methode gibPositionY() beendet.
+14:39:56 gruenStart1 : Methode gibID() gestartet.
+14:39:56 gruenStart1 : Methodenrückgabe: 69
+14:39:56 gruenStart1 : Methode gibID() beendet.
+14:39:56 gruenStart1 : Methode gibPositionX() gestartet.
+14:39:56 gruenStart1 : Methodenrückgabe: 19
+14:39:56 gruenStart1 : Methode gibPositionX() beendet.
+14:39:56 gruenStart1 : Methode gibPositionY() gestartet.
+14:39:56 gruenStart1 : Methodenrückgabe: 19
+14:39:56 gruenStart1 : Methode gibPositionY() beendet.
+14:39:56 gruenStart1 : Methode gibID() gestartet.
+14:39:56 gruenStart1 : Methodenrückgabe: 69
+14:39:56 gruenStart1 : Methode gibID() beendet.
+14:39:56 gruenStart1 : Methode gibPositionX() gestartet.
+14:39:56 gruenStart1 : Methodenrückgabe: 19
+14:39:56 gruenStart1 : Methode gibPositionX() beendet.
+14:39:56 gruenStart1 : Methode gibPositionY() gestartet.
+14:39:56 gruenStart1 : Methodenrückgabe: 19
+14:39:56 gru
