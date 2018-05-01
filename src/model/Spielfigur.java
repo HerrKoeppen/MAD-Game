@@ -76,7 +76,7 @@ public class Spielfigur {
     private int Spielerid;
 
     /**
-     * boolean, gett an, ob sich Spielfigur bewegen kann oder nicht Zugpflichten
+     * boolean, gibt an, ob sich Spielfigur bewegen kann oder nicht Zugpflichten
      * muessen hier beachtet werden: 1. Schlagpflicht (wichtigste Pflicht) 2.
      * Figur von A-Feld wegsetzen, sofern noch Figuren im Startkreis 3. Figur
      * von Startfeld auf A-Feld, bei 6 4. Einruecken in Zielfeld

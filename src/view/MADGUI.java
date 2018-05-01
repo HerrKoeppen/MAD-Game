@@ -30,7 +30,33 @@ public class MADGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/768px-Dontworry6.svg.png"))); // NOI18N
+       jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/768px-Dontworry6.svg.png"))); // NOI18N
+
+
+/**
+* public TestLayoutOverlay() {
+*
+*   setTitle("test");
+*   setLayout(new GridBagLayout());
+*   setDefaultCloseOperation(EXIT_ON_CLOSE);
+*
+*   JLabel background = new JLabel(new ImageIcon("/view/768px-Dontworry6.svg.png"));
+*   background.setLayout(new BorderLayout());
+*   add(background);
+*
+*   JLabel jLabel1 = new JLabel("Testfeld");
+*   jLabel1.setFont(jLabel1.getFont().deriveFont(Font.BOLD, 48));
+*   jLabel1.setForeground(Color.BLACK);
+*   jLabel1.setHorizontalAlignment(JLabel.CENTER);
+*   background.add(jJabel1);
+*
+*   pack();
+*   setLocationRelativeTo(null);
+*   setVisible(true);
+*
+*}
+*
+*/
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

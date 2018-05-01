@@ -255,6 +255,10 @@ public class SpielerComputer implements Spieler {
     }
 
     @Override
+    /**
+     * Methode, um zu wuerfeln
+     * @return augenzahl
+     */
     public int wuerfeln() {
         log.log(objektname, "Methode wuerfeln() gestartet.");
         int augenzahl = this.dasSpiel.getWuerfel().wuerfeln();
@@ -264,7 +268,7 @@ public class SpielerComputer implements Spieler {
     }
 
     /**
-     * Die Methode gett an ob sich alle Spielfiguren auf den Startfeldern
+     * Die Methode gibt an, ob sich alle Spielfiguren auf den Startfeldern
      * befinden.
      *
      * @return Boolean
@@ -286,23 +290,35 @@ public class SpielerComputer implements Spieler {
     }
 
     @Override
+    /**
+     * Getter-Methode fuer aFeld, also Anfangsfeld
+     * @return aFeld
+     */
     public Feld getafeld() {
         return aFeld;
     }
 
     @Override
+    /**
+     * Getter-Methode fuer ArrayList Felder
+     * @return null
+     */
     public List<Feld> getFelder() {
         return null;
     }
 
     @Override
+    /**
+     * Getter-Methode fuer Spiel
+     * @return dasSpiel
+     */
     public Spiel getSpiel() {
         return this.dasSpiel;
     }
 
     /**
-     *
-     * @return
+     *Getter-Methode fuer zeFeld, also Zieleintrittsfeld
+     * @return zeFeld
      */
     @Override
     public Feld getzefeld() {
@@ -310,23 +326,34 @@ public class SpielerComputer implements Spieler {
         return zeFeld;
     }
 
+    /**
+     * Getter-Methode fuer farbe, gibt jeweilige Farbe der Figur zurueck
+     * @return Farbe
+     */
     @Override
     public String getfarbe() {
         return this.Farbe;
     }
-
+    /**
+     * Getter-Methode fuer Zielfeld
+     * @return zielfeld
+     */
     @Override
     public Feld getzielfeld() {
         return zielfeld;
     }
-
+    /**
+     * Getter-Methode fuer Spielfiguren, gibt Array mit den mitspielenden Figuren zurueck
+     * @return Spielfiguren
+     */
     @Override
     public Spielfigur[] getSpielfiguren() {
         return Spielfiguren;
     }
 
     /**
-     * @return the farbe
+     * Getter-Methode fuer Objektname, kann auch Farbe der jeweiligen Figur sein
+     * @return the farbe, objektname
      */
     public String getobjektname() {
         log.log(objektname, "Methode getobjektname() gestartet.");

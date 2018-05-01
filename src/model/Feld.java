@@ -247,6 +247,10 @@ public class Feld {
     return this.farbe;
     }
     
+    /**
+     * Setter-Methode fuer Hausbesetzer
+     * @param derSchnorrer 
+     */
     public void setHausbesetzer(Spielfigur derSchnorrer){
     this.hausbesetzer = derSchnorrer;
     }
@@ -254,6 +258,7 @@ public class Feld {
     
     
      /**
+      * getter-Methode fuer Objektname 
      * @return the farbe
      */
     public String getobjektname() {
