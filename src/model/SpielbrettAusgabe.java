@@ -1,6 +1,7 @@
 package model;
 
 import java.io.*;
+import java.util.List;
 import java.util.Random;
 import java.util.logging.Level;
 
@@ -329,13 +330,20 @@ public class SpielbrettAusgabe {
 
     }
 
-    public int Spielerwaehlen() {
+    public int Spielerwaehlen(List<Spielfigur> moegSpielfig) {
         String echo = "error";
         InputStreamReader isr = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(isr);
 
+
         while (true) {
-            System.out.println(">>Waehle einen Spieler (0,1 oder 2):");
+            System.out.print(">>Waehle einen Spielefiguren ");
+            for(Spielfigur i: moegSpielfig){
+            if ( i != null){
+            System.out.print(i.getobjektname() + " ");
+            }
+            }
+            System.out.println();
             try {
                 echo = br.readLine();
             } catch (IOException ex) {
@@ -529,17 +537,17 @@ public class SpielbrettAusgabe {
         Spieler tester3 = new SpielerComputer("Charles der II", log, test);
         Spieler tester4 = new SpielerComputer("Dave", log, test);
         Spieler tester5 = new SpielerComputer("Eve", log, test);
-        Spieler tester6 = new SpielerMensch("Fynnia", log, test);
+        Spieler tester6 = new SpielerComputer("Fynnia", log, test);
         Spieler tester7 = new SpielerComputer("Gargamel", log, test);
 
         for (int a = 0; a < 25; a++) {
-            tester.ziehen(0);
-            tester2.ziehen(0);
-            tester3.ziehen(0);
-            tester4.ziehen(0);
-            tester5.ziehen(0);
-            tester6.ziehen(0);
-            tester7.ziehen(0);
+            tester.ziehen2(0);
+            tester2.ziehen2(0);
+            tester3.ziehen2(0);
+            tester4.ziehen2(0);
+            tester5.ziehen2(0);
+            tester6.ziehen2(0);
+            tester7.ziehen2(0);
            
               
         }

@@ -372,6 +372,10 @@ public class Spielfigur {
      */
     public int getPrioritaet(int ZuLaufendeFeldanzahl) {
         int PositionImFeld = -1;
+        Feld zielfeld = this.aktfeld;
+        for( int  a = 0; a < ZuLaufendeFeldanzahl; a++){
+        zielfeld = this.holpfad(zielfeld);
+        }
         //Sucht die Postion des Feldes in der Liste der Spielfigur
         for (int i = 0; i < 200; i++) {
             if (team.getFelder().get(i).equals(this.aktfeld)) {

@@ -168,8 +168,6 @@ public class SpielerMensch implements Spieler {
         //System.out.println(this.objektname + " hat gewonnen");
         return true;
     }
-
-    @Override
     public void ziehen(int gezogen) {
         this.dasSpiel.output.spielAusgabe();
         log.log(objektname, "Methode ziehen() gestartet.");
@@ -228,7 +226,7 @@ public class SpielerMensch implements Spieler {
                         return;
                     }*/
                             while (true) {
-                                int x = this.dasSpiel.output.Spielerwaehlen();
+                                int x = this.dasSpiel.output.Spielerwaehlen(moegSpielfig);
                                 if (this.Spielfiguren[x].kannSichBewegen(augen)) {
                                     this.Spielfiguren[1].laufen(augen);
                                     break;
@@ -243,23 +241,7 @@ public class SpielerMensch implements Spieler {
                             // 3. Figur von A-Feld wegsetzen, sofern noch Figuren im Startkreis
                             // 4. Einruecken in Zielfeld
                             //Zug mit doppelter Pflicht vor Zug mit einfacher Pflicht
-                            List<Spielfigur> PflichtSpielfiguren = new LinkedList<Spielfigur>();
-                            List<Spielfigur> DPflichtSpielfiguren = new LinkedList<Spielfigur>();
 
-                            for (int i = 0; i < 3; i++) {
-                                //besteht eine Pflicht?
-                                if (moegSpielfig.get(i).getPrioritaet(augen) == 2) {
-                                    PflichtSpielfiguren.add(moegSpielfig.get(i));
-
-                                    //Besteht eine doppelte Pflicht?
-                                    if (moegSpielfig.get(i).getPrioritaet(augen) == 3) {
-                                        DPflichtSpielfiguren.add(moegSpielfig.get(i));
-
-                                    }
-
-                                }
-
-                            }
 
                             //Spielfigur vorrücken
                             //moegSpielfig.get(x).laufen(augen);
@@ -277,6 +259,69 @@ public class SpielerMensch implements Spieler {
         //ich habe doch schon gewonnen: ich mache nichts
         log.log(objektname, "Methode ziehen() beendet.");
 
+    }
+
+    public void ziehen2(int gezogen) {
+        this.dasSpiel.output.spielAusgabe();
+        log.log(objektname, "Methode ziehen() gestartet.");
+        //habe ich gewonnen? Wenn nein, dann mache ich einen normalen Zug
+        if (gezogen < 3) {
+            if (!this.hatGewonnen()) {
+                //habe ich nur Spielfiguren im Startkreis
+                if (this.SpielerImStartkreis()) {
+                    //-> ja, dann bis zu dreimal würfeln und hoffe auf eine 6
+                    for (int i = 0; i < 3; i++) {
+                        if (this.dasSpiel.output.wuerfeln()) {
+                            // ist es eine 6?
+                            if (this.wuerfeln() == 6) {
+                                //schlagen --> geschlagene Figur kommt auf den Startkreis zurück
+                                //this.Spielfiguren[0].schlagen(aFeld);
+                                //Spielfigur auf das A-Feld setzen
+                                this.Spielfiguren[0].herauskommen();
+                                this.dasSpiel.output.spielAusgabe();
+                                System.out.println(this.objektname + " kommt raus.");
+                                //nochmal würfeln
+                                if (this.dasSpiel.output.wuerfeln()) {
+                                    this.Spielfiguren[0].laufen(this.wuerfeln());
+                                    if (this.dasSpiel.getWuerfel().getZahl() == 6) {
+                                        System.out.println(this.Name + " ist nochmal am Zug.");
+                                        this.ziehen(gezogen++);
+
+                                    }
+                                }
+                                return;
+                            }
+                        }
+                    }
+                    }
+                    return;
+                } //-> nein, einmal würfeln
+        else {  //unnoetige zeile aber lieber doppelt als keinmal
+                int Random = this.wuerfeln();
+                
+                
+                List<Spielfigur> moeglSpielfiguren = this.moeglSpielfgiguren(Random);
+                if(moeglSpielfiguren.isEmpty()) {
+                    System.out.println("Du kannst nicht ziehen.Muhahaha(böses Lachen)");
+                    return;
+                    
+                    
+                    
+                }else{
+                  this.dasSpiel.getoutput().Spielerwaehlen(moeglSpielfiguren);
+                    
+                }
+               
+                
+                
+                
+                
+        }
+        
+
+    }
+        //ich habe doch schon gewonnen: ich mache nichts
+        log.log(objektname, "Methode ziehen() beendet.");
     }
 
     /**
@@ -319,6 +364,7 @@ public class SpielerMensch implements Spieler {
         } else {
             return DPflichtSpielfiguren;
         }
+        
 
     }
 
