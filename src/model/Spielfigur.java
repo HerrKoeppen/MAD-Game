@@ -76,7 +76,7 @@ public class Spielfigur {
     private int Spielerid;
 
     /**
-     * boolean, gett an, ob sich Spielfigur bewegen kann oder nicht Zugpflichten
+     * boolean, gibt an, ob sich Spielfigur bewegen kann oder nicht Zugpflichten
      * muessen hier beachtet werden: 1. Schlagpflicht (wichtigste Pflicht) 2.
      * Figur von A-Feld wegsetzen, sofern noch Figuren im Startkreis 3. Figur
      * von Startfeld auf A-Feld, bei 6 4. Einruecken in Zielfeld
@@ -180,18 +180,11 @@ public class Spielfigur {
      */
     public Feld holpfad(Feld Baka) {
 
-        /*public String getFeldtyp() {
-         if (this.Startfeld){return "Startfeld";} 
-         if (this.eFeld){return "zeFeld";} 
-         if (this.aFeld){return "aFeld";} 
-         if (this.Zielfeld){return "Zielfeld";} 
-         if (this.Standardfeld){return "Standardfeld";} 
-         */
         log.log(objektname, "Methode holpfad() gestartet.");
 
         switch (Baka.getFeldtyp().toLowerCase()) { // bester und elegantester Switch von allen
             case "startfeld":
-                return this.team.getafeld();
+                return this.startfeld;
             case "zefeld":
                 if (this.team.getzefeld().getID() == Baka.getID()) {
                     return this.team.getzielfeld();
@@ -230,12 +223,18 @@ public class Spielfigur {
         for (int i = 0; i < augen; i++) {
             zielfeld = this.holpfad(zielfeld);
         }
-
-        if (zielfeld.getIstBesetzt() && zielfeld.getHausbesetzer().getFarbe().equals(this.farbe)) {
+        if(augen == 6 && this.aufstartfeld){
+            this.herauskommen();
+            
+        return 0;
+        }
+        else {if (zielfeld.getIstBesetzt() && zielfeld.getHausbesetzer().getFarbe().equals(this.farbe)) {
             schlagen(zielfeld);
         }
+        
         this.setzten(zielfeld);
         return 0;
+        }
     }
 
     /**
@@ -371,51 +370,63 @@ public class Spielfigur {
      * @return
      */
     public int getPrioritaet(int ZuLaufendeFeldanzahl) {
-        int PositionImFeld = -1;
+
+        
+        Feld zielfeld = this.aktfeld;
+        //holt das Zielfeld
+        for( int  a = 0; a < ZuLaufendeFeldanzahl; a++){
+        zielfeld = this.holpfad(zielfeld);
+        }
         //Sucht die Postion des Feldes in der Liste der Spielfigur
-        for (int i = 0; i < 200; i++) {
-            if (team.getFelder().get(i).equals(this.aktfeld)) {
-                PositionImFeld = i;
+        
+        //Wenn eine 6 gewürfelt wurde und die Spielfigur im Startkreis steht.
+        if(ZuLaufendeFeldanzahl == 6 && this.aufstartfeld){
+            if(this.team.getafeld().getIstBesetzt()){
+                if(this.team.getafeld().getHausbesetzer().getTeam().equals(this.team)){
+                return 0;
+                }
+               // //falls Gegner auf dem aFeld steht
+                else{
+                return 3;
+                }
             }
-
-        }
-        if (PositionImFeld == -1) {
-            return 4;
-        }
-
-        //Wenn das Zielfeld von einen Gegner besetzt ist
-        if (team.getFelder().get(PositionImFeld + ZuLaufendeFeldanzahl).getHausbesetzer().getId() != this.getId()) {
+            else{
             return 2;
+            }
         }
-        //Wenn das Zielfeld von dem gleichen Team besetzt ist
-        if (team.getFelder().get(PositionImFeld + ZuLaufendeFeldanzahl).getHausbesetzer().getId() == this.getId()) {
+        
+
+        //Wenn eine Figur nicht gehen kann
+        if (ZuLaufendeFeldanzahl != 0 && zielfeld.equals(this.aktfeld)) {
             return 0;
         }
         
-        if (team.getFelder().get(PositionImFeld).getFeldtyp().toLowerCase().equalsIgnoreCase("afeld") && team.SpielerImStartkreis()) {
-            if (team.getFelder().get(PositionImFeld + ZuLaufendeFeldanzahl).getHausbesetzer().getId() != this.getId()) {
-            //Wenn die Spielfigur auf einen A-Feld steht und Spielfiguren im Startkreis und das Zielfeld von einen anderen Team besetzt ist.   
+        if(this.aktfeld.getaFeld()){
+        if(zielfeld.getIstBesetzt()){
+               //Wenn das Zielfeld von dem gleichen Team besetzt ist 
+            if(this.team.getafeld().getHausbesetzer().team.equals(this.team)){
+                return 0;
+                }
+                //Wenn das Zielfeld von einen Gegner besetzt ist
+                else{
                 return 3;
-
-            }
-            //Wenn die Spielfigur auf einen A-Feld steht und Spielfiguren im Startkreis
-            return 2;
-
+                }
         }
-        //Wenn eine 6 gewürfelt wurde und die Spielfigur im Startkreis steht.
-        if(ZuLaufendeFeldanzahl==6&&this.getaufStartfeld()){
-            return 2;
-        }
-        //Wenn das Zielfeld nicht exestiert
-        if(team.getFelder().get(ZuLaufendeFeldanzahl+PositionImFeld)==null){
-            return 0;
             
+            return 2;
+        }
+        
+        if(zielfeld.getIstBesetzt()){
+               //Wenn das Zielfeld von dem gleichen Team besetzt ist 
+            if(this.team.getafeld().getHausbesetzer().team.equals(this.team)){
+                return 0;
+                }
+                //Wenn das Zielfeld von einen Gegner besetzt ist
+                else{
+                return 2;
+                }
         }
         return 1;
-        
-        
-        
-
     }
 
     /**

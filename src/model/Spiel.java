@@ -159,14 +159,15 @@ public class Spiel {
             i++;
 
         }
+        i = 0;
         while (beendet != true) {
             if (AlleSpieler[i] != null) {
                 AlleSpieler[i].ziehen(AlleSpieler[i].wuerfeln());
                 i++;
             }
-
+            else {
             i = 0;
-
+            }
         }
 
         //Startspieler ermitteln fehlt
@@ -180,21 +181,39 @@ public class Spiel {
         log.logBeenden();
     }
     */
+    
+    /**
+     * getter-Methode fuer Wuerfel
+     * @return derWuerfel
+     */
     public Wuerfel getWuerfel(){
     return derWuerfel;
     }
-    
+    /**
+     * Setter-Meyhode fuer Wuerfel
+     * @param ww 
+     */
     public void setWuerfel(Wuerfel ww){
     this.derWuerfel = ww;
     }
-
+    /**
+     * Getter-Methode fuer Spielbrett
+     * @return dasSpielbrett
+     */
     public Spielbrett getSpielbrett() {
         return dasSpielbrett;
     }
-    
+    /**
+     * Getter-Methode fuer Output
+     * @return output
+     */
      public SpielbrettAusgabe getoutput() {
         return this.output;
     }
+     /**
+      * eine Methode, die alle Spielfiguren der jewiligen Farben auf dem Spielbrett verteilt
+      * und auf ihre anfaenglichen Positionen setzt
+      */
      public void spielfigurenVerteilen(){
           log.log(objektname, "Methode spielfigurenVerteilen() gestartet.");
          for(Spielfigur i :this.AlleSpielfiguren){
@@ -204,7 +223,11 @@ public class Spiel {
           log.log(objektname, "Methode spielfigurenVerteilen() beendet.");
      
      }
-     
+     /**
+      * setzt alle Spielfiguren einer Farbe
+      * @param dieSpielfigur
+      * @return i
+      */
       public int setSpielfigur(Spielfigur dieSpielfigur) {
         log.log(objektname, "Methode setSpielfigur() gestartet mit Parameter " + dieSpielfigur + " .");
         int i = 0;
@@ -216,6 +239,11 @@ public class Spiel {
         return i;
 
     }
+      /**
+       * setzt alle mitspielenden Spieler
+       * @param derSpieler
+       * @return i
+       */
        public int setSpieler(Spieler derSpieler) {
         log.log(objektname, "Methode setSpieler() gestartet mit Parameter " + derSpieler + " .");
         int i = 0;

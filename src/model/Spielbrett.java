@@ -271,7 +271,7 @@ public class Spielbrett {
      * fügt ein neues Feld in die Felderliste ein
      *
      * @param dasFeld
-     * @return innteger index des neu hinzugefügten objektes
+     * @return integer index des neu hinzugefügten objektes
      */
     public int feldhinzufuegen(Feld dasFeld) {
         log.log(objektname, "Methode feldhinzufuegen() gestartet mit Parameter " + dasFeld + " .");
@@ -286,7 +286,7 @@ public class Spielbrett {
      * fügt ein neues Feld in die Spüielkreisliste ein
      *
      * @param dasFeld
-     * @return innteger index des neu hinzugefügten objektes
+     * @return integer index des neu hinzugefügten objektes
      */
     public void kreisfeldhinzufuegen(Feld dasFeld) {
         log.log(objektname, "Methode kreisfeldhinzufuegen() gestartet mit Parameter " + dasFeld + " .");
@@ -310,18 +310,23 @@ public class Spielbrett {
         log.log(objektname,"Methode aufbauen() beendet.");
     }
     /**
-     * 
-     * @return 
+     * Getter-Methode fuer Felder
+     * @return felder
      */
     public List<Feld> getFelder(){
     return felder;
     }
+    /**
+     * getter-Methode fuer Output
+     * @return Output
+     */
     public SpielbrettAusgabe getOutput(){
     return Output;
     }
     
     
      /**
+      * getter-Methode fuer Objektname, kann auch die jeweilige Farbe sein
      * @return the farbe
      */
     public String getobjektname() {

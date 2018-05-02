@@ -170,6 +170,98 @@ public class SpielerComputer implements Spieler {
         return true;
     }
 
+    public void ziehen2(int gezogen) {
+        log.log(objektname, "Methode ziehen() gestartet.");
+        //habe ich gewonnen? Wenn nein, dann mache ich einen normalen Zug
+        if (gezogen < 3) {
+            if (!this.hatGewonnen()) {
+                System.out.println(this.objektname + " ist am Zug");
+                //habe ich nur Spielfiguren im Startkreis
+                if (this.SpielerImStartkreis()) {
+                    System.out.println(this.objektname + " darf 3mal wuerfeln");
+                    //-> ja, dann bis zu dreimal würfeln und hoffe auf eine 6
+                    for (int i = 0; i < 3; i++) {
+
+                        // ist es eine 6?
+                        if (this.wuerfeln() == 6) {
+                            //schlagen --> geschlagene Figur kommt auf den Startkreis zurück
+                            //this.Spielfiguren[0].schlagen(aFeld);
+                            //Spielfigur auf das A-Feld setzen
+                            this.Spielfiguren[0].herauskommen();
+                            System.out.println(this.objektname + " kommt raus.");
+                            //nochmal würfeln
+                            this.Spielfiguren[0].laufen(this.wuerfeln());
+
+                            if (this.dasSpiel.getWuerfel().getZahl() == 6) {
+                                System.out.println(this.Name + " ist nochmal am Zug.");
+                                this.ziehen(gezogen++);
+
+                            }
+
+                            return;
+
+                        }
+                    }
+                    return;
+                } //-> nein, einmal würfeln
+             else {  //unnoetige zeile aber lieber doppelt als keinmal
+               
+                int Random = this.wuerfeln();
+        
+                
+                List<Spielfigur> moeglSpielfiguren = this.moeglSpielfgiguren(Random);
+                if(moeglSpielfiguren.isEmpty()) {
+                    System.out.println(this.objektname +" kann nicht ziehen.Muhahaha(böses Lachen)");
+                    return;
+                       
+                  }else{
+                  
+                    moeglSpielfiguren.get(0).laufen(Random);
+                    if (Random == 6) {
+                    this.ziehen(gezogen++);
+                    }
+                }
+              
+                
+                
+                }           
+    }
+        }
+    }
+    
+            
+
+    public List<Spielfigur> moeglSpielfgiguren(int ZuLaufendeFeldanzahl) {
+        List<Spielfigur> moeglSpielfiguren = new LinkedList<Spielfigur>();
+        List<Spielfigur> DPflichtSpielfiguren = new LinkedList<Spielfigur>();
+        for (int i = 0; i < this.Spielfiguren.length; i++) {
+            //Wenn die Spielfigur ziehen kann.
+            if (Spielfiguren[i].getPrioritaet(ZuLaufendeFeldanzahl) == 1) {
+                moeglSpielfiguren.add(Spielfiguren[i]);
+
+                //Wenn die Spielfigur ziehen muss    
+            } else if (Spielfiguren[i].getPrioritaet(ZuLaufendeFeldanzahl) == 2) {
+                DPflichtSpielfiguren.add(Spielfiguren[i]);
+
+                //Wenn die Spielfigur doppelt ziehen muss.    
+            } else if (Spielfiguren[i].getPrioritaet(ZuLaufendeFeldanzahl) == 3) {
+                List<Spielfigur> DDPflichtSpielfiguren = new LinkedList<Spielfigur>();
+                DDPflichtSpielfiguren.add(Spielfiguren[i]);
+                return DDPflichtSpielfiguren;
+
+            }
+
+        }
+        //Wenn es keine PflichtSpielfguren gibt
+        if (DPflichtSpielfiguren.isEmpty()) {
+            return moeglSpielfiguren;
+            //Wenn es PflichtSpielfiguren gibt.
+        } else {
+            return DPflichtSpielfiguren;
+        }
+
+    }
+
     @Override
     public void ziehen(int gezogen) {
         log.log(objektname, "Methode ziehen() gestartet.");
@@ -192,7 +284,7 @@ public class SpielerComputer implements Spieler {
                             System.out.println(this.objektname + " kommt raus.");
                             //nochmal würfeln
                             this.Spielfiguren[0].laufen(this.wuerfeln());
-                            
+
                             if (this.dasSpiel.getWuerfel().getZahl() == 6) {
                                 System.out.println(this.Name + " ist nochmal am Zug.");
                                 this.ziehen(gezogen++);
@@ -220,13 +312,11 @@ public class SpielerComputer implements Spieler {
                         }
                         if (zugmoeglich) {
 
-                           
-                                moegSpielfig.get(0).laufen(augen);
-                                if (augen == 6) {
-                                    this.ziehen(gezogen++);
-                                }
-                                return;
-                            
+                            moegSpielfig.get(0).laufen(augen);
+                            if (augen == 6) {
+                                this.ziehen(gezogen++);
+                            }
+                            return;
 
                             //int x = 1;
 ///////////////////////////////////////////////////////////////////////////////////        
@@ -255,6 +345,11 @@ public class SpielerComputer implements Spieler {
     }
 
     @Override
+    /**
+     * Methode, um zu wuerfeln
+     *
+     * @return augenzahl
+     */
     public int wuerfeln() {
         log.log(objektname, "Methode wuerfeln() gestartet.");
         int augenzahl = this.dasSpiel.getWuerfel().wuerfeln();
@@ -264,7 +359,7 @@ public class SpielerComputer implements Spieler {
     }
 
     /**
-     * Die Methode gett an ob sich alle Spielfiguren auf den Startfeldern
+     * Die Methode gibt an, ob sich alle Spielfiguren auf den Startfeldern
      * befinden.
      *
      * @return Boolean
@@ -286,23 +381,39 @@ public class SpielerComputer implements Spieler {
     }
 
     @Override
+    /**
+     * Getter-Methode fuer aFeld, also Anfangsfeld
+     *
+     * @return aFeld
+     */
     public Feld getafeld() {
         return aFeld;
     }
 
     @Override
+    /**
+     * Getter-Methode fuer ArrayList Felder
+     *
+     * @return null
+     */
     public List<Feld> getFelder() {
         return null;
     }
 
     @Override
+    /**
+     * Getter-Methode fuer Spiel
+     *
+     * @return dasSpiel
+     */
     public Spiel getSpiel() {
         return this.dasSpiel;
     }
 
     /**
+     * Getter-Methode fuer zeFeld, also Zieleintrittsfeld
      *
-     * @return
+     * @return zeFeld
      */
     @Override
     public Feld getzefeld() {
@@ -310,23 +421,41 @@ public class SpielerComputer implements Spieler {
         return zeFeld;
     }
 
+    /**
+     * Getter-Methode fuer farbe, gibt jeweilige Farbe der Figur zurueck
+     *
+     * @return Farbe
+     */
     @Override
     public String getfarbe() {
         return this.Farbe;
     }
 
+    /**
+     * Getter-Methode fuer Zielfeld
+     *
+     * @return zielfeld
+     */
     @Override
     public Feld getzielfeld() {
         return zielfeld;
     }
 
+    /**
+     * Getter-Methode fuer Spielfiguren, gibt Array mit den mitspielenden
+     * Figuren zurueck
+     *
+     * @return Spielfiguren
+     */
     @Override
     public Spielfigur[] getSpielfiguren() {
         return Spielfiguren;
     }
 
     /**
-     * @return the farbe
+     * Getter-Methode fuer Objektname, kann auch Farbe der jeweiligen Figur sein
+     *
+     * @return the farbe, objektname
      */
     public String getobjektname() {
         log.log(objektname, "Methode getobjektname() gestartet.");
