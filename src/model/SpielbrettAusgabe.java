@@ -2,14 +2,13 @@ package model;
 
 import java.io.*;
 import java.util.Random;
-import java.util.logging.Level;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-/*                      ss    ::sa                  
+ /*                      ss    ::sa                  
  *        ca::    ss        ws    ::    ys          
  *        ::  ::we    ss  ::  sz  we        ys      
  *          wscz  ::ws    ws      ::    ys          
@@ -33,93 +32,259 @@ import java.util.logging.Level;
  *                                                                      @Johanna
  */
 /**
- * Klasse SpielbrettAusgabe Diese Klasse erzeugt eine einfache ANSI-Ausgabe des
- * Spielbrettes im Output
+ * Klasse SpielbrettAusgabe. Diese Klasse erzeugt eine einfache ANSI-Ausgabe des
+ * Spielbrettes im Output. Ausserdem ermoeglicht sie eine Steuerung ueber die
+ * Befehle: run, 1, 2 und 3.
  *
  * Was ist ANSI?
  *
  * ANSI steht fuer A merican N national S tandards I nstitute ANSI-Zeichencode
- * ist eine erweiterung von ASCII (7 bits -> 128 zeichen) und umfaesst 256
- * zeichen (8bit).
+ * und ist die Erweiterung von ASCII (7 bits -> 128 zeichen) auf 8bit (->256
+ * Zeichen).
  *
  * (Heutzutage beruft man sich eher auf den ISO Standard 8859-1, wobei dieser
- * nicht deckungsgleich ist, weshalb sich ANSI zumindestens bei Windows-usern
- * haelt)
- *
- *
+ * nicht deckungsgleich zum urspruenglichen ANSI ist. Darum haelt sich der
+ * Begriff ANSI zumindestens bei Windows-usern).
  *
  * Was ist eine ANSI-Escape-Sequenz?
  *
- * Schon im damaligen 7-bit system gab es steuersequenzen(im Bereich dez(0-31))
+ * Schon im damaligen 7-bit system gab es Steuersequenzen(im Bereich dez(0-31))
  * bekannt als C0-Steuerzeichen. Mit dem 8-bit system kam auch eine Erweiterung
- * dieser Steuerzeichen, bekannt als C1-Steuerzeichen bzw. wurden Befehle über
- * Steuersequenzen hinzugefügt, da der Platz noch immer recht knapp war.(sie
- * konnten also aus mehreren Zeichen bestehen) diese waren, jedoch nicht mehr
- * mit den 7-bit system kompatieble. Darum gibt es die ANSI-Escape-Commands.Zu
- * fast jedem C1 befehl gibt es heißen diese, da sie mit einem Escapezeichen
- * eingeleitet werden
+ * dieser Steuerzeichen -die C1-Steuerzeichen- dazu bzw. wurden Befehle über
+ * Steuersequenzen hinzugefügt, da der Platz noch immer recht knapp war(sie
+ * konnten also aus mehreren Zeichen/bits bestehen). diese waren, jedoch nicht
+ * mehr mit den 7-bit system kompatiebel.Darum die ANSI-Escape-Commands. Zu fast
+ * jedem C1 befehl gibt es ein ANSI-Escape-Aequivalent. "Escape" heißen diese,
+ * da sie mit einem Escapezeichen eingeleitet werden.
  *
+ * Wie Verhalten sich die Farben?
  *
- *
+ * Sind Hintergrund und schrifftfarbe gleich, so erscheint die Schrift weiss.
+ * ...to be continued
  *
  * @author Commander
  */
 public class SpielbrettAusgabe {
 
-    // Fetter ANSI ESCAPE CODE :
-    private static final String ANSI_RESET = "\u001B[0m"; //ANSI escape command wie in C ^^
-
+    /**
+     * Statische Konstante: ANSI-Escapesequenz, welche alle Texteinstellungen in
+     * der Konsole auf die Defaultwerte zuruecksetzt.
+     *
+     * @see SpielbrettAusgabe
+     */
+    private static final String ANSI_RESET = "\u001B[0m";
+    /**
+     * Statische Konstante: ANSI-Escapesequenz, welche die Schrifftfarbe der
+     * Textausgabe auf Schwarz setzt.
+     *
+     * @see SpielbrettAusgabe
+     */
     private static final String ANSI_fBlack = "\u001B[30m";
+    /**
+     * Statische Konstante: ANSI-Escapesequenz, welche die Schrifftfarbe der
+     * Textausgabe auf Rot setzt.
+     *
+     * @see SpielbrettAusgabe
+     */
     private static final String ANSI_fRed = "\u001B[31m";
+    /**
+     * Statische Konstante: ANSI-Escapesequenz, welche die Schrifftfarbe der
+     * Textausgabe auf Gruen setzt.
+     *
+     * @see SpielbrettAusgabe
+     */
     private static final String ANSI_fGreen = "\u001B[32m";
+    /**
+     * Statische Konstante: ANSI-Escapesequenz, welche die Schrifftfarbe der
+     * Textausgabe auf Gelb setzt.
+     *
+     * @see SpielbrettAusgabe
+     */
     private static final String ANSI_fYellow = "\u001B[33m";
+    /**
+     * Statische Konstante: ANSI-Escapesequenz, welche die Schrifftfarbe der
+     * Textausgabe auf Blau setzt.
+     *
+     * @see SpielbrettAusgabe
+     */
     private static final String ANSI_fBlue = "\u001B[34m";
+    /**
+     * Statische Konstante: ANSI-Escapesequenz, welche die Schrifftfarbe der
+     * Textausgabe auf Magenta setzt.
+     *
+     * @see SpielbrettAusgabe
+     */
     private static final String ANSI_fPurpel = "\u001B[35m";
+    /**
+     * Statische Konstante: ANSI-Escapesequenz, welche die Schrifftfarbe der
+     * Textausgabe auf Cyan setzt.
+     *
+     * @see SpielbrettAusgabe
+     */
     private static final String ANSI_fCyan = "\u001B[36m";
+    /**
+     * Statische Konstante: ANSI-Escapesequenz, welche die Schrifftfarbe der
+     * Textausgabe auf Hellgrau/weiss setzt.
+     *
+     * @see SpielbrettAusgabe
+     */
     private static final String ANSI_fWhite = "\u001B[37m";
-
+    /**
+     * Statische Konstante: ANSI-Escapesequenz, welche die Schrifftfarbe der
+     * Textausgabe auf Dunkelgrau setzt.
+     *
+     * @see SpielbrettAusgabe
+     */
     private static final String ANSI_fbBlack = "\u001B[30;1m";
+    /**
+     * Statische Konstante: ANSI-Escapesequenz, welche die Schrifftfarbe der
+     * Textausgabe auf Hellrot setzt.
+     *
+     * @see SpielbrettAusgabe
+     */
     private static final String ANSI_fbRed = "\u001B[31;1m";
+    /**
+     * Statische Konstante: ANSI-Escapesequenz, welche die Schrifftfarbe der
+     * Textausgabe auf Hellgruen setzt.
+     *
+     * @see SpielbrettAusgabe
+     */
     private static final String ANSI_fbGreen = "\u001B[32;1m";
+    /**
+     * Statische Konstante: ANSI-Escapesequenz, welche die Schrifftfarbe der
+     * Textausgabe auf ein helles Gelb setzt.
+     *
+     * @see SpielbrettAusgabe
+     */
     private static final String ANSI_fbYellow = "\u001B[33;1m";
+    /**
+     * Statische Konstante: ANSI-Escapesequenz, welche die Schrifftfarbe der
+     * Textausgabe auf setzt.
+     *
+     * @see SpielbrettAusgabe
+     */
     private static final String ANSI_fbBlue = "\u001B[34;1m";
+    /**
+     * Statische Konstante: ANSI-Escapesequenz, welche die Schrifftfarbe der
+     * Textausgabe auf Rosa setzt.
+     *
+     * @see SpielbrettAusgabe
+     */
     private static final String ANSI_fbPurpel = "\u001B[35;1m";
+    /**
+     * Statische Konstante: ANSI-Escapesequenz, welche die Schrifftfarbe der
+     * Textausgabe auf Hellcyan setzt.
+     *
+     * @see SpielbrettAusgabe
+     */
     private static final String ANSI_fbCyan = "\u001B[36;1m";
+    /**
+     * Statische Konstante: ANSI-Escapesequenz, welche die Schrifftfarbe der
+     * Textausgabe auf Weiss setzt.
+     *
+     * @see SpielbrettAusgabe
+     */
     private static final String ANSI_fbWhite = "\u001B[37;1m";
-
+    /**
+     * Statische Konstante: ANSI-Escapesequenz, welche den Schriffthintergrund
+     * der Textausgabe auf Weiss setzt.
+     *
+     * @see SpielbrettAusgabe
+     */
     private static final String ANSI_bWhite = "\u001B[40m";
+    /**
+     * Statische Konstante: ANSI-Escapesequenz, welche den Schriffthintergrund
+     * der Textausgabe auf Rot setzt.
+     *
+     * @see SpielbrettAusgabe
+     */
     private static final String ANSI_bRed = "\u001B[41m";
+    /**
+     * Statische Konstante: ANSI-Escapesequenz, welche den Schriffthintergrund
+     * der Textausgabe auf Gruen setzt.
+     *
+     * @see SpielbrettAusgabe
+     */
     private static final String ANSI_bGreen = "\u001B[42m";
+    /**
+     * Statische Konstante: ANSI-Escapesequenz, welche den Schriffthintergrund
+     * der Textausgabe auf Gelb setzt.
+     *
+     * @see SpielbrettAusgabe
+     */
     private static final String ANSI_bYellow = "\u001B[43m";
+    /**
+     * Statische Konstante: ANSI-Escapesequenz, welche den Schriffthintergrund
+     * der Textausgabe auf Blau setzt.
+     *
+     * @see SpielbrettAusgabe
+     */
     private static final String ANSI_bBlue = "\u001B[44m";
+    /**
+     * Statische Konstante: ANSI-Escapesequenz, welche den Schriffthintergrund
+     * der Textausgabe auf Magenta setzt.
+     *
+     * @see SpielbrettAusgabe
+     */
     private static final String ANSI_bPurpel = "\u001B[45m";
+    /**
+     * Statische Konstante: ANSI-Escapesequenz, welche den Schriffthintergrund
+     * der Textausgabe auf Cyan setzt.
+     *
+     * @see SpielbrettAusgabe
+     */
     private static final String ANSI_bCyan = "\u001B[46m";
+    /**
+     * Statische Konstante: ANSI-Escapesequenz, welche den Schriffthintergrund
+     * der Textausgabe auf Grau setzt.
+     *
+     * @see SpielbrettAusgabe
+     */
     private static final String ANSI_bGrey = "\u001B[47m";
-
+    /**
+     * 
+     */
     private final String[] fColor = {ANSI_fBlue, ANSI_fRed, ANSI_fCyan, ANSI_fPurpel, ANSI_fYellow, ANSI_fGreen, ANSI_fbBlue, ANSI_fbRed, ANSI_fbCyan, ANSI_fbPurpel, ANSI_fbYellow, ANSI_fbGreen, ANSI_fbWhite, ANSI_fbBlack};
     /**
      * groesseX ist eine Konstante (darum final) die die Elementanzahl der Array
      * AnsiSpielbrett[] und somit die Zeilen des Spielbrett bzw. die höhe
-     * bestimmt
+     * bestimmt.
      */
     private final int groesseX = 21;
     /**
      * groesseX ist eine Konstante (darum final) die die Elementanzahl der Array
      * AnsiSpielbrett[] und somit die Zeilen des Spielbrett bzw. die höhe
-     * bestimmt
+     * bestimmt.
      *
-     * @see AnsiSpielbrett[][]
+     * @see AnsiSpielbrett
      */
     private final int groesseY = 25;
     /**
      * hallo
      */
     private String[][] AnsiSpielbrett = new String[groesseX][groesseY];
+    /**
+     * 
+     */
     public boolean Ansiausgabean;
+    /**
+     * 
+     */
     Logger log;
+    /**
+     * 
+     */
     private Spiel dasSpiel;
+    /**
+     * 
+     */
     private String objektname;
-
+    /**
+     * 
+     * @param soNSpiel
+     * @param logger
+     * @param oname 
+     */
     public SpielbrettAusgabe(Spiel soNSpiel, Logger logger, String oname) {
 
         this.dasSpiel = soNSpiel;
@@ -133,7 +298,10 @@ public class SpielbrettAusgabe {
         this.sternZeichnen();
         this.Ansiausgabean = true;
     }
-
+    /**
+     * 
+     * @param dasFeld 
+     */
     public void feldeinfuegen(Feld dasFeld) {
         log.log(objektname, "Methode feldeinfuegen() gestartet mit parameter " + dasFeld + ".");
         String farbe = "s";
@@ -201,7 +369,9 @@ public class SpielbrettAusgabe {
         log.log(objektname, "Methode feldeinfuegen() beendet.");
 
     }
-
+    /**
+     * 
+     */
     public void spielAusgabe() {
         System.out.println("\u001B[0m\u001B[35mA\u001B[34mN\u001B[36mS\u001B[32mI\u001B[0m-\u001B[33mS\u001B[31mp\u001B[35mi\u001B[34me\u001B[36ml\u001B[32mb\u001B[33mr\u001B[31me\u001B[35mt\u001B[36mt\u001B[0m steht bereit:\u001B[0m");
         if (this.Ansiausgabean) {
@@ -213,7 +383,9 @@ public class SpielbrettAusgabe {
             }
         }
     }
-
+    /**
+     * 
+     */
     private void sternZeichnen() {
         String ccaption = "::";
         String farbe = ANSI_RESET + ANSI_bGrey;//ANSI_RESET  +ANSI_fWhite;
@@ -243,7 +415,6 @@ public class SpielbrettAusgabe {
         this.AnsiSpielbrett[13][23] = farbe + ccaption;
         this.AnsiSpielbrett[12][21] = farbe + ccaption;
         this.AnsiSpielbrett[10][19] = farbe + ccaption;
-
         this.AnsiSpielbrett[9][1] = farbe + ccaption;
         this.AnsiSpielbrett[8][3] = farbe + ccaption;
         this.AnsiSpielbrett[8][5] = farbe + ccaption;
@@ -272,8 +443,10 @@ public class SpielbrettAusgabe {
 
     }
 
-    ;
     
+    /**
+     * 
+     */
     public void MADsh() {
         String echo = "error";
         InputStreamReader isr = new InputStreamReader(System.in);
@@ -292,7 +465,9 @@ public class SpielbrettAusgabe {
             System.out.println(echo);
         }
     }
-
+    /**
+     * 
+     */
     public void echo() {
         String echo = "error";
         InputStreamReader isr = new InputStreamReader(System.in);
@@ -305,7 +480,10 @@ public class SpielbrettAusgabe {
         }
         System.out.println(echo);
     }
-
+    /**
+     * 
+     * @return 
+     */
     public boolean wuerfeln() {
         String echo = "error";
         InputStreamReader isr = new InputStreamReader(System.in);
@@ -328,7 +506,10 @@ public class SpielbrettAusgabe {
         }
 
     }
-
+    /**
+     * 
+     * @return 
+     */
     public int Spielerwaehlen() {
         String echo = "error";
         InputStreamReader isr = new InputStreamReader(System.in);
@@ -357,7 +538,10 @@ public class SpielbrettAusgabe {
         }
 
     }
-
+    /**
+     * 
+     * @param augen 
+     */
     public void wuerfelausgeben(int augen) {
         for (int i = 9; i < 12; i++) {
             for (int k = 12; k < 15; k++) {
@@ -415,7 +599,10 @@ public class SpielbrettAusgabe {
 
         }
     }
-
+    /**
+     * 
+     * @param diefigur 
+     */
     public void SpielerSetzen(Spielfigur diefigur) {
         log.log(objektname, "Methode SpielerSetzen() gestartet.");
         if (diefigur != null && diefigur.getAktfeld() != null) {
@@ -512,16 +699,15 @@ public class SpielbrettAusgabe {
         log.log(objektname, "Methode getobjektname() beendet.");
         return objektname;
     }
-
+    /**
+     * Test-methode
+     * @param args 
+     */
     public static void main(String args[]) {
 
-        //hier ein paar beispiele zum printen mit ANSI-Escape code
-        //System.out.println(ANSI_bRed+"MA"+ANSI_bYellow+"Dn" +ANSI_bGreen+"es"+ANSI_bCyan+"s O"+ANSI_bBlue+"ve"+ANSI_bPurpel+"rf"+ANSI_bWhite+"low"+ANSI_RESET);
-        //Ein schönerer code wäre gewesen, hätte man die String in eine char[] 
-        //umgewandelt und mit einer For-schleife durchlaufen in den man den char[index]
-        //und von einer Regenbogenfarbenarray[index] System.ou.print()-tet
-        //System.out.println(ANSI_fRed+"M"+ANSI_fbRed+"A"+ANSI_fYellow+"D" +ANSI_fbYellow+"n" +ANSI_fbGreen+"e"+ANSI_fGreen+"s"+ANSI_fCyan+"s "+ANSI_fbCyan+"O"+ANSI_fbBlue+"v"+ANSI_fbBlue+"e"+ANSI_fbPurpel+"r"+ANSI_fPurpel+"f"+ANSI_fBlack+"l"+ANSI_fbBlack+"o"+ANSI_fbWhite+"w"+ANSI_RESET);
+        //der Schreiberling
         Logger log = new Logger("SherLog.txt");
+        //das Spiel
         Spiel test = new Spiel(log, "testSpiel", 0);
         // die 7 mitspieler
         Spieler tester = new SpielerMensch("Azrael", log, test);
@@ -531,7 +717,7 @@ public class SpielbrettAusgabe {
         Spieler tester5 = new SpielerComputer("Eve", log, test);
         Spieler tester6 = new SpielerMensch("Fynnia", log, test);
         Spieler tester7 = new SpielerComputer("Gargamel", log, test);
-
+        //eine Proto-Spielschleife
         for (int a = 0; a < 25; a++) {
             tester.ziehen(0);
             tester2.ziehen(0);
@@ -540,8 +726,7 @@ public class SpielbrettAusgabe {
             tester5.ziehen(0);
             tester6.ziehen(0);
             tester7.ziehen(0);
-           
-              
+
         }
 
     }
