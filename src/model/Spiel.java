@@ -159,14 +159,15 @@ public class Spiel {
             i++;
 
         }
+        i = 0;
         while (beendet != true) {
             if (AlleSpieler[i] != null) {
                 AlleSpieler[i].ziehen(AlleSpieler[i].wuerfeln());
                 i++;
             }
-
+            else {
             i = 0;
-
+            }
         }
 
         //Startspieler ermitteln fehlt

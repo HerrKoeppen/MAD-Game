@@ -18,6 +18,7 @@ public interface Spieler {
      * @param gezogen
      */
     public void ziehen(int gezogen);
+    public void ziehen2(int gezogen);
 
     /**
      *
