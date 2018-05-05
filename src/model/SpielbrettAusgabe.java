@@ -530,13 +530,15 @@ public class SpielbrettAusgabe {
             } catch (IOException ex) {
                 return -1;
             }
+            if (echo.equals("")) {
+                return 0;}
             if (echo.equals("0")) {
                 return 0;
             }
-            if (echo.equals("1")) {
+            if (echo.equals("1") && moegSpielfig.size() > 1) {
                 return 1;
             }
-            if (echo.equals("2")) {
+            if (echo.equals("2") && moegSpielfig.size() > 2) {
                 return 2;
             }
             if (echo.equals("esc")) {
@@ -726,17 +728,18 @@ public class SpielbrettAusgabe {
         Spieler tester6 = new SpielerMensch("Fynnia", log, test);
         Spieler tester7 = new SpielerMensch("Gargamel", log, test);
         //eine Proto-Spielschleife
-        for (int a = 0; a < 25; a++) {
-            tester.ziehen2(0);
-            tester2.ziehen2(0);
-            tester3.ziehen2(0);
-            tester4.ziehen2(0);
-            tester5.ziehen2(0);
-            tester6.ziehen2(0);
-            tester7.ziehen2(0);
-           
+        for (int a = 0; a < 100; a++) {
+            tester.ziehen2();
+            /*tester2.ziehen2();
+            tester3.ziehen2();
+            tester4.ziehen2(); 
+            tester5.ziehen2();
+            tester6.ziehen2();
+            tester7.ziehen2();
+          &*/
               
         }
+        test.output.spielAusgabe();
 
     }
 

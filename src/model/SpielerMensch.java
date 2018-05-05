@@ -46,6 +46,7 @@ public class SpielerMensch implements Spieler {
      * Eine Liste mit 3 Spielfiguren.
      */
     public Spielfigur[] Spielfiguren = new Spielfigur[3];
+    private int gezogen = 0;
 
     /**
      * Logger zu Diagnosezwecken
@@ -168,6 +169,7 @@ public class SpielerMensch implements Spieler {
         //System.out.println(this.objektname + " hat gewonnen");
         return true;
     }
+
     public void ziehen(int gezogen) {
         this.dasSpiel.output.spielAusgabe();
         log.log(objektname, "Methode ziehen() gestartet.");
@@ -241,8 +243,6 @@ public class SpielerMensch implements Spieler {
                             // 3. Figur von A-Feld wegsetzen, sofern noch Figuren im Startkreis
                             // 4. Einruecken in Zielfeld
                             //Zug mit doppelter Pflicht vor Zug mit einfacher Pflicht
-
-
                             //Spielfigur vorrücken
                             //moegSpielfig.get(x).laufen(augen);
                             //nochmal würfeln
@@ -261,58 +261,62 @@ public class SpielerMensch implements Spieler {
 
     }
 
-    public void ziehen2(int gezogen) {
-        this.dasSpiel.output.spielAusgabe();
+    public void ziehen2() {
+
         log.log(objektname, "Methode ziehen() gestartet.");
         //habe ich gewonnen? Wenn nein, dann mache ich einen normalen Zug
-        if (gezogen < 3) {
+        if (this.gezogen < 3) {
             if (!this.hatGewonnen()) {
+                this.dasSpiel.output.spielAusgabe();
+                System.out.println(this.objektname + " ist am Zug");
                 //habe ich nur Spielfiguren im Startkreis
                 if (this.SpielerImStartkreis()) {
                     //-> ja, dann bis zu dreimal würfeln und hoffe auf eine 6
                     for (int i = 0; i < 3; i++) {
+                        System.out.println(this.objektname + " darf noch " + (3 - i) + " mal wuerfeln.");
                         if (this.dasSpiel.output.wuerfeln()) {
                             // ist es eine 6?
                             if (this.wuerfeln() == 6) {
                                 int spieler = this.dasSpiel.getoutput().Spielerwaehlen(java.util.Arrays.asList(this.Spielfiguren));
                                 this.Spielfiguren[spieler].herauskommen();
                                 this.dasSpiel.output.spielAusgabe();
-                                System.out.println(this.objektname + " kommt mit " + this.Spielfiguren[spieler].getobjektname() + " raus.");
-                                System.out.println(this.Name + " ist nochmal am Zug.");
-                                this.ziehen(gezogen);
+                                System.out.println(this.objektname + "'s Zug ist beendet");
+                                this.gezogen = 0;
                                 return;
                             }
                         }
                     }
-                    }
+                    System.out.println(this.objektname + "'s Zug ist beendet");
+                    this.gezogen = 0;
                     return;
                 } //-> nein, einmal würfeln
-        else {  //unnoetige zeile aber lieber doppelt als keinmal
-                if (this.dasSpiel.output.wuerfeln()) {
-                int Random = this.wuerfeln();
-                
-                
-                List<Spielfigur> moeglSpielfiguren = this.moeglSpielfgiguren(Random);
-                if(moeglSpielfiguren.isEmpty()) {
-                    System.out.println("Du kannst nicht ziehen.Muhahaha(böses Lachen)");
-                    return;
-                       
-                  }else{
-                  
-                    this.Spielfiguren[this.dasSpiel.getoutput().Spielerwaehlen(moeglSpielfiguren)].laufen(Random);
-                    if (Random == 6) {
-                    this.ziehen(gezogen++);
-                    }
-                }
-              }
-                
-                
-                
-                
-        }
-        
+                else {  //unnoetige zeile aber lieber doppelt als keinmal
+                    if (this.dasSpiel.output.wuerfeln()) {
+                        int Random = this.wuerfeln();
 
-    }
+                        List<Spielfigur> moeglSpielfiguren = this.moeglSpielfiguren(Random);
+                        if (moeglSpielfiguren.isEmpty()) {
+                            System.out.println("Du kannst nicht ziehen.Muhahaha(böses Lachen)");
+                            return;
+
+                        } else {
+
+                            moeglSpielfiguren.get(this.dasSpiel.getoutput().Spielerwaehlen(moeglSpielfiguren)).laufen(Random);
+
+                        }
+                    }
+
+                }
+
+            }
+
+        }
+        if((this.gezogen > 0)){
+        this.gezogen--;
+        }
+        else{
+        System.out.println(this.objektname + "'s Zug ist beendet");
+        }
         //ich habe doch schon gewonnen: ich mache nichts
         log.log(objektname, "Methode ziehen() beendet.");
     }
@@ -328,36 +332,35 @@ public class SpielerMensch implements Spieler {
      * @param ZuLaufendeFeldanzahl
      * @return
      */
-
-    public List<Spielfigur> moeglSpielfgiguren(int ZuLaufendeFeldanzahl) {
-        List<Spielfigur> moeglSpielfiguren = new LinkedList<Spielfigur>();
-        List<Spielfigur> DPflichtSpielfiguren = new LinkedList<Spielfigur>();
-        for (int i = 0; i < this.Spielfiguren.length; i++) {
+    public List<Spielfigur> moeglSpielfiguren(int ZuLaufendeFeldanzahl) {
+        List<Spielfigur> moeglSpielfiguren = new LinkedList<>();
+        List<Spielfigur> DPflichtSpielfiguren = new LinkedList<>();
+        List<Spielfigur> DDPflichtSpielfiguren = new LinkedList<>();
+        for (Spielfigur Spielfiguren1 : this.Spielfiguren) {
             //Wenn die Spielfigur ziehen kann.
-            if (Spielfiguren[i].getPrioritaet(ZuLaufendeFeldanzahl) == 1) {
-                moeglSpielfiguren.add(Spielfiguren[i]);
-
-                //Wenn die Spielfigur ziehen muss    
-            } else if (Spielfiguren[i].getPrioritaet(ZuLaufendeFeldanzahl) == 2) {
-                DPflichtSpielfiguren.add(Spielfiguren[i]);
-
-                //Wenn die Spielfigur doppelt ziehen muss.    
-            } else if (Spielfiguren[i].getPrioritaet(ZuLaufendeFeldanzahl) == 3) {
-                List<Spielfigur> DDPflichtSpielfiguren = new LinkedList<Spielfigur>();
-                DDPflichtSpielfiguren.add(Spielfiguren[i]);
-                return DDPflichtSpielfiguren;
-
+            switch (Spielfiguren1.getPrioritaet(ZuLaufendeFeldanzahl)) {
+                case 1:
+                    moeglSpielfiguren.add(Spielfiguren1);
+                    //Wenn die Spielfigur ziehen muss    
+                    break;
+                case 2:
+                    DPflichtSpielfiguren.add(Spielfiguren1);
+                    //Wenn die Spielfigur doppelt ziehen muss.    
+                    break;
+                case 3:
+                    DDPflichtSpielfiguren.add(Spielfiguren1);
+                    return DDPflichtSpielfiguren;
+                default:
+                    break;
             }
-
         }
         //Wenn es keine PflichtSpielfguren gibt
         if (DPflichtSpielfiguren.isEmpty()) {
             return moeglSpielfiguren;
-        //Wenn es PflichtSpielfiguren gibt.
+            //Wenn es PflichtSpielfiguren gibt.
         } else {
             return DPflichtSpielfiguren;
         }
-        
 
     }
 
@@ -373,6 +376,7 @@ public class SpielerMensch implements Spieler {
     /**
      * Die Methode gibt an ob sich alle Spielfiguren auf den Startfeldern
      * befinden.
+     *
      * @return Boolean
      */
     public boolean SpielerImStartkreis() {
@@ -385,33 +389,15 @@ public class SpielerMensch implements Spieler {
                 return false;
             }
         }
-        System.out.println(this.objektname + " darf 3mal wuerfeln");
         log.log(objektname, "Methodenrückgabe: " + true);
         log.log(objektname, "Methode hatGewonnen() beendet.");
         return true;
-
-        /* log.log(objektname, "Methode SpielerImStartkreis() gestartet.");
-
-        for (int i = 0; i < 4; i++) {
-            if (this.Spielfiguren[i].isAufstartfeld()) {
-
-            } else {
-                log.log(objektname, "Methodenrückgabe: " + false);
-                log.log(objektname, "Methode SpielerImStartkreis() beendet.");
-                return false;
-
-            }
-
-        }
-        log.log(objektname, "Methodenrückgabe: " + true);
-        log.log(objektname, "Methode SpielerImStartkreis() beendet.");
-        return true;
-         */
     }
 
-@Override
+    @Override
     /**
      * Getter-Methode fuer aFeld, also Anfangsfeld
+     *
      * @return aFeld
      */
     public Feld getafeld() {
@@ -421,6 +407,7 @@ public class SpielerMensch implements Spieler {
     @Override
     /**
      * Getter-Methode fuer ArrayList Felder
+     *
      * @return null
      */
     public List<Feld> getFelder() {
@@ -430,6 +417,7 @@ public class SpielerMensch implements Spieler {
     @Override
     /**
      * Getter-Methode fuer Spiel
+     *
      * @return dasSpiel
      */
     public Spiel getSpiel() {
@@ -437,7 +425,8 @@ public class SpielerMensch implements Spieler {
     }
 
     /**
-     *Getter-Methode fuer zeFeld, also Zieleintrittsfeld
+     * Getter-Methode fuer zeFeld, also Zieleintrittsfeld
+     *
      * @return zeFeld
      */
     @Override
@@ -448,22 +437,28 @@ public class SpielerMensch implements Spieler {
 
     /**
      * Getter-Methode fuer farbe, gibt jeweilige Farbe der Figur zurueck
+     *
      * @return Farbe
      */
     @Override
     public String getfarbe() {
         return this.Farbe;
     }
+
     /**
      * Getter-Methode fuer Zielfeld
+     *
      * @return zielfeld
      */
     @Override
     public Feld getzielfeld() {
         return zielfeld;
     }
+
     /**
-     * Getter-Methode fuer Spielfiguren, gibt Array mit den mitspielenden Figuren zurueck
+     * Getter-Methode fuer Spielfiguren, gibt Array mit den mitspielenden
+     * Figuren zurueck
+     *
      * @return Spielfiguren
      */
     @Override
@@ -473,6 +468,7 @@ public class SpielerMensch implements Spieler {
 
     /**
      * Getter-Methode fuer Objektname, kann auch Farbe der jeweiligen Figur sein
+     *
      * @return the farbe, objektname
      */
     public String getobjektname() {
@@ -480,6 +476,16 @@ public class SpielerMensch implements Spieler {
         log.log(objektname, "Methodenrückgabe: " + objektname);
         log.log(objektname, "Methode getobjektname() beendet.");
         return objektname;
+    }
+
+    @Override
+    public int getgezogen() {
+        return this.gezogen;
+    }
+
+    @Override
+    public void setgezogen(int c) {
+        this.gezogen = c;
     }
 
 }

@@ -139,10 +139,15 @@ public class Spielfigur {
      */
     public int herauskommen() {
         log.log(objektname, "Methode herauskommen() gestartet.");
-
+        if (this.team.getafeld().getIstBesetzt() && this.team.getafeld().getHausbesetzer().getFarbe().equals(this.farbe)) {
+            schlagen(this.team.getafeld());
+        }
         if (this.setzten(this.team.getafeld()) == 0) {
             log.log(objektname, "Methodenrückgabe: " + 0);
             log.log(objektname, "Methode herauskommen() beendet.");
+            System.out.println(this.team.getobjektname() + " kommt mit " + this.objektname + " raus.");
+            System.out.println(this.team.getobjektname() + " ist nochmal am Zug.");
+            this.team.ziehen2();
             return 0;
         } else {
             log.log(objektname, "Methodenrückgabe: " + 1);
@@ -176,6 +181,7 @@ public class Spielfigur {
 
     /**
      *
+     * @param Baka
      * @return
      */
     public Feld holpfad(Feld Baka) {
@@ -199,10 +205,10 @@ public class Spielfigur {
                 if (this.team.getSpiel().getSpielbrett().getFelder().get(Baka.getID() + 1).getFarbe().equals(Baka.getFarbe())) {
                     return this.team.getSpiel().getSpielbrett().getFelder().get(Baka.getID() + 1);
                 }
-                return this.aktfeld;
+                return this.startfeld;
             default:
                 System.out.println("Error: Holpfad()-Switch hat mal wieder nicht angeschlagen");
-                return this.aktfeld;
+                return this.startfeld;
         }
         /**
          * break; } log.log(objektname, "Methodenrückgabe: " + Baka);
@@ -223,18 +229,23 @@ public class Spielfigur {
         for (int i = 0; i < augen; i++) {
             zielfeld = this.holpfad(zielfeld);
         }
-        if(augen == 6 && this.aufstartfeld){
+        if (augen == 6 && this.aufstartfeld) {
             this.herauskommen();
-            
+
+            return 0;
+        } else {
+            if (zielfeld.getIstBesetzt() && zielfeld.getHausbesetzer().getFarbe().equals(this.farbe)) {
+                schlagen(zielfeld);
+            }
+            this.setzten(zielfeld);
+
+            this.team.setgezogen((this.team.getgezogen() + 1));
+            if (augen == 6) {
+                this.team.ziehen2();
+            }
+        }
+
         return 0;
-        }
-        else {if (zielfeld.getIstBesetzt() && zielfeld.getHausbesetzer().getFarbe().equals(this.farbe)) {
-            schlagen(zielfeld);
-        }
-        
-        this.setzten(zielfeld);
-        return 0;
-        }
     }
 
     /**
@@ -282,9 +293,10 @@ public class Spielfigur {
             default:
                 break;
         }
-        this.team.getSpiel().getoutput().SpielerSetzen(this);
+
         this.aktfeld.setIstBesetzt(true);
         this.aktfeld.setHausbesetzer(this);
+        this.team.getSpiel().getoutput().SpielerSetzen(this);
         log.log(objektname, "Methode setzen() beendet.");
         log.log(objektname, "Methodenrückgabe: " + 0);
         return 0;
@@ -366,65 +378,60 @@ public class Spielfigur {
      * wegsetzen, sofern noch Figuren im Startkreis 3. Figur von Startfeld auf
      * A-Feld, bei 6 4. Einruecken in Zielfeld
      *
-     * @param felderanzahl
+     * @param ZuLaufendeFeldanzahl
      * @return
      */
     public int getPrioritaet(int ZuLaufendeFeldanzahl) {
 
-        
         Feld zielfeld = this.aktfeld;
         //holt das Zielfeld
-        for( int  a = 0; a < ZuLaufendeFeldanzahl; a++){
-        zielfeld = this.holpfad(zielfeld);
+        for (int a = 0; a < ZuLaufendeFeldanzahl; a++) {
+            zielfeld = this.holpfad(zielfeld);
         }
         //Sucht die Postion des Feldes in der Liste der Spielfigur
-        
+
         //Wenn eine 6 gewürfelt wurde und die Spielfigur im Startkreis steht.
-        if(ZuLaufendeFeldanzahl == 6 && this.aufstartfeld){
-            if(this.team.getafeld().getIstBesetzt()){
-                if(this.team.getafeld().getHausbesetzer().getTeam().equals(this.team)){
-                return 0;
+        if (ZuLaufendeFeldanzahl == 6 && this.aufstartfeld) {
+            if (this.team.getafeld().getIstBesetzt()) {
+                if (this.team.getafeld().getHausbesetzer().getTeam().equals(this.team)) {
+                    return 0;
+                } // //falls Gegner auf dem aFeld steht
+                else {
+                    return 3;
                 }
-               // //falls Gegner auf dem aFeld steht
-                else{
-                return 3;
-                }
-            }
-            else{
-            return 2;
+            } 
+            else {
+                return 2;
             }
         }
-        
 
         //Wenn eine Figur nicht gehen kann
-        if (ZuLaufendeFeldanzahl != 0 && zielfeld.equals(this.aktfeld)) {
+        if (zielfeld.equals(this.startfeld)) {
             return 0;
         }
-        
-        if(this.aktfeld.getaFeld()){
-        if(zielfeld.getIstBesetzt()){
-               //Wenn das Zielfeld von dem gleichen Team besetzt ist 
-            if(this.team.getafeld().getHausbesetzer().team.equals(this.team)){
-                return 0;
+
+        if (this.aufafeld && this.aktfeld.getFarbe().toLowerCase().equals(this.farbe.toLowerCase())) {
+            if (zielfeld.getIstBesetzt()) {
+                //Wenn das Zielfeld von dem gleichen Team besetzt ist 
+                if (this.team.getafeld().getHausbesetzer().team.equals(this.team)) {
+                    return 0;
+                } //Wenn das Zielfeld von einen Gegner besetzt ist
+                else {
+                    return 3;
                 }
-                //Wenn das Zielfeld von einen Gegner besetzt ist
-                else{
-                return 3;
-                }
-        }
-            
+            }
+
             return 2;
         }
-        
-        if(zielfeld.getIstBesetzt()){
-               //Wenn das Zielfeld von dem gleichen Team besetzt ist 
-            if(this.team.getafeld().getHausbesetzer().team.equals(this.team)){
+
+        if (zielfeld.getIstBesetzt()) {
+            //Wenn das Zielfeld von dem gleichen Team besetzt ist 
+            if (zielfeld.getHausbesetzer().farbe.equals(this.farbe)) {
                 return 0;
-                }
-                //Wenn das Zielfeld von einen Gegner besetzt ist
-                else{
+            } //Wenn das Zielfeld von einen Gegner besetzt ist
+            else {
                 return 2;
-                }
+            }
         }
         return 1;
     }
@@ -697,15 +704,10 @@ public class Spielfigur {
         log.log(objektname, "Methode setFarbe() beendet.");
         this.farbe = farbe;
     }
-    
-    
-    public boolean getaufStartfeld(){
+
+    public boolean getaufStartfeld() {
         return this.aufstartfeld;
-        
-        
-        
-        
-        
+
     }
 
 }
