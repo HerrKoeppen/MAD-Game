@@ -177,7 +177,7 @@ public class SpielerComputer implements Spieler {
         if (gezogen < 3) {
             if (!this.hatGewonnen()) {
                 //habe ich nur Spielfiguren im Startkreis
-                if (this.SpielerImStartkreis()) {
+                if (this.alleSpielerImStartkreis()) {
                     //-> ja, dann bis zu dreimal würfeln und hoffe auf eine 6
                     for (int i = 0; i < 3; i++) {
                         if (this.dasSpiel.output.wuerfeln()) {
@@ -261,7 +261,12 @@ public class SpielerComputer implements Spieler {
 
     }
 
-    public void ziehen2() {
+    /**
+     *
+     * @return
+     */
+    @Override
+    public int ziehen2() {
 
         log.log(objektname, "Methode ziehen() gestartet.");
         //habe ich gewonnen? Wenn nein, dann mache ich einen normalen Zug
@@ -270,7 +275,7 @@ public class SpielerComputer implements Spieler {
                 this.dasSpiel.output.spielAusgabe();
                 System.out.println(this.objektname + " ist am Zug");
                 //habe ich nur Spielfiguren im Startkreis
-                if (this.SpielerImStartkreis()) {
+                if (this.alleSpielerImStartkreis()) {
                     //-> ja, dann bis zu dreimal würfeln und hoffe auf eine 6
                     for (int i = 0; i < 3; i++) {
                         System.out.println(this.objektname + " darf noch " + (3 - i) + " mal wuerfeln.");
@@ -282,13 +287,13 @@ public class SpielerComputer implements Spieler {
                                 this.dasSpiel.output.spielAusgabe();
                                 System.out.println(this.objektname + "'s Zug ist beendet");
                                 this.gezogen = 0;
-                                return;
+                                return 0;
                             }
                         
                     }
                     System.out.println(this.objektname + "'s Zug ist beendet");
                     this.gezogen = 0;
-                    return;
+                    return 0;
                 } //-> nein, einmal würfeln
                 else {  //unnoetige zeile aber lieber doppelt als keinmal
                     
@@ -297,7 +302,7 @@ public class SpielerComputer implements Spieler {
                         List<Spielfigur> moeglSpielfiguren = this.moeglSpielfiguren(Random);
                         if (moeglSpielfiguren.isEmpty()) {
                             System.out.println("Du kannst nicht ziehen.Muhahaha(böses Lachen)");
-                            return;
+                            return 0;
 
                         } else {
 
@@ -311,6 +316,10 @@ public class SpielerComputer implements Spieler {
             }
 
         }
+        else {
+            System.out.println(this.objektname + " hat gewonnen.");
+        return 1;
+        }
         if((this.gezogen > 0)){
         this.gezogen--;
         }
@@ -319,8 +328,9 @@ public class SpielerComputer implements Spieler {
         }
         //ich habe doch schon gewonnen: ich mache nichts
         log.log(objektname, "Methode ziehen() beendet.");
+         return 0;
     }
-
+     
 
     /**
      * Methode gibt alle Spielfiguren zurück die für diesen Zug möglich währen
@@ -380,7 +390,8 @@ public class SpielerComputer implements Spieler {
      *
      * @return Boolean
      */
-    public boolean SpielerImStartkreis() {
+    @Override
+    public boolean alleSpielerImStartkreis() {
         log.log(objektname, "Methode hatGewonnen() gestartet.");
         for (Spielfigur i : Spielfiguren) {
             if (!i.isAufstartfeld()) {
@@ -393,6 +404,21 @@ public class SpielerComputer implements Spieler {
         log.log(objektname, "Methodenrückgabe: " + true);
         log.log(objektname, "Methode hatGewonnen() beendet.");
         return true;
+    }
+    @Override
+    public boolean SpielerImStartkreis() {
+        log.log(objektname, "Methode hatGewonnen() gestartet.");
+        for (Spielfigur i : Spielfiguren) {
+            if (i.isAufstartfeld()) {
+                log.log(objektname, "Methodenrückgabe: " + true);
+                log.log(objektname, "Methode hatGewonnen() beendet.");
+
+                return true;
+            }
+        }
+        log.log(objektname, "Methodenrückgabe: " + false);
+        log.log(objektname, "Methode hatGewonnen() beendet.");
+        return false;
     }
 
     @Override

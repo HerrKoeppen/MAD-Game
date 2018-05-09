@@ -239,6 +239,10 @@ public class Feld {
     return this.aFeld;
    
     }
+    public boolean getZielfeld(){
+    return this.Zielfeld;
+   
+    }
     /**
      * 
      * @return farbe 

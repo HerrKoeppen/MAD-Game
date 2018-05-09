@@ -39,18 +39,17 @@ public class Spiel {
     public SpielbrettAusgabe output;
     /**
      * array mit allen moeglichen farben, die reinfolge ist folgende: Blau, Rot,
-     * GrÃ¼n, Pink, Gelb, Schwarz, Tuerkis und wird bei allen möglichen funktionen
-     * so übernommen die farbe eines spielers ist spielbrett[spieler.id];
+     * GrÃ¼n, Pink, Gelb, Schwarz, Tuerkis und wird bei allen möglichen
+     * funktionen so übernommen die farbe eines spielers ist
+     * spielbrett[spieler.id];
      */
     public final String[] Farben = {"blau", "rot", "gruen", "pink", "gelb", "schwarz", "tuerkis"};
 
-    
-
-    public Spiel(Logger logger, String oname,int diebotanzahl) {
+    public Spiel(Logger logger, String oname, int diebotanzahl) {
         this.objektname = oname;
         log = logger;
-        log.log(objektname, "Konstrucktor Spiel() gestartet mit Parameter " +" .");
-        this.BotAnzahl= diebotanzahl;
+        log.log(objektname, "Konstrucktor Spiel() gestartet mit Parameter " + " .");
+        this.BotAnzahl = diebotanzahl;
         this.output = new SpielbrettAusgabe(this, log, "ANSI");
         //setBotAnzahl(BotAnzahl);
         SpielStarten();
@@ -62,15 +61,14 @@ public class Spiel {
      * Setzt Integer Botanzahl auf den Ã¼bergebenen Wert BotAnzahl.
      *
      * @param Botanzahl
-     
-    public void setBotAnzahl(int Botanzahl) {
-        log.log(objektname, "Methode setBotAnzahl() gestartet mit Parameter " + Botanzahl + " .");
-
-        this.BotAnzahl = Botanzahl;
-
-        log.log(objektname, "Methode setBotAnzahl() beendet.");
-    }
-    */
+     *
+     * public void setBotAnzahl(int Botanzahl) { log.log(objektname, "Methode
+     * setBotAnzahl() gestartet mit Parameter " + Botanzahl + " .");
+     *
+     * this.BotAnzahl = Botanzahl;
+     *
+     * log.log(objektname, "Methode setBotAnzahl() beendet."); }
+     */
     /**
      * Setzt Integer Spieleranzahl auf den Ã¼bergebenen Wert SpielerAnzahl.
      *
@@ -108,7 +106,7 @@ public class Spiel {
     public void SpielStarten() {
         //Spielbrett erzeugen
         log.log(objektname, "Methode SpielStarten() gestartet.");
-        dasSpielbrett = new Spielbrett(log,output,this,"Spielbrett");
+        dasSpielbrett = new Spielbrett(log, output, this, "Spielbrett");
         log.log(objektname, "Methode hat das Spielbrett erzeugt");
         log.log(objektname, "Methode SpielStarten() beendet.");
     }
@@ -146,7 +144,7 @@ public class Spiel {
      */
     public void spielen() {
         log.log(objektname, "Methode spielen() gestartet.");
-        int i = 0;
+        /*int i = 0;
         int[] Ergebnisse = new int[7];
         while (AlleSpieler[i] != null) {
             Ergebnisse[i] = AlleSpieler[i].wuerfeln();
@@ -159,76 +157,94 @@ public class Spiel {
             i++;
 
         }
-        i = 0;
+         */
+        int i = 0;
         while (beendet != true) {
             if (AlleSpieler[i] != null) {
-                AlleSpieler[i].ziehen(AlleSpieler[i].wuerfeln());
-                i++;
+                if (AlleSpieler[i].ziehen2() == 1) {
+                    beendet = true;
+                }
+                if (i < (AlleSpieler.length - 1)) {
+                    i++;
+                } 
+                else {
+                    i = 0;
+                }
             }
-            else {
-            i = 0;
-            }
+
         }
 
         //Startspieler ermitteln fehlt
         //aktives Spielen beginnt, Spielreihenfolge im Uhrzeigersinn
         log.log(objektname, "Methode spielen() beendet.");
     }
-/*
+
+    /*
     public static void main(String args[]) {
         Logger log = new Logger("testlog.txt");
         Spiel test = new Spiel(log,"test",0);
         log.logBeenden();
     }
-    */
-    
+     */
+
     /**
      * getter-Methode fuer Wuerfel
+     *
      * @return derWuerfel
      */
-    public Wuerfel getWuerfel(){
-    return derWuerfel;
+    public Wuerfel getWuerfel() {
+        return derWuerfel;
     }
+
     /**
      * Setter-Meyhode fuer Wuerfel
-     * @param ww 
+     *
+     * @param ww
      */
-    public void setWuerfel(Wuerfel ww){
-    this.derWuerfel = ww;
+    public void setWuerfel(Wuerfel ww) {
+        this.derWuerfel = ww;
     }
+
     /**
      * Getter-Methode fuer Spielbrett
+     *
      * @return dasSpielbrett
      */
     public Spielbrett getSpielbrett() {
         return dasSpielbrett;
     }
+
     /**
      * Getter-Methode fuer Output
+     *
      * @return output
      */
-     public SpielbrettAusgabe getoutput() {
+    public SpielbrettAusgabe getoutput() {
         return this.output;
     }
-     /**
-      * eine Methode, die alle Spielfiguren der jewiligen Farben auf dem Spielbrett verteilt
-      * und auf ihre anfaenglichen Positionen setzt
-      */
-     public void spielfigurenVerteilen(){
-          log.log(objektname, "Methode spielfigurenVerteilen() gestartet.");
-         for(Spielfigur i :this.AlleSpielfiguren){
-         if (i != null){
-         i.Spielersetzen(this);}
-     }
-          log.log(objektname, "Methode spielfigurenVerteilen() beendet.");
-     
-     }
-     /**
-      * setzt alle Spielfiguren einer Farbe
-      * @param dieSpielfigur
-      * @return i
-      */
-      public int setSpielfigur(Spielfigur dieSpielfigur) {
+
+    /**
+     * eine Methode, die alle Spielfiguren der jewiligen Farben auf dem
+     * Spielbrett verteilt und auf ihre anfaenglichen Positionen setzt
+     */
+    public void spielfigurenVerteilen() {
+        log.log(objektname, "Methode spielfigurenVerteilen() gestartet.");
+        for (Spielfigur i : this.AlleSpielfiguren) {
+            if (i != null) {
+                i.Spielersetzen(this);
+            }
+        }
+        log.log(objektname, "Methode spielfigurenVerteilen() beendet.");
+
+    }
+
+    /**
+     * setzt alle Spielfiguren einer Farbe
+     *
+     * @param dieSpielfigur
+     * @return i
+     */
+    public int setSpielfigur(Spielfigur dieSpielfigur) {
         log.log(objektname, "Methode setSpielfigur() gestartet mit Parameter " + dieSpielfigur + " .");
         int i = 0;
         while (AlleSpielfiguren[i] != null) {
@@ -239,23 +255,23 @@ public class Spiel {
         return i;
 
     }
-      /**
-       * setzt alle mitspielenden Spieler
-       * @param derSpieler
-       * @return i
-       */
-       public int setSpieler(Spieler derSpieler) {
+
+    /**
+     * setzt alle mitspielenden Spieler
+     *
+     * @param derSpieler
+     * @return i
+     */
+    public int setSpieler(Spieler derSpieler) {
         log.log(objektname, "Methode setSpieler() gestartet mit Parameter " + derSpieler + " .");
         int i = 0;
         while (AlleSpieler[i] != null) {
             i++;
         }
         this.AlleSpieler[i] = derSpieler;
-           log.log(objektname, "Methodenrückgabe: " + i);
+        log.log(objektname, "Methodenrückgabe: " + i);
         log.log(objektname, "Methode setSpieler() beendet.");
         return i;
     }
-
-
 
 }

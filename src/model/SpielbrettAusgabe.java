@@ -243,7 +243,7 @@ public class SpielbrettAusgabe {
      */
     private static final String ANSI_bGrey = "\u001B[47m";
     /**
-     * 
+     *
      */
     private final String[] fColor = {ANSI_fBlue, ANSI_fRed, ANSI_fCyan, ANSI_fPurpel, ANSI_fYellow, ANSI_fGreen, ANSI_fbBlue, ANSI_fbRed, ANSI_fbCyan, ANSI_fbPurpel, ANSI_fbYellow, ANSI_fbGreen, ANSI_fbWhite, ANSI_fbBlack};
     /**
@@ -265,116 +265,139 @@ public class SpielbrettAusgabe {
      */
     private String[][] AnsiSpielbrett = new String[groesseX][groesseY];
     /**
-     * 
+     *
      */
     public boolean Ansiausgabean;
+    public boolean vanilla;
     /**
-     * 
+     *
      */
     Logger log;
     /**
-     * 
+     *
      */
     private Spiel dasSpiel;
     /**
-     * 
+     *
      */
     private String objektname;
+
     /**
-     * 
+     *
      * @param soNSpiel
      * @param logger
-     * @param oname 
+     * @param oname
      */
     public SpielbrettAusgabe(Spiel soNSpiel, Logger logger, String oname) {
-
+        //vanilla = true;
         this.dasSpiel = soNSpiel;
         this.objektname = oname;
         log = logger;
         for (int i = 0; i < groesseX; i++) {
             for (int k = 0; k < groesseY; k++) {
-                this.AnsiSpielbrett[i][k] = ANSI_RESET + ANSI_bGrey + ANSI_fWhite + "  ";   //+ ANSI_fBlue ANSI_RESET
+                if (this.vanilla) {
+                    this.AnsiSpielbrett[i][k] = "  ";
+                } else {
+                    this.AnsiSpielbrett[i][k] = ANSI_RESET + ANSI_bGrey + ANSI_fWhite + "  ";   //+ ANSI_fBlue ANSI_RESET
+                }
             }
         }
         this.sternZeichnen();
         this.Ansiausgabean = true;
     }
+
     /**
-     * 
-     * @param dasFeld 
+     *
+     * @param dasFeld
      */
     public void feldeinfuegen(Feld dasFeld) {
         log.log(objektname, "Methode feldeinfuegen() gestartet mit parameter " + dasFeld + ".");
         String farbe = "s";
+        String Caption = "w";
         switch (dasFeld.getFarbe().toLowerCase()) { // sehr netter Switch der den Typ des Feldes festlegt
             case "blau":
-                farbe = ANSI_bBlue + ANSI_fbBlue + "b";
+                farbe = ANSI_bBlue + ANSI_fbBlue;
+                Caption = "b";
                 break;
             case "rot":
-                farbe = ANSI_bRed + ANSI_fbRed + "r";
+                farbe = ANSI_bRed + ANSI_fbRed;
+                Caption = "r";
                 break;
             case "gruen":
-                farbe = ANSI_bGreen + ANSI_fbGreen + "g";
+                farbe = ANSI_bGreen + ANSI_fbGreen;
+                Caption = "g";
                 break;
             case "gelb":
-                farbe = ANSI_bYellow + ANSI_fbYellow + "y";
+                farbe = ANSI_bYellow + ANSI_fbYellow;
+                Caption = "y";
                 break;
             case "pink":
-                farbe = ANSI_bPurpel + "p";
+                farbe = ANSI_bPurpel;
+                Caption = "p";
                 break;
             case "schwarz":
-                farbe = ANSI_bWhite + "s";
+                farbe = ANSI_bWhite;
+                Caption = "s";
                 break;
             case "orange":
             case "tuerkis":
-                farbe = ANSI_bCyan + ANSI_fbCyan + "c";
+                farbe = ANSI_bCyan + ANSI_fbCyan;
+                Caption = "c";
                 break;
             case "weiss":
-                farbe = ANSI_RESET + ANSI_fWhite + "w";
+                farbe = ANSI_RESET + ANSI_fWhite;
+                Caption = "w";
                 break;
             default:
                 break;
         }
-        String Caption = "w";
+
         switch (dasFeld.getFeldtyp().toLowerCase()) { // sehr netter Switch der den Typ des Feldes festlegt
             case "start":
             case "startfeld":
             case "sfeld":
-                Caption = "s";
+                Caption += "s";
                 break;
             case "a":
             case "afeld":
             case "a-feld":
             case "anfangsfeld":
-                Caption = "a";
+                Caption += "a";
                 break;
             case "ziel":
             case "zfeld":
             case "zielfeld":
-                Caption = "z";
+                Caption += "z";
                 break;
             case "standard":
             case "standardfeld":
-                Caption = "s";
+                Caption += "s";
                 break;
             case "efeld":
             case "zefeld":
-                Caption = "e";
+                Caption += "e";
                 break;
             default:
-                Caption = "";
+                Caption += "";
                 break;
         }
-        this.AnsiSpielbrett[dasFeld.getPositionX()][dasFeld.getPositionY()] = ANSI_RESET + farbe + Caption;
+        if (this.vanilla) {
+            this.AnsiSpielbrett[dasFeld.getPositionX()][dasFeld.getPositionY()] = Caption;
+        } else {
+            this.AnsiSpielbrett[dasFeld.getPositionX()][dasFeld.getPositionY()] = ANSI_RESET + farbe + Caption;
+        }
         log.log(objektname, "Methodenrückgabe: " + ANSI_RESET + farbe + Caption);
         log.log(objektname, "Methode feldeinfuegen() beendet.");
 
     }
+
     /**
-     * 
+     *
      */
     public void spielAusgabe() {
-        System.out.println("\u001B[0m\u001B[35mA\u001B[34mN\u001B[36mS\u001B[32mI\u001B[0m-\u001B[33mS\u001B[31mp\u001B[35mi\u001B[34me\u001B[36ml\u001B[32mb\u001B[33mr\u001B[31me\u001B[35mt\u001B[36mt\u001B[0m steht bereit:\u001B[0m");
+        if (!this.vanilla) {
+            System.out.println("\u001B[0m\u001B[35mA\u001B[34mN\u001B[36mS\u001B[32mI\u001B[0m-\u001B[33mS\u001B[31mp\u001B[35mi\u001B[34me\u001B[36ml\u001B[32mb\u001B[33mr\u001B[31me\u001B[35mt\u001B[36mt\u001B[0m steht bereit:\u001B[0m");
+        }
         if (this.Ansiausgabean) {
             for (int i = 0; i < groesseX; i++) {
                 for (int k = 0; k < groesseY; k++) {
@@ -384,12 +407,18 @@ public class SpielbrettAusgabe {
             }
         }
     }
+
     /**
-     * 
+     *
      */
     private void sternZeichnen() {
         String ccaption = "::";
         String farbe = ANSI_RESET + ANSI_bGrey;//ANSI_RESET  +ANSI_fWhite;
+
+        if (this.vanilla) {
+            farbe = "";
+        }
+
         this.AnsiSpielbrett[11][1] = farbe + ccaption;
         this.AnsiSpielbrett[12][3] = farbe + ccaption;
         this.AnsiSpielbrett[12][5] = farbe + ccaption;
@@ -444,9 +473,8 @@ public class SpielbrettAusgabe {
 
     }
 
-    
     /**
-     * 
+     *
      */
     public void MADsh() {
         String echo = "error";
@@ -466,8 +494,9 @@ public class SpielbrettAusgabe {
             System.out.println(echo);
         }
     }
+
     /**
-     * 
+     *
      */
     public void echo() {
         String echo = "error";
@@ -481,9 +510,10 @@ public class SpielbrettAusgabe {
         }
         System.out.println(echo);
     }
+
     /**
-     * 
-     * @return 
+     *
+     * @return
      */
     public boolean wuerfeln() {
         String echo = "error";
@@ -516,13 +546,12 @@ public class SpielbrettAusgabe {
         InputStreamReader isr = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(isr);
 
-
         while (true) {
             System.out.print(">>Waehle einen Spielefiguren ");
-            for(Spielfigur i: moegSpielfig){
-            if ( i != null){
-            System.out.print(i.getobjektname() + " ");
-            }
+            for (Spielfigur i : moegSpielfig) {
+                if (i != null) {
+                    System.out.print(i.getobjektname() + " ");
+                }
             }
             System.out.println();
             try {
@@ -531,7 +560,8 @@ public class SpielbrettAusgabe {
                 return -1;
             }
             if (echo.equals("")) {
-                return 0;}
+                return 0;
+            }
             if (echo.equals("0")) {
                 return 0;
             }
@@ -548,19 +578,27 @@ public class SpielbrettAusgabe {
         }
 
     }
+
     /**
-     * 
-     * @param augen 
+     *
+     * @param augen
      */
     public void wuerfelausgeben(int augen) {
+         String farbe = ANSI_RESET + ANSI_bGrey ;
+            if (vanilla) {
+                farbe = "";
+            }
         for (int i = 9; i < 12; i++) {
             for (int k = 12; k < 15; k++) {
-                this.AnsiSpielbrett[i][k] = ANSI_RESET + ANSI_bGrey + "  ";   //+ ANSI_fBlue ANSI_RESET
+                this.AnsiSpielbrett[i][k] = farbe + "  ";   //+ ANSI_fBlue ANSI_RESET
             }
             String ccaption = "QQ";
             Random rand = new Random();
             int fau = rand.nextInt(11);
-            String farbe = ANSI_RESET + ANSI_bGrey + this.fColor[fau];
+            farbe += this.fColor[fau];
+            if (vanilla) {
+                farbe = "";
+            }
 
             switch (augen) {
                 case 1:
@@ -609,9 +647,10 @@ public class SpielbrettAusgabe {
 
         }
     }
+
     /**
-     * 
-     * @param diefigur 
+     *
+     * @param diefigur
      */
     public void SpielerSetzen(Spielfigur diefigur) {
         log.log(objektname, "Methode SpielerSetzen() gestartet.");
@@ -690,8 +729,11 @@ public class SpielbrettAusgabe {
                     break;
             }
             //System.out.println(Caption);
-
-            this.AnsiSpielbrett[dasFeld.getPositionX()][dasFeld.getPositionY()] = ANSI_RESET + farbe + Caption + nummer;
+            if (vanilla) {
+                this.AnsiSpielbrett[dasFeld.getPositionX()][dasFeld.getPositionY()] = Caption + nummer;
+            } else {
+                this.AnsiSpielbrett[dasFeld.getPositionX()][dasFeld.getPositionY()] = ANSI_RESET + farbe + Caption + nummer;
+            }
             log.log(objektname, "Methodenrückgabe: " + ANSI_RESET + farbe + ANSI_fWhite + Caption + nummer);
             log.log(objektname, "Methode SpielerSetzen() erfolgreich beendet.");
             return;
@@ -709,38 +751,55 @@ public class SpielbrettAusgabe {
         log.log(objektname, "Methode getobjektname() beendet.");
         return objektname;
     }
+
     /**
      * Test-methode
-     * @param args 
+     *
+     * @param args
      */
     public static void main(String args[]) {
-
+        //while(){
         //der Schreiberling
         Logger log = new Logger("SherLog.txt");
         //das Spiel
         Spiel test = new Spiel(log, "testSpiel", 0);
         // die 7 mitspieler
         Spieler tester = new SpielerMensch("Azrael", log, test);
-        Spieler tester2 = new SpielerMensch("Barbarianna", log, test);
-        Spieler tester3 = new SpielerMensch("Charles der II", log, test);
-        Spieler tester4 = new SpielerMensch("Dave", log, test);
-        Spieler tester5 = new SpielerMensch("Eve", log, test);
-        Spieler tester6 = new SpielerMensch("Fynnia", log, test);
-        Spieler tester7 = new SpielerMensch("Gargamel", log, test);
+        Spieler tester2 = new SpielerComputer("Barbarianna", log, test);
+        Spieler tester3 = new SpielerComputer("Charles der II", log, test);
+        Spieler tester4 = new SpielerComputer("Dave", log, test);
+        Spieler tester5 = new SpielerComputer("Eve", log, test);
+        Spieler tester6 = new SpielerComputer("Fynnia", log, test);
+        Spieler tester7 = new SpielerComputer("Gargamel", log, test);
         //eine Proto-Spielschleife
+        
         for (int a = 0; a < 100; a++) {
             tester.ziehen2();
-            /*tester2.ziehen2();
-            tester3.ziehen2();
-            tester4.ziehen2(); 
-            tester5.ziehen2();
+            tester2.ziehen2();
+            //tester3.ziehen2();
+            //tester4.ziehen2();
+            //tester5.ziehen2();
             tester6.ziehen2();
             tester7.ziehen2();
-          &*/
-              
+
         }
+        
+        /*
+        tester.getSpielfiguren()[0].setzten(test.dasSpielbrett.getFelder().get(12));
+        tester.getSpielfiguren()[1].setzten(test.dasSpielbrett.getFelder().get(6));
+        tester.getSpielfiguren()[2].setzten(test.dasSpielbrett.getFelder().get(7));
+        tester3.getSpielfiguren()[0].setzten(test.dasSpielbrett.getFelder().get(8));
+        tester3.getSpielfiguren()[1].setzten(test.dasSpielbrett.getFelder().get(9));
+        tester3.getSpielfiguren()[2].setzten(test.dasSpielbrett.getFelder().get(10));
+        tester4.getSpielfiguren()[0].setzten(test.dasSpielbrett.getFelder().get(11));
+        test.output.spielAusgabe();
+        tester2.getSpielfiguren()[0].herauskommen();
+        
+        System.out.println("BLAU " + tester.getSpielfiguren()[1].getFeldnummer());
+*/
+        
         test.output.spielAusgabe();
 
+    //}
     }
-
 }

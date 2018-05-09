@@ -18,11 +18,12 @@ public interface Spieler {
      * @param gezogen
      */
     public void ziehen(int gezogen);
-    public void ziehen2();
+    public int ziehen2();
     public int getgezogen();
 
     /**
      *
+     * @param c
      */
     public void setgezogen(int c);
     /**
@@ -33,6 +34,7 @@ public interface Spieler {
     public Feld getafeld();
     public List<Feld> getFelder();
     public Spiel getSpiel();
+    public boolean alleSpielerImStartkreis();
     public boolean SpielerImStartkreis();
     public Feld getzefeld();
     public String getfarbe();
