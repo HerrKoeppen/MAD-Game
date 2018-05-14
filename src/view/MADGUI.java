@@ -50,32 +50,31 @@ public class MADGUI extends javax.swing.JFrame {
         schwarz2 = new javax.swing.JLabel();
         schwarz3 = new javax.swing.JLabel();
         schwarz4 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
+        baf = new javax.swing.JLabel();
+        f1 = new javax.swing.JLabel();
+        f2 = new javax.swing.JLabel();
+        f3 = new javax.swing.JLabel();
+        f4 = new javax.swing.JLabel();
+        f5 = new javax.swing.JLabel();
+        f6 = new javax.swing.JLabel();
+        ref = new javax.swing.JLabel();
+        raf = new javax.swing.JLabel();
+        f7 = new javax.swing.JLabel();
+        f8 = new javax.swing.JLabel();
+        f9 = new javax.swing.JLabel();
+        f10 = new javax.swing.JLabel();
+        f11 = new javax.swing.JLabel();
+        f12 = new javax.swing.JLabel();
+        tef = new javax.swing.JLabel();
+        taf = new javax.swing.JLabel();
+        f13 = new javax.swing.JLabel();
+        f14 = new javax.swing.JLabel();
+        f15 = new javax.swing.JLabel();
+        f16 = new javax.swing.JLabel();
+        f17 = new javax.swing.JLabel();
+        f18 = new javax.swing.JLabel();
+        pef = new javax.swing.JLabel();
+        f20 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
@@ -93,6 +92,7 @@ public class MADGUI extends javax.swing.JFrame {
         jLabel41 = new javax.swing.JLabel();
         jLabel42 = new javax.swing.JLabel();
         jLabel43 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
         jLabel44 = new javax.swing.JLabel();
         jLabel45 = new javax.swing.JLabel();
         jLabel46 = new javax.swing.JLabel();
@@ -231,83 +231,80 @@ public class MADGUI extends javax.swing.JFrame {
         schwarz4.setToolTipText("");
         getContentPane().add(schwarz4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 40, 60));
 
-        jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 50, 50));
+        baf.setText("jLabel1");
+        getContentPane().add(baf, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 50, 50));
 
-        jLabel2.setText("jLabel1");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 230, 50, 50));
+        f1.setText("jLabel1");
+        getContentPane().add(f1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, 50, 50));
 
-        jLabel3.setText("jLabel1");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 200, 50, 50));
+        f2.setText("jLabel1");
+        getContentPane().add(f2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 230, 50, 50));
 
-        jLabel4.setText("jLabel1");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 180, 50, 50));
+        f3.setText("jLabel1");
+        getContentPane().add(f3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 200, 50, 50));
 
-        jLabel5.setText("jLabel1");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, 50, 50));
+        f4.setText("jLabel1");
+        getContentPane().add(f4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 180, 50, 50));
 
-        jLabel6.setText("jLabel1");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, 50, 50));
+        f5.setText("jLabel1");
+        getContentPane().add(f5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, 50, 50));
 
-        jLabel7.setText("jLabel1");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, 50, 50));
+        f6.setText("jLabel1");
+        getContentPane().add(f6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, 50, 50));
 
-        jLabel8.setText("jLabel1");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, 50, 50));
+        ref.setText("jLabel1");
+        getContentPane().add(ref, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, 50, 50));
 
-        jLabel9.setText("jLabel1");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 140, 50, 50));
+        raf.setText("jLabel1");
+        getContentPane().add(raf, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, 50, 50));
 
-        jLabel10.setText("jLabel1");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 180, 50, 50));
+        f7.setText("jLabel1");
+        getContentPane().add(f7, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 140, 50, 50));
 
-        jLabel11.setText("jLabel1");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 210, 50, 50));
+        f8.setText("jLabel1");
+        getContentPane().add(f8, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 180, 50, 50));
 
-        jLabel12.setText("jLabel1");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 230, 50, 50));
+        f9.setText("jLabel1");
+        getContentPane().add(f9, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 210, 50, 50));
 
-        jLabel13.setText("jLabel1");
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 210, 50, 50));
+        f10.setText("jLabel1");
+        getContentPane().add(f10, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 230, 50, 50));
 
-        jLabel14.setText("jLabel1");
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 180, 50, 50));
+        f11.setText("jLabel1");
+        getContentPane().add(f11, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 210, 50, 50));
 
-        jLabel15.setText("jLabel1");
-        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 220, 50, 50));
+        f12.setText("jLabel1");
+        getContentPane().add(f12, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 180, 50, 50));
 
-        jLabel16.setText("jLabel1");
-        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 270, 50, 50));
+        tef.setText("jLabel1");
+        getContentPane().add(tef, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 220, 50, 50));
 
-        jLabel17.setText("jLabel1");
-        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 290, 50, 50));
+        taf.setText("jLabel1");
+        getContentPane().add(taf, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 270, 50, 50));
 
-        jLabel18.setText("jLabel1");
-        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 310, 50, 50));
+        f13.setText("jLabel1");
+        getContentPane().add(f13, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 290, 50, 50));
 
-        jLabel19.setText("jLabel1");
-        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 360, 50, 50));
+        f14.setText("jLabel1");
+        getContentPane().add(f14, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 310, 50, 50));
 
-        jLabel20.setText("jLabel1");
-        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 410, 50, 50));
+        f15.setText("jLabel1");
+        getContentPane().add(f15, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 360, 50, 50));
 
-        jLabel21.setText("jLabel1");
-        getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 430, 50, 50));
+        f16.setText("jLabel1");
+        getContentPane().add(f16, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 410, 50, 50));
 
-        jLabel22.setText("jLabel1");
-        getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 460, 50, 50));
+        f17.setText("jLabel1");
+        getContentPane().add(f17, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 430, 50, 50));
 
-        jLabel23.setText("jLabel1");
-        getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, 50, 50));
+        f18.setText("jLabel1");
+        getContentPane().add(f18, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 460, 50, 50));
 
-        jLabel24.setText("jLabel24");
-        getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 40, 40));
+        pef.setText("jLabel24");
+        getContentPane().add(pef, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 500, 40, 40));
 
-        jLabel25.setText("jLabel24");
-        getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 500, 40, 40));
-
-        jLabel26.setText("jLabel24");
-        getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 490, 40, 40));
+        f20.setText("jLabel24");
+        getContentPane().add(f20, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 490, 40, 40));
 
         jLabel27.setText("jLabel24");
         getContentPane().add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 520, 40, 40));
@@ -359,6 +356,9 @@ public class MADGUI extends javax.swing.JFrame {
 
         jLabel43.setText("jLabel24");
         getContentPane().add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 360, 40, 40));
+
+        jLabel24.setText("jLabel24");
+        getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 40, 40));
 
         jLabel44.setText("jLabel24");
         getContentPane().add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, 40, 40));
@@ -562,10 +562,30 @@ public class MADGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Spielbrett;
+    private javax.swing.JLabel baf;
     private javax.swing.JLabel blau1;
     private javax.swing.JLabel blau2;
     private javax.swing.JLabel blau3;
     private javax.swing.JLabel blau4;
+    private javax.swing.JLabel f1;
+    private javax.swing.JLabel f10;
+    private javax.swing.JLabel f11;
+    private javax.swing.JLabel f12;
+    private javax.swing.JLabel f13;
+    private javax.swing.JLabel f14;
+    private javax.swing.JLabel f15;
+    private javax.swing.JLabel f16;
+    private javax.swing.JLabel f17;
+    private javax.swing.JLabel f18;
+    private javax.swing.JLabel f2;
+    private javax.swing.JLabel f20;
+    private javax.swing.JLabel f3;
+    private javax.swing.JLabel f4;
+    private javax.swing.JLabel f5;
+    private javax.swing.JLabel f6;
+    private javax.swing.JLabel f7;
+    private javax.swing.JLabel f8;
+    private javax.swing.JLabel f9;
     private javax.swing.JLabel gelb1;
     private javax.swing.JLabel gelb2;
     private javax.swing.JLabel gelb3;
@@ -574,29 +594,10 @@ public class MADGUI extends javax.swing.JFrame {
     private javax.swing.JLabel gruen2;
     private javax.swing.JLabel gruen3;
     private javax.swing.JLabel gruen4;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
@@ -607,7 +608,6 @@ public class MADGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
@@ -618,7 +618,6 @@ public class MADGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
@@ -629,7 +628,6 @@ public class MADGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel59;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel62;
@@ -640,7 +638,6 @@ public class MADGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel67;
     private javax.swing.JLabel jLabel68;
     private javax.swing.JLabel jLabel69;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel70;
     private javax.swing.JLabel jLabel71;
     private javax.swing.JLabel jLabel72;
@@ -651,7 +648,6 @@ public class MADGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel77;
     private javax.swing.JLabel jLabel78;
     private javax.swing.JLabel jLabel79;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel80;
     private javax.swing.JLabel jLabel81;
     private javax.swing.JLabel jLabel82;
@@ -662,7 +658,6 @@ public class MADGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel87;
     private javax.swing.JLabel jLabel88;
     private javax.swing.JLabel jLabel89;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabel90;
     private javax.swing.JLabel jLabel91;
     private javax.swing.JLabel jLabel92;
@@ -670,10 +665,13 @@ public class MADGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel94;
     private javax.swing.JLabel jLabel95;
     private javax.swing.JLabel jLabel96;
+    private javax.swing.JLabel pef;
     private javax.swing.JLabel pink1;
     private javax.swing.JLabel pink2;
     private javax.swing.JLabel pink3;
     private javax.swing.JLabel pink4;
+    private javax.swing.JLabel raf;
+    private javax.swing.JLabel ref;
     private javax.swing.JLabel rot1;
     private javax.swing.JLabel rot2;
     private javax.swing.JLabel rot3;
@@ -682,6 +680,8 @@ public class MADGUI extends javax.swing.JFrame {
     private javax.swing.JLabel schwarz2;
     private javax.swing.JLabel schwarz3;
     private javax.swing.JLabel schwarz4;
+    private javax.swing.JLabel taf;
+    private javax.swing.JLabel tef;
     // End of variables declaration//GEN-END:variables
 
 }
