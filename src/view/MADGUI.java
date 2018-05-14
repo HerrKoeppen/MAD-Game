@@ -26,10 +26,6 @@ public class MADGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        schwarz1 = new javax.swing.JLabel();
-        schwarz2 = new javax.swing.JLabel();
-        schwarz3 = new javax.swing.JLabel();
-        schwarz4 = new javax.swing.JLabel();
         blau1 = new javax.swing.JLabel();
         blau2 = new javax.swing.JLabel();
         blau3 = new javax.swing.JLabel();
@@ -38,6 +34,22 @@ public class MADGUI extends javax.swing.JFrame {
         rot2 = new javax.swing.JLabel();
         rot3 = new javax.swing.JLabel();
         rot4 = new javax.swing.JLabel();
+        gruen1 = new javax.swing.JLabel();
+        gruen2 = new javax.swing.JLabel();
+        gruen3 = new javax.swing.JLabel();
+        gruen4 = new javax.swing.JLabel();
+        pink1 = new javax.swing.JLabel();
+        pink2 = new javax.swing.JLabel();
+        pink3 = new javax.swing.JLabel();
+        pink4 = new javax.swing.JLabel();
+        gelb1 = new javax.swing.JLabel();
+        gelb2 = new javax.swing.JLabel();
+        gelb3 = new javax.swing.JLabel();
+        gelb4 = new javax.swing.JLabel();
+        schwarz1 = new javax.swing.JLabel();
+        schwarz2 = new javax.swing.JLabel();
+        schwarz3 = new javax.swing.JLabel();
+        schwarz4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -139,26 +151,6 @@ public class MADGUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        schwarz1.setBackground(new java.awt.Color(255, 255, 255));
-        schwarz1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Spielfigur_schwarz.png"))); // NOI18N
-        schwarz1.setToolTipText("");
-        getContentPane().add(schwarz1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 40, 60));
-
-        schwarz2.setBackground(new java.awt.Color(255, 255, 255));
-        schwarz2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Spielfigur_schwarz.png"))); // NOI18N
-        schwarz2.setToolTipText("");
-        getContentPane().add(schwarz2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, 40, 60));
-
-        schwarz3.setBackground(new java.awt.Color(255, 255, 255));
-        schwarz3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Spielfigur_schwarz.png"))); // NOI18N
-        schwarz3.setToolTipText("");
-        getContentPane().add(schwarz3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 40, 60));
-
-        schwarz4.setBackground(new java.awt.Color(255, 255, 255));
-        schwarz4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Spielfigur_schwarz.png"))); // NOI18N
-        schwarz4.setToolTipText("");
-        getContentPane().add(schwarz4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 40, 60));
-
         blau1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Spielfigur_blau.png"))); // NOI18N
         getContentPane().add(blau1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
 
@@ -182,6 +174,62 @@ public class MADGUI extends javax.swing.JFrame {
 
         rot4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Spielfigur_rot.png"))); // NOI18N
         getContentPane().add(rot4, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 70, -1, -1));
+
+        gruen1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Spielfigur_gruen.png"))); // NOI18N
+        getContentPane().add(gruen1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 310, -1, -1));
+
+        gruen2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Spielfigur_gruen.png"))); // NOI18N
+        getContentPane().add(gruen2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 370, -1, -1));
+
+        gruen3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Spielfigur_gruen.png"))); // NOI18N
+        getContentPane().add(gruen3, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 310, -1, -1));
+
+        gruen4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Spielfigur_gruen.png"))); // NOI18N
+        getContentPane().add(gruen4, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 370, -1, -1));
+
+        pink1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Spielfigur_lila.png"))); // NOI18N
+        getContentPane().add(pink1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 610, -1, -1));
+
+        pink2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Spielfigur_lila.png"))); // NOI18N
+        getContentPane().add(pink2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 620, -1, -1));
+
+        pink3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Spielfigur_lila.png"))); // NOI18N
+        getContentPane().add(pink3, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 660, -1, -1));
+
+        pink4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Spielfigur_lila.png"))); // NOI18N
+        getContentPane().add(pink4, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 670, -1, -1));
+
+        gelb1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Spielfigur_gelb.png"))); // NOI18N
+        getContentPane().add(gelb1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 610, -1, -1));
+
+        gelb2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Spielfigur_gelb.png"))); // NOI18N
+        getContentPane().add(gelb2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 610, -1, -1));
+
+        gelb3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Spielfigur_gelb.png"))); // NOI18N
+        getContentPane().add(gelb3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 670, -1, -1));
+
+        gelb4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Spielfigur_gelb.png"))); // NOI18N
+        getContentPane().add(gelb4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 670, -1, -1));
+
+        schwarz1.setBackground(new java.awt.Color(255, 255, 255));
+        schwarz1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Spielfigur_schwarz.png"))); // NOI18N
+        schwarz1.setToolTipText("");
+        getContentPane().add(schwarz1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 40, 60));
+
+        schwarz2.setBackground(new java.awt.Color(255, 255, 255));
+        schwarz2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Spielfigur_schwarz.png"))); // NOI18N
+        schwarz2.setToolTipText("");
+        getContentPane().add(schwarz2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, 40, 60));
+
+        schwarz3.setBackground(new java.awt.Color(255, 255, 255));
+        schwarz3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Spielfigur_schwarz.png"))); // NOI18N
+        schwarz3.setToolTipText("");
+        getContentPane().add(schwarz3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 40, 60));
+
+        schwarz4.setBackground(new java.awt.Color(255, 255, 255));
+        schwarz4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Spielfigur_schwarz.png"))); // NOI18N
+        schwarz4.setToolTipText("");
+        getContentPane().add(schwarz4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 40, 60));
 
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 50, 50));
@@ -436,7 +484,7 @@ public class MADGUI extends javax.swing.JFrame {
         getContentPane().add(jLabel84, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 30, 40, 40));
 
         jLabel85.setText("jLabel24");
-        getContentPane().add(jLabel85, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 40, 40, 40));
+        getContentPane().add(jLabel85, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 40, 40, 40));
 
         jLabel86.setText("jLabel24");
         getContentPane().add(jLabel86, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 90, 40, 40));
@@ -518,6 +566,14 @@ public class MADGUI extends javax.swing.JFrame {
     private javax.swing.JLabel blau2;
     private javax.swing.JLabel blau3;
     private javax.swing.JLabel blau4;
+    private javax.swing.JLabel gelb1;
+    private javax.swing.JLabel gelb2;
+    private javax.swing.JLabel gelb3;
+    private javax.swing.JLabel gelb4;
+    private javax.swing.JLabel gruen1;
+    private javax.swing.JLabel gruen2;
+    private javax.swing.JLabel gruen3;
+    private javax.swing.JLabel gruen4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -614,6 +670,10 @@ public class MADGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel94;
     private javax.swing.JLabel jLabel95;
     private javax.swing.JLabel jLabel96;
+    private javax.swing.JLabel pink1;
+    private javax.swing.JLabel pink2;
+    private javax.swing.JLabel pink3;
+    private javax.swing.JLabel pink4;
     private javax.swing.JLabel rot1;
     private javax.swing.JLabel rot2;
     private javax.swing.JLabel rot3;
