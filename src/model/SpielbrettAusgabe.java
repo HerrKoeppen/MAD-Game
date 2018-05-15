@@ -33,9 +33,12 @@ import java.util.Random;
  *                                                                      @Johanna
  */
 /**
- * Klasse SpielbrettAusgabe. Diese Klasse erzeugt eine einfache ANSI-Ausgabe des
- * Spielbrettes im Output. Ausserdem ermoeglicht sie eine Steuerung ueber die
- * Befehle: run, 1, 2 und 3.
+ * Klasse SpielbrettAusgabe. Diese Klasse erzeugt eine einfache interaktive
+ * ANSI-Ausgabe des Spielbrettes im Output. Die Steuerung erfolgt ueber die
+ * Befehle: run, 1, 2 und 3. Bzw. 'enter' welches automatisch wuerfelt oder
+ * die erste Spielfigur auswaehlt.
+ * 
+ * 
  *
  * Was ist ANSI?
  *
@@ -261,32 +264,56 @@ public class SpielbrettAusgabe {
      */
     private final int groesseY = 25;
     /**
-     * hallo
+     * Die  SpielbrettAusgabe ist als eine 2-Dimensionales(groesseX * groesseY)
+     * Tabelle abbgebildet. String[][] AnsiSpielbrett fungiert dabei wie
+     * eine art Buffer, welcher Inhalt und Aussehen einer jeden Zelle speichert.
+     * (in Form von Strings d. h. in ANSI-Escapesequenz und "normalen" 
+     * Zelleninhalt. kann deshalb sofort als  Ausgegeben werden (bis auf \n)).
+     * 
+     * !Achtung! aufgrund einer Designtechnischen Entscheidung sind X- und Y-
+     * Achse vertauscht.
+     * 
+     * @see AnsiSpielbrett
+     * @see groesseY
+     * @see groesseX
      */
     private String[][] AnsiSpielbrett = new String[groesseX][groesseY];
     /**
      *
      */
     public boolean Ansiausgabean;
+    /**
+     * Im Vanilla mode werden
+     */
     public boolean vanilla;
     /**
-     *
+     * Referenz zum Logger
      */
     Logger log;
     /**
-     *
+     * Referenz zum Spiel
      */
     private Spiel dasSpiel;
     /**
-     *
+     * Name des Objekts, lediglich relevant fuer den Logger
      */
     private String objektname;
 
     /**
-     *
-     * @param soNSpiel
-     * @param logger
-     * @param oname
+     * Konstruktor der Klasse SpielbrettAusgabe. Zeichnet die grauen "Default"-
+     * Zellen in den Buffer(AnsiSpielbrett[][]) jnd ruft anschliesend 
+     * sternZeichnen() auf.
+     * 
+     * @see SpielbrettAusgabe
+     * @see AnsiSpielbrett
+     * @see sternZeichnen()
+     * 
+     * @param soNSpiel : setzt das Spiel
+     * @see dasSpiel
+     * @param logger : setzt den log
+     * @see dasSpiel
+     * @param oname : setzt den objektname
+     * @see objektname
      */
     public SpielbrettAusgabe(Spiel soNSpiel, Logger logger, String oname) {
         //vanilla = true;
@@ -307,8 +334,9 @@ public class SpielbrettAusgabe {
     }
 
     /**
-     *
-     * @param dasFeld
+     * Aendert einen Zelleneintrag im Buffer
+     * 
+     * @param dasFeld : das zu setztene Feld.
      */
     public void feldeinfuegen(Feld dasFeld) {
         log.log(objektname, "Methode feldeinfuegen() gestartet mit parameter " + dasFeld + ".");
@@ -474,7 +502,7 @@ public class SpielbrettAusgabe {
     }
 
     /**
-     *
+     * 
      */
     public void MADsh() {
         String echo = "error";
@@ -496,7 +524,8 @@ public class SpielbrettAusgabe {
     }
 
     /**
-     *
+     * eine Testmethode fuer import java.io.*
+     * is ganz nice und hunktionieht wie das normale echo 
      */
     public void echo() {
         String echo = "error";
@@ -743,7 +772,8 @@ public class SpielbrettAusgabe {
     }
 
     /**
-     * @return the farbe
+     * getter-methode fuer den objektname
+     * @return the objektname
      */
     public String getobjektname() {
         log.log(objektname, "Methode getobjektname() gestartet.");
@@ -753,7 +783,7 @@ public class SpielbrettAusgabe {
     }
 
     /**
-     * Test-methode
+     * Test-methode zur simulierung eines Spieles. 
      *
      * @param args
      */
@@ -773,12 +803,12 @@ public class SpielbrettAusgabe {
         Spieler tester7 = new SpielerComputer("Gargamel", log, test);
         //eine Proto-Spielschleife
         
-        for (int a = 0; a < 100; a++) {
+        for (int a = 0; a < 200; a++) {
             tester.ziehen2();
             tester2.ziehen2();
-            //tester3.ziehen2();
-            //tester4.ziehen2();
-            //tester5.ziehen2();
+            tester3.ziehen2();
+            tester4.ziehen2();
+            tester5.ziehen2();
             tester6.ziehen2();
             tester7.ziehen2();
 
@@ -795,10 +825,19 @@ public class SpielbrettAusgabe {
         test.output.spielAusgabe();
         tester2.getSpielfiguren()[0].herauskommen();
         
-        System.out.println("BLAU " + tester.getSpielfiguren()[1].getFeldnummer());
-*/
+        System.out.println("BLAU0 " + tester.getSpielfiguren()[0].getFeldnummer());
+        System.out.println("BLAU1 " + tester.getSpielfiguren()[1].getFeldnummer());
+        System.out.println("BLAU2 " + tester.getSpielfiguren()[2].getFeldnummer());
+        System.out.println("Gruen0 " + tester3.getSpielfiguren()[0].getFeldnummer());
+        System.out.println("Gruen1 " + tester3.getSpielfiguren()[1].getFeldnummer());
+        System.out.println("Gruen2 " + tester3.getSpielfiguren()[2].getFeldnummer());
+        System.out.println("BLAU " + tester4.getSpielfiguren()[2].getFeldnummer());
+/*/
         
         test.output.spielAusgabe();
+        test.output.echo();
+        test.output.echo();
+        test.output.echo();
 
     //}
     }

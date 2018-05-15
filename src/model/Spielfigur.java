@@ -397,7 +397,9 @@ public class Spielfigur {
         if (zielfeld.equals(this.startfeld) && !this.aufstartfeld) {
             return 0;
         }
+        if(this.kannSichBewegen(ZuLaufendeFeldanzahl)){
         System.out.println("Zielfeld  von " + this.objektname + " ist " + zielfeld.getobjektname());
+        }
         //Sucht die Postion des Feldes in der Liste der Spielfigur
         switch (this.aktfeld.getFeldtyp().toLowerCase()) { // sehr netter Switch der den Typ des Feldes festlegt
             case "startfeld":
@@ -419,11 +421,12 @@ public class Spielfigur {
                 if (this.aktfeld.equals(this.team.getafeld()) && this.team.SpielerImStartkreis()) {
                     if (zielfeld.getIstBesetzt()) {
                         //Wenn das Zielfeld von dem gleichen Team besetzt ist 
-                        if (!this.team.getafeld().getHausbesetzer().farbe.toLowerCase().equals(this.farbe.toLowerCase())) {
-                            return 3;
-                        } else {
+                        if (zielfeld.getHausbesetzer().farbe.toLowerCase().equals(this.farbe.toLowerCase())) {
                             return 0;
                         } //Wenn das Zielfeld von einen Gegner besetzt ist
+                         else {
+                            return 3;
+                        }
 
                     }
                     return 2;
@@ -442,7 +445,7 @@ public class Spielfigur {
                     return 1;
                 }
             case "zefeld":
-            case "efeld":
+            case "efeld":          
                 if (zielfeld.getIstBesetzt()) {
                     return 0;
                 }
@@ -453,6 +456,7 @@ public class Spielfigur {
                 }
                 return 1;
             default:
+                System.out.println("error");
                 return 0;
         }
 
