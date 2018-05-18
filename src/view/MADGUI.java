@@ -6,6 +6,11 @@
 
 package view;
 
+import javax.swing.ImageIcon;
+import model.Feld;
+import model.Logger;
+import model.Spiel;
+
 /**
  *
  * @author K
@@ -15,6 +20,9 @@ public class MADGUI extends javax.swing.JFrame {
     /** Creates new form MADGUI */
     public MADGUI() {
         initComponents();
+        log = new Logger();
+        dasSpiel = new Spiel(log,"das Spiel",6);
+        darstellungAnzeigen();
     }
 
     /** This method is called from within the constructor to
@@ -147,8 +155,7 @@ public class MADGUI extends javax.swing.JFrame {
         ss3 = new javax.swing.JLabel();
         ss4 = new javax.swing.JLabel();
         Spielbrett = new javax.swing.JLabel();
-
-        JLabel Felder = {
+		javax.swing.JLabel [] felder =  {
             baf, f2, f3, f4, f5, f6, f7, ref, raf, f10, f11, f12, f13, f14, f15,
             tef, taf, f18, f19, f20, f21, f22, f23, pef, paf, f26, f27, f28, f29,
             f30, f31, gef, gaf, f34, f35, f36, f37, f38, f39, sef, saf, f42, f43,
@@ -342,7 +349,57 @@ public class MADGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    public void darstellungAnzeigen(){
+        for (int i =0;i<felder.length;i++){
+            anpassen(dasSpiel.getSpielbrett().getFelder().get(i),i);
+        }
+    }
+    
+    public void anpassen(Feld f, int index){
+        felder[index].setVisible(true);
+        if(!f.getIstBesetzt()){
+            felder[index].setVisible(false);
+            return;
+        }
+        if (f.getHausbesetzer().getTeam().getfarbe().equalsIgnoreCase("blau")){
+            ImageIcon icon = new ImageIcon(getClass().getResource("/view/Spielfigur_blau.png"));
+            felder[index].setIcon(icon);
+            return;
+        }
+        if (f.getHausbesetzer().getTeam().getfarbe().equalsIgnoreCase("rot")){
+            ImageIcon icon = new ImageIcon(getClass().getResource("/view/Spielfigur_rot.png"));
+            felder[index].setIcon(icon);
+            return;
+        }
+        if (f.getHausbesetzer().getTeam().getfarbe().equalsIgnoreCase("gruen")){
+            ImageIcon icon = new ImageIcon(getClass().getResource("/view/Spielfigur_gruen.png"));
+            felder[index].setIcon(icon);
+            return;
+        }
+        if (f.getHausbesetzer().getTeam().getfarbe().equalsIgnoreCase("pink")){
+            ImageIcon icon = new ImageIcon(getClass().getResource("/view/Spielfigur_lila.png"));
+            felder[index].setIcon(icon);
+            return;
+        }
+        if (f.getHausbesetzer().getTeam().getfarbe().equalsIgnoreCase("gelb")){
+            ImageIcon icon = new ImageIcon(getClass().getResource("/view/Spielfigur_gelb.png"));
+            felder[index].setIcon(icon);
+            return;
+        }
+        if (f.getHausbesetzer().getTeam().getfarbe().equalsIgnoreCase("schwarz")){
+            ImageIcon icon = new ImageIcon(getClass().getResource("/view/Spielfigur_schwarz.png"));
+            felder[index].setIcon(icon);
+            return;
+        }
+         if (f.getHausbesetzer().getTeam().getfarbe().equalsIgnoreCase("tuerkis")){
+            ImageIcon icon = new ImageIcon(getClass().getResource("/view/Spielfigur_schwarz.png"));
+            felder[index].setIcon(icon);
+            return;
+        }
+        
+        
+    }
     /**
      * @param args the command line arguments
      */
@@ -500,8 +557,10 @@ public class MADGUI extends javax.swing.JFrame {
     private javax.swing.JLabel tz2;
     private javax.swing.JLabel tz3;
     private javax.swing.JLabel tz4;
-
-    private javax.swing.JLabel alleFelder [];
-    // End of variables declaration//GEN-END:variables
+// End of variables declaration//GEN-END:variables
+    private javax.swing.JLabel felder [];
+	private Spiel dasSpiel;
+        private Logger log;
+    
 
 }
