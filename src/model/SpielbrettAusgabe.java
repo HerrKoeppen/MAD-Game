@@ -705,7 +705,7 @@ public class SpielbrettAusgabe {
         BufferedReader br = new BufferedReader(isr);
 
         while (true) {
-            System.out.print(">>Waehle einen Spielefiguren ");
+            System.out.print(">>Waehle eine Spielefigur: ");
             for (Spielfigur i : moegSpielfig) {
                 if (i != null) {
                     System.out.print(i.getobjektname() + " ");
