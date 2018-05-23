@@ -1,5 +1,6 @@
 package model;
 
+import controller.Control;
 import java.io.*;
 import java.util.List;
 import java.util.Random;
@@ -674,6 +675,7 @@ public class SpielbrettAusgabe {
      * @return
      */
     public boolean wuerfeln() {
+        Control hallo = new Control(); 
         String echo = "error";
         InputStreamReader isr = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(isr);
