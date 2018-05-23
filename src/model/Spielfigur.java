@@ -147,7 +147,7 @@ public class Spielfigur {
             log.log(objektname, "Methode herauskommen() beendet.");
             System.out.println(this.team.getobjektname() + " kommt mit " + this.objektname + " raus.");
             System.out.println(this.team.getobjektname() + " ist nochmal am Zug.");
-            int a = this.team.ziehen2();
+            int a = this.team.ziehen();
             return 0;
         } else {
             log.log(objektname, "Methodenrückgabe: " + 1);
@@ -197,7 +197,7 @@ public class Spielfigur {
                 }
             case "afeld":
             case "standardfeld":
-                if (Baka.getID() == 41) {
+                if (Baka.getID() == 48) {
                     return this.team.getSpiel().getSpielbrett().getFelder().get(0);
                 }
                 return this.team.getSpiel().getSpielbrett().getFelder().get(Baka.getID() + 1);
@@ -247,7 +247,7 @@ public class Spielfigur {
         this.team.setgezogen((this.team.getgezogen() + 1));
             if (augen == 6) 
             {
-                this.team.ziehen2();
+                this.team.ziehen();
             }
         return 0;
     }

@@ -32,6 +32,30 @@ import java.util.Random;
  *                     rs    ::ga           
  *                                                                      @Johanna
  */
+/*                S0  S2  sa::we                    
+ *        ::we          ::      ::  G2              
+ *      ca    ::ws  S1  ws  sz  ws      G1          
+ *      ::  cz    ::    ::      ::  G0      ::ya::  
+ *      ws          ws  ws  sz  ws      ::ws      ::
+ *  O0    ::    cz    ::::      ::  ::ws      yz  we
+ *      O2  ws          ws  sz  ws::      yz    ::  
+ *  O1        ::    cz                        ws    
+ *    ws::ws::::ws                  yz    ws::      
+ *we::                                  ::        P1
+ *::  bz    bz    bz                ws::      P2    
+ *ba::                                  ::        P0
+ *    ws::ws::::ws                  pz    ws::      
+ *  B0        ::    rz                        ws    
+ *      B2  ws          ws  gz  ws::      pz    ::  
+ *  B1    ::    rz    ::::      ::  ::ws      pz  pa
+ *      ws          ws  ws  gz  ws      ::ws      ::
+ *      ::  rz    ::    ::      ::  C2      ::we::  
+ *      we    ::ws  R2  ws  gz  ws      C1          
+ *        ::ra          ::      ::  C0              
+ *                R0  R1  we::ga                    
+ *                                                                      @Johanna
+ */
+
 /**
  * Klasse SpielbrettAusgabe. Diese Klasse erzeugt eine einfache interaktive
  * ANSI-Ausgabe des Spielbrettes im Output. Die Steuerung erfolgt ueber die
@@ -246,7 +270,8 @@ public class SpielbrettAusgabe {
      */
     private static final String ANSI_bGrey = "\u001B[47m";
     /**
-     *
+     * alle farben in euner Liste
+     * @see wuerfeln
      */
     private final String[] fColor = {ANSI_fBlue, ANSI_fRed, ANSI_fCyan, ANSI_fPurpel, ANSI_fYellow, ANSI_fGreen, ANSI_fbBlue, ANSI_fbRed, ANSI_fbCyan, ANSI_fbPurpel, ANSI_fbYellow, ANSI_fbGreen, ANSI_fbWhite, ANSI_fbBlack};
     /**
@@ -279,11 +304,17 @@ public class SpielbrettAusgabe {
      */
     private String[][] AnsiSpielbrett = new String[groesseX][groesseY];
     /**
-     *
+     * Das Attribut Ansiausgabean stellt die Ausgabe des Spieles allgemein 
+     * an oder aus, nicht aber die Klasse
+     * 
+     * @see spielAusgabe
      */
     public boolean Ansiausgabean;
     /**
-     * Im Vanilla mode werden
+     * Im Vanilla mode werden alle Farben und unnoetigen verzierungen 
+     * rausgenommen. Er ist deshalb auch aufjedenfall mit cmd.exe kompatibel.
+     * sollte am start festgelegt werden und nicht zwischendurch geaendert
+     * werden, denn das wird haesslich. 
      */
     public boolean vanilla;
     /**
@@ -315,7 +346,7 @@ public class SpielbrettAusgabe {
      * @param oname : setzt den objektname
      * @see objektname
      */
-    public SpielbrettAusgabe(Spiel soNSpiel, Logger logger, String oname) {
+      public SpielbrettAusgabe(Spiel soNSpiel, Logger logger, String oname) {
         //vanilla = true;
         this.dasSpiel = soNSpiel;
         this.objektname = oname;
@@ -329,7 +360,7 @@ public class SpielbrettAusgabe {
                 }
             }
         }
-        this.sternZeichnen();
+        this.blumeZeichnen();
         this.Ansiausgabean = true;
     }
 
@@ -409,6 +440,8 @@ public class SpielbrettAusgabe {
                 Caption += "";
                 break;
         }
+        
+        
         if (this.vanilla) {
             this.AnsiSpielbrett[dasFeld.getPositionX()][dasFeld.getPositionY()] = Caption;
         } else {
@@ -420,7 +453,10 @@ public class SpielbrettAusgabe {
     }
 
     /**
-     *
+     * gibt Buffer im Output und Tabellen Form aus
+     * 
+     * @see AnsiSpielbrett
+     * @see SpielbrettAusgabe
      */
     public void spielAusgabe() {
         if (!this.vanilla) {
@@ -437,7 +473,7 @@ public class SpielbrettAusgabe {
     }
 
     /**
-     *
+     * 
      */
     private void sternZeichnen() {
         String ccaption = "::";
@@ -500,9 +536,102 @@ public class SpielbrettAusgabe {
         this.AnsiSpielbrett[8][21] = farbe + ccaption;
 
     }
-
     /**
      * 
+     *                           ::                  
+     *         ::            ::      ::                  
+     *             ::                        
+     *       ::        ::    ::      ::          ::  ::         
+     *                                       ::        ::      
+     *         ::          ::::      ::  ::            
+     *                                 ::            ::
+     *             ::                            ::
+     *       ::  ::::                              
+     *   ::                                  ::            
+     * ::                                  ::           
+     *   ::                                  ::            
+     *       ::  ::::                              
+     *             ::                            ::    
+     *                                 ::            :: 
+     *         ::          ::::      ::  ::                  
+     *                                      ::        ::
+     *       ::        ::    ::      ::          ::  ::    
+     *             ::                            
+     *         ::            ::      ::                  
+     *                           ::                                     @Johanna
+     * 
+     * @see sternZeichnen
+    */
+    private void blumeZeichnen() {
+        String ccaption = "::";
+        String farbe = ANSI_RESET + ANSI_bGrey;//ANSI_RESET  +ANSI_fWhite;
+
+        if (this.vanilla) {
+            farbe = "";
+        }
+        this.AnsiSpielbrett[10][0] = farbe + ccaption;
+        this.AnsiSpielbrett[11][1] = farbe + ccaption;
+        this.AnsiSpielbrett[12][3] = farbe + ccaption;
+        this.AnsiSpielbrett[12][5] = farbe + ccaption;
+        this.AnsiSpielbrett[12][6] = farbe + ccaption;      
+        this.AnsiSpielbrett[13][6] = farbe + ccaption;
+        this.AnsiSpielbrett[15][4] = farbe + ccaption;
+        this.AnsiSpielbrett[17][3] = farbe + ccaption;
+        this.AnsiSpielbrett[19][4] = farbe + ccaption;
+        this.AnsiSpielbrett[18][6] = farbe + ccaption;
+        this.AnsiSpielbrett[17][8] = farbe + ccaption;
+        this.AnsiSpielbrett[15][10] = farbe + ccaption;
+         this.AnsiSpielbrett[15][11] = farbe + ccaption;
+        this.AnsiSpielbrett[17][11] = farbe + ccaption;
+        this.AnsiSpielbrett[19][11] = farbe + ccaption;
+        this.AnsiSpielbrett[20][13] = farbe + ccaption;
+        this.AnsiSpielbrett[19][15] = farbe + ccaption;
+        this.AnsiSpielbrett[17][15] = farbe + ccaption;
+        this.AnsiSpielbrett[15][15] = farbe + ccaption;
+        this.AnsiSpielbrett[14][16] = farbe + ccaption;
+        this.AnsiSpielbrett[15][17] = farbe + ccaption;
+        this.AnsiSpielbrett[16][19] = farbe + ccaption;
+        this.AnsiSpielbrett[17][21] = farbe + ccaption;
+        this.AnsiSpielbrett[17][23] = farbe + ccaption;
+        this.AnsiSpielbrett[16][24] = farbe + ccaption;
+        this.AnsiSpielbrett[14][23] = farbe + ccaption;
+        this.AnsiSpielbrett[12][21] = farbe + ccaption;
+        this.AnsiSpielbrett[11][19] = farbe + ccaption;
+        this.AnsiSpielbrett[10][18] = farbe + ccaption;
+        
+        this.AnsiSpielbrett[9][1] = farbe + ccaption;
+        this.AnsiSpielbrett[8][3] = farbe + ccaption;
+        this.AnsiSpielbrett[8][5] = farbe + ccaption;
+        this.AnsiSpielbrett[8][6] = farbe + ccaption;      
+        this.AnsiSpielbrett[7][6] = farbe + ccaption;
+        this.AnsiSpielbrett[5][4] = farbe + ccaption;
+        this.AnsiSpielbrett[3][3] = farbe + ccaption;
+        this.AnsiSpielbrett[1][4] = farbe + ccaption;
+        this.AnsiSpielbrett[2][6] = farbe + ccaption;
+        this.AnsiSpielbrett[3][8] = farbe + ccaption;
+        this.AnsiSpielbrett[5][10] = farbe + ccaption;
+         this.AnsiSpielbrett[5][11] = farbe + ccaption;
+        this.AnsiSpielbrett[3][11] = farbe + ccaption;
+        this.AnsiSpielbrett[1][11] = farbe + ccaption;
+        this.AnsiSpielbrett[0][13] = farbe + ccaption;
+        this.AnsiSpielbrett[1][15] = farbe + ccaption;
+        this.AnsiSpielbrett[3][15] = farbe + ccaption;
+        this.AnsiSpielbrett[5][15] = farbe + ccaption;
+        this.AnsiSpielbrett[6][16] = farbe + ccaption;
+        this.AnsiSpielbrett[5][17] = farbe + ccaption;
+        this.AnsiSpielbrett[4][19] = farbe + ccaption;
+        this.AnsiSpielbrett[3][21] = farbe + ccaption;
+        this.AnsiSpielbrett[3][23] = farbe + ccaption;
+        this.AnsiSpielbrett[4][24] = farbe + ccaption;
+        this.AnsiSpielbrett[6][23] = farbe + ccaption;
+        this.AnsiSpielbrett[8][21] = farbe + ccaption;
+        this.AnsiSpielbrett[9][19] = farbe + ccaption;
+
+    }
+
+
+    /**
+     * ignorieren. das wird MAD 3.0
      */
     public void MADsh() {
         String echo = "error";
@@ -678,8 +807,9 @@ public class SpielbrettAusgabe {
     }
 
     /**
-     *
-     * @param diefigur
+     * Aendert einen Zelleneintrag im Buffer
+     * 
+     * @param dasFeld : das zu setztene Feld.
      */
     public void SpielerSetzen(Spielfigur diefigur) {
         log.log(objektname, "Methode SpielerSetzen() gestartet.");
@@ -792,27 +922,13 @@ public class SpielbrettAusgabe {
         //der Schreiberling
         Logger log = new Logger("SherLog.txt");
         //das Spiel
-        Spiel test = new Spiel(log, "testSpiel", 0);
+        Spiel test = new Spiel(log, "testSpiel", 6);
         // die 7 mitspieler
-        Spieler tester = new SpielerMensch("Azrael", log, test);
-        Spieler tester2 = new SpielerComputer("Barbarianna", log, test);
-        Spieler tester3 = new SpielerComputer("Charles der II", log, test);
-        Spieler tester4 = new SpielerComputer("Dave", log, test);
-        Spieler tester5 = new SpielerComputer("Eve", log, test);
-        Spieler tester6 = new SpielerComputer("Fynnia", log, test);
-        Spieler tester7 = new SpielerComputer("Gargamel", log, test);
+        Spieler ego = new SpielerMensch("Egon", log, test);
+        test.spielen();
         //eine Proto-Spielschleife
         
-        for (int a = 0; a < 200; a++) {
-            tester.ziehen2();
-            tester2.ziehen2();
-            tester3.ziehen2();
-            tester4.ziehen2();
-            tester5.ziehen2();
-            tester6.ziehen2();
-            tester7.ziehen2();
-
-        }
+        
         
         /*
         tester.getSpielfiguren()[0].setzten(test.dasSpielbrett.getFelder().get(12));
@@ -834,11 +950,7 @@ public class SpielbrettAusgabe {
         System.out.println("BLAU " + tester4.getSpielfiguren()[2].getFeldnummer());
 /*/
         
-        test.output.spielAusgabe();
-        test.output.echo();
-        test.output.echo();
-        test.output.echo();
-
+        
     //}
     }
 }

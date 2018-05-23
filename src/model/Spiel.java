@@ -46,13 +46,9 @@ public class Spiel {
     public final String[] Farben = {"blau", "rot", "gruen", "pink", "gelb", "schwarz", "tuerkis"};
 
     public Spiel(Logger logger, String oname, int diebotanzahl) {
-        this.objektname = oname;
-        log = logger;
-        log.log(objektname, "Konstrucktor Spiel() gestartet mit Parameter " + " .");
-        this.BotAnzahl = diebotanzahl;
-        this.output = new SpielbrettAusgabe(this, log, "ANSI");
+
         //setBotAnzahl(BotAnzahl);
-        SpielStarten();
+        SpielStarten(logger, oname, diebotanzahl);
         //spielen();
         log.log(objektname, "Konstrucktor Spiel() beendet.");
     }
@@ -103,10 +99,41 @@ public class Spiel {
      * GrÃ¼n (SP 3) 13-16 Pink (SP 4) 17-20 Gelb (SP 5) 21-24 Schwarz(SP 7)
      * 25-28 Tuerkis(SP 8)
      */
-    public void SpielStarten() {
+    public void SpielStarten(Logger logger, String oname, int diebotanzahl) {
         //Spielbrett erzeugen
+        this.objektname = oname;
+        log = logger;
         log.log(objektname, "Methode SpielStarten() gestartet.");
+
+        this.BotAnzahl = diebotanzahl;
+        this.output = new SpielbrettAusgabe(this, log, "ANSI");
         dasSpielbrett = new Spielbrett(log, output, this, "Spielbrett");
+        int a;
+        for (int i = 0; i < (7 - this.BotAnzahl); i++) {
+
+            this.SpielerAnzahl = i;
+        }
+        switch (this.BotAnzahl) { // sehr netter Switch der den Typ des Feldes festlegt
+            case 7:
+                Spieler Computer6 = new SpielerComputer("(Computer) Gargamel", log, this);
+            case 6:
+                Spieler Computer5 = new SpielerComputer("(Computer) Fynnia", log, this);
+            case 5:
+                Spieler Computer4 = new SpielerComputer("(Computer) Eve", log, this);
+            case 4:
+                Spieler Computer3 = new SpielerComputer("(Computer) Dave", log, this);
+            case 3:
+                Spieler Computer2 = new SpielerComputer("(Computer) Charles der II", log, this);
+            case 2:
+                Spieler Computer1 = new SpielerComputer("(Computer) Barbarianna", log, this);
+            case 1:
+                Spieler Computer = new SpielerComputer("(Computer) Azrael", log, this);
+            case 0:
+            default:
+                break;
+        }
+        this.SpielerAnzahl += this.BotAnzahl;
+
         log.log(objektname, "Methode hat das Spielbrett erzeugt");
         log.log(objektname, "Methode SpielStarten() beendet.");
     }
@@ -144,6 +171,7 @@ public class Spiel {
      */
     public void spielen() {
         log.log(objektname, "Methode spielen() gestartet.");
+        this.Runde = 0;
         /*int i = 0;
         int[] Ergebnisse = new int[7];
         while (AlleSpieler[i] != null) {
@@ -158,21 +186,25 @@ public class Spiel {
 
         }
          */
-        int i = 0;
-        while (beendet != true) {
-            if (AlleSpieler[i] != null) {
-                if (AlleSpieler[i].ziehen2() == 1) {
+
+        for (int i = 7; !beendet; i++) {
+            int a = i % this.SpielerAnzahl;
+            if (AlleSpieler[a] != null) {
+                System.out.println(AlleSpieler[a].getobjektname() + " ist am Zug");
+                if (AlleSpieler[a].ziehen() == 1) {
+                    System.out.println(AlleSpieler[a].getobjektname() + " hat gewonnen");
                     beendet = true;
+                    break;
                 }
-                if (i < (AlleSpieler.length - 1)) {
-                    i++;
-                } 
-                else {
-                    i = 0;
+                System.out.println(AlleSpieler[a].getobjektname() + "'s Zug ist beendet");
+                if (i / 7 > ((i -1) / 7)) {
+                    this.Runde = i / 7;
+                    System.out.println("Runde " + this.Runde + ":");
                 }
             }
 
         }
+        this.output.spielAusgabe();
 
         //Startspieler ermitteln fehlt
         //aktives Spielen beginnt, Spielreihenfolge im Uhrzeigersinn
@@ -186,7 +218,6 @@ public class Spiel {
         log.logBeenden();
     }
      */
-
     /**
      * getter-Methode fuer Wuerfel
      *
@@ -254,6 +285,24 @@ public class Spiel {
         log.log(objektname, "Methode setSpielfigur() beendet.");
         return i;
 
+    }
+
+    /**
+     * setzt alle mitspielenden Spieler
+     *
+     * @param derSpieler
+     * @return i
+     */
+    public int setfarbSpieler(Spieler derSpieler) {
+        log.log(objektname, "Methode setSpieler() gestartet mit Parameter " + derSpieler + " .");
+        int i = 0;
+        while (AlleSpieler[i] != null) {
+            i++;
+        }
+        this.AlleSpieler[i] = derSpieler;
+        log.log(objektname, "Methodenrückgabe: " + i);
+        log.log(objektname, "Methode setSpieler() beendet.");
+        return i;
     }
 
     /**
