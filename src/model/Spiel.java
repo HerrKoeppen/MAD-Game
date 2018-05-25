@@ -231,7 +231,7 @@ public class Spiel {
        else{
            System.out.println(aktiverSpieler.getobjektname() + "'s Zug ist beendet");
            aktiverSpielerIndex = aktiverSpielerIndex+1;
-           if (aktiverSpielerIndex==AlleSpieler.length){
+           if (aktiverSpielerIndex==AlleSpieler.length-1){
                aktiverSpielerIndex=0;
            }
            aktiverSpieler = AlleSpieler[aktiverSpielerIndex];

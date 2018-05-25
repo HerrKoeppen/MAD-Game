@@ -33,13 +33,12 @@ public class Control {
         gui.darstellungAnzeigen();
         while (dasSpiel.spieleEinenZug()!=1){
             gui.darstellungAnzeigen();
-            /*
+            
             try {
-                //wait(500);
+                Thread.sleep(1000);
             } catch (InterruptedException ex) {
                 java.util.logging.Logger.getLogger(Control.class.getName()).log(Level.SEVERE, null, ex);
             }
-*/
         }
     }
     

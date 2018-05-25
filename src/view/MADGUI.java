@@ -26,16 +26,7 @@ public class MADGUI extends javax.swing.JFrame {
         setzeFelderNachModel();
 
         this.darstellungAnzeigen();
-        while (dasSpiel.spieleEinenZug()!=1){
-            darstellungAnzeigen();
-            /*
-            try {
-                //wait(500);
-            } catch (InterruptedException ex) {
-                java.util.logging.Logger.getLogger(Control.class.getName()).log(Level.SEVERE, null, ex);
-            }
-*/
-        }
+
     }
 
     public MADGUI(Logger logger, Spiel spiel) {
@@ -44,6 +35,18 @@ public class MADGUI extends javax.swing.JFrame {
         dasSpiel = spiel;
         setzeFelderNachModel();
         this.darstellungAnzeigen();
+    }
+    
+    public void GUIspielen(){
+        while (dasSpiel.spieleEinenZug() != 1) {
+                    darstellungAnzeigen();
+
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException ex) {
+
+                    }
+                }
     }
 
     public void setzeFelderNachModel() {
@@ -573,7 +576,11 @@ public class MADGUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MADGUI().setVisible(true);
+                MADGUI mg = new MADGUI();
+                mg.setVisible(true);
+                mg.GUIspielen();
+                
+
             }
         });
     }
