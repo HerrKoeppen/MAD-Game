@@ -113,95 +113,97 @@ public class Spielbrett {
         dasSpiel = dasspiel;
         this.Output = derOutput;
         
-        Feld blauAnfang = new Feld(log, "blauAnfang", this, "Anfangsfeld", 11, 0, "blau"); //0
+        Feld blauAnfang = new Feld(log, "blauAnfang", this, "Anfangsfeld", 4, 4, "blau"); //0
 
-        Feld standard1 = new Feld(log, "standard1", this, "Standardfeld", 12, 2, "weiss");
-        Feld standard2 = new Feld(log, "standard2", this, "Standardfeld", 12, 4, "weiss");
-        Feld standard3 = new Feld(log, "standard3", this, "Standardfeld", 12, 7, "weiss");
-        Feld standard4 = new Feld(log, "standard4", this, "Standardfeld", 14, 5, "weiss");
-        Feld standard5 = new Feld(log, "standard5", this, "Standardfeld", 16, 3, "weiss");
-        Feld zeFeldrot = new Feld(log, "zeFeldrot", this, "zeFeld", 18, 3, "weiss");
+        Feld standard1 = new Feld(log, "standard1", this, "Standardfeld", 5, 5, "weiss");
+        Feld standard2 = new Feld(log, "standard2", this, "Standardfeld", 6, 6, "weiss");
+        Feld standard3 = new Feld(log, "standard3", this, "Standardfeld", 5, 7, "weiss");
+        Feld standard4 = new Feld(log, "standard4", this, "Standardfeld", 4, 8, "weiss");
+        Feld standard5 = new Feld(log, "standard5", this, "Standardfeld", 2, 8, "weiss");
+        Feld standard6 = new Feld(log, "standard5", this, "Standardfeld", 0, 8, "weiss");
+        Feld zeFeldrot = new Feld(log, "zeFeldrot", this, "zeFeld", 0, 10, "weiss");
         
-        Feld rotAnfang = new Feld(log, "rotAnfang", this, "Anfangsfeld", 19, 5, "rot"); //
+        Feld rotAnfang = new Feld(log, "rotAnfang", this, "Anfangsfeld", 0, 12, "rot"); //
 
-        Feld standard7 = new Feld(log, "standard7", this, "Standardfeld", 18, 7, "weiss");
-        Feld standard8 = new Feld(log, "standard8",this, "Standardfeld", 16, 9, "weiss");
-        Feld standard9 = new Feld(log, "standard9", this, "Standardfeld", 14, 11, "weiss");
-        Feld standard10 = new Feld(log, "standard10", this, "Standardfeld", 16, 11, "weiss");
-        Feld standard11 = new Feld(log, "standard11", this, "Standardfeld", 18, 11, "weiss");
-        Feld zeFeldgruen = new Feld(log, "zeFeldgruen", this, "zeFeld", 20, 12, "weiss");
+        Feld standard7 = new Feld(log, "standard7", this, "Standardfeld", 2, 12, "weiss");
+        Feld standard8 = new Feld(log, "standard8",this, "Standardfeld", 4, 12, "weiss");
+        Feld standard9 = new Feld(log, "standard9", this, "Standardfeld", 5, 13, "weiss");
+        Feld standard10 = new Feld(log, "standard10", this, "Standardfeld", 6, 14, "weiss");
+        Feld standard11 = new Feld(log, "standard11", this, "Standardfeld", 5, 15, "weiss");
+        Feld standard12 = new Feld(log, "standard7", this, "Standardfeld", 4, 16, "weiss");
+        Feld zeFeldtuekis = new Feld(log, "zeFeldtuekis", this, "zeFeld", 5, 17, "weiss");
 
-        Feld gruenAnfang = new Feld(log, "gruenAnfang", this, "Anfangsfeld", 20, 14, "gruen");
-        Feld standard13 = new Feld(log, "standard13", this, "Standardfeld", 18, 15, "weiss");
-        Feld standard14 = new Feld(log, "standard14", this, "Standardfeld", 16, 15, "weiss");
-        Feld standard15 = new Feld(log, "standard15", this, "Standardfeld", 14, 15, "weiss");
-        Feld standard16 = new Feld(log, "standard16", this, "Standardfeld", 15, 18, "weiss");
-        Feld standard17 = new Feld(log, "standard17", this, "Standardfeld", 16, 20, "weiss");
-        Feld zeFeldpink = new Feld(log, "zeFeldpink", this, "zeFeld", 17, 22, "weiss");
+        Feld tuekisAnfang = new Feld(log, "tuekisAnfang", this, "Anfangsfeld", 6, 18, "gruen");
+        Feld standard13 = new Feld(log, "standard13", this, "Standardfeld", 7, 17, "weiss");
+        Feld standard14 = new Feld(log, "standard14", this, "Standardfeld", 8, 16, "weiss");
+        Feld standard15 = new Feld(log, "standard15", this, "Standardfeld", 10, 16, "weiss");
+        Feld standard16 = new Feld(log, "standard16", this, "Standardfeld", 12, 16, "weiss");
+        Feld standard17 = new Feld(log, "standard17", this, "Standardfeld", 13, 17, "weiss");
+        Feld standard18 = new Feld(log, "standard13", this, "Standardfeld", 14, 18, "weiss");
+        Feld zeFeldpink = new Feld(log, "zeFeldpink", this, "zeFeld", 15, 17, "weiss");
 
-        Feld pinkAnfang = new Feld(log, "pinkAnfang", this, "Anfangsfeld", 15, 24, "pink");
+        Feld pinkAnfang = new Feld(log, "pinkAnfang", this, "Anfangsfeld", 16, 16, "pink");
 
-        Feld standard19 = new Feld(log, "standard19", this, "Standardfeld", 13, 22, "weiss");
-        Feld standard20 = new Feld(log, "standard120", this, "Standardfeld", 12, 20, "weiss");
-        Feld standard21 = new Feld(log, "standard21", this, "Standardfeld", 10, 17, "weiss");
-        Feld standard22 = new Feld(log, "standard22", this, "Standardfeld", 8, 20, "weiss");
-        Feld standard23 = new Feld(log, "standard23", this, "Standardfeld", 7, 22, "weiss");
-        Feld zeFeldgelb = new Feld(log, "zeFeldgelb", this, "zeFeld", 5, 24, "weiss");
+        Feld standard19 = new Feld(log, "standard19", this, "Standardfeld", 15, 15, "weiss");
+        Feld standard20 = new Feld(log, "standard120", this, "Standardfeld", 14, 14, "weiss");
+        Feld standard21 = new Feld(log, "standard21", this, "Standardfeld", 15, 13, "weiss");
+        Feld standard22 = new Feld(log, "standard22", this, "Standardfeld", 16, 12, "weiss");
+        Feld standard23 = new Feld(log, "standard23", this, "Standardfeld", 18, 12, "weiss");
+        Feld standard24 = new Feld(log, "standard19", this, "Standardfeld", 20, 12, "weiss");
+        Feld zeFeldgelb = new Feld(log, "zeFeldgelb", this, "zeFeld", 20, 10, "weiss");
 
-        Feld gelbAnfang = new Feld(log, "gelbAnfang", this, "Anfangsfeld", 3, 22, "gelb");
-        Feld standard25 = new Feld(log, "standard125", this, "Standardfeld", 4, 20, "weiss");
-        Feld standard26 = new Feld(log, "standard26", this, "Standardfeld", 5, 18, "weiss");
-        Feld standard27 = new Feld(log, "standard27", this, "Standardfeld", 6, 15, "weiss");
-        Feld standard28 = new Feld(log, "standard28", this, "Standardfeld", 4, 15, "weiss");
-        Feld standard29 = new Feld(log, "standard16", this, "Standardfeld", 2, 15, "weiss");
-        Feld zeFeldschwarz = new Feld(log, "zeFeldschwarz", this, "zeFeld", 0, 14, "weiss");
+        Feld gelbAnfang = new Feld(log, "gelbAnfang", this, "Anfangsfeld", 20, 8, "gelb");
+        Feld standard25 = new Feld(log, "standard125", this, "Standardfeld", 18, 8, "weiss");
+        Feld standard26 = new Feld(log, "standard26", this, "Standardfeld", 16, 8, "weiss");
+        Feld standard27 = new Feld(log, "standard27", this, "Standardfeld", 15, 7, "weiss");
+        Feld standard28 = new Feld(log, "standard28", this, "Standardfeld", 14, 6, "weiss");
+        Feld standard29 = new Feld(log, "standard16", this, "Standardfeld", 15, 5, "weiss");
+        Feld standard30 = new Feld(log, "standard125", this, "Standardfeld", 16, 4, "weiss");
+        Feld zeFeldschwarz = new Feld(log, "zeFeldschwarz", this, "zeFeld", 15, 3, "weiss");
 
-        Feld schwarzAnfang = new Feld(log, "schwarzAnfang", this, "Anfangsfeld", 0, 12, "schwarz");
+        Feld schwarzAnfang = new Feld(log, "schwarzAnfang", this, "Anfangsfeld", 14, 2, "schwarz");
 
-        Feld standard31 = new Feld(log, "standard31", this, "Standardfeld", 2, 11, "weiss");
-        Feld standard32 = new Feld(log, "standard32", this, "Standardfeld", 4, 11, "weiss");      
-        Feld standard33 = new Feld(log, "standard33", this, "Standardfeld", 6, 11, "weiss");
-        Feld standard34 = new Feld(log, "standard34", this, "Standardfeld", 4, 9, "weiss");
-        Feld standard35 = new Feld(log, "standard35", this, "Standardfeld", 2, 7, "weiss");
-        Feld zeFeldtuerkis = new Feld(log, "zeFeldtuerkis", this, "zeFeld", 1, 5, "weiss");
-
-        Feld tuerkisAnfang = new Feld(log, "tuerkisAnfang", this, "Anfangsfeld", 2, 3, "tuerkis");
-
-        Feld standard37 = new Feld(log, "standard37", this, "Standardfeld", 4, 3, "weiss");
-        Feld standard38 = new Feld(log, "standard38", this, "Standardfeld", 6, 5, "weiss");
-        Feld standard39 = new Feld(log, "standard39", this, "Standardfeld", 8, 7, "weiss");
-        Feld standard40 = new Feld(log, "standard40", this, "Standardfeld", 8, 4, "weiss");
-        Feld standard41 = new Feld(log, "standard41", this, "Standardfeld", 8, 2, "weiss");
-        Feld zeFeldblau = new Feld(log, "zeFeldblau", this, "zeFeld", 9, 0, "weiss");
+        Feld standard31 = new Feld(log, "standard31", this, "Standardfeld", 13, 3, "weiss");
+        Feld standard32 = new Feld(log, "standard32", this, "Standardfeld", 12, 4, "weiss");      
+        Feld standard33 = new Feld(log, "standard33", this, "Standardfeld", 10, 4, "weiss");
+        Feld standard34 = new Feld(log, "standard34", this, "Standardfeld", 8, 4, "weiss");
+        Feld standard35 = new Feld(log, "standard35", this, "Standardfeld", 7, 3, "weiss");
+        Feld standard36 = new Feld(log, "standard31", this, "Standardfeld", 6, 2, "weiss");
+        
+        Feld zeFeldblau = new Feld(log, "zeFeldblau", this, "zeFeld", 5, 3, "weiss");
         
         //erzeugt Zielfelder von blau
-        Feld blauZiel1 = new Feld(log, "blauZiel1", this, "Zielfeld", 10, 2, "blau");
-        Feld blauZiel2 = new Feld(log, "blauZiel2", this, "Zielfeld", 10, 5, "blau");
-        Feld blauZiel3 = new Feld(log, "blauZiel3", this, "Zielfeld", 10, 8, "blau");
+        Feld blauZiel1 = new Feld(log, "blauZiel1", this, "Zielfeld", 6, 4, "blau");
+        Feld blauZiel2 = new Feld(log, "blauZiel2", this, "Zielfeld", 7, 5, "blau");
+        Feld blauZiel3 = new Feld(log, "blauZiel3", this, "Zielfeld", 8, 6, "blau");
+        Feld blauZiel4 = new Feld(log, "blauZiel2", this, "Zielfeld", 9, 7, "blau");
         //erzeugt Zielfelder von rot
-        Feld rotZiel1 = new Feld(log, "rotZiel1", this, "Zielfeld", 17, 5, "rot");
-        Feld rotZiel2 = new Feld(log, "rotZiel2", this, "Zielfeld", 15, 7, "rot");
-        Feld rotZiel3 = new Feld(log, "rotZiel3", this, "Zielfeld", 13, 9, "rot");
+        Feld rotZiel1 = new Feld(log, "rotZiel1", this, "Zielfeld", 1, 10, "rot");
+        Feld rotZiel2 = new Feld(log, "rotZiel2", this, "Zielfeld", 2, 10, "rot");
+        Feld rotZiel3 = new Feld(log, "rotZiel3", this, "Zielfeld", 3, 10, "rot");
+        Feld rotZiel4 = new Feld(log, "rotZiel1", this, "Zielfeld", 4, 10, "rot");
         //erzeugt Zielfelder von gruen
-        Feld gruenZiel1 = new Feld(log, "gruenZiel1", this, "Zielfeld", 18, 13, "gruen");
-        Feld gruenZiel2 = new Feld(log, "gruenZiel2", this, "Zielfeld", 16, 13, "gruen");
-        Feld gruenZiel3 = new Feld(log, "gruenZiel3", this, "Zielfeld", 14, 13, "gruen");
+        Feld tuekisZiel1 = new Feld(log, "gruenZiel1", this, "Zielfeld", 6, 16, "gruen");
+        Feld tuekisZiel2 = new Feld(log, "gruenZiel2", this, "Zielfeld", 7, 15, "gruen");
+        Feld tuekisZiel3 = new Feld(log, "gruenZiel3", this, "Zielfeld", 8, 14, "gruen");
+        Feld tuekisZiel4 = new Feld(log, "gruenZiel1", this, "Zielfeld", 9, 13, "gruen");
         //erzeugt Zielfelder von pink
-        Feld pinkZiel1 = new Feld(log, "pinkZiel1", this, "Zielfeld", 15, 22, "pink");
-        Feld pinkZiel2 = new Feld(log, "pinkZiel2", this, "Zielfeld", 14, 20, "pink");
-        Feld pinkZiel3 = new Feld(log, "pinkZiel3", this, "Zielfeld", 12, 17, "pink");
+        Feld pinkZiel1 = new Feld(log, "pinkZiel1", this, "Zielfeld", 14, 16, "pink");
+        Feld pinkZiel2 = new Feld(log, "pinkZiel2", this, "Zielfeld", 13, 15, "pink");
+        Feld pinkZiel3 = new Feld(log, "pinkZiel3", this, "Zielfeld", 12, 14, "pink");
+        Feld pinkZiel4 = new Feld(log, "pinkZiel1", this, "Zielfeld", 11, 13, "pink");
         //erzeugt Zielfelder von gelb
-        Feld gelbZiel1 = new Feld(log, "gelbZiel1", this, "Zielfeld", 5, 22, "gelb");
-        Feld gelbZiel2 = new Feld(log, "gelbZiel2", this, "Zielfeld", 6, 20, "gelb");
-        Feld gelbZiel3 = new Feld(log, "gelbZiel3", this, "Zielfeld", 8, 17, "gelb");
+        Feld gelbZiel1 = new Feld(log, "gelbZiel1", this, "Zielfeld", 19, 10, "gelb");
+        Feld gelbZiel2 = new Feld(log, "gelbZiel2", this, "Zielfeld", 18, 10, "gelb");
+        Feld gelbZiel3 = new Feld(log, "gelbZiel3", this, "Zielfeld", 17, 10, "gelb");
+        Feld gelbZiel4 = new Feld(log, "gelbZiel1", this, "Zielfeld", 16, 10, "gelb");
         //erzeugt Zielfelder von schwarz
-        Feld schwarzZiel1 = new Feld(log, "schwarzZiel1", this, "Zielfeld", 2, 13, "schwarz");
-        Feld schwarzZiel2 = new Feld(log, "schwarzZiel2", this, "Zielfeld", 4, 13, "schwarz");
-        Feld schwarzZiel3 = new Feld(log, "schwarzZiel3", this, "Zielfeld", 6, 13, "schwarz");
-        //erzeugt Zielfelder von tuerkis
-        Feld tuerkisZiel1 = new Feld(log, "tuerkisZiel1", this, "Zielfeld", 3, 5, "tuerkis");
-        Feld tuerkisZiel2 = new Feld(log, "tuerkisZiel2", this, "Zielfeld", 5, 7, "tuerkis");
-        Feld tuerkisZiel3 = new Feld(log, "tuerkisZiel3", this, "Zielfeld", 7, 9, "tuerkis");
+        Feld schwarzZiel1 = new Feld(log, "schwarzZiel1", this, "Zielfeld", 14, 4, "schwarz");
+        Feld schwarzZiel2 = new Feld(log, "schwarzZiel2", this, "Zielfeld", 13, 5, "schwarz");
+        Feld schwarzZiel3 = new Feld(log, "schwarzZiel3", this, "Zielfeld", 12, 6, "schwarz");
+        Feld schwarzZiel4 = new Feld(log, "schwarzZiel1", this, "Zielfeld", 11, 7, "schwarz");
+       
+        
 
         
         //erzeugt startfelder von blau
