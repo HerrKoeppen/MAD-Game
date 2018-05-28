@@ -50,122 +50,122 @@ public class MADGUI extends javax.swing.JFrame {
     }
 
     public void setzeFelderNachModel() {
-        //felder = new javax.swing.JLabel[119]; korrekte größe! Etliche Felder gibt es im SPielbrett nicht!
-        felder = new javax.swing.JLabel[91];
+        felder = new javax.swing.JLabel[96];
         felder[0] = baf;
         felder[1] = f2;
         felder[2] = f3;
         felder[3] = f4;
         felder[4] = f5;
         felder[5] = f6;
-        //Hier fehlt noch ein Feld, da das Spielbrett aus weniger Feldern besteht.
-        felder[6] = ref;
-        felder[7] = raf;
-        felder[8] = f10;
-        felder[9] = f11;
-        felder[10] = f12;
-        felder[11] = f13;
-        felder[12] = f14;
-        //Hier fehlt noch ein Feld, da das Spielbrett aus weniger Feldern besteht.
-        felder[13] = tef;
-        felder[14] = taf;
-        felder[15] = f18;
-        felder[16] = f19;
-        felder[17] = f20;
-        felder[18] = f21;
-        felder[19] = f22;
-        //Hier fehlt noch ein Feld, da das Spielbrett aus weniger Feldern besteht.
-        felder[20] = pef;
-        felder[21] = paf;
-        felder[22] = f26;
-        felder[23] = f27;
-        felder[24] = f28;
-        felder[25] = f29;
-        felder[26] = f30;
-        //Hier fehlt noch ein Feld, da das Spielbrett aus weniger Feldern besteht.
-        felder[27] = gef;
-        felder[28] = gaf;
-        felder[29] = f34;
-        felder[30] = f35;
-        felder[31] = f36;
-        felder[32] = f37;
-        felder[33] = f38;
-        //Hier fehlt noch ein Feld, da das Spielbrett aus weniger Feldern besteht.
-        felder[34] = sef;
-        felder[35] = saf;
-        felder[36] = f42;
-        felder[37] = f43;
-        felder[38] = f44;
-        felder[39] = f45;
-        felder[40] = f46;
-        //Im Spielbrett folgen hier die Felder für Türkis! Im Feldabgleich die Zahlen 41 bis 47 ignorieren!
-        felder[41] = null;
-        felder[42] = null;
-        felder[43] = null;
-        felder[44] = null;
-        felder[45] = null;
-        felder[46] = null;
-        //Hier fehlt noch ein Feld, da das Spielbrett aus weniger Feldern besteht.
-        felder[47] = null;
-        felder[48] = bef;
-        felder[49] = bz1;
-        felder[50] = bz2;
-        felder[51] = bz3;
-        //Hier fehlt noch ein Endfeld!
+        felder[6] = f7; 
+        
+        felder[7] = ref;
+        felder[8] = raf;
+        felder[9] = f10;
+        felder[10] = f11;
+        felder[11] = f12;
+        felder[12] = f13;
+        felder[13] = f14;
+        felder[14] = f15;
+        
+        felder[15] = tef;
+        felder[16] = taf;
+        felder[17] = f18;
+        felder[18] = f19;
+        felder[19] = f20;
+        felder[20] = f21;
+        felder[21] = f22;
+        felder[22] = f23;
+        
+        felder[23] = pef;
+        felder[24] = paf;
+        felder[25] = f26;
+        felder[26] = f27;
+        felder[27] = f28;
+        felder[28] = f29;
+        felder[29] = f30;
+        felder[30] = f31;
+        
+        felder[31] = gef;
+        felder[32] = gaf;
+        felder[33] = f34;
+        felder[34] = f35;
+        felder[35] = f36;
+        felder[36] = f37;
+        felder[37] = f38;
+        felder[38] = f39;
+        
+        felder[39] = sef;
+        felder[40] = saf;
+        felder[41] = f42;
+        felder[42] = f43;
+        felder[43] = f44;
+        felder[44] = f45;
+        felder[45] = f46;
+        felder[46] = f47;
+        
+        felder[47] = bef;
+        // blaue Zielfelder
+        felder[48] = bz1;
+        felder[49] = bz2;
+        felder[50] = bz3;
+        felder[51] = bz4;
+        // rote Zielfelder
         felder[52] = rz1;
         felder[53] = rz2;
         felder[54] = rz3;
-        //Hier fehlt noch ein Endfeld!
-        felder[55] = tz1;
-        felder[56] = tz2;
-        felder[57] = tz3;
-        //Hier fehlt noch ein Endfeld!
-        felder[58] = pz1;
-        felder[59] = pz2;
-        felder[60] = pz3;
-        //Hier fehlt noch ein Endfeld!
-        felder[61] = gz1;
-        felder[62] = gz2;
-        felder[63] = gz3;
-        //Hier fehlt noch ein Endfeld!
-        felder[64] = sz1;
-        felder[65] = sz2;
-        felder[66] = sz3;
-        //Hier fehlt noch ein Endfeld!
-        //Türkise Endfelder. Die Werte 67 bis 69 ignorieren
-        felder[67] = null;
-        felder[68] = null;
-        felder[69] = null;
-        //Hier fehlt noch ein Endfeld!
-        felder[70] = blau1;
-        felder[71] = blau2;
-        felder[72] = blau3;
-        //Hier fehlt noch ein Startfeld!
-        felder[73] = rot1;
-        felder[74] = rot2;
-        felder[75] = rot3;
-        //Hier fehlt noch ein Startfeld!
-        felder[76] = gruen1;
-        felder[77] = gruen2;
-        felder[78] = gruen3;
-        //Hier fehlt noch ein Startfeld!
-        felder[79] = pink1;
-        felder[80] = pink2;
-        felder[81] = pink3;
-        //Hier fehlt noch ein Startfeld!
-        felder[82] = gelb1;
-        felder[83] = gelb2;
-        felder[84] = gelb3;
-        //Hier fehlt noch ein Startfeld!
-        felder[85] = schwarz1;
-        felder[86] = schwarz2;
-        felder[87] = schwarz3;
-        //Hier fehlt noch ein Startfeld!
-        //Türkise Strtfelder. Werte von 88 bis 90 ignorieren
-        felder[88] = null;
-        felder[89] = null;
-        felder[90] = null;
-        //Hier fehlt noch ein Startfeld!
+        felder[55] = rz4;
+        // gruene Zielfelder
+        felder[56] = tz1;
+        felder[57] = tz2;
+        felder[58] = tz3;
+        felder[59] = tz4;
+        // pinke Zielfelder
+        felder[60] = pz1;
+        felder[61] = pz2;
+        felder[62] = pz3;
+        felder[63] = pz4;
+        //gelbe Zielfelder
+        felder[64] = gz1;
+        felder[65] = gz2;
+        felder[66] = gz3;
+        felder[67] = gz4;
+        // schwarze Zielfelder
+        felder[68] = sz1;
+        felder[69] = sz2;
+        felder[70] = sz3;
+        felder[71] = sz4;
+        // blaue Startfelder
+        felder[72] = bs1;
+        felder[73] = bs2;
+        felder[74] = bs3;
+        felder[75] = bs4;
+        // rote Startfelder
+        felder[76] = rs1;
+        felder[77] = rs2;
+        felder[78] = rs3;
+        felder[79] = rs4;
+        // gruene Startfelder
+        felder[80] = ts1;
+        felder[81] = ts2;
+        felder[82] = ts3;
+        felder[83] = ts4;
+        // pinke Startfelder
+        felder[84] = ps1;
+        felder[85] = ps2;
+        felder[86] = ps3;
+        felder[87] = ps4;
+        //gelbe Startfelder
+        felder[88] = gs1;
+        felder[89] = gs2;
+        felder[90] = gs3;
+        felder[91] = gs4;
+        //schwarze Startfelder
+        felder[92] = ss1;
+        felder[93] = ss2;
+        felder[94] = ss3;
+        felder[95] = ss4;
+       
     }
 
     /**
@@ -298,7 +298,7 @@ public class MADGUI extends javax.swing.JFrame {
         ss3 = new javax.swing.JLabel();
         ss4 = new javax.swing.JLabel();
         Spielbrett = new javax.swing.JLabel();
-		javax.swing.JLabel [] felder =  {
+		/*javax.swing.JLabel [] felder =  {
             baf, f2, f3, f4, f5, f6, f7, ref, raf, f10, f11, f12, f13, f14, f15,
             tef, taf, f18, f19, f20, f21, f22, f23, pef, paf, f26, f27, f28, f29,
             f30, f31, gef, gaf, f34, f35, f36, f37, f38, f39, sef, saf, f42, f43,
@@ -307,7 +307,7 @@ public class MADGUI extends javax.swing.JFrame {
             sz4, bs1, bs2, bs3, bs4, rs1, rs2, rs3, rs4, ts1, ts2, ts3, ts4, ps1,
             ps2, ps3, ps4, gs1, gs2, gs3, gs4, ss1, ss2, ss3, ss4
         };
-
+			*/
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -494,7 +494,7 @@ public class MADGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     public void darstellungAnzeigen() {
-        for (int i = 0; i < felder.length; i++) {
+        for (int i = 0; i < 90; i++) {
             if (i != 41 && i != 42 && i != 43 && i != 44 && i != 45 && i != 46 && i != 47 && i != 67 && i != 68 && i != 69 && i != 88 && i != 89 && i != 90) {
                 anpassen(dasSpiel.getSpielbrett().getFelder().get(i), i);
             }
