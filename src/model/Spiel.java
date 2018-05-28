@@ -20,6 +20,7 @@ public class Spiel {
     public Spielbrett dasSpielbrett;
     //Der Integer Runde gibt an in welcher Runde man sich befindet.
     public int Runde;
+    public int zugNr;
     //Der Integer BotAnzahl gibt an wie viele Bots bei den Spiel mitspielen sollen.
     public int BotAnzahl;
 
@@ -33,6 +34,7 @@ public class Spiel {
     public Spielfigur[] AlleSpielfiguren = new Spielfigur[21];
     //Das Objekt aktiverSpieler der Klasse Spieler gibt an welcher Spieler momentan am Zug ist.   
     public Spieler aktiverSpieler;
+    public int aktiverSpielerIndex; 
     private String objektname;
     private Logger log;
     private Wuerfel derWuerfel;
@@ -133,7 +135,10 @@ public class Spiel {
                 break;
         }
         this.SpielerAnzahl += this.BotAnzahl;
-
+        
+        this.aktiverSpielerIndex = 0;
+    this.aktiverSpieler = AlleSpieler[aktiverSpielerIndex];
+    zugNr = 0;
         log.log(objektname, "Methode hat das Spielbrett erzeugt");
         log.log(objektname, "Methode SpielStarten() beendet.");
     }
@@ -209,6 +214,39 @@ public class Spiel {
         //Startspieler ermitteln fehlt
         //aktives Spielen beginnt, Spielreihenfolge im Uhrzeigersinn
         log.log(objektname, "Methode spielen() beendet.");
+    }
+    /**
+     * Es wird genau ein Zug des jeweils aktiven Spielers gespielt.
+     * Dadurch kann im view der Zustand nach einem Zug angezeigt werden.
+     * @return Der Rückgabewert der Methode ziehen. Ist dieser 1, dann ist das Spiel beendet.
+     */
+    public int spieleEinenZug(){
+       log.log(objektname, "Methode spieleEinenZug() gestartet.");
+       
+       System.out.println(aktiverSpieler.getobjektname() + " ist am Zug. Zug Nummer:"+zugNr);
+       int schalter = aktiverSpieler.ziehen();
+       if(schalter==1){
+           System.out.println(aktiverSpieler.getobjektname() + " hat gewonnen");
+       }
+       else{
+           System.out.println(aktiverSpieler.getobjektname() + "'s Zug ist beendet");
+           aktiverSpielerIndex = aktiverSpielerIndex+1;
+           if (aktiverSpielerIndex==AlleSpieler.length-1){
+               aktiverSpielerIndex=0;
+           }
+           aktiverSpieler = AlleSpieler[aktiverSpielerIndex];
+           if (zugNr%AlleSpieler.length==0){
+               Runde=Runde+1;
+               System.out.println("Neue Runde: "+Runde);
+           }
+           zugNr = zugNr+1;
+           
+                          
+ 
+       }
+       log.log(objektname, "Methode spieleEinenZug() beendet.");
+       return schalter;
+       
     }
 
     /*
