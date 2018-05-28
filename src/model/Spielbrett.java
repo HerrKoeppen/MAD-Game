@@ -105,8 +105,181 @@ public class Spielbrett {
      *
      */
     
-
     public Spielbrett(Logger logger, SpielbrettAusgabe derOutput , Spiel dasspiel, String oname) {
+        
+        this.objektname = oname;
+        log = logger; 
+        log.log(objektname, "Konstrucktor Spielbrett() gestartet mit Parameter " + oname + " .");
+        dasSpiel = dasspiel;
+        this.Output = derOutput;
+        
+        Feld blauAnfang = new Feld(log, "blauAnfang", this, "Anfangsfeld", 4, 4, "blau"); //0
+
+        Feld standard1 = new Feld(log, "standard1", this, "Standardfeld", 5, 5, "weiss");
+        Feld standard2 = new Feld(log, "standard2", this, "Standardfeld", 6, 6, "weiss");
+        Feld standard3 = new Feld(log, "standard3", this, "Standardfeld", 5, 7, "weiss");
+        Feld standard4 = new Feld(log, "standard4", this, "Standardfeld", 4, 8, "weiss");
+        Feld standard5 = new Feld(log, "standard5", this, "Standardfeld", 2, 8, "weiss");
+        Feld standard6 = new Feld(log, "standard5", this, "Standardfeld", 0, 8, "weiss");
+        Feld zeFeldrot = new Feld(log, "zeFeldrot", this, "zeFeld", 0, 10, "weiss");
+        
+        Feld rotAnfang = new Feld(log, "rotAnfang", this, "Anfangsfeld", 0, 12, "rot"); //
+
+        Feld standard7 = new Feld(log, "standard7", this, "Standardfeld", 2, 12, "weiss");
+        Feld standard8 = new Feld(log, "standard8",this, "Standardfeld", 4, 12, "weiss");
+        Feld standard9 = new Feld(log, "standard9", this, "Standardfeld", 5, 13, "weiss");
+        Feld standard10 = new Feld(log, "standard10", this, "Standardfeld", 6, 14, "weiss");
+        Feld standard11 = new Feld(log, "standard11", this, "Standardfeld", 5, 15, "weiss");
+        Feld standard12 = new Feld(log, "standard7", this, "Standardfeld", 4, 16, "weiss");
+        Feld zeFeldtuekis = new Feld(log, "zeFeldtuekis", this, "zeFeld", 5, 17, "weiss");
+
+        Feld tuekisAnfang = new Feld(log, "tuekisAnfang", this, "Anfangsfeld", 6, 18, "gruen");
+        Feld standard13 = new Feld(log, "standard13", this, "Standardfeld", 7, 17, "weiss");
+        Feld standard14 = new Feld(log, "standard14", this, "Standardfeld", 8, 16, "weiss");
+        Feld standard15 = new Feld(log, "standard15", this, "Standardfeld", 10, 16, "weiss");
+        Feld standard16 = new Feld(log, "standard16", this, "Standardfeld", 12, 16, "weiss");
+        Feld standard17 = new Feld(log, "standard17", this, "Standardfeld", 13, 17, "weiss");
+        Feld standard18 = new Feld(log, "standard13", this, "Standardfeld", 14, 18, "weiss");
+        Feld zeFeldpink = new Feld(log, "zeFeldpink", this, "zeFeld", 15, 17, "weiss");
+
+        Feld pinkAnfang = new Feld(log, "pinkAnfang", this, "Anfangsfeld", 16, 16, "pink");
+
+        Feld standard19 = new Feld(log, "standard19", this, "Standardfeld", 15, 15, "weiss");
+        Feld standard20 = new Feld(log, "standard120", this, "Standardfeld", 14, 14, "weiss");
+        Feld standard21 = new Feld(log, "standard21", this, "Standardfeld", 15, 13, "weiss");
+        Feld standard22 = new Feld(log, "standard22", this, "Standardfeld", 16, 12, "weiss");
+        Feld standard23 = new Feld(log, "standard23", this, "Standardfeld", 18, 12, "weiss");
+        Feld standard24 = new Feld(log, "standard19", this, "Standardfeld", 20, 12, "weiss");
+        Feld zeFeldgelb = new Feld(log, "zeFeldgelb", this, "zeFeld", 20, 10, "weiss");
+
+        Feld gelbAnfang = new Feld(log, "gelbAnfang", this, "Anfangsfeld", 20, 8, "gelb");
+        Feld standard25 = new Feld(log, "standard125", this, "Standardfeld", 18, 8, "weiss");
+        Feld standard26 = new Feld(log, "standard26", this, "Standardfeld", 16, 8, "weiss");
+        Feld standard27 = new Feld(log, "standard27", this, "Standardfeld", 15, 7, "weiss");
+        Feld standard28 = new Feld(log, "standard28", this, "Standardfeld", 14, 6, "weiss");
+        Feld standard29 = new Feld(log, "standard16", this, "Standardfeld", 15, 5, "weiss");
+        Feld standard30 = new Feld(log, "standard125", this, "Standardfeld", 16, 4, "weiss");
+        Feld zeFeldschwarz = new Feld(log, "zeFeldschwarz", this, "zeFeld", 15, 3, "weiss");
+
+        Feld schwarzAnfang = new Feld(log, "schwarzAnfang", this, "Anfangsfeld", 14, 2, "schwarz");
+
+        Feld standard31 = new Feld(log, "standard31", this, "Standardfeld", 13, 3, "weiss");
+        Feld standard32 = new Feld(log, "standard32", this, "Standardfeld", 12, 4, "weiss");      
+        Feld standard33 = new Feld(log, "standard33", this, "Standardfeld", 10, 4, "weiss");
+        Feld standard34 = new Feld(log, "standard34", this, "Standardfeld", 8, 4, "weiss");
+        Feld standard35 = new Feld(log, "standard35", this, "Standardfeld", 7, 3, "weiss");
+        Feld standard36 = new Feld(log, "standard31", this, "Standardfeld", 6, 2, "weiss");
+        
+        Feld zeFeldblau = new Feld(log, "zeFeldblau", this, "zeFeld", 5, 3, "weiss");
+        
+        //erzeugt Zielfelder von blau
+        Feld blauZiel1 = new Feld(log, "blauZiel1", this, "Zielfeld", 6, 4, "blau");
+        Feld blauZiel2 = new Feld(log, "blauZiel2", this, "Zielfeld", 7, 5, "blau");
+        Feld blauZiel3 = new Feld(log, "blauZiel3", this, "Zielfeld", 8, 6, "blau");
+        Feld blauZiel4 = new Feld(log, "blauZiel2", this, "Zielfeld", 9, 7, "blau");
+        //erzeugt Zielfelder von rot
+        Feld rotZiel1 = new Feld(log, "rotZiel1", this, "Zielfeld", 1, 10, "rot");
+        Feld rotZiel2 = new Feld(log, "rotZiel2", this, "Zielfeld", 2, 10, "rot");
+        Feld rotZiel3 = new Feld(log, "rotZiel3", this, "Zielfeld", 3, 10, "rot");
+        Feld rotZiel4 = new Feld(log, "rotZiel1", this, "Zielfeld", 4, 10, "rot");
+        //erzeugt Zielfelder von gruen
+        Feld tuekisZiel1 = new Feld(log, "gruenZiel1", this, "Zielfeld", 6, 16, "gruen");
+        Feld tuekisZiel2 = new Feld(log, "gruenZiel2", this, "Zielfeld", 7, 15, "gruen");
+        Feld tuekisZiel3 = new Feld(log, "gruenZiel3", this, "Zielfeld", 8, 14, "gruen");
+        Feld tuekisZiel4 = new Feld(log, "gruenZiel1", this, "Zielfeld", 9, 13, "gruen");
+        //erzeugt Zielfelder von pink
+        Feld pinkZiel1 = new Feld(log, "pinkZiel1", this, "Zielfeld", 14, 16, "pink");
+        Feld pinkZiel2 = new Feld(log, "pinkZiel2", this, "Zielfeld", 13, 15, "pink");
+        Feld pinkZiel3 = new Feld(log, "pinkZiel3", this, "Zielfeld", 12, 14, "pink");
+        Feld pinkZiel4 = new Feld(log, "pinkZiel1", this, "Zielfeld", 11, 13, "pink");
+        //erzeugt Zielfelder von gelb
+        Feld gelbZiel1 = new Feld(log, "gelbZiel1", this, "Zielfeld", 19, 10, "gelb");
+        Feld gelbZiel2 = new Feld(log, "gelbZiel2", this, "Zielfeld", 18, 10, "gelb");
+        Feld gelbZiel3 = new Feld(log, "gelbZiel3", this, "Zielfeld", 17, 10, "gelb");
+        Feld gelbZiel4 = new Feld(log, "gelbZiel1", this, "Zielfeld", 16, 10, "gelb");
+        //erzeugt Zielfelder von schwarz
+        Feld schwarzZiel1 = new Feld(log, "schwarzZiel1", this, "Zielfeld", 14, 4, "schwarz");
+        Feld schwarzZiel2 = new Feld(log, "schwarzZiel2", this, "Zielfeld", 13, 5, "schwarz");
+        Feld schwarzZiel3 = new Feld(log, "schwarzZiel3", this, "Zielfeld", 12, 6, "schwarz");
+        Feld schwarzZiel4 = new Feld(log, "schwarzZiel1", this, "Zielfeld", 11, 7, "schwarz");
+       
+        
+
+        
+        //erzeugt startfelder von blau
+        Feld blauStart1 = new Feld(log, "blauStart1", this, "Startfeld", 13, 1, "blau");
+        Feld blauStart2 = new Feld(log, "blauStart2", this, "Startfeld", 15, 1, "blau");
+        Feld blauStart3 = new Feld(log, "blauStart3", this, "Startfeld", 14, 3, "blau");
+        //erzeugt startfelder von rot
+        Feld rotStart1 = new Feld(log, "rotStart1", this, "Startfeld", 20, 8, "rot");
+        Feld rotStart2 = new Feld(log, "rotStart2", this, "Startfeld", 20, 10, "rot");
+        Feld rotStart3 = new Feld(log, "rotStart3", this, "Startfeld", 18, 9, "rot");
+        //erzeugt startfelder von gruen
+        Feld gruenStart1 = new Feld(log, "gruenStart1", this, "Startfeld", 19, 17, "gruen");
+        Feld gruenStart2 = new Feld(log, "gruenStart2", this, "Startfeld", 18, 19, "gruen");
+        Feld gruenStart3 = new Feld(log, "gruenStart3", this, "Startfeld", 17, 17, "gruen");
+        //erzeugt startfelder von pink
+        Feld pinkStart1 = new Feld(log, "pinkStart1", this, "Startfeld", 11, 24, "pink");
+        Feld pinkStart2 = new Feld(log, "pinkStart2", this, "Startfeld", 9, 24, "pink");
+        Feld pinkStart3 = new Feld(log, "pinkStart3", this, "Startfeld", 10, 22, "pink");
+        //erzeugt startfelder von gelb
+        Feld gelbStart1 = new Feld(log, "gelbStart1", this, "Startfeld", 3, 17, "gelb");
+        Feld gelbStart2 = new Feld(log, "gelbStart2", this, "Startfeld", 2, 19, "gelb");
+        Feld gelbStart3 = new Feld(log, "gelbStart3", this, "Startfeld", 1, 17, "gelb");
+        //erzeugt startfelder von schwarz
+        Feld schwarzStart1 = new Feld(log, "schwarzStart1", this, "Startfeld", 0, 8, "schwarz");
+        Feld schwarzStart2 = new Feld(log, "schwarzStart2", this, "Startfeld", 2, 9, "schwarz");
+        Feld schwarzStart3 = new Feld(log, "schwarzStart3", this, "Startfeld", 0, 10, "schwarz");
+        //erzeugt startfelder von tuerkis
+        Feld tuerkisStart1 = new Feld(log, "tuerkisStart1", this, "Startfeld", 5, 1, "tuerkis");
+        Feld tuerkisStart2 = new Feld(log, "tuerkisStart2", this, "Startfeld", 7, 1, "tuerkis");
+        Feld tuerkisStart3 = new Feld(log, "tuerkisStart3", this, "Startfeld", 6, 3, "tuerkis");
+
+        //public Spielfigur(String oname, Logger logger, Feld starterfeld, Spieler derSpieler) {
+        Spielfigur Blau1 = new Spielfigur("Blau1",log, blauStart1 , 0, dasspiel);
+        Spielfigur Blau2 = new Spielfigur("Blau2",log, blauStart2 , 0, dasspiel);
+        Spielfigur Blau3 = new Spielfigur("Blau3",log, blauStart3 , 0, dasspiel);
+        
+        
+        Spielfigur Rot1 = new Spielfigur("Rot1",log, rotStart1 , 1, dasspiel);
+        Spielfigur Rot2 = new Spielfigur("Rot2",log, rotStart2 , 1, dasspiel);
+        Spielfigur Rot3 = new Spielfigur("Rot3",log, rotStart3 ,1, dasspiel);
+        
+        Spielfigur Gruen1 = new Spielfigur("Gruen1",log, gruenStart1 , 2, dasspiel);
+        Spielfigur Gruen2 = new Spielfigur("Gruen2",log, gruenStart2 , 2, dasspiel);
+        Spielfigur Gruen3 = new Spielfigur("Gruen3",log, gruenStart3 , 2, dasspiel);
+      
+        
+        Spielfigur Pink1 = new Spielfigur("Pink1",log, pinkStart1 , 3, dasspiel);
+        Spielfigur Pink2 = new Spielfigur("Pink2",log, pinkStart2 , 3, dasspiel);
+        Spielfigur Pink3 = new Spielfigur("Pink3",log, pinkStart3 , 3, dasspiel);
+        
+        Spielfigur Gelb1 = new Spielfigur("Gelb1",log, gelbStart1 , 4, dasspiel);
+        Spielfigur Gelb2 = new Spielfigur("Gelb2",log, gelbStart2 , 4, dasspiel);
+        Spielfigur Gelb3 = new Spielfigur("Gelb3",log, gelbStart3 , 4, dasspiel);
+        
+        Spielfigur Schwarz1 = new Spielfigur("Schwarz1",log, schwarzStart1 , 5, dasspiel);
+        Spielfigur Schwarz2 = new Spielfigur("Schwarz2",log, schwarzStart2 , 5, dasspiel);
+        Spielfigur Schwarz3 = new Spielfigur("Schwarz3",log, schwarzStart3 , 5, dasspiel);
+        
+        Spielfigur Tuerkis1 = new Spielfigur("Tuerkis1",log, tuerkisStart1 , 6, dasspiel);
+        Spielfigur Tuerkis2 = new Spielfigur("Tuerkis2",log, tuerkisStart2 , 6, dasspiel);
+        Spielfigur Tuerkis3 = new Spielfigur("Tuerkis3",log, tuerkisStart3 , 6, dasspiel);
+       
+        //public Wuerfel(Logger logger, String name, int wuerfelmin, int wuerfelmax, SpielbrettAusgabe out) {
+        
+        Wuerfel derWuerfel = new Wuerfel(log,"Wuerfel",1,6,this.Output);
+        this.dasSpiel.setWuerfel(derWuerfel);
+        log.log(objektname, "Methode Spielbrett() beendet.");
+        
+        
+    }
+    
+    
+    
+    
+
+    public void Spielbrett3(Logger logger, SpielbrettAusgabe derOutput , Spiel dasspiel, String oname) {
         
         this.objektname = oname;
         log = logger; 
@@ -436,41 +609,40 @@ public class Spielbrett {
         
     }
     /**
-     *    |0 | 1| 2| 3| 4| 5| 6| 7| 8| 9|10|11|12|13|14|15|16|17|18|19|20|   
-     * | 0|  |  |  |  |  |  |  |  |SW|  |SW|  |AR|  |  |  |  |  |  |  |
-     * | 1| .| .|. |. | .| .|  | .|  | .| .| .| .| .| .|. | .| .| .|. | 
-     * | 2|  |  |  |  |  |  |  |  |SW|  |  |  |SW|  |  |  |  |  |  |  |
-     * | 3| .| .|. |. | .| .|  | .|  | .| .| .| .| .| .|. | .| .| .|. | 
-     * | 4|  |  |  |  |AB|  |  |  |SW|  |  |  |SW|  |  |  |SW|  |  |  |
-     * | 5|  |  |  |SW|  |SW|. |SW|. |. |  |  |. |SW|. |SW|. |SW|. |. |
-     * | 6|  |. |SW|  |. |. |SW|  |. |. |  |  |. |  |SW|. |  |..|AG|. |
-     * | 7|. |  |  |SW|  |  |. |. |. |. |  |  |. |. |. |  |. |SW|  |. |
-     * | 8| .| .|. |. |SW| .|  | .|  | .| .| .| .| .| .|. |SW| .| .|. | 
-     * | 9|  |. |..|  |  |. |. |. |. |. |  |  |. |. |. |. |  |. |. |. |
-     * |10| .| .|. |. |SW| .|  | .|  | .| .| .| .| .| .|. |SW| .| .|. | 
-     * |11| .| .|. |. | .| .|  | .|  | .| .| .| .| .| .|. | .| .| .|. | 
-     * |12| .| .|. |. |SW| .|  | .|  | .| .| .| .| .| .|. |SW| .| .|. | 
-     * |13|. |  |. |SW|. |. |. |  |. |. |  |  |..|  |. |  |  |SW|. |  |
-     * |14|. |. |AS|. |. |. |SW|. |. |. |  |  |. |  |SW|. |  |. |SW|. |
-     * |15|. |  |  |SW|. |SW|. |SW|. |. |  |  |. |SW|  |SW|. |SW|  |. |
-     * |16|. |. |  |. |SW|. |  |..|SW|. |  |  |SW|. |  |. |AP|. |. |. |
-     * |17|. |  |. |  |  |. |. |  |. |  |  |  |. |  |. |  |  |. |. |. |
-     * |18| .| .|. |. | .| .|  | .|SW| .| .| .|SW| .| .|. | .| .| .|. | 
-     * |19|  |. |  |. |  |. |. |  |. |  |  |  |  |  | .| .|  | .|  | .|
-     * |20| .| .|. |. | .| .|  | .|AG| .|SW| .|SW| .| .|. | .| .| .|. | 
-     * |21|  |  |. |  |. |  |. |  |  |  |  |  |. |  |. |  |. |. |. | .|
-     * |22|. |. |  |. |. |. |  |. |  | .| .| .|  |. |..| .| .| .|. |  | 
-     * |23| .| .|. |. | .| .|  | .|  | .| .| .| .| .| .|. | .| .| .|. | 
-     * |24|..|  |. |  |. |  |  |  |  |. |. |. |. |  |. |  |. |  |. |. | 
-     * |25| .| .| .| .| .| .| .| .| .|..|. |. |. |. |. |. |. |. |. |. | 
-     * |26| .| .| .| .| .| .| .| .| .|  | .| .| .| .| .| .| .| .| .| .|
-     * |27| .| .| .| .|. |  | .| .| .| .|. |. | .|  |. | .| .| .| .| .| 
-     * |28| .| .| .| .| .| .| .| .|  | .|  | .| .| .| .| .| .| .| .| .| 
-     * |29| .| .|. |..| .|  | .|. |. |. | .| .| .|  | .| .|..|. |. |. | 
-     * |30| .| .| .| .| .|. | .|  | .| .| .|  | .| .| .| .| .| .| .| .| 
-     * |31| .| .|..| .|. |. |. |. |. |. |. | .|. |. |. |. |. |. |. |. | 
-     * |32| .| .| .| .| .|  |. |. |. | .| .| .|..|  | .| .| .| .| .| .|
-     * 
+     *    |  0|  1|  2|  3|  4|  5|  6|  7|  8|  9| 10| 11| 12| 13| 14| 15| 16| 17| 18| 19| 20|
+     * | 0|   |   |   |   |   |   |   |   |SW |   |ref|   |raf|   |   |   |   |   |   |   |   |
+     * | 1|  .|bs1|bs2|.  | . | . |   |  .|   |  .|rz1|.  |.  | . | . |.  |  .|rs1|rs2|.  | . |
+     * | 2|   |bs3|bs4|   |   |   |   |   |SW |   |rz2|   |SW |   |   |   |   |rs3|rs4|   | . |
+     * | 3| . |  .|.  |.  | . | . |   | . |   |  .|rz3|   |.  |   | . |.  | . | . |  .|.  | . |
+     * | 4|   |   |   |   |baf|   |   |   |SW |   |rz4|   |SW |   |   |   |SW |   |   |   |  .|
+     * | 5|   | . |   |bef|   |SW |   |SW |.  |.  |   |   |.  |SW |.  |SW |.  |tef|.  |.  | . |
+     * | 6|.  |.  |SW |   |bz1|.  |SW |   |.  |.  |   |   |.  |   |SW |.  |tz1|.. |taf|.  |   |
+     * | 7|.  |   |   |SW |   |bz2|.  |.  |.  |.  |   |   |.  |.  |.  |tz2|.  |SW |   |.  |.  |
+     * | 8| . |  .|.  |.  |SW | . |bz3|.  |   |  .| . |  .| . | . |tz3|.  |SW | . | . |.  |.  |
+     * | 9|   |ss1|ss2|   |   |.  |.  |bz4|   |.  |   |   |.  |tz4|.  |.  |   |ts1|ts2|.  |.  |
+     * |10| . |ss3|ss4|.  |SW | . |   | . |   |  .| . |   | . |  .| . |.  |SW |ts3|ts4|.  |   |
+     * |11| . |  .|.  |.  | . | . |   |sz4|   |  .| . |  .| . |pz4| . |.  | . | . | . |.  |   |
+     * |12| . |  .|.  |.  |SW | . |sz3| . |   |  .| . |  .| . | . |pz3|.  |SW | . | . |.  | . |
+     * |13|.  |   |.  |SW |.  |sz2|.  |   |.  |.  |   |   |.. |   |.  |pz2|   |SW |.  |   |  .|
+     * |14|.  |.  |saf|.  |sz1|.  |SW |.  |.  |.  |   |   |.  |   |SW |.  |pz1|.  |SW |.  |  .|
+     * |15|.  |   |   |sef|.  |SW |.  |SW |.  |.  |   |   |.  |SW |   |SW |.  |pef|   |.  | . |
+     * |16|.  |.  |   |.  |SW |.  |   |.. |SW |.  |gz4|   |SW |.  |   |.  |paf|.  |.  |.  |  .|
+     * |17|.  |   |.  |   |   |.  |.  |   |.  |   |gz3|   |.  |  .|.  | . | . |.  |.  |.  |  .|
+     * |18| . |gs1|gs2|.  |  .| . |   | . |SW |.  |gz2|  .|SW | . | . |.  | . |ps1|ps2|.  | . |
+     * |19|   |gs3|gs4|.  |   |.  |.  |   |.  |.  |gz1| . |  .| . | . | . |.  |ps3|ps4| . | . |
+     * |20| . |  .|.  |.  |  .| . |   | . |gaf|.  |gef|  .|SW | . | . |.  | . |  .| . |.  |  .|
+     * |21|   |   |.  |   |.  |   |.  |   |   |.  |   |  .|.  |   | . |  .| . | . | . | . |  .|
+     * |22|.  |.  |   |.  |.  |.  |   |.  |   |.  |  .|  .|.  | . | ..|  .|  .|  .| . |  .| . |
+     * |23| . | . |.  |.  |  .| . |   |  .|   |   |  .|  .|  .|  .|  .| . |  .|  .|  .|.  | . |
+     * |24|.. |   | . |   |.  |   |   |   |   | . |.  |.  |.  |.  |.  |  .|.  | . | . |.  |.  |
+     * |25| . | . |  .| . | . | . |  .|  .| . |.  |.  |.  |.  | . |.  |.  |.  |.  | . |.  |.  |
+     * |26| . | . |  .| . | . | . | . |  .| . |  .|  .|  .| . |  .|  .|  .|  .|  .|  .| . |.  |
+     * |27| . | . |  .| . |.  | . | . |  .| . | . |.  |.  | . |.  |.  |  .|  .|  .|  .| . |.  |
+     * |28| . | . |  .| . | . | . | . |  .|   | . |   |  .| . |  .| . | . |  .|  .|  .| . |.  |
+     * |29| . | . |.  |.. | . | . | . |.  |.  |.  | . |  .| . | . | . | . |.. |.  |.  |.  |.  |
+     * |30| . | . |  .| . | . |.  | . |   | . | . | . |   | . |  .| . | . | . | . |  .| . |.  |
+     * |31| . | . |.. | . |.  |.  |.  |.  |.  |.  |.  |  .|.  | . |.  |.  |.  |.  |.  |.  |.  |
+     * |32| . | . | . | . |  .| . |.  |.  |.  | . | . |  .|.. |  .| . | . | . | . |   | . |  .|
      * Idee eines Spielbretts für 6 Spieler, entsprechend der GUI-Darstellung
      * 
      * @param logger

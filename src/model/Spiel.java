@@ -29,9 +29,11 @@ public class Spiel {
     //Der Boolean beendet gibt an ob das Spiel beendet ist.true=beendet
     public boolean beendet;
     //Die ArrayListe AlleSpieler beinhaltet alle Spieler im Spiel
-    public Spieler[] AlleSpieler = new Spieler[7];
+    //+ALTE VERSION+ public Spieler[] AlleSpieler = new Spieler[7];
+    public Spieler[] AlleSpieler = new Spieler[6];
     //Die Arrayliste AlleSpielfiguren beeinhaltet alle Spielfiguren im Spiel.
-    public Spielfigur[] AlleSpielfiguren = new Spielfigur[21];
+    //ALTE VERSION+ public Spielfigur[] AlleSpielfiguren = new Spielfigur[21];
+    public Spielfigur[] AlleSpielfiguren = new Spielfigur[24];
     //Das Objekt aktiverSpieler der Klasse Spieler gibt an welcher Spieler momentan am Zug ist.   
     public Spieler aktiverSpieler;
     public int aktiverSpielerIndex; 
@@ -111,13 +113,15 @@ public class Spiel {
         this.output = new SpielbrettAusgabe(this, log, "ANSI");
         dasSpielbrett = new Spielbrett(log, output, this, "Spielbrett");
         int a;
-        for (int i = 0; i < (7 - this.BotAnzahl); i++) {
+        //+ALTE VERSION+ for (int i = 0; i < (7 - this.BotAnzahl); i++) {
+        for (int i = 0; i < (6 - this.BotAnzahl); i++) {
 
             this.SpielerAnzahl = i;
         }
         switch (this.BotAnzahl) { // sehr netter Switch der den Typ des Feldes festlegt
-            case 7:
+            /*+ALTE VERSION+ case 7:
                 Spieler Computer6 = new SpielerComputer("(Computer) Gargamel", log, this);
+            */
             case 6:
                 Spieler Computer5 = new SpielerComputer("(Computer) Fynnia", log, this);
             case 5:
@@ -191,8 +195,8 @@ public class Spiel {
 
         }
          */
-
-        for (int i = 7; !beendet; i++) {
+        //+ALTE VERSION+ for (int i = 7; !beendet; i++) {
+        for (int i = 6; !beendet; i++) {
             int a = i % this.SpielerAnzahl;
             if (AlleSpieler[a] != null) {
                 System.out.println(AlleSpieler[a].getobjektname() + " ist am Zug");
@@ -202,8 +206,14 @@ public class Spiel {
                     break;
                 }
                 System.out.println(AlleSpieler[a].getobjektname() + "'s Zug ist beendet");
-                if (i / 7 > ((i -1) / 7)) {
+                /* +ALTE VERSION+ if (i / 7 > ((i -1) / 7)) {
                     this.Runde = i / 7;
+                    System.out.println("Runde " + this.Runde + ":");
+                }
+                */
+                
+                if (i / 6 > ((i -1) / 6)) {
+                    this.Runde = i / 6;
                     System.out.println("Runde " + this.Runde + ":");
                 }
             }
