@@ -106,6 +106,8 @@ public class Spielfigur {
         this.aufzefeld = false;
         this.zugfaehigkeit = false;
         this.id = dasSpiel.setSpielfigur(this);
+        //starterfeld.setIstBesetzt(true);
+        //dasSpiel.getSpielbrett().getFelder().get(this.id).setIstBesetzt(true);
 
     }
 

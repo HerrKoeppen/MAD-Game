@@ -36,17 +36,17 @@ public class MADGUI extends javax.swing.JFrame {
         setzeFelderNachModel();
         this.darstellungAnzeigen();
     }
-    
-    public void GUIspielen(){
+
+    public void GUIspielen() {
         while (dasSpiel.spieleEinenZug() != 1) {
-                    darstellungAnzeigen();
+            darstellungAnzeigen();
 
-                    try {
-                        Thread.sleep(500);
-                    } catch (InterruptedException ex) {
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException ex) {
 
-                    }
-                }
+            }
+        }
     }
 
     public void setzeFelderNachModel() {
@@ -137,29 +137,29 @@ public class MADGUI extends javax.swing.JFrame {
         felder[68] = null;
         felder[69] = null;
         //Hier fehlt noch ein Endfeld!
-        felder[70] = blau1;
-        felder[71] = blau2;
-        felder[72] = blau3;
+        felder[70] = bs1;
+        felder[71] = bs2;
+        felder[72] = bs3;
         //Hier fehlt noch ein Startfeld!
-        felder[73] = rot1;
-        felder[74] = rot2;
-        felder[75] = rot3;
+        felder[73] = rs1;
+        felder[74] = rs2;
+        felder[75] = rs3;
         //Hier fehlt noch ein Startfeld!
-        felder[76] = gruen1;
-        felder[77] = gruen2;
-        felder[78] = gruen3;
+        felder[76] = gs1;
+        felder[77] = gs2;
+        felder[78] = gs3;
         //Hier fehlt noch ein Startfeld!
-        felder[79] = pink1;
-        felder[80] = pink2;
-        felder[81] = pink3;
+        felder[79] = ps1;
+        felder[80] = ps2;
+        felder[81] = ps3;
         //Hier fehlt noch ein Startfeld!
-        felder[82] = gelb1;
-        felder[83] = gelb2;
-        felder[84] = gelb3;
+        felder[82] = gs1;
+        felder[83] = gs2;
+        felder[84] = gs3;
         //Hier fehlt noch ein Startfeld!
-        felder[85] = schwarz1;
-        felder[86] = schwarz2;
-        felder[87] = schwarz3;
+        felder[85] = ss1;
+        felder[86] = ss2;
+        felder[87] = ss3;
         //Hier fehlt noch ein Startfeld!
         //Türkise Strtfelder. Werte von 88 bis 90 ignorieren
         felder[88] = null;
@@ -177,30 +177,6 @@ public class MADGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        blau1 = new javax.swing.JLabel();
-        blau2 = new javax.swing.JLabel();
-        blau3 = new javax.swing.JLabel();
-        blau4 = new javax.swing.JLabel();
-        rot1 = new javax.swing.JLabel();
-        rot2 = new javax.swing.JLabel();
-        rot3 = new javax.swing.JLabel();
-        rot4 = new javax.swing.JLabel();
-        gruen1 = new javax.swing.JLabel();
-        gruen2 = new javax.swing.JLabel();
-        gruen3 = new javax.swing.JLabel();
-        gruen4 = new javax.swing.JLabel();
-        pink1 = new javax.swing.JLabel();
-        pink2 = new javax.swing.JLabel();
-        pink3 = new javax.swing.JLabel();
-        pink4 = new javax.swing.JLabel();
-        gelb1 = new javax.swing.JLabel();
-        gelb2 = new javax.swing.JLabel();
-        gelb3 = new javax.swing.JLabel();
-        gelb4 = new javax.swing.JLabel();
-        schwarz1 = new javax.swing.JLabel();
-        schwarz2 = new javax.swing.JLabel();
-        schwarz3 = new javax.swing.JLabel();
-        schwarz4 = new javax.swing.JLabel();
         baf = new javax.swing.JLabel();
         f2 = new javax.swing.JLabel();
         f3 = new javax.swing.JLabel();
@@ -297,99 +273,11 @@ public class MADGUI extends javax.swing.JFrame {
         ss2 = new javax.swing.JLabel();
         ss3 = new javax.swing.JLabel();
         ss4 = new javax.swing.JLabel();
+        wuerfel = new javax.swing.JLabel();
         Spielbrett = new javax.swing.JLabel();
-		javax.swing.JLabel [] felder =  {
-            baf, f2, f3, f4, f5, f6, f7, ref, raf, f10, f11, f12, f13, f14, f15,
-            tef, taf, f18, f19, f20, f21, f22, f23, pef, paf, f26, f27, f28, f29,
-            f30, f31, gef, gaf, f34, f35, f36, f37, f38, f39, sef, saf, f42, f43,
-            f44, f45, f46, f47, bef, bz1, bz2, bz3, bz4, rz1, rz2, rz3, rz4, tz1, 
-            tz2, tz3, tz4, pz1, pz2, pz3, pz4, gz1, gz2, gz3, gz4,sz1, sz2, sz3,
-            sz4, bs1, bs2, bs3, bs4, rs1, rs2, rs3, rs4, ts1, ts2, ts3, ts4, ps1,
-            ps2, ps3, ps4, gs1, gs2, gs3, gs4, ss1, ss2, ss3, ss4
-        };
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        blau1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Spielfigur_blau.png"))); // NOI18N
-        getContentPane().add(blau1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
-
-        blau2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Spielfigur_blau.png"))); // NOI18N
-        getContentPane().add(blau2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, -1));
-
-        blau3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Spielfigur_blau.png"))); // NOI18N
-        getContentPane().add(blau3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, -1, -1));
-
-        blau4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Spielfigur_blau.png"))); // NOI18N
-        getContentPane().add(blau4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, -1, -1));
-
-        rot1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Spielfigur_rot.png"))); // NOI18N
-        getContentPane().add(rot1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 20, -1, -1));
-
-        rot2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Spielfigur_rot.png"))); // NOI18N
-        getContentPane().add(rot2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 20, -1, -1));
-
-        rot3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Spielfigur_rot.png"))); // NOI18N
-        getContentPane().add(rot3, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 70, -1, -1));
-
-        rot4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Spielfigur_rot.png"))); // NOI18N
-        getContentPane().add(rot4, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 70, -1, -1));
-
-        gruen1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Spielfigur_gruen.png"))); // NOI18N
-        getContentPane().add(gruen1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 310, -1, -1));
-
-        gruen2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Spielfigur_gruen.png"))); // NOI18N
-        getContentPane().add(gruen2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 370, -1, -1));
-
-        gruen3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Spielfigur_gruen.png"))); // NOI18N
-        getContentPane().add(gruen3, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 310, -1, -1));
-
-        gruen4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Spielfigur_gruen.png"))); // NOI18N
-        getContentPane().add(gruen4, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 370, -1, -1));
-
-        pink1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Spielfigur_lila.png"))); // NOI18N
-        getContentPane().add(pink1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 610, -1, -1));
-
-        pink2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Spielfigur_lila.png"))); // NOI18N
-        getContentPane().add(pink2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 620, -1, -1));
-
-        pink3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Spielfigur_lila.png"))); // NOI18N
-        getContentPane().add(pink3, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 660, -1, -1));
-
-        pink4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Spielfigur_lila.png"))); // NOI18N
-        getContentPane().add(pink4, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 670, -1, -1));
-
-        gelb1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Spielfigur_gelb.png"))); // NOI18N
-        getContentPane().add(gelb1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 610, -1, -1));
-
-        gelb2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Spielfigur_gelb.png"))); // NOI18N
-        getContentPane().add(gelb2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 610, -1, -1));
-
-        gelb3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Spielfigur_gelb.png"))); // NOI18N
-        getContentPane().add(gelb3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 670, -1, -1));
-
-        gelb4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Spielfigur_gelb.png"))); // NOI18N
-        getContentPane().add(gelb4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 670, -1, -1));
-
-        schwarz1.setBackground(new java.awt.Color(255, 255, 255));
-        schwarz1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Spielfigur_schwarz.png"))); // NOI18N
-        schwarz1.setToolTipText("");
-        getContentPane().add(schwarz1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 40, 60));
-
-        schwarz2.setBackground(new java.awt.Color(255, 255, 255));
-        schwarz2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Spielfigur_schwarz.png"))); // NOI18N
-        schwarz2.setToolTipText("");
-        getContentPane().add(schwarz2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, 40, 60));
-
-        schwarz3.setBackground(new java.awt.Color(255, 255, 255));
-        schwarz3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Spielfigur_schwarz.png"))); // NOI18N
-        schwarz3.setToolTipText("");
-        getContentPane().add(schwarz3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 40, 60));
-
-        schwarz4.setBackground(new java.awt.Color(255, 255, 255));
-        schwarz4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Spielfigur_schwarz.png"))); // NOI18N
-        schwarz4.setToolTipText("");
-        getContentPane().add(schwarz4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 40, 60));
         getContentPane().add(baf, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 50, 50));
         getContentPane().add(f2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, 50, 50));
         getContentPane().add(f3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 230, 50, 50));
@@ -487,6 +375,11 @@ public class MADGUI extends javax.swing.JFrame {
         getContentPane().add(ss3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 40, 40));
         getContentPane().add(ss4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 390, 40, 40));
 
+        wuerfel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        wuerfel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/die1.png"))); // NOI18N
+        getContentPane().add(wuerfel, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 370, 40, 40));
+        wuerfel.getAccessibleContext().setAccessibleName("wuerfel");
+
         Spielbrett.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/768px-Dontworry6.svg.png"))); // NOI18N
         getContentPane().add(Spielbrett, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -499,15 +392,42 @@ public class MADGUI extends javax.swing.JFrame {
                 anpassen(dasSpiel.getSpielbrett().getFelder().get(i), i);
             }
         }
+        ImageIcon icon = null;
+        switch (dasSpiel.getWuerfel().getZahl()) {
+            case 1:
+                icon = new ImageIcon(getClass().getResource("/view/die1.png"));
+                break;
+            case 2:
+                icon = new ImageIcon(getClass().getResource("/view/die2.png"));
+                break;
+            case 3:
+                icon = new ImageIcon(getClass().getResource("/view/die3.png"));
+                break;
+            case 4:
+                icon = new ImageIcon(getClass().getResource("/view/die4.png"));
+                break;
+            case 5:
+                icon = new ImageIcon(getClass().getResource("/view/die5.png"));
+                break;
+            case 6:
+                icon = new ImageIcon(getClass().getResource("/view/die6.png"));
+                break;
+        }
+        wuerfel.setIcon(icon);
+
         repaint();
     }
 
     public void anpassen(Feld f, int index) {
+        //System.out.println("Start der Methode anpassen mit den Parametern: ");
+        //System.out.println(index);
         felder[index].setVisible(true);
-        if (!f.getIstBesetzt()) {
+        if (f.getHausbesetzer() == null) {
+            //  System.out.println("Leeres Feld");
             felder[index].setVisible(false);
             return;
         }
+        //System.out.println(f.getHausbesetzer().getTeam().getfarbe());
         if (f.getHausbesetzer().getTeam().getfarbe().equalsIgnoreCase("blau")) {
             ImageIcon icon = new ImageIcon(getClass().getResource("/view/Spielfigur_blau.png"));
             felder[index].setIcon(icon);
@@ -578,8 +498,7 @@ public class MADGUI extends javax.swing.JFrame {
             public void run() {
                 MADGUI mg = new MADGUI();
                 mg.setVisible(true);
-                mg.GUIspielen();
-                
+                //mg.GUIspielen();
 
             }
         });
@@ -589,10 +508,6 @@ public class MADGUI extends javax.swing.JFrame {
     private javax.swing.JLabel Spielbrett;
     private javax.swing.JLabel baf;
     private javax.swing.JLabel bef;
-    private javax.swing.JLabel blau1;
-    private javax.swing.JLabel blau2;
-    private javax.swing.JLabel blau3;
-    private javax.swing.JLabel blau4;
     private javax.swing.JLabel bs1;
     private javax.swing.JLabel bs2;
     private javax.swing.JLabel bs3;
@@ -639,14 +554,6 @@ public class MADGUI extends javax.swing.JFrame {
     private javax.swing.JLabel f7;
     private javax.swing.JLabel gaf;
     private javax.swing.JLabel gef;
-    private javax.swing.JLabel gelb1;
-    private javax.swing.JLabel gelb2;
-    private javax.swing.JLabel gelb3;
-    private javax.swing.JLabel gelb4;
-    private javax.swing.JLabel gruen1;
-    private javax.swing.JLabel gruen2;
-    private javax.swing.JLabel gruen3;
-    private javax.swing.JLabel gruen4;
     private javax.swing.JLabel gs1;
     private javax.swing.JLabel gs2;
     private javax.swing.JLabel gs3;
@@ -657,10 +564,6 @@ public class MADGUI extends javax.swing.JFrame {
     private javax.swing.JLabel gz4;
     private javax.swing.JLabel paf;
     private javax.swing.JLabel pef;
-    private javax.swing.JLabel pink1;
-    private javax.swing.JLabel pink2;
-    private javax.swing.JLabel pink3;
-    private javax.swing.JLabel pink4;
     private javax.swing.JLabel ps1;
     private javax.swing.JLabel ps2;
     private javax.swing.JLabel ps3;
@@ -671,10 +574,6 @@ public class MADGUI extends javax.swing.JFrame {
     private javax.swing.JLabel pz4;
     private javax.swing.JLabel raf;
     private javax.swing.JLabel ref;
-    private javax.swing.JLabel rot1;
-    private javax.swing.JLabel rot2;
-    private javax.swing.JLabel rot3;
-    private javax.swing.JLabel rot4;
     private javax.swing.JLabel rs1;
     private javax.swing.JLabel rs2;
     private javax.swing.JLabel rs3;
@@ -684,10 +583,6 @@ public class MADGUI extends javax.swing.JFrame {
     private javax.swing.JLabel rz3;
     private javax.swing.JLabel rz4;
     private javax.swing.JLabel saf;
-    private javax.swing.JLabel schwarz1;
-    private javax.swing.JLabel schwarz2;
-    private javax.swing.JLabel schwarz3;
-    private javax.swing.JLabel schwarz4;
     private javax.swing.JLabel sef;
     private javax.swing.JLabel ss1;
     private javax.swing.JLabel ss2;
@@ -707,7 +602,8 @@ public class MADGUI extends javax.swing.JFrame {
     private javax.swing.JLabel tz2;
     private javax.swing.JLabel tz3;
     private javax.swing.JLabel tz4;
-// End of variables declaration//GEN-END:variables
+    private javax.swing.JLabel wuerfel;
+    // End of variables declaration//GEN-END:variables
     private javax.swing.JLabel felder[];
     private Spiel dasSpiel;
     private Logger log;
