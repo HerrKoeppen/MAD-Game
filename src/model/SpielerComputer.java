@@ -63,47 +63,11 @@ public class SpielerComputer implements Spieler {
         this.Farbe = this.dasSpiel.Farben[id];
         log.log(objektname, "Spieler hat die Farbe: " + Farbe);
 
+        this.aFeld = this.dasSpiel.getSpielbrett().getAfelder()[this.id];
+        this.zeFeld = this.dasSpiel.getSpielbrett().getEfelder()[this.id];
+        this.zielfeld = this.dasSpiel.getSpielbrett().getZfelder()[this.id];
         
-            switch (Farbe.toLowerCase()) { // sehr uneleganter Switch: nochmal überarbeiten!!!!!!!
-            case "blau":
-                this.aFeld = this.dasSpiel.getSpielbrett().getFelder().get(0);
-                this.zeFeld = this.dasSpiel.getSpielbrett().getFelder().get(48);
-                this.zielfeld = this.dasSpiel.getSpielbrett().getFelder().get(49);
-                break;
-            case "rot":
-                this.aFeld = this.dasSpiel.getSpielbrett().getFelder().get(7);
-                this.zeFeld = this.dasSpiel.getSpielbrett().getFelder().get(6);
-                this.zielfeld = this.dasSpiel.getSpielbrett().getFelder().get(52);
-                break;
-            case "gruen":
-                this.aFeld = this.dasSpiel.getSpielbrett().getFelder().get(14);
-                this.zeFeld = this.dasSpiel.getSpielbrett().getFelder().get(13);
-                this.zielfeld = this.dasSpiel.getSpielbrett().getFelder().get(55);
-                break;
-            case "pink":
-                this.aFeld = this.dasSpiel.getSpielbrett().getFelder().get(21);
-                this.zeFeld = this.dasSpiel.getSpielbrett().getFelder().get(20);
-                this.zielfeld = this.dasSpiel.getSpielbrett().getFelder().get(58);
-                break;
-            case "gelb":
-                this.aFeld = this.dasSpiel.getSpielbrett().getFelder().get(28);
-                this.zeFeld = this.dasSpiel.getSpielbrett().getFelder().get(27);
-                this.zielfeld = this.dasSpiel.getSpielbrett().getFelder().get(61);
-                break;
-            case "schwarz":
-                this.aFeld = this.dasSpiel.getSpielbrett().getFelder().get(35);
-                this.zeFeld = this.dasSpiel.getSpielbrett().getFelder().get(34);
-                this.zielfeld = this.dasSpiel.getSpielbrett().getFelder().get(64);
-                break;
-            case "tuerkis":
-                this.aFeld = this.dasSpiel.getSpielbrett().getFelder().get(42);
-                this.zeFeld = this.dasSpiel.getSpielbrett().getFelder().get(41);
-                this.zielfeld = this.dasSpiel.getSpielbrett().getFelder().get(67);
-                break;
-
-            default:
-                break;
-        }
+           
         this.dasSpiel.spielfigurenVerteilen();
         String Figuren = " ";
         /*

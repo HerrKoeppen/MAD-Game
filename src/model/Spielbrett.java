@@ -30,6 +30,10 @@ public class Spielbrett {
      * alle Felder des Spielbrettes
      */
     private List<Feld> felder = new ArrayList<Feld>();
+    private Feld afelder[];
+    private Feld efelder[];
+    private Feld zfelder[];
+    private Feld endkreisfeld;
     private SpielbrettAusgabe Output;
     /**
      * alle Felder des Spielfeldes
@@ -131,9 +135,9 @@ public class Spielbrett {
         Feld standard10 = new Feld(log, "standard10", this, "Standardfeld", 6, 14, "weiss");
         Feld standard11 = new Feld(log, "standard11", this, "Standardfeld", 5, 15, "weiss");
         Feld standard12 = new Feld(log, "standard7", this, "Standardfeld", 4, 16, "weiss");
-        Feld zeFeldtuekis = new Feld(log, "zeFeldtuekis", this, "zeFeld", 5, 17, "weiss");
+        Feld zeFeldgruen = new Feld(log, "zeFeldgruen", this, "zeFeld", 5, 17, "weiss");
 
-        Feld tuekisAnfang = new Feld(log, "tuekisAnfang", this, "Anfangsfeld", 6, 18, "gruen");
+        Feld gruenAnfang = new Feld(log, "gruenAnfang", this, "Anfangsfeld", 6, 18, "gruen");
         Feld standard13 = new Feld(log, "standard13", this, "Standardfeld", 7, 17, "weiss");
         Feld standard14 = new Feld(log, "standard14", this, "Standardfeld", 8, 16, "weiss");
         Feld standard15 = new Feld(log, "standard15", this, "Standardfeld", 10, 16, "weiss");
@@ -183,10 +187,10 @@ public class Spielbrett {
         Feld rotZiel3 = new Feld(log, "rotZiel3", this, "Zielfeld", 3, 10, "rot");
         Feld rotZiel4 = new Feld(log, "rotZiel1", this, "Zielfeld", 4, 10, "rot");
         //erzeugt Zielfelder von gruen
-        Feld tuekisZiel1 = new Feld(log, "gruenZiel1", this, "Zielfeld", 6, 16, "gruen");
-        Feld tuekisZiel2 = new Feld(log, "gruenZiel2", this, "Zielfeld", 7, 15, "gruen");
-        Feld tuekisZiel3 = new Feld(log, "gruenZiel3", this, "Zielfeld", 8, 14, "gruen");
-        Feld tuekisZiel4 = new Feld(log, "gruenZiel1", this, "Zielfeld", 9, 13, "gruen");
+        Feld gruenZiel1 = new Feld(log, "gruenZiel1", this, "Zielfeld", 6, 16, "gruen");
+        Feld gruenZiel2 = new Feld(log, "gruenZiel2", this, "Zielfeld", 7, 15, "gruen");
+        Feld gruenZiel3 = new Feld(log, "gruenZiel3", this, "Zielfeld", 8, 14, "gruen");
+        Feld gruenZiel4 = new Feld(log, "gruenZiel1", this, "Zielfeld", 9, 13, "gruen");
         //erzeugt Zielfelder von pink
         Feld pinkZiel1 = new Feld(log, "pinkZiel1", this, "Zielfeld", 14, 16, "pink");
         Feld pinkZiel2 = new Feld(log, "pinkZiel2", this, "Zielfeld", 13, 15, "pink");
@@ -207,66 +211,77 @@ public class Spielbrett {
 
         
         //erzeugt startfelder von blau
-        Feld blauStart1 = new Feld(log, "blauStart1", this, "Startfeld", 13, 1, "blau");
-        Feld blauStart2 = new Feld(log, "blauStart2", this, "Startfeld", 15, 1, "blau");
-        Feld blauStart3 = new Feld(log, "blauStart3", this, "Startfeld", 14, 3, "blau");
+        Feld blauStart1 = new Feld(log, "blauStart1", this, "Startfeld", 2, 2, "blau");
+        Feld blauStart2 = new Feld(log, "blauStart2", this, "Startfeld", 2, 0, "blau");
+        Feld blauStart3 = new Feld(log, "blauStart3", this, "Startfeld", 0, 2, "blau");
+        Feld blauStart4 = new Feld(log, "blauStart4", this, "Startfeld", 0, 0, "blau");
         //erzeugt startfelder von rot
-        Feld rotStart1 = new Feld(log, "rotStart1", this, "Startfeld", 20, 8, "rot");
-        Feld rotStart2 = new Feld(log, "rotStart2", this, "Startfeld", 20, 10, "rot");
-        Feld rotStart3 = new Feld(log, "rotStart3", this, "Startfeld", 18, 9, "rot");
+        Feld rotStart1 = new Feld(log, "rotStart1", this, "Startfeld", 0, 18, "rot");
+        Feld rotStart2 = new Feld(log, "rotStart2", this, "Startfeld", 0, 20, "rot");
+        Feld rotStart3 = new Feld(log, "rotStart3", this, "Startfeld", 2, 18, "rot");
+        Feld rotStart4 = new Feld(log, "rotStart4", this, "Startfeld", 2, 20, "rot");
         //erzeugt startfelder von gruen
-        Feld gruenStart1 = new Feld(log, "gruenStart1", this, "Startfeld", 19, 17, "gruen");
-        Feld gruenStart2 = new Feld(log, "gruenStart2", this, "Startfeld", 18, 19, "gruen");
-        Feld gruenStart3 = new Feld(log, "gruenStart3", this, "Startfeld", 17, 17, "gruen");
+        Feld gruenStart1 = new Feld(log, "gruenStart1", this, "Startfeld", 9, 18, "gruen");
+        Feld gruenStart2 = new Feld(log, "gruenStart2", this, "Startfeld", 9, 20, "gruen");
+        Feld gruenStart3 = new Feld(log, "gruenStart3", this, "Startfeld", 11, 18, "gruen");
+        Feld gruenStart4 = new Feld(log, "gruenStart4", this, "Startfeld", 11, 20, "gruen");
         //erzeugt startfelder von pink
-        Feld pinkStart1 = new Feld(log, "pinkStart1", this, "Startfeld", 11, 24, "pink");
-        Feld pinkStart2 = new Feld(log, "pinkStart2", this, "Startfeld", 9, 24, "pink");
-        Feld pinkStart3 = new Feld(log, "pinkStart3", this, "Startfeld", 10, 22, "pink");
+        Feld pinkStart1 = new Feld(log, "pinkStart1", this, "Startfeld", 20, 18, "pink");
+        Feld pinkStart2 = new Feld(log, "pinkStart2", this, "Startfeld", 20, 20, "pink");
+        Feld pinkStart3 = new Feld(log, "pinkStart3", this, "Startfeld", 18, 18, "pink");
+        Feld pinkStart4 = new Feld(log, "pinkStart4", this, "Startfeld", 18, 20, "pink");
         //erzeugt startfelder von gelb
-        Feld gelbStart1 = new Feld(log, "gelbStart1", this, "Startfeld", 3, 17, "gelb");
-        Feld gelbStart2 = new Feld(log, "gelbStart2", this, "Startfeld", 2, 19, "gelb");
-        Feld gelbStart3 = new Feld(log, "gelbStart3", this, "Startfeld", 1, 17, "gelb");
+        Feld gelbStart1 = new Feld(log, "gelbStart1", this, "Startfeld", 18, 2, "gelb");
+        Feld gelbStart2 = new Feld(log, "gelbStart2", this, "Startfeld", 18, 0, "gelb");
+        Feld gelbStart3 = new Feld(log, "gelbStart3", this, "Startfeld", 20, 2, "gelb");
+        Feld gelbStart4 = new Feld(log, "gelbStart4", this, "Startfeld", 20, 0, "gelb");
         //erzeugt startfelder von schwarz
-        Feld schwarzStart1 = new Feld(log, "schwarzStart1", this, "Startfeld", 0, 8, "schwarz");
-        Feld schwarzStart2 = new Feld(log, "schwarzStart2", this, "Startfeld", 2, 9, "schwarz");
-        Feld schwarzStart3 = new Feld(log, "schwarzStart3", this, "Startfeld", 0, 10, "schwarz");
-        //erzeugt startfelder von tuerkis
-        Feld tuerkisStart1 = new Feld(log, "tuerkisStart1", this, "Startfeld", 5, 1, "tuerkis");
-        Feld tuerkisStart2 = new Feld(log, "tuerkisStart2", this, "Startfeld", 7, 1, "tuerkis");
-        Feld tuerkisStart3 = new Feld(log, "tuerkisStart3", this, "Startfeld", 6, 3, "tuerkis");
+        Feld schwarzStart1 = new Feld(log, "schwarzStart1", this, "Startfeld", 11, 2, "schwarz");
+        Feld schwarzStart2 = new Feld(log, "schwarzStart2", this, "Startfeld", 11, 0, "schwarz");
+        Feld schwarzStart3 = new Feld(log, "schwarzStart3", this, "Startfeld", 9, 2, "schwarz");
+        Feld schwarzStart4 = new Feld(log, "schwarzStart4", this, "Startfeld", 9, 0, "schwarz");
+        
 
         //public Spielfigur(String oname, Logger logger, Feld starterfeld, Spieler derSpieler) {
         Spielfigur Blau1 = new Spielfigur("Blau1",log, blauStart1 , 0, dasspiel);
         Spielfigur Blau2 = new Spielfigur("Blau2",log, blauStart2 , 0, dasspiel);
         Spielfigur Blau3 = new Spielfigur("Blau3",log, blauStart3 , 0, dasspiel);
+        Spielfigur Blau4 = new Spielfigur("Blau4",log, blauStart4 , 0, dasspiel);
         
         
         Spielfigur Rot1 = new Spielfigur("Rot1",log, rotStart1 , 1, dasspiel);
         Spielfigur Rot2 = new Spielfigur("Rot2",log, rotStart2 , 1, dasspiel);
         Spielfigur Rot3 = new Spielfigur("Rot3",log, rotStart3 ,1, dasspiel);
+        Spielfigur Rot4 = new Spielfigur("Rot4",log, rotStart4 ,1, dasspiel);
         
         Spielfigur Gruen1 = new Spielfigur("Gruen1",log, gruenStart1 , 2, dasspiel);
         Spielfigur Gruen2 = new Spielfigur("Gruen2",log, gruenStart2 , 2, dasspiel);
         Spielfigur Gruen3 = new Spielfigur("Gruen3",log, gruenStart3 , 2, dasspiel);
+        Spielfigur Gruen4 = new Spielfigur("Gruen4",log, gruenStart4 , 2, dasspiel);
       
         
         Spielfigur Pink1 = new Spielfigur("Pink1",log, pinkStart1 , 3, dasspiel);
         Spielfigur Pink2 = new Spielfigur("Pink2",log, pinkStart2 , 3, dasspiel);
         Spielfigur Pink3 = new Spielfigur("Pink3",log, pinkStart3 , 3, dasspiel);
+        Spielfigur Pink4 = new Spielfigur("Pink4",log, pinkStart4 , 3, dasspiel);
         
         Spielfigur Gelb1 = new Spielfigur("Gelb1",log, gelbStart1 , 4, dasspiel);
         Spielfigur Gelb2 = new Spielfigur("Gelb2",log, gelbStart2 , 4, dasspiel);
         Spielfigur Gelb3 = new Spielfigur("Gelb3",log, gelbStart3 , 4, dasspiel);
+        Spielfigur Gelb4 = new Spielfigur("Gelb4",log, gelbStart4 , 4, dasspiel);
         
         Spielfigur Schwarz1 = new Spielfigur("Schwarz1",log, schwarzStart1 , 5, dasspiel);
         Spielfigur Schwarz2 = new Spielfigur("Schwarz2",log, schwarzStart2 , 5, dasspiel);
         Spielfigur Schwarz3 = new Spielfigur("Schwarz3",log, schwarzStart3 , 5, dasspiel);
-        
-        Spielfigur Tuerkis1 = new Spielfigur("Tuerkis1",log, tuerkisStart1 , 6, dasspiel);
-        Spielfigur Tuerkis2 = new Spielfigur("Tuerkis2",log, tuerkisStart2 , 6, dasspiel);
-        Spielfigur Tuerkis3 = new Spielfigur("Tuerkis3",log, tuerkisStart3 , 6, dasspiel);
+        Spielfigur Schwarz4 = new Spielfigur("Schwarz4",log, schwarzStart4 , 5, dasspiel);
        
-        //public Wuerfel(Logger logger, String name, int wuerfelmin, int wuerfelmax, SpielbrettAusgabe out) {
+        Feld[] a = {blauAnfang, rotAnfang, gruenAnfang, pinkAnfang, gelbAnfang, schwarzAnfang};
+        this.afelder = a;
+        Feld[] e = {zeFeldblau, zeFeldrot, zeFeldgruen, zeFeldpink, zeFeldgelb, zeFeldschwarz};
+        this.efelder = e;
+        Feld[] z = {blauZiel1, rotZiel1, gruenZiel1, pinkZiel1, gelbZiel1, schwarzZiel1};
+        this.zfelder = z;
+        this.endkreisfeld = zeFeldblau;
         
         Wuerfel derWuerfel = new Wuerfel(log,"Wuerfel",1,6,this.Output);
         this.dasSpiel.setWuerfel(derWuerfel);
@@ -706,6 +721,22 @@ public class Spielbrett {
      */
     public SpielbrettAusgabe getOutput(){
     return Output;
+    }
+
+    public Feld[] getAfelder() {
+        return afelder;
+    }
+
+    public Feld[] getEfelder() {
+        return efelder;
+    }
+
+    public Feld[] getZfelder() {
+        return zfelder;
+    }
+
+    public Feld getEndkreisfeld() {
+        return endkreisfeld;
     }
     
     

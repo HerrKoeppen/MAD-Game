@@ -288,7 +288,7 @@ public class SpielbrettAusgabe {
      *
      * @see AnsiSpielbrett
      */
-    private final int groesseY = 25;
+    private final int groesseY = 21;
     /**
      * Die  SpielbrettAusgabe ist als eine 2-Dimensionales(groesseX * groesseY)
      * Tabelle abbgebildet. String[][] AnsiSpielbrett fungiert dabei wie
@@ -361,7 +361,7 @@ public class SpielbrettAusgabe {
                 }
             }
         }
-        this.blumeZeichnen();
+        //this.blumeZeichnen();
         this.Ansiausgabean = true;
     }
 
@@ -744,18 +744,22 @@ public class SpielbrettAusgabe {
      * @param augen
      */
     public void wuerfelausgeben(int augen) {
+       
+         int xmin = groesseX/2 -1;
+         int ymin = groesseY/2 -1;
          String farbe = ANSI_RESET + ANSI_bGrey ;
             if (vanilla) {
                 farbe = "";
             }
-        for (int i = 9; i < 12; i++) {
-            for (int k = 12; k < 15; k++) {
+        for (int i = xmin; i < (xmin + 3); i++) {
+            for (int k = ymin; k < (ymin + 3); k++) {
                 this.AnsiSpielbrett[i][k] = farbe + "  ";   //+ ANSI_fBlue ANSI_RESET
             }
-            String ccaption = "QQ";
+            String ccaption = "[]";
             Random rand = new Random();
             int fau = rand.nextInt(11);
-            farbe += this.fColor[fau];
+            //farbe += this.fColor[fau];
+            farbe += ANSI_fCyan;
             if (vanilla) {
                 farbe = "";
             }
@@ -763,42 +767,42 @@ public class SpielbrettAusgabe {
             switch (augen) {
                 case 1:
                     //farbe = farbe + ANSI_fBlue;
-                    this.AnsiSpielbrett[10][13] = farbe + ccaption;
+                    this.AnsiSpielbrett[xmin +1 ][ymin + 1] = farbe + ccaption;
                     break;
                 case 2:
                     //farbe = farbe + ANSI_fRed;
-                    this.AnsiSpielbrett[9][14] = farbe + ccaption;
-                    this.AnsiSpielbrett[11][12] = farbe + ccaption;
+                    this.AnsiSpielbrett[xmin][ymin + 2] = farbe + ccaption;
+                    this.AnsiSpielbrett[xmin + 2][ymin] = farbe + ccaption;
                     break;
                 case 3:
                     //farbe = farbe + ANSI_fCyan;
-                    this.AnsiSpielbrett[9][14] = farbe + ccaption;
-                    this.AnsiSpielbrett[11][12] = farbe + ccaption;
-                    this.AnsiSpielbrett[10][13] = farbe + ccaption;
+                    this.AnsiSpielbrett[xmin][ymin + 2 ] = farbe + ccaption;
+                    this.AnsiSpielbrett[xmin + 2][ymin] = farbe + ccaption;
+                    this.AnsiSpielbrett[xmin + 1][ymin + 1] = farbe + ccaption;
                     break;
                 case 4:
                     //farbe = farbe + ANSI_fPurpel;
-                    this.AnsiSpielbrett[9][14] = farbe + ccaption;
-                    this.AnsiSpielbrett[11][12] = farbe + ccaption;
-                    this.AnsiSpielbrett[9][12] = farbe + ccaption;
-                    this.AnsiSpielbrett[11][14] = farbe + ccaption;
+                    this.AnsiSpielbrett[xmin][ymin + 2] = farbe + ccaption;
+                    this.AnsiSpielbrett[xmin + 2][ymin] = farbe + ccaption;
+                    this.AnsiSpielbrett[xmin][ymin] = farbe + ccaption;
+                    this.AnsiSpielbrett[xmin + 2][ymin + 2 ] = farbe + ccaption;
                     break;
                 case 5:
                     //farbe = farbe + ANSI_fYellow;
-                    this.AnsiSpielbrett[10][13] = farbe + ccaption;
-                    this.AnsiSpielbrett[9][14] = farbe + ccaption;
-                    this.AnsiSpielbrett[11][12] = farbe + ccaption;
-                    this.AnsiSpielbrett[9][12] = farbe + ccaption;
-                    this.AnsiSpielbrett[11][14] = farbe + ccaption;
+                    this.AnsiSpielbrett[xmin + 1][ymin + 1] = farbe + ccaption;
+                    this.AnsiSpielbrett[xmin][ymin + 2] = farbe + ccaption;
+                    this.AnsiSpielbrett[xmin + 2][ymin] = farbe + ccaption;
+                    this.AnsiSpielbrett[xmin][ymin] = farbe + ccaption;
+                    this.AnsiSpielbrett[xmin + 2][ymin +2] = farbe + ccaption;
                     break;
                 case 6:
                     //farbe = farbe + ANSI_fGreen;
-                    this.AnsiSpielbrett[9][14] = farbe + ccaption;
-                    this.AnsiSpielbrett[11][12] = farbe + ccaption;
-                    this.AnsiSpielbrett[9][12] = farbe + ccaption;
-                    this.AnsiSpielbrett[11][14] = farbe + ccaption;
-                    this.AnsiSpielbrett[10][12] = farbe + ccaption;
-                    this.AnsiSpielbrett[10][14] = farbe + ccaption;
+                    this.AnsiSpielbrett[xmin][ymin +2] = farbe + ccaption;
+                    this.AnsiSpielbrett[xmin + 2][ymin] = farbe + ccaption;
+                    this.AnsiSpielbrett[xmin][ymin] = farbe + ccaption;
+                    this.AnsiSpielbrett[xmin + 2 ][ymin + 2] = farbe + ccaption;
+                    this.AnsiSpielbrett[xmin + 1][ymin] = farbe + ccaption;
+                    this.AnsiSpielbrett[xmin + 1][ymin + 2] = farbe + ccaption;
 
                     break;
                 default:
@@ -807,6 +811,7 @@ public class SpielbrettAusgabe {
 
         }
     }
+
 
     /**
      * Aendert einen Zelleneintrag im Buffer
@@ -926,7 +931,7 @@ public class SpielbrettAusgabe {
         //das Spiel
         Spiel test = new Spiel(log, "testSpiel", 6);
         // die 7 mitspieler
-        Spieler ego = new SpielerMensch("Egon", log, test);
+        
         test.spielen();
         //eine Proto-Spielschleife
         

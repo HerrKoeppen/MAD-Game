@@ -197,7 +197,7 @@ public class Spielfigur {
                 }
             case "afeld":
             case "standardfeld":
-                if (Baka.getID() == 48) {
+                if (Baka.getID() == this.team.getSpiel().getSpielbrett().getEndkreisfeld().getID()) {
                     return this.team.getSpiel().getSpielbrett().getFelder().get(0);
                 }
                 return this.team.getSpiel().getSpielbrett().getFelder().get(Baka.getID() + 1);
