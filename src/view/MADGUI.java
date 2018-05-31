@@ -9,6 +9,8 @@ import javax.swing.ImageIcon;
 import model.Feld;
 import model.Logger;
 import model.Spiel;
+import model.Spielfigur;
+import model.SpielerMensch;
 
 /**
  *
@@ -51,7 +53,9 @@ public class MADGUI extends javax.swing.JFrame {
 
     public void setzeFelderNachModel() {
         felder = new javax.swing.JLabel[96];
+       
         felder[0] = baf;
+        
         felder[1] = f2;
         felder[2] = f3;
         felder[3] = f4;
@@ -61,6 +65,7 @@ public class MADGUI extends javax.swing.JFrame {
         
         felder[7] = ref;
         felder[8] = raf;
+        
         felder[9] = f10;
         felder[10] = f11;
         felder[11] = f12;
@@ -70,6 +75,7 @@ public class MADGUI extends javax.swing.JFrame {
         
         felder[15] = tef;
         felder[16] = taf;
+        
         felder[17] = f18;
         felder[18] = f19;
         felder[19] = f20;
@@ -79,6 +85,7 @@ public class MADGUI extends javax.swing.JFrame {
         
         felder[23] = pef;
         felder[24] = paf;
+        
         felder[25] = f26;
         felder[26] = f27;
         felder[27] = f28;
@@ -88,6 +95,7 @@ public class MADGUI extends javax.swing.JFrame {
         
         felder[31] = gef;
         felder[32] = gaf;
+        
         felder[33] = f34;
         felder[34] = f35;
         felder[35] = f36;
@@ -97,6 +105,7 @@ public class MADGUI extends javax.swing.JFrame {
         
         felder[39] = sef;
         felder[40] = saf;
+        
         felder[41] = f42;
         felder[42] = f43;
         felder[43] = f44;
@@ -298,20 +307,16 @@ public class MADGUI extends javax.swing.JFrame {
         ss3 = new javax.swing.JLabel();
         ss4 = new javax.swing.JLabel();
         Spielbrett = new javax.swing.JLabel();
-		/*javax.swing.JLabel [] felder =  {
-            baf, f2, f3, f4, f5, f6, f7, ref, raf, f10, f11, f12, f13, f14, f15,
-            tef, taf, f18, f19, f20, f21, f22, f23, pef, paf, f26, f27, f28, f29,
-            f30, f31, gef, gaf, f34, f35, f36, f37, f38, f39, sef, saf, f42, f43,
-            f44, f45, f46, f47, bef, bz1, bz2, bz3, bz4, rz1, rz2, rz3, rz4, tz1, 
-            tz2, tz3, tz4, pz1, pz2, pz3, pz4, gz1, gz2, gz3, gz4,sz1, sz2, sz3,
-            sz4, bs1, bs2, bs3, bs4, rs1, rs2, rs3, rs4, ts1, ts2, ts3, ts4, ps1,
-            ps2, ps3, ps4, gs1, gs2, gs3, gs4, ss1, ss2, ss3, ss4
-        };
-			*/
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         blau1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Spielfigur_blau.png"))); // NOI18N
+        blau1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                blau1MouseClicked(evt);
+            }
+        });
         getContentPane().add(blau1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
 
         blau2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Spielfigur_blau.png"))); // NOI18N
@@ -493,11 +498,23 @@ public class MADGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void blau1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_blau1MouseClicked
+           // blau1 bewegt sich als einzige Figur in Team Blau 
+           // sollte bei Blau noch einmal gewuerfelt werden, dann kann 
+           // nach den Prioritaeten wieder eine blaue Figur ausgewaehlt werden
+
+          // diese Methode kann fuer jede Figur des Spiels angewandt werden, sofern
+          // dies im interesse liegt
+
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_blau1MouseClicked
+
     public void darstellungAnzeigen() {
         for (int i = 0; i < 90; i++) {
-            if (i != 41 && i != 42 && i != 43 && i != 44 && i != 45 && i != 46 && i != 47 && i != 67 && i != 68 && i != 69 && i != 88 && i != 89 && i != 90) {
+            //if (i != 41 && i != 42 && i != 43 && i != 44 && i != 45 && i != 46 && i != 47 && i != 67 && i != 68 && i != 69 && i != 88 && i != 89 && i != 90) {
                 anpassen(dasSpiel.getSpielbrett().getFelder().get(i), i);
-            }
+            //}
         }
         repaint();
     }
@@ -707,7 +724,7 @@ public class MADGUI extends javax.swing.JFrame {
     private javax.swing.JLabel tz2;
     private javax.swing.JLabel tz3;
     private javax.swing.JLabel tz4;
-// End of variables declaration//GEN-END:variables
+    // End of variables declaration//GEN-END:variables
     private javax.swing.JLabel felder[];
     private Spiel dasSpiel;
     private Logger log;

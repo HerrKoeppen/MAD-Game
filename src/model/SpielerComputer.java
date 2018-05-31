@@ -43,9 +43,9 @@ public class SpielerComputer implements Spieler {
      */
     private Spiel dasSpiel;
     /**
-     * Eine Liste mit 3 Spielfiguren.
+     * Eine Liste mit 4 Spielfiguren.
      */
-    public Spielfigur[] Spielfiguren = new Spielfigur[3];
+    public Spielfigur[] Spielfiguren = new Spielfigur[4];
     private int gezogen = 0;
 
     /**
@@ -114,7 +114,7 @@ public class SpielerComputer implements Spieler {
             }
         }
         * **/
-        for (int k = 0; k < 3; k++) {
+        for (int k = 0; k < 4; k++) {
             if (this.Spielfiguren[k] == null) {
                 Figuren = "Error";
                 break;
@@ -138,7 +138,7 @@ public class SpielerComputer implements Spieler {
      */
     public void setSpielfigur(Spielfigur dieSpielfigur) {
         log.log(objektname, "Methode setSpielfigur() gestartet mit Parameter " + dieSpielfigur + " .");
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 4; i++) {
             if (Spielfiguren[i] == null) {
                 Spielfiguren[i] = dieSpielfigur;
                 log.log(objektname, "Methode setSpielfigur() beendet.");
@@ -183,13 +183,13 @@ public class SpielerComputer implements Spieler {
         if (this.hatGewonnen()) {
             return 1;
         }
-        if (this.gezogen < 3) {
+        if (this.gezogen < 4) {
 
             //habe ich nur Spielfiguren im Startkreis
             if (this.alleSpielerImStartkreis()) {
                 //-> ja, dann bis zu dreimal würfeln und hoffe auf eine 6
-                for (int i = 0; i < 3; i++) {
-                    System.out.println(this.objektname + " darf noch " + (3 - i) + " mal wuerfeln.");
+                for (int i = 0; i < 4; i++) {
+                    System.out.println(this.objektname + " darf noch " + (4 - i) + " mal wuerfeln.");
 
                     // ist es eine 6?
                     if (this.wuerfeln() == 6) {
