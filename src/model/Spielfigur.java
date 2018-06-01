@@ -93,10 +93,12 @@ public class Spielfigur {
      */
     public Spielfigur(Feld starterfeld, int SpielerId, Spiel dasSpiel) {
         this.Spielerid = SpielerId;
-        this.startfeld = starterfeld;
+        this.startfeld = starterfeld;       
         this.positionX = this.startfeld.getPositionX();
         this.positionY = this.startfeld.getPositionY();
         this.aktfeld = this.startfeld;
+        this.aktfeld.setIstBesetzt(true);
+        this.aktfeld.setHausbesetzer(this);
         this.feldnummer = this.startfeld.getID();
         this.aufafeld = false;
         this.aufspielfeld = false;

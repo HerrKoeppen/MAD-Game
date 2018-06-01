@@ -11,6 +11,7 @@ import model.Logger;
 import model.Spiel;
 import model.Spielfigur;
 import model.SpielerMensch;
+import javax.xml.stream.XMLEventReader;
 
 /**
  *
@@ -395,28 +396,28 @@ public class MADGUI extends javax.swing.JFrame {
         schwarz4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Spielfigur_schwarz.png"))); // NOI18N
         schwarz4.setToolTipText("");
         getContentPane().add(schwarz4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 40, 60));
-        getContentPane().add(baf, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 50, 50));
-        getContentPane().add(f2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, 50, 50));
-        getContentPane().add(f3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 230, 50, 50));
-        getContentPane().add(f4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 200, 50, 50));
-        getContentPane().add(f5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 180, 50, 50));
-        getContentPane().add(f6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, 50, 50));
-        getContentPane().add(f7, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, 50, 50));
-        getContentPane().add(ref, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, 50, 50));
-        getContentPane().add(raf, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, 50, 50));
-        getContentPane().add(f10, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 140, 50, 50));
-        getContentPane().add(f11, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 180, 50, 50));
-        getContentPane().add(f12, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 210, 50, 50));
-        getContentPane().add(f13, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 230, 50, 50));
-        getContentPane().add(f14, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 210, 50, 50));
-        getContentPane().add(f15, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 180, 50, 50));
-        getContentPane().add(tef, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 220, 50, 50));
-        getContentPane().add(taf, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 270, 50, 50));
-        getContentPane().add(f18, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 290, 50, 50));
-        getContentPane().add(f19, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 310, 50, 50));
-        getContentPane().add(f20, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 360, 50, 50));
-        getContentPane().add(f21, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 410, 50, 50));
-        getContentPane().add(f22, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 430, 50, 50));
+        getContentPane().add(baf, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, 50, 90));
+        getContentPane().add(f2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, 50, 90));
+        getContentPane().add(f3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, 50, 100));
+        getContentPane().add(f4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, 50, 100));
+        getContentPane().add(f5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, 50, 70));
+        getContentPane().add(f6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 120, 50, 70));
+        getContentPane().add(f7, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, 50, 90));
+        getContentPane().add(ref, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, 50, 70));
+        getContentPane().add(raf, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, 50, 80));
+        getContentPane().add(f10, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 120, 50, 70));
+        getContentPane().add(f11, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 150, 50, 80));
+        getContentPane().add(f12, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 180, 50, 80));
+        getContentPane().add(f13, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 190, 50, 90));
+        getContentPane().add(f14, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 170, 50, 90));
+        getContentPane().add(f15, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 140, 50, 90));
+        getContentPane().add(tef, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 180, 50, 90));
+        getContentPane().add(taf, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 230, 50, 90));
+        getContentPane().add(f18, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 250, 50, 90));
+        getContentPane().add(f19, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 280, 50, 80));
+        getContentPane().add(f20, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 320, 50, 90));
+        getContentPane().add(f21, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 380, 50, 80));
+        getContentPane().add(f22, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 400, 50, 80));
         getContentPane().add(f23, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 460, 50, 50));
         getContentPane().add(pef, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 500, 40, 40));
         getContentPane().add(paf, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 540, 40, 40));
@@ -522,8 +523,10 @@ public class MADGUI extends javax.swing.JFrame {
     public void anpassen(Feld f, int index) {
         felder[index].setVisible(true);
         if (!f.getIstBesetzt()) {
+
             felder[index].setVisible(false);
             return;
+            
         }
         if (f.getHausbesetzer().getTeam().getfarbe().equalsIgnoreCase("blau")) {
             ImageIcon icon = new ImageIcon(getClass().getResource("/view/Spielfigur_blau.png"));
@@ -560,6 +563,7 @@ public class MADGUI extends javax.swing.JFrame {
             felder[index].setIcon(icon);
             return;
         }
+        
 
     }
 

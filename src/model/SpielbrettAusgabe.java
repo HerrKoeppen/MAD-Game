@@ -56,6 +56,30 @@ import java.util.Random;
  *                R0  R1  we::ga                    
  *                                                                      @Johanna
  */
+/**
+ *bs  bs          ws  we  ra          rs  rs
+ *                    rz                    
+ *bs  bs          ws  rz  ws          rs  rs
+ *                    rz                    
+ *        ba      ws  rz  ws      ws        
+ *      be  ws  ws          ws  ws  we      
+ *    ws  bz  ws              ws  gz  ga    
+ *      ws  bz                  gz  ws      
+ *        ws  bz              gz  ws        
+ *ss  ss        bz          gz        gs  gs
+ *        ws                      ws        
+ *ss  ss        sz          pz        gs  gs
+ *        ws  sz              pz  ws        
+ *      ws  sz                  pz  ws      
+ *    sa  sz  ws              ws  pz  ws    
+ *      we  ws  ws          ws  ws  we      
+ *        ws      ws  yz  ws      pa        
+ *                    yz                    
+ *ys  ys          ws  yz  wz          ps  ps
+ *                    yz                    
+ *ys  ys          ya  we  ws          ps  ps
+ *                                                                      @koeppen
+ */
 
 /**
  * Klasse SpielbrettAusgabe. Diese Klasse erzeugt eine einfache interaktive
@@ -919,45 +943,5 @@ public class SpielbrettAusgabe {
         return objektname;
     }
 
-    /**
-     * Test-methode zur simulierung eines Spieles. 
-     *
-     * @param args
-     */
-    public static void main(String args[]) {
-        //while(){
-        //der Schreiberling
-        Logger log = new Logger("SherLog.txt");
-        //das Spiel
-        Spiel test = new Spiel(log, "testSpiel", 6);
-        // die 7 mitspieler
-        
-        test.spielen();
-        //eine Proto-Spielschleife
-        
-        
-        
-        /*
-        tester.getSpielfiguren()[0].setzten(test.dasSpielbrett.getFelder().get(12));
-        tester.getSpielfiguren()[1].setzten(test.dasSpielbrett.getFelder().get(6));
-        tester.getSpielfiguren()[2].setzten(test.dasSpielbrett.getFelder().get(7));
-        tester3.getSpielfiguren()[0].setzten(test.dasSpielbrett.getFelder().get(8));
-        tester3.getSpielfiguren()[1].setzten(test.dasSpielbrett.getFelder().get(9));
-        tester3.getSpielfiguren()[2].setzten(test.dasSpielbrett.getFelder().get(10));
-        tester4.getSpielfiguren()[0].setzten(test.dasSpielbrett.getFelder().get(11));
-        test.output.spielAusgabe();
-        tester2.getSpielfiguren()[0].herauskommen();
-        
-        System.out.println("BLAU0 " + tester.getSpielfiguren()[0].getFeldnummer());
-        System.out.println("BLAU1 " + tester.getSpielfiguren()[1].getFeldnummer());
-        System.out.println("BLAU2 " + tester.getSpielfiguren()[2].getFeldnummer());
-        System.out.println("Gruen0 " + tester3.getSpielfiguren()[0].getFeldnummer());
-        System.out.println("Gruen1 " + tester3.getSpielfiguren()[1].getFeldnummer());
-        System.out.println("Gruen2 " + tester3.getSpielfiguren()[2].getFeldnummer());
-        System.out.println("BLAU " + tester4.getSpielfiguren()[2].getFeldnummer());
-/*/
-        
-        
-    //}
-    }
+    
 }

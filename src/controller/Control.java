@@ -27,15 +27,15 @@ public class Control {
         //GUI starten
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MADGUI().setVisible(true);
+                gui.setVisible(true);
             }
         });
         gui.darstellungAnzeigen();
         while (dasSpiel.spieleEinenZug()!=1){
-            gui.darstellungAnzeigen();
+         
             
             try {
-                Thread.sleep(1000);
+                Thread.sleep(10);
             } catch (InterruptedException ex) {
                 java.util.logging.Logger.getLogger(Control.class.getName()).log(Level.SEVERE, null, ex);
             }
