@@ -396,6 +396,11 @@ public class SpielbrettAusgabe {
      */
     public void feldeinfuegen(Feld dasFeld) {
         log.log(objektname, "Methode feldeinfuegen() gestartet mit parameter " + dasFeld + ".");
+        if(dasFeld.getIstBesetzt())
+        {
+            this.SpielerSetzen(dasFeld.getHausbesetzer());
+            return;
+        }
         String farbe = "s";
         String Caption = "w";
         switch (dasFeld.getFarbe().toLowerCase()) { // sehr netter Switch der den Typ des Feldes festlegt
@@ -930,6 +935,15 @@ public class SpielbrettAusgabe {
         }
         log.log(objektname, "Methodenrückgabe: " + false);
         log.log(objektname, "Methode SpielerSetzen() beendet.");
+    }
+    
+    public void akt() {
+        for (int i = 0; i < 90; i++) {
+            //if (i != 41 && i != 42 && i != 43 && i != 44 && i != 45 && i != 46 && i != 47 && i != 67 && i != 68 && i != 69 && i != 88 && i != 89 && i != 90) {
+                this.feldeinfuegen(dasSpiel.getSpielbrett().getFelder().get(i));
+            //}
+        }
+        
     }
 
     /**

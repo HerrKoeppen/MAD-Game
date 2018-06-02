@@ -22,28 +22,35 @@ public class Control {
     
     public Control(){
         log = new Logger();
-        dasSpiel = new Spiel(log, "Das Spiel", 6);
+        dasSpiel = new Spiel(log, "Das Spiel", 6 , this);
         gui = new MADGUI(log,dasSpiel);
         //GUI starten
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                gui.setVisible(true);
-            }
-        });
+        
+        gui.setVisible(true);
+           
         gui.darstellungAnzeigen();
         while (dasSpiel.spieleEinenZug()!=1){
          
             
             try {
-                Thread.sleep(10);
+                Thread.sleep(100);
             } catch (InterruptedException ex) {
                 java.util.logging.Logger.getLogger(Control.class.getName()).log(Level.SEVERE, null, ex);
             }
+            gui.darstellungAnzeigen();
         }
     }
     
-    public void wuerfelwaehlen(){
-    
+    public void aktualisieren(){
+        
+         
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException ex) {
+                java.util.logging.Logger.getLogger(Control.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        gui.darstellungAnzeigen();
+        this.dasSpiel.output.akt();
     
     }
     public static void main(String[] args){

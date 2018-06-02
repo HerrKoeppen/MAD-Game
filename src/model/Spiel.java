@@ -5,8 +5,9 @@
  */
 package model;
 
-import java.util.Arrays;
 
+import java.util.Arrays;
+import controller.Control;
 /**
  * Die Klasse Spiel verwaltet die Variablen die fuer den generellen Spielablauf
  * wichtig sind:
@@ -41,6 +42,7 @@ public class Spiel {
     private Logger log;
     private Wuerfel derWuerfel;
     public SpielbrettAusgabe output;
+    public Control c;
     /**
      * array mit allen moeglichen farben, die reinfolge ist folgende: Blau, Rot,
      * GrÃ¼n, Pink, Gelb, Schwarz, Tuerkis und wird bei allen möglichen
@@ -49,10 +51,11 @@ public class Spiel {
      */
     public final String[] Farben = {"blau", "rot", "gruen", "pink", "gelb", "schwarz", "tuerkis"};
 
-    public Spiel(Logger logger, String oname, int diebotanzahl) {
+    public Spiel(Logger logger, String oname, int diebotanzahl , Control co) {
 
         //setBotAnzahl(BotAnzahl);
         SpielStarten(logger, oname, diebotanzahl);
+        this.c = co;
         //spielen();
         log.log(objektname, "Konstrucktor Spiel() beendet.");
     }

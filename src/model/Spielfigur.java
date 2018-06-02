@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package model;
+import controller.Control;
 
 /**
  * Klasse Spielfigur erzeugt einezelne Spielfiguren und verwaltet deren
@@ -265,7 +266,7 @@ public class Spielfigur {
      */
     public int setzten(Feld zielfeld) {
         log.log(objektname, "Methode setzen() gestartet.");
-        this.team.getSpiel().getoutput().feldeinfuegen(this.aktfeld);
+       
         this.aktfeld.setIstBesetzt(false);
         this.aktfeld.setHausbesetzer(null);
         this.aktfeld = zielfeld;
@@ -302,7 +303,7 @@ public class Spielfigur {
 
         this.aktfeld.setIstBesetzt(true);
         this.aktfeld.setHausbesetzer(this);
-        this.team.getSpiel().getoutput().SpielerSetzen(this);
+        this.team.getSpiel().c.aktualisieren();
         log.log(objektname, "Methode setzen() beendet.");
         log.log(objektname, "Methodenrückgabe: " + 0);
         return 0;
