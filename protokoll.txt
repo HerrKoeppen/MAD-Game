@@ -1,0 +1,69 @@
+Protokoll: MAD-GAME
+
+Das Spiel "Mensch Ärgere dich nicht" wird in dieser Version mit sechs Spielern 
+(in einer späteren Fassung vielleicht mit sieben Spielern) gespielt. Sollten sich
+aber nicht sechs Spieler für das Spiel finden, so werden "Bots" eingesetzt.
+
+Jeder Spieler hat vier Spielfiguren einer Farbe, die bei Beginn des Spiels alle 
+auf ihren Startfeldern stehen. 
+
+Das Ziel des Spieles besteht darin, die vier eigenen Spielfiguren von den Startfeldern auf 
+die Zielfelder zu ziehen. Dazu müssen die Figuren das Spielbrett einmal umrunden. 
+Über die Anzahl der zu ziehenden Felder pro Runde entscheidet ein Würfel. 
+Es wird reihum gewürfelt und gesetzt.
+
+Infos zum Spielbrett:
+
+Das Spielbrett besteht aus Startfeldern, Zielfeldern, Anfangsfeldern, Standardfeldern und 
+Zieleintrittsfeldern. Die Start-, Ziel- und Anfangsfelder sind in der entsprechenden Farbe
+der jeweiligen dazugehörenden Spielfiguren gefärbt. 
+Jedes Team besteht aus vier Figuren einer Farbe. Für jede Spielfigur gibt es also ein Startfeld
+außerhalb des Spielkreises und ein Zielfeld im Inneren des Spielkreises in der eigenen Farbe.
+Das erste Feld, das eine Figur aktiv betritt, ist das Anfangsfeld, das letzte das Zielfeld. 
+
+Infos zum Spielverlauf:
+
+Zuallererst wird das Spielfeld mit allen 24 Spielfiguren erstellt. Auch der Würfel ist dabei. 
+Dafür sucht sich jeder Spieler eine Farbe aus, sollten es weniger als sechs menschliche Spieler 
+sein, gibt man die Anzahl der Bots an, die benötigt wird, um das Spiel starten zu können.
+ 
+Team Blau beginnt das Spiel. Der Spieler hat drei Versuche, um eine sechs zu würfeln. 
+Wird keine sechs gewürfelt, ist der nächste Spieler dran. Sollte der Spieler aber eine sechs
+würfeln, so wird die erste Spielfigur aus dem Startkreis auf das blaue Anfangsfeld gesetzt.
+Nun würfelt der Spieler erneut, um die Anzahl der Schritte festzulegen, die die Figur laufen
+soll. Das Startfeld muss so schnell wie möglich frei gemacht werden, damit weitere Figuren in
+den nächsten Zügen nachrücken können. Hat er jedoch keine Figur mehr in der Startposition, 
+so steht es ihm frei, die erwürfelten sechs Felder mit einer Figur seiner Wahl vorzurücken.
+Die Figuren laufen im Uhrzeigersinn. 
+Nach diesem Zug sind Team Rot, Team Grün, Team Pink, Team Gelb und Team Schwarz in dieser
+Reihenfolge dran.
+
+
+Kommt beim Umlauf eine Spielfigur auf ein Feld, das bereits von einer gegnerischen 
+Spielfigur besetzt ist, gilt die gegnerische Figur als geschlagen und muss zurück auf 
+ihre Startposition.
+Eigene Figuren können nicht geschlagen werden: Ist das Zielfeld bereits mit einer eigenen 
+Figur besetzt, darf der Zug weder ausgeführt noch neu gewürfelt werden, sondern es ist der 
+nächste Spieler an der Reihe.
+
+Hat ein Spieler mehrere Spielfiguren im Umlauf, kann er frei entscheiden, mit welcher 
+er ziehen möchte. Ein Würfelwurf darf allerdings nicht auf mehrere Figuren aufgeteilt werden.  
+
+Im Laufe des Spiel muss man folgende Prioritäten beachten:
+
+1. Schlagpflicht (wichtigste Pflicht) 
+2. Figur von A-Feld wegsetzen, sofern noch Figuren im Startkreis 
+3. Figur von Startfeld auf A-Feld, bei 6 
+4. Einruecken in Zielfeld
+
+Falls mehrere Figuren bei einem Zug in Frage kommen, handelt man nach diesen Prioritäten,
+wobei die erste, die Schlagpflicht, die wichtigste ist.
+Sollte bei keiner der eigenen Figuren im Spielkreis die obigen Situationen vorkommen, so kann
+sich der Spieler seine Figur frei aussuchen.
+
+Kommt eine Spielfigur dem Zielbereich näher, muss die genaue Augenzahl gewürfelt werden, um
+auf ein Zielfeld zu kommen. Steht man zum Beispiel auf dem Zieleintrittsfeld und würfelt eine
+Sechs, so muss man warten, bis man wieder an der Reihe ist, um erneut würfeln zu können.
+
+Gewonnen hat der Spieler, dessen Figuren sich alle auf den Zielfeldern befinden.
+
