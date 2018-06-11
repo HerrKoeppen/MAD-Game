@@ -29,6 +29,7 @@ public class MADGUI extends javax.swing.JFrame {
         log = logger;
         dasSpiel = spiel;
         setzeFelderNachModel();
+        this.WuerfelReset();
         this.darstellungAnzeigen();
     }
     
