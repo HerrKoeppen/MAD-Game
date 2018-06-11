@@ -281,11 +281,7 @@ public class MADGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        rot2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Spielfigur_rot.png"))); // NOI18N
         getContentPane().add(rot2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 20, -1, -1));
-
-        rot3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Spielfigur_rot.png"))); // NOI18N
         getContentPane().add(rot3, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 70, -1, -1));
         getContentPane().add(baf, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, 50, 90));
         getContentPane().add(f2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, 50, 90));
