@@ -284,6 +284,8 @@ public class MADGUI extends javax.swing.JFrame {
         die4 = new javax.swing.JLabel();
         die5 = new javax.swing.JLabel();
         die6 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextAreaSpielverlauf = new javax.swing.JTextArea();
         Spielbrett = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -404,6 +406,15 @@ public class MADGUI extends javax.swing.JFrame {
 
         die6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/die6.png"))); // NOI18N
         getContentPane().add(die6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 330, -1, -1));
+
+        jScrollPane1.setName(""); // NOI18N
+
+        jTextAreaSpielverlauf.setColumns(20);
+        jTextAreaSpielverlauf.setRows(5);
+        jTextAreaSpielverlauf.setText("Spielverlauf");
+        jScrollPane1.setViewportView(jTextAreaSpielverlauf);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 0, 280, 460));
 
         Spielbrett.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/768px-Dontworry6.svg.png"))); // NOI18N
         getContentPane().add(Spielbrett, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -533,6 +544,8 @@ public class MADGUI extends javax.swing.JFrame {
     private javax.swing.JLabel gz2;
     private javax.swing.JLabel gz3;
     private javax.swing.JLabel gz4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextAreaSpielverlauf;
     private javax.swing.JLabel paf;
     private javax.swing.JLabel pef;
     private javax.swing.JLabel ps1;
