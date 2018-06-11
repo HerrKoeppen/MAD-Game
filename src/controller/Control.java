@@ -49,6 +49,7 @@ public class Control {
             } catch (InterruptedException ex) {
                 java.util.logging.Logger.getLogger(Control.class.getName()).log(Level.SEVERE, null, ex);
             }
+        gui.WuerfelAusgeben(dasSpiel.getWuerfel().getZahl());
         gui.darstellungAnzeigen();
         this.dasSpiel.output.akt();
     

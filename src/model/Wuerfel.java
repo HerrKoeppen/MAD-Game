@@ -33,6 +33,8 @@ public class Wuerfel {
      */
     private int max;
     private SpielbrettAusgabe output;
+    
+    
 
     /**
      * kostruktor:erzeugt ein Objekt der klasse wuerfel

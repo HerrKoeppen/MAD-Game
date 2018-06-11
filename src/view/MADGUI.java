@@ -312,7 +312,7 @@ public class MADGUI extends javax.swing.JFrame {
         getContentPane().add(f20, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 320, 50, 90));
         getContentPane().add(f21, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 380, 50, 80));
         getContentPane().add(f22, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 400, 50, 80));
-        getContentPane().add(f23, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 420, 50, 90));
+        getContentPane().add(f23, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 290, 50, 90));
         getContentPane().add(pef, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 450, 50, 90));
         getContentPane().add(paf, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 490, 50, 90));
         getContentPane().add(f26, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 480, 50, 90));
@@ -362,18 +362,18 @@ public class MADGUI extends javax.swing.JFrame {
         getContentPane().add(sz2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 420, 50, 80));
         getContentPane().add(sz3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 390, 50, 90));
         getContentPane().add(sz4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 380, 50, 70));
-        getContentPane().add(bs1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 50, 70));
-        getContentPane().add(bs2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 50, 70));
-        getContentPane().add(bs3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 50, 80));
-        getContentPane().add(bs4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 50, 70));
-        getContentPane().add(rs1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 40, 50, 80));
-        getContentPane().add(rs2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 30, 50, 80));
-        getContentPane().add(rs3, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 90, 50, 80));
-        getContentPane().add(rs4, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 90, 50, 80));
+        getContentPane().add(bs1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 50, 70));
+        getContentPane().add(bs2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 50, 70));
+        getContentPane().add(bs3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 50, 80));
+        getContentPane().add(bs4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, 50, 70));
+        getContentPane().add(rs1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 0, 50, 80));
+        getContentPane().add(rs2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 0, 50, 80));
+        getContentPane().add(rs3, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 60, 50, 80));
+        getContentPane().add(rs4, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 50, 50, 80));
         getContentPane().add(ts1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 300, 50, 70));
         getContentPane().add(ts2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 290, 50, 80));
-        getContentPane().add(ts3, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 390, 50, 80));
-        getContentPane().add(ts4, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 390, 50, 80));
+        getContentPane().add(ts3, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 360, 50, 80));
+        getContentPane().add(ts4, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 360, 50, 80));
         getContentPane().add(ps1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 600, 50, 80));
         getContentPane().add(ps2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 600, 50, 80));
         getContentPane().add(ps3, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 660, 50, 70));
@@ -412,7 +412,7 @@ public class MADGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     public void darstellungAnzeigen() {
-        for (int i = 0; i < 90; i++) {
+        for (int i = 0; i < felder.length; i++) {
             //if (i != 41 && i != 42 && i != 43 && i != 44 && i != 45 && i != 46 && i != 47 && i != 67 && i != 68 && i != 69 && i != 88 && i != 89 && i != 90) {
                 anpassen(dasSpiel.getSpielbrett().getFelder().get(i), i);
             //}
@@ -422,7 +422,7 @@ public class MADGUI extends javax.swing.JFrame {
 
     public void anpassen(Feld f, int index) {
         felder[index].setVisible(true);
-        if (!f.getIstBesetzt()) {
+        if (f.getHausbesetzer()==null) {
 
             felder[index].setVisible(false);
             return;
@@ -454,11 +454,6 @@ public class MADGUI extends javax.swing.JFrame {
             return;
         }
         if (f.getHausbesetzer().getTeam().getfarbe().equalsIgnoreCase("schwarz")) {
-            ImageIcon icon = new ImageIcon(getClass().getResource("/view/Spielfigur_schwarz.png"));
-            felder[index].setIcon(icon);
-            return;
-        }
-        if (f.getHausbesetzer().getTeam().getfarbe().equalsIgnoreCase("tuerkis")) {
             ImageIcon icon = new ImageIcon(getClass().getResource("/view/Spielfigur_schwarz.png"));
             felder[index].setIcon(icon);
             return;
