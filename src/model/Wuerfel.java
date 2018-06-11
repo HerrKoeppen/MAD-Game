@@ -34,7 +34,7 @@ public class Wuerfel {
     private int max;
     private SpielbrettAusgabe output;
     
-    
+    private Spiel dasSpiel;
 
     /**
      * kostruktor:erzeugt ein Objekt der klasse wuerfel
@@ -42,7 +42,8 @@ public class Wuerfel {
      * @param wuerfelmin:integer die niedrigste Augenzahl
      * @param wuerfelmax:integer ist die hÃ¶chstmÃ¶gliche Augenzahl
      */
-    public Wuerfel(int wuerfelmin, int wuerfelmax, SpielbrettAusgabe out) {
+    public Wuerfel(int wuerfelmin, int wuerfelmax, SpielbrettAusgabe out , Spiel dasS) {
+        this.dasSpiel = dasS;
         this.output = out;
         min = wuerfelmin;
         max = wuerfelmax;
@@ -54,7 +55,8 @@ public class Wuerfel {
      * @param wuerfelmin die niedrigste Augenzahl
      * @param wuerfelmax ist die hoechstmoegliche Augenzahl
      */
-    public Wuerfel(Logger logger, String name, int wuerfelmin, int wuerfelmax, SpielbrettAusgabe out) {
+    public Wuerfel(Logger logger, String name, int wuerfelmin, int wuerfelmax, SpielbrettAusgabe out, Spiel dasS) {
+        this.dasSpiel = dasS;
         this.output = out;
         objektname = name;
         log = logger;
@@ -92,6 +94,7 @@ public class Wuerfel {
         log.log(objektname, "Augenzahl " + augen + " gewuerfelt.");
         log.log(objektname, "Methode wuerfeln() beendet.");
         System.out.println("Du hast eine " + augen + " gewuerfelt.");
+        this.dasSpiel.c.aktualisieren();
         return augen;
     }
     /**

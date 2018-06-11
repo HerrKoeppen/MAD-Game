@@ -283,7 +283,7 @@ public class Spielbrett {
         this.zfelder = z;
         this.endkreisfeld = zeFeldblau;
         
-        Wuerfel derWuerfel = new Wuerfel(log,"Wuerfel",1,6,this.Output);
+        Wuerfel derWuerfel = new Wuerfel(log,"Wuerfel",1,6,this.Output, this.dasSpiel);
         this.dasSpiel.setWuerfel(derWuerfel);
         log.log(objektname, "Methode Spielbrett() beendet.");
         
@@ -455,7 +455,7 @@ public class Spielbrett {
        
         //public Wuerfel(Logger logger, String name, int wuerfelmin, int wuerfelmax, SpielbrettAusgabe out) {
         
-        Wuerfel derWuerfel = new Wuerfel(log,"Wuerfel",1,6,this.Output);
+        Wuerfel derWuerfel = new Wuerfel(log,"Wuerfel",1,6,this.Output, this.dasSpiel);
         this.dasSpiel.setWuerfel(derWuerfel);
         log.log(objektname, "Methode Spielbrett() beendet.");
         
@@ -617,7 +617,7 @@ public class Spielbrett {
        
         //public Wuerfel(Logger logger, String name, int wuerfelmin, int wuerfelmax, SpielbrettAusgabe out) {
         
-        Wuerfel derWuerfel = new Wuerfel(log,"Wuerfel",1,6,this.Output);
+        Wuerfel derWuerfel = new Wuerfel(log,"Wuerfel",1,6,this.Output, this.dasSpiel);
         this.dasSpiel.setWuerfel(derWuerfel);
         log.log(objektname, "Methode Spielbrett() beendet.");
         
