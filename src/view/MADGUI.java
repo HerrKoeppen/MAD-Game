@@ -277,6 +277,12 @@ public class MADGUI extends javax.swing.JFrame {
         ss2 = new javax.swing.JLabel();
         ss3 = new javax.swing.JLabel();
         ss4 = new javax.swing.JLabel();
+        die1 = new javax.swing.JLabel();
+        die2 = new javax.swing.JLabel();
+        die3 = new javax.swing.JLabel();
+        die4 = new javax.swing.JLabel();
+        die5 = new javax.swing.JLabel();
+        die6 = new javax.swing.JLabel();
         Spielbrett = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -384,6 +390,24 @@ public class MADGUI extends javax.swing.JFrame {
         getContentPane().add(ss3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 40, 60));
         getContentPane().add(ss4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 390, 40, 40));
 
+        die1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/die1.png"))); // NOI18N
+        getContentPane().add(die1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 330, -1, -1));
+
+        die2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/die2.png"))); // NOI18N
+        getContentPane().add(die2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 330, -1, -1));
+
+        die3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/die3.png"))); // NOI18N
+        getContentPane().add(die3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 330, -1, -1));
+
+        die4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/die4.png"))); // NOI18N
+        getContentPane().add(die4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 330, -1, -1));
+
+        die5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/die5.png"))); // NOI18N
+        getContentPane().add(die5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 330, -1, -1));
+
+        die6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/die6.png"))); // NOI18N
+        getContentPane().add(die6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 330, -1, -1));
+
         Spielbrett.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/768px-Dontworry6.svg.png"))); // NOI18N
         getContentPane().add(Spielbrett, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -446,8 +470,8 @@ public class MADGUI extends javax.swing.JFrame {
 
     }
 
-   
-
+  
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Spielbrett;
     private javax.swing.JLabel baf;
@@ -460,6 +484,12 @@ public class MADGUI extends javax.swing.JFrame {
     private javax.swing.JLabel bz2;
     private javax.swing.JLabel bz3;
     private javax.swing.JLabel bz4;
+    private javax.swing.JLabel die1;
+    private javax.swing.JLabel die2;
+    private javax.swing.JLabel die3;
+    private javax.swing.JLabel die4;
+    private javax.swing.JLabel die5;
+    private javax.swing.JLabel die6;
     private javax.swing.JLabel f10;
     private javax.swing.JLabel f11;
     private javax.swing.JLabel f12;
@@ -553,4 +583,57 @@ public class MADGUI extends javax.swing.JFrame {
     private Spiel dasSpiel;
     private Logger log;
 
+    /**
+     * 
+     * Setzt alle WuerfelLabels auf unsichtbar.
+       */ 
+    public void WuerfelReset(){
+        die1.setVisible(false);
+        die2.setVisible(false);
+        die3.setVisible(false);
+        die4.setVisible(false);
+        die5.setVisible(false);
+        die6.setVisible(false);
+        
+        
+    }
+    /**
+     * Setz alle WuerfelLabels auf unsichtbar und macht das WuerfelLabel mit 
+     * der übergebenen Zahl auf sichtbar.
+     * 
+     * 
+     * 
+     * 
+     * 
+     * @param WuerfelZahl 
+     */
+    
+    
+    public void WuerfelAusgeben(int WuerfelZahl){
+        die1.setVisible(false);
+        die2.setVisible(false);
+        die3.setVisible(false);
+        die4.setVisible(false);
+        die5.setVisible(false);
+        die6.setVisible(false);
+        switch (WuerfelZahl){
+            case 1:die1.setVisible(true);break;
+            case 2:die2.setVisible(true);break;
+            case 3:die3.setVisible(true);break;
+            case 4:die4.setVisible(true);break;
+            case 5:die5.setVisible(true);break;
+            case 6:die6.setVisible(true);break;
+            
+            
+            
+        }
+                
+        
+        
+        
+        
+    }
 }
+
+
+
