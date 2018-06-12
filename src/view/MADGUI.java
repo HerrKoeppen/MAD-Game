@@ -489,6 +489,34 @@ public class MADGUI extends javax.swing.JFrame {
     private void WuerfelnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WuerfelnActionPerformed
         //Wuerfelt und gibt den Wuerfel aus
         this.WuerfelAusgeben(dasSpiel.getWuerfel().wuerfeln());
+        //Setz alle Schlatflächen auf aus.
+        Spieler1.setEnabled(false);
+        Spieler2.setEnabled(false);
+        Spieler3.setEnabled(false);
+        Spieler4.setEnabled(false);
+
+
+        //Setz die Schaltflächen auf an.
+        for(int i = 1;i<4;i++){
+            if(dasSpiel.aktiverSpieler.SpielfigurZugMöglich(i)){
+                switch(i){
+                    case 1:Spieler1.setEnabled(true);break;
+                    case 2:Spieler1.setEnabled(true);break;
+                    case 3:Spieler1.setEnabled(true);break;
+                    case 4:Spieler1.setEnabled(true);break;
+                    
+                    
+                    
+                }
+            }
+            
+        }
+        
+        
+        
+        
+        
+        
     }//GEN-LAST:event_WuerfelnActionPerformed
 
     private void Spieler1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Spieler1ActionPerformed

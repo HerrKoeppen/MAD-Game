@@ -45,5 +45,6 @@ public interface Spieler {
     public void VerbleideneZügeErrechnen();
     public int SpielfigurZiehen(int Spielfigur);  
     public int getVerbleideneZüge();
+    public boolean SpielfigurZugMöglich(int Spielfigur);
 
 }

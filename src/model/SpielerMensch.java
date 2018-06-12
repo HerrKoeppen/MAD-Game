@@ -505,4 +505,24 @@ public class SpielerMensch implements Spieler {
     public int getVerbleideneZüge(){
         return this.verbleideneZüge;
     }
-}
+    /**
+     * Überprüft ob sich die Spielfigur bewegen kann.
+     * @param Spielfigur
+     * @return 
+     */
+    
+    public boolean SpielfigurZugMöglich(int Spielfigur){
+        int SpielfigurIndex = Spielfigur--;
+        if (this.verbleideneZüge != 0) {
+            Spielfigur AusgewählteSpielfigur = this.getSpielfiguren()[SpielfigurIndex];
+            List<Spielfigur> moeglSpielfiguren = this.moeglSpielfiguren(dasSpiel.getWuerfel().getZahl());
+            if (moeglSpielfiguren.contains(AusgewählteSpielfigur)) {
+                return true;
+            }
+
+        }
+        return false;
+    }
+        
+    }
+
