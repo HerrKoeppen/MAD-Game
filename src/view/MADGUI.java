@@ -294,6 +294,7 @@ public class MADGUI extends javax.swing.JFrame {
         Spieler4 = new javax.swing.JMenuItem();
         NaechsterSpieler = new javax.swing.JMenuItem();
         Info = new javax.swing.JMenu();
+        Credits = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -418,7 +419,7 @@ public class MADGUI extends javax.swing.JFrame {
 
         SpielverlaufOutput.setColumns(20);
         SpielverlaufOutput.setRows(5);
-        SpielverlaufOutput.setText("Spielverlauf");
+        SpielverlaufOutput.setToolTipText("");
         SpielverlaufOutputSP.setViewportView(SpielverlaufOutput);
 
         getContentPane().add(SpielverlaufOutputSP, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 0, 280, 460));
@@ -479,6 +480,15 @@ public class MADGUI extends javax.swing.JFrame {
         Menu.add(Funktionen);
 
         Info.setText("Info");
+
+        Credits.setText("Credits");
+        Credits.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CreditsActionPerformed(evt);
+            }
+        });
+        Info.add(Credits);
+
         Menu.add(Info);
 
         setJMenuBar(Menu);
@@ -568,6 +578,27 @@ public class MADGUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_NaechsterSpielerActionPerformed
 
+    private void CreditsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreditsActionPerformed
+        //!!!!!!!!!!CREDITS!!!!!!!!!!
+    for(int i = 0;i<35;i++){
+        SpielverlaufOutput.append("\n");
+    }
+    SpielverlaufOutput.append("-------------------------CREDITS-------------------------------\n");
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_CreditsActionPerformed
+
     public void darstellungAnzeigen() {
         for (int i = 0; i < felder.length; i++) {
             //if (i != 41 && i != 42 && i != 43 && i != 44 && i != 45 && i != 46 && i != 47 && i != 67 && i != 68 && i != 69 && i != 88 && i != 89 && i != 90) {
@@ -620,6 +651,7 @@ public class MADGUI extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem Credits;
     private javax.swing.JMenu Funktionen;
     private javax.swing.JMenu Info;
     private javax.swing.JMenuBar Menu;
