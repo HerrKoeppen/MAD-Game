@@ -53,6 +53,10 @@ public class SpielerMensch implements Spieler {
      */
     private Logger log;
     private String objektname;
+    /**
+     * Gibt an wie viele Züge der Spieler noch machen darf.
+    */
+    private int verbleideneZüge = 0;
 
     public SpielerMensch(String oname, Logger logger, Spiel dasspiel) {
         objektname = oname;
@@ -467,6 +471,53 @@ public class SpielerMensch implements Spieler {
     @Override
     public void setgezogen(int c) {
         this.gezogen = c;
+    }
+    /**
+     * Die Methode setz die verbleidenen Züge auf 1 oder 3 jenachdem ob alle
+     * Spielfiguren noch im Startkreis sind.
+     * 
+     * 
+     */
+    
+    public void VerbleideneZügeErrechnen(){
+        if(this.alleSpielerImStartkreis()){
+            this.verbleideneZüge = 3;
+        }else{
+            this.verbleideneZüge = 1;
+            
+            
+        }
+        
+        
+        
+    }
+    /**
+     * Prüft ob sich die Spielfigur begwegen kann und bewegt diese gegebenenfalls.
+     * @param Spielfigur 
+     */
+    
+    
+    
+    
+    public void SpielfigurZiehen(int Spielfigur){
+        int SpielfigurIndex = Spielfigur++;
+        if(this.verbleideneZüge!=0){
+            Spielfigur AusgewählteSpielfigur = this.getSpielfiguren()[SpielfigurIndex];
+            List<Spielfigur> moeglSpielfiguren = this.moeglSpielfiguren(dasSpiel.getWuerfel().getZahl());
+            if(moeglSpielfiguren.contains(AusgewählteSpielfigur)){
+                AusgewählteSpielfigur.laufen(dasSpiel.getWuerfel().getZahl());
+                verbleideneZüge--;
+            }
+            
+            
+            
+            
+            
+            
+            
+        }
+        
+        
     }
 
 

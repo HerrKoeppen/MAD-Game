@@ -287,6 +287,14 @@ public class MADGUI extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextAreaSpielverlauf = new javax.swing.JTextArea();
         Spielbrett = new javax.swing.JLabel();
+        Menu = new javax.swing.JMenuBar();
+        Funktionen = new javax.swing.JMenu();
+        Wuerfeln = new javax.swing.JMenuItem();
+        Spieler1 = new javax.swing.JMenuItem();
+        Spieler2 = new javax.swing.JMenuItem();
+        Spieler3 = new javax.swing.JMenuItem();
+        Spieler4 = new javax.swing.JMenuItem();
+        Info = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -419,8 +427,42 @@ public class MADGUI extends javax.swing.JFrame {
         Spielbrett.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/768px-Dontworry6.svg.png"))); // NOI18N
         getContentPane().add(Spielbrett, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
+        Funktionen.setText("Funktionen");
+
+        Wuerfeln.setText("Wuerfeln");
+        Wuerfeln.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                WuerfelnActionPerformed(evt);
+            }
+        });
+        Funktionen.add(Wuerfeln);
+
+        Spieler1.setText("Spieler1 ziehen");
+        Funktionen.add(Spieler1);
+
+        Spieler2.setText("Spieler2 ziehen");
+        Funktionen.add(Spieler2);
+
+        Spieler3.setText("Spieler3 ziehen");
+        Funktionen.add(Spieler3);
+
+        Spieler4.setText("Spieler4 ziehen");
+        Funktionen.add(Spieler4);
+
+        Menu.add(Funktionen);
+
+        Info.setText("Info");
+        Menu.add(Info);
+
+        setJMenuBar(Menu);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void WuerfelnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WuerfelnActionPerformed
+        //Wuerfelt und gibt den Wuerfel aus
+        this.WuerfelAusgeben(dasSpiel.getWuerfel().wuerfeln());
+    }//GEN-LAST:event_WuerfelnActionPerformed
 
     public void darstellungAnzeigen() {
         for (int i = 0; i < felder.length; i++) {
@@ -476,7 +518,15 @@ public class MADGUI extends javax.swing.JFrame {
   
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu Funktionen;
+    private javax.swing.JMenu Info;
+    private javax.swing.JMenuBar Menu;
     private javax.swing.JLabel Spielbrett;
+    private javax.swing.JMenuItem Spieler1;
+    private javax.swing.JMenuItem Spieler2;
+    private javax.swing.JMenuItem Spieler3;
+    private javax.swing.JMenuItem Spieler4;
+    private javax.swing.JMenuItem Wuerfeln;
     private javax.swing.JLabel baf;
     private javax.swing.JLabel bef;
     private javax.swing.JLabel bs1;
