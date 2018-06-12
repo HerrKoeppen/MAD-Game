@@ -55,7 +55,7 @@ public class SpielerMensch implements Spieler {
     private String objektname;
     /**
      * Gibt an wie viele Züge der Spieler noch machen darf.
-    */
+     */
     private int verbleideneZüge = 0;
 
     public SpielerMensch(String oname, Logger logger, Spiel dasspiel) {
@@ -70,7 +70,7 @@ public class SpielerMensch implements Spieler {
         this.aFeld = this.dasSpiel.getSpielbrett().getAfelder()[this.id];
         this.zeFeld = this.dasSpiel.getSpielbrett().getEfelder()[this.id];
         this.zielfeld = this.dasSpiel.getSpielbrett().getZfelder()[this.id];
-        
+
         this.dasSpiel.spielfigurenVerteilen();
         String Figuren = " ";
         /*
@@ -203,9 +203,8 @@ public class SpielerMensch implements Spieler {
 
     /**
      *
-     * @return 
+     * @return
      */
- 
     public int ziehen2() {
 
         log.log(objektname, "Methode ziehen() gestartet.");
@@ -255,21 +254,19 @@ public class SpielerMensch implements Spieler {
 
             }
 
-        }
-        else {
+        } else {
             System.out.println(this.objektname + " hat gewonnen.");
-        return 1;
+            return 1;
         }
-        if((this.gezogen > 0)){
-        this.gezogen--;
+        if ((this.gezogen > 0)) {
+            this.gezogen--;
+        } else {
+            System.out.println(this.objektname + "'s Zug ist beendet");
         }
-        else{
-        System.out.println(this.objektname + "'s Zug ist beendet");
-        }
-        
+
         //ich habe doch schon gewonnen: ich mache nichts
         log.log(objektname, "Methode ziehen() beendet.");
-         return 0;
+        return 0;
     }
 
     /**
@@ -345,15 +342,13 @@ public class SpielerMensch implements Spieler {
         log.log(objektname, "Methode hatGewonnen() beendet.");
         return true;
     }
-    
-     
+
     /**
      * Die Methode gibt an ob sich min. eine Spielfigur auf den Startfeldern
      * befindet.
      *
      * @return Boolean
      */
-
     public boolean SpielerImStartkreis() {
         log.log(objektname, "Methode hatGewonnen() gestartet.");
         for (Spielfigur i : Spielfiguren) {
@@ -369,18 +364,15 @@ public class SpielerMensch implements Spieler {
         return false;
     }
 
-    
     /**
      * Getter-Methode fuer aFeld, also Anfangsfeld
      *
      * @return aFeld
      */
-   
     @Override
     public Feld getafeld() {
         return aFeld;
     }
-
 
     /**
      * Getter-Methode fuer ArrayList Felder
@@ -392,7 +384,6 @@ public class SpielerMensch implements Spieler {
         return null;
     }
 
- 
     /**
      * Getter-Methode fuer Spiel
      *
@@ -408,7 +399,6 @@ public class SpielerMensch implements Spieler {
      *
      * @return zeFeld
      */
-
     @Override
     public Feld getzefeld() {
 
@@ -420,7 +410,6 @@ public class SpielerMensch implements Spieler {
      *
      * @return Farbe
      */
-
     @Override
     public String getfarbe() {
         return this.Farbe;
@@ -431,7 +420,6 @@ public class SpielerMensch implements Spieler {
      *
      * @return zielfeld
      */
-
     @Override
     public Feld getzielfeld() {
         return zielfeld;
@@ -443,8 +431,6 @@ public class SpielerMensch implements Spieler {
      *
      * @return Spielfiguren
      */
-
-
     @Override
     public Spielfigur[] getSpielfiguren() {
         return Spielfiguren;
@@ -472,54 +458,51 @@ public class SpielerMensch implements Spieler {
     public void setgezogen(int c) {
         this.gezogen = c;
     }
+
     /**
      * Die Methode setz die verbleidenen Züge auf 1 oder 3 jenachdem ob alle
      * Spielfiguren noch im Startkreis sind.
-     * 
-     * 
+     *
+     *
      */
-    
-    public void VerbleideneZügeErrechnen(){
-        if(this.alleSpielerImStartkreis()){
+
+    public void VerbleideneZügeErrechnen() {
+        if (this.alleSpielerImStartkreis()) {
             this.verbleideneZüge = 3;
-        }else{
+        } else {
             this.verbleideneZüge = 1;
-            
-            
+
         }
-        
-        
-        
+
     }
+
     /**
-     * Prüft ob sich die Spielfigur begwegen kann und bewegt diese gegebenenfalls.
-     * @param Spielfigur 
+     * Prüft ob sich die Spielfigur begwegen kann und bewegt diese
+     * gegebenenfalls. 0 = Konnte sich bewegen. 1 = Kann sich nicht bewegen.
+     *
+     * @param Spielfigur
+     * @return
      */
-    
-    
-    
-    
-    public void SpielfigurZiehen(int Spielfigur){
-        int SpielfigurIndex = Spielfigur++;
-        if(this.verbleideneZüge!=0){
+
+    public int SpielfigurZiehen(int Spielfigur) {
+        int SpielfigurIndex = Spielfigur--;
+        if (this.verbleideneZüge != 0) {
             Spielfigur AusgewählteSpielfigur = this.getSpielfiguren()[SpielfigurIndex];
             List<Spielfigur> moeglSpielfiguren = this.moeglSpielfiguren(dasSpiel.getWuerfel().getZahl());
-            if(moeglSpielfiguren.contains(AusgewählteSpielfigur)){
+            if (moeglSpielfiguren.contains(AusgewählteSpielfigur)) {
                 AusgewählteSpielfigur.laufen(dasSpiel.getWuerfel().getZahl());
                 verbleideneZüge--;
+                return 0;
+            } else {
+                return 1;
+
             }
-            
-            
-            
-            
-            
-            
-            
+
         }
-        
-        
+        return 1;
     }
-
-
-
+    
+    public int getVerbleideneZüge(){
+        return this.verbleideneZüge;
+    }
 }

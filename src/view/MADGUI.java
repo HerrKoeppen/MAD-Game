@@ -22,8 +22,6 @@ public class MADGUI extends javax.swing.JFrame {
     /**
      * Creates new form MADGUI
      */
-   
-
     public MADGUI(Logger logger, Spiel spiel) {
         initComponents();
         log = logger;
@@ -32,81 +30,81 @@ public class MADGUI extends javax.swing.JFrame {
         this.WuerfelReset();
         this.darstellungAnzeigen();
     }
-    
-    public void GUIspielen(){
+
+    public void GUIspielen() {
         while (dasSpiel.spieleEinenZug() != 1) {
-                    darstellungAnzeigen();
+            darstellungAnzeigen();
 
-                    try {
-                        Thread.sleep(500);
-                    } catch (InterruptedException ex) {
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException ex) {
 
-                    }
-                }
+            }
+        }
     }
 
     public void setzeFelderNachModel() {
         felder = new javax.swing.JLabel[96];
-       
+
         felder[0] = baf;
-        
+
         felder[1] = f2;
         felder[2] = f3;
         felder[3] = f4;
         felder[4] = f5;
         felder[5] = f6;
-        felder[6] = f7; 
-        
+        felder[6] = f7;
+
         felder[7] = ref;
         felder[8] = raf;
-        
+
         felder[9] = f10;
         felder[10] = f11;
         felder[11] = f12;
         felder[12] = f13;
         felder[13] = f14;
         felder[14] = f15;
-        
+
         felder[15] = tef;
         felder[16] = taf;
-        
+
         felder[17] = f18;
         felder[18] = f19;
         felder[19] = f20;
         felder[20] = f21;
         felder[21] = f22;
         felder[22] = f23;
-        
+
         felder[23] = pef;
         felder[24] = paf;
-        
+
         felder[25] = f26;
         felder[26] = f27;
         felder[27] = f28;
         felder[28] = f29;
         felder[29] = f30;
         felder[30] = f31;
-        
+
         felder[31] = gef;
         felder[32] = gaf;
-        
+
         felder[33] = f34;
         felder[34] = f35;
         felder[35] = f36;
         felder[36] = f37;
         felder[37] = f38;
         felder[38] = f39;
-        
+
         felder[39] = sef;
         felder[40] = saf;
-        
+
         felder[41] = f42;
         felder[42] = f43;
         felder[43] = f44;
         felder[44] = f45;
         felder[45] = f46;
         felder[46] = f47;
-        
+
         felder[47] = bef;
         // blaue Zielfelder
         felder[48] = bz1;
@@ -168,7 +166,7 @@ public class MADGUI extends javax.swing.JFrame {
         felder[93] = ss2;
         felder[94] = ss3;
         felder[95] = ss4;
-       
+
     }
 
     /**
@@ -284,8 +282,8 @@ public class MADGUI extends javax.swing.JFrame {
         die4 = new javax.swing.JLabel();
         die5 = new javax.swing.JLabel();
         die6 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextAreaSpielverlauf = new javax.swing.JTextArea();
+        SpielverlaufOutputSP = new javax.swing.JScrollPane();
+        SpielverlaufOutput = new javax.swing.JTextArea();
         Spielbrett = new javax.swing.JLabel();
         Menu = new javax.swing.JMenuBar();
         Funktionen = new javax.swing.JMenu();
@@ -294,6 +292,7 @@ public class MADGUI extends javax.swing.JFrame {
         Spieler2 = new javax.swing.JMenuItem();
         Spieler3 = new javax.swing.JMenuItem();
         Spieler4 = new javax.swing.JMenuItem();
+        NaechsterSpieler = new javax.swing.JMenuItem();
         Info = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -415,14 +414,14 @@ public class MADGUI extends javax.swing.JFrame {
         die6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/die6.png"))); // NOI18N
         getContentPane().add(die6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 330, -1, -1));
 
-        jScrollPane1.setName(""); // NOI18N
+        SpielverlaufOutputSP.setName(""); // NOI18N
 
-        jTextAreaSpielverlauf.setColumns(20);
-        jTextAreaSpielverlauf.setRows(5);
-        jTextAreaSpielverlauf.setText("Spielverlauf");
-        jScrollPane1.setViewportView(jTextAreaSpielverlauf);
+        SpielverlaufOutput.setColumns(20);
+        SpielverlaufOutput.setRows(5);
+        SpielverlaufOutput.setText("Spielverlauf");
+        SpielverlaufOutputSP.setViewportView(SpielverlaufOutput);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 0, 280, 460));
+        getContentPane().add(SpielverlaufOutputSP, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 0, 280, 460));
 
         Spielbrett.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/768px-Dontworry6.svg.png"))); // NOI18N
         getContentPane().add(Spielbrett, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -438,16 +437,44 @@ public class MADGUI extends javax.swing.JFrame {
         Funktionen.add(Wuerfeln);
 
         Spieler1.setText("Spieler1 ziehen");
+        Spieler1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Spieler1ActionPerformed(evt);
+            }
+        });
         Funktionen.add(Spieler1);
 
         Spieler2.setText("Spieler2 ziehen");
+        Spieler2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Spieler2ActionPerformed(evt);
+            }
+        });
         Funktionen.add(Spieler2);
 
         Spieler3.setText("Spieler3 ziehen");
+        Spieler3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Spieler3ActionPerformed(evt);
+            }
+        });
         Funktionen.add(Spieler3);
 
         Spieler4.setText("Spieler4 ziehen");
+        Spieler4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Spieler4ActionPerformed(evt);
+            }
+        });
         Funktionen.add(Spieler4);
+
+        NaechsterSpieler.setText("NaechsterSpieler");
+        NaechsterSpieler.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NaechsterSpielerActionPerformed(evt);
+            }
+        });
+        Funktionen.add(NaechsterSpieler);
 
         Menu.add(Funktionen);
 
@@ -464,10 +491,59 @@ public class MADGUI extends javax.swing.JFrame {
         this.WuerfelAusgeben(dasSpiel.getWuerfel().wuerfeln());
     }//GEN-LAST:event_WuerfelnActionPerformed
 
+    private void Spieler1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Spieler1ActionPerformed
+        if (dasSpiel.aktiverSpieler.SpielfigurZiehen(1) == 1) {
+
+        } else {
+            SpielverlaufOutput.append("Diee Spielfigur kann nicht gezogen werden.");
+
+        }
+    }//GEN-LAST:event_Spieler1ActionPerformed
+
+    private void Spieler2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Spieler2ActionPerformed
+        if (dasSpiel.aktiverSpieler.SpielfigurZiehen(2) == 1) {
+
+        } else {
+            SpielverlaufOutput.append("Diee Spielfigur kann nicht gezogen werden.");
+
+        }
+    }//GEN-LAST:event_Spieler2ActionPerformed
+
+    private void Spieler3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Spieler3ActionPerformed
+        if (dasSpiel.aktiverSpieler.SpielfigurZiehen(3) == 1) {
+
+        } else {
+            SpielverlaufOutput.append("Diee Spielfigur kann nicht gezogen werden.");
+
+        }
+    }//GEN-LAST:event_Spieler3ActionPerformed
+
+    private void Spieler4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Spieler4ActionPerformed
+        if (dasSpiel.aktiverSpieler.SpielfigurZiehen(4) == 1) {
+
+        } else {
+            SpielverlaufOutput.append("Diee Spielfigur kann nicht gezogen werden.");
+
+        }
+    }//GEN-LAST:event_Spieler4ActionPerformed
+
+    private void NaechsterSpielerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NaechsterSpielerActionPerformed
+        if(dasSpiel.aktiverSpieler.getVerbleideneZüge()==0){
+            dasSpiel.NaechsterSpieler();
+            dasSpiel.aktiverSpieler.VerbleideneZügeErrechnen();
+            
+            
+            
+            
+        }else{
+            SpielverlaufOutput.append("Der Spieler hat noch nicht");
+        }
+    }//GEN-LAST:event_NaechsterSpielerActionPerformed
+
     public void darstellungAnzeigen() {
         for (int i = 0; i < felder.length; i++) {
             //if (i != 41 && i != 42 && i != 43 && i != 44 && i != 45 && i != 46 && i != 47 && i != 67 && i != 68 && i != 69 && i != 88 && i != 89 && i != 90) {
-                anpassen(dasSpiel.getSpielbrett().getFelder().get(i), i);
+            anpassen(dasSpiel.getSpielbrett().getFelder().get(i), i);
             //}
         }
         repaint();
@@ -475,11 +551,11 @@ public class MADGUI extends javax.swing.JFrame {
 
     public void anpassen(Feld f, int index) {
         felder[index].setVisible(true);
-        if (f.getHausbesetzer()==null) {
+        if (f.getHausbesetzer() == null) {
 
             felder[index].setVisible(false);
             return;
-            
+
         }
         if (f.getHausbesetzer().getTeam().getfarbe().equalsIgnoreCase("blau")) {
             ImageIcon icon = new ImageIcon(getClass().getResource("/view/Spielfigur_blau.png"));
@@ -511,21 +587,22 @@ public class MADGUI extends javax.swing.JFrame {
             felder[index].setIcon(icon);
             return;
         }
-        
 
     }
 
-  
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu Funktionen;
     private javax.swing.JMenu Info;
     private javax.swing.JMenuBar Menu;
+    private javax.swing.JMenuItem NaechsterSpieler;
     private javax.swing.JLabel Spielbrett;
     private javax.swing.JMenuItem Spieler1;
     private javax.swing.JMenuItem Spieler2;
     private javax.swing.JMenuItem Spieler3;
     private javax.swing.JMenuItem Spieler4;
+    private javax.swing.JTextArea SpielverlaufOutput;
+    private javax.swing.JScrollPane SpielverlaufOutputSP;
     private javax.swing.JMenuItem Wuerfeln;
     private javax.swing.JLabel baf;
     private javax.swing.JLabel bef;
@@ -589,8 +666,6 @@ public class MADGUI extends javax.swing.JFrame {
     private javax.swing.JLabel gz2;
     private javax.swing.JLabel gz3;
     private javax.swing.JLabel gz4;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextAreaSpielverlauf;
     private javax.swing.JLabel paf;
     private javax.swing.JLabel pef;
     private javax.swing.JLabel ps1;
@@ -639,56 +714,58 @@ public class MADGUI extends javax.swing.JFrame {
     private Logger log;
 
     /**
-     * 
+     *
      * Setzt alle WuerfelLabels auf unsichtbar.
-       */ 
-    public void WuerfelReset(){
-        die1.setVisible(false);
-        die2.setVisible(false);
-        die3.setVisible(false);
-        die4.setVisible(false);
-        die5.setVisible(false);
-        die6.setVisible(false);
-        
-        
-    }
-    /**
-     * Setz alle WuerfelLabels auf unsichtbar und macht das WuerfelLabel mit 
-     * der übergebenen Zahl auf sichtbar.
-     * 
-     * 
-     * 
-     * 
-     * 
-     * @param WuerfelZahl 
      */
-    
-    
-    public void WuerfelAusgeben(int WuerfelZahl){
+    public void WuerfelReset() {
         die1.setVisible(false);
         die2.setVisible(false);
         die3.setVisible(false);
         die4.setVisible(false);
         die5.setVisible(false);
         die6.setVisible(false);
-        switch (WuerfelZahl){
-            case 1:die1.setVisible(true);break;
-            case 2:die2.setVisible(true);break;
-            case 3:die3.setVisible(true);break;
-            case 4:die4.setVisible(true);break;
-            case 5:die5.setVisible(true);break;
-            case 6:die6.setVisible(true);break;
-            
-            
-            
+
+    }
+
+    /**
+     * Setz alle WuerfelLabels auf unsichtbar und macht das WuerfelLabel mit der
+     * übergebenen Zahl auf sichtbar.
+     *
+     *
+     *
+     *
+     *
+     * @param WuerfelZahl
+     */
+
+    public void WuerfelAusgeben(int WuerfelZahl) {
+        die1.setVisible(false);
+        die2.setVisible(false);
+        die3.setVisible(false);
+        die4.setVisible(false);
+        die5.setVisible(false);
+        die6.setVisible(false);
+        switch (WuerfelZahl) {
+            case 1:
+                die1.setVisible(true);
+                break;
+            case 2:
+                die2.setVisible(true);
+                break;
+            case 3:
+                die3.setVisible(true);
+                break;
+            case 4:
+                die4.setVisible(true);
+                break;
+            case 5:
+                die5.setVisible(true);
+                break;
+            case 6:
+                die6.setVisible(true);
+                break;
+
         }
-                
-        
-        
-        
-        
+
     }
 }
-
-
-

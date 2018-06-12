@@ -382,4 +382,19 @@ public class SpielerComputer implements Spieler {
         this.gezogen = c;
     }
 
+    @Override
+    public void VerbleideneZügeErrechnen() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int SpielfigurZiehen(int Spielfigur) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getVerbleideneZüge() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

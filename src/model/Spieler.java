@@ -42,5 +42,8 @@ public interface Spieler {
     public Spielfigur[] getSpielfiguren();
     public void setSpielfigur(Spielfigur dieSpielfigur);
     public String getobjektname();
+    public void VerbleideneZügeErrechnen();
+    public int SpielfigurZiehen(int Spielfigur);  
+    public int getVerbleideneZüge();
 
 }

@@ -373,5 +373,23 @@ public class Spiel {
         log.log(objektname, "Methode setSpieler() beendet.");
         return i;
     }
+    
+    /**
+     * Setzt den aktuellen Spieler eins weiter in der Liste.
+     */
+    
+    public void NaechsterSpieler(){
+                   aktiverSpielerIndex = aktiverSpielerIndex+1;
+           if (aktiverSpielerIndex==AlleSpieler.length){
+               aktiverSpielerIndex=0;
+           }
+           aktiverSpieler = AlleSpieler[aktiverSpielerIndex];
+           if (zugNr%AlleSpieler.length==0){
+               Runde=Runde+1;
+           }
+           zugNr = zugNr+1;
+        
+        
+    }
 
 }
