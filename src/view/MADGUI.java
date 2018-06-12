@@ -5,6 +5,7 @@
  */
 package view;
 
+import controller.Control;
 import javax.swing.ImageIcon;
 import model.Feld;
 import model.Logger;
@@ -22,10 +23,11 @@ public class MADGUI extends javax.swing.JFrame {
     /**
      * Creates new form MADGUI
      */
-    public MADGUI(Logger logger, Spiel spiel) {
+    public MADGUI(Logger logger, Spiel spiel,Control control) {
         initComponents();
         log = logger;
         dasSpiel = spiel;
+        this.control = control;
         setzeFelderNachModel();
         this.WuerfelReset();
         this.darstellungAnzeigen();
@@ -293,6 +295,8 @@ public class MADGUI extends javax.swing.JFrame {
         Spieler3 = new javax.swing.JMenuItem();
         Spieler4 = new javax.swing.JMenuItem();
         NaechsterSpieler = new javax.swing.JMenuItem();
+        START = new javax.swing.JMenuItem();
+        STOP = new javax.swing.JMenuItem();
         Info = new javax.swing.JMenu();
         Credits = new javax.swing.JMenuItem();
 
@@ -477,6 +481,22 @@ public class MADGUI extends javax.swing.JFrame {
         });
         Funktionen.add(NaechsterSpieler);
 
+        START.setText("START");
+        START.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                STARTActionPerformed(evt);
+            }
+        });
+        Funktionen.add(START);
+
+        STOP.setText("STOP");
+        STOP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                STOPActionPerformed(evt);
+            }
+        });
+        Funktionen.add(STOP);
+
         Menu.add(Funktionen);
 
         Info.setText("Info");
@@ -599,6 +619,18 @@ public class MADGUI extends javax.swing.JFrame {
         
     }//GEN-LAST:event_CreditsActionPerformed
 
+    private void STARTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_STARTActionPerformed
+        control.START();
+        STOP.setEnabled(true);
+        START.setEnabled(false);
+    }//GEN-LAST:event_STARTActionPerformed
+
+    private void STOPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_STOPActionPerformed
+        control.STOP();
+        STOP.setEnabled(false);
+        START.setEnabled(true);
+    }//GEN-LAST:event_STOPActionPerformed
+
     public void darstellungAnzeigen() {
         for (int i = 0; i < felder.length; i++) {
             //if (i != 41 && i != 42 && i != 43 && i != 44 && i != 45 && i != 46 && i != 47 && i != 67 && i != 68 && i != 69 && i != 88 && i != 89 && i != 90) {
@@ -656,6 +688,8 @@ public class MADGUI extends javax.swing.JFrame {
     private javax.swing.JMenu Info;
     private javax.swing.JMenuBar Menu;
     private javax.swing.JMenuItem NaechsterSpieler;
+    private javax.swing.JMenuItem START;
+    private javax.swing.JMenuItem STOP;
     private javax.swing.JLabel Spielbrett;
     private javax.swing.JMenuItem Spieler1;
     private javax.swing.JMenuItem Spieler2;
@@ -772,6 +806,7 @@ public class MADGUI extends javax.swing.JFrame {
     private javax.swing.JLabel felder[];
     private Spiel dasSpiel;
     private Logger log;
+    private Control control;
 
     /**
      *

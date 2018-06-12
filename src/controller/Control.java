@@ -19,11 +19,13 @@ public class Control {
     Logger log;
     Spiel dasSpiel;
     MADGUI gui;
+    //Gibt an ob das Spiel grade angehalten wird.
+    boolean STOP = false;
     
     public Control(){
         log = new Logger();
         dasSpiel = new Spiel(log, "Das Spiel", 6 , this);
-        gui = new MADGUI(log,dasSpiel);
+        gui = new MADGUI(log,dasSpiel,this);
         //GUI starten
         
         gui.setVisible(true);
@@ -38,6 +40,9 @@ public class Control {
                 java.util.logging.Logger.getLogger(Control.class.getName()).log(Level.SEVERE, null, ex);
             }
             gui.darstellungAnzeigen();
+            while(STOP){
+                
+            }
         }
     }
     
@@ -56,6 +61,17 @@ public class Control {
     }
     public static void main(String[] args){
         Control c = new Control();
+    }
+    
+    
+    public void STOP(){
+        STOP = true;
+        
+        
+    }
+    
+    public void START(){
+        STOP = false;
     }
     
     
