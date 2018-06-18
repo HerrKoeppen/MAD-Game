@@ -45,7 +45,7 @@ public class SpielerMensch implements Spieler {
     /**
      * Eine Liste mit 3 Spielfiguren.
      */
-    public Spielfigur[] Spielfiguren = new Spielfigur[3];
+    public Spielfigur[] Spielfiguren = new Spielfigur[4];
     private int gezogen = 0;
      // Spielfigur in Spe (wurde auserwählt gezogen zu werden )
     private Spielfigur Spefigur = null;
@@ -83,7 +83,7 @@ public class SpielerMensch implements Spieler {
             }
         }
         * **/
-        for (int k = 0; k < 3; k++) {
+        for (int k = 0; k < 4; k++) {
             if (this.Spielfiguren[k] == null) {
                 Figuren = "Error";
                 break;
@@ -107,7 +107,7 @@ public class SpielerMensch implements Spieler {
      */
     public void setSpielfigur(Spielfigur dieSpielfigur) {
         log.log(objektname, "Methode setSpielfigur() gestartet mit Parameter " + dieSpielfigur + " .");
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 4; i++) {
             if (Spielfiguren[i] == null) {
                 Spielfiguren[i] = dieSpielfigur;
                 log.log(objektname, "Methode setSpielfigur() beendet.");
@@ -176,6 +176,22 @@ public class SpielerMensch implements Spieler {
             //habe ich nur Spielfiguren im Startkreis
             if (this.alleSpielerImStartkreis()) {
                 //-> ja, dann bis zu dreimal würfeln und hoffe auf eine 6
+                for (int i = 0; i < 4; i++) {
+                    System.out.println(this.objektname + " darf noch " + (4 - i) + " mal wuerfeln.");
+                    if (this.dasSpiel.output.wuerfeln()) {
+                        // ist es eine 6?
+                        if (this.wuerfeln() == 6) {
+                            int spieler = this.dasSpiel.getoutput().Spielerwaehlen(java.util.Arrays.asList(this.Spielfiguren));
+                            this.Spielfiguren[spieler].herauskommen();
+                            this.dasSpiel.output.spielAusgabe();
+                            this.gezogen = 0;
+                            return 0;
+                        }
+                    }
+                }
+                System.out.println(this.objektname + "'s Zug ist beendet");
+                this.gezogen = 0;
+                return 0;
                 return this.herauskommen();
             } //-> nein, einmal würfeln
             else {  //unnoetige zeile aber lieber doppelt als keinmal

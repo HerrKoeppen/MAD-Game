@@ -27,10 +27,11 @@ public class MADGUI extends javax.swing.JFrame {
         log.deactivate();
         dasSpiel = spiel;
         this.control = control;
-        JOptionPane.showMessageDialog(null, "Hallo Welt");
+        
         setzeFelderNachModel();
         this.WuerfelReset();
         this.darstellungAnzeigen();
+        //JOptionPane.showMessageDialog(null, "Hallo Welt");
     }
 
     public void GUIspielen() {
@@ -546,10 +547,10 @@ public class MADGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_WuerfelnActionPerformed
 
     private void Spieler1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Spieler1ActionPerformed
-        if (dasSpiel.aktiverSpieler.SpielfigurZiehen(0) == 1) {
-
+        if (dasSpiel.aktiverSpieler.SpielfigurZiehen(1) == 1) {
+                
         } else {
-            SpielverlaufOutput.append("Diee Spielfigur kann nicht gezogen werden.");
+            SpielverlaufOutput.append("Die Spielfigur kann nicht gezogen werden.");
 
         }
     }//GEN-LAST:event_Spieler1ActionPerformed
@@ -558,7 +559,7 @@ public class MADGUI extends javax.swing.JFrame {
         if (dasSpiel.aktiverSpieler.SpielfigurZiehen(1) == 1) {
 
         } else {
-            SpielverlaufOutput.append("Diee Spielfigur kann nicht gezogen werden.");
+            SpielverlaufOutput.append("Die Spielfigur kann nicht gezogen werden.");
 
         }
     }//GEN-LAST:event_Spieler2ActionPerformed
@@ -567,7 +568,7 @@ public class MADGUI extends javax.swing.JFrame {
         if (dasSpiel.aktiverSpieler.SpielfigurZiehen(2) == 1) {
 
         } else {
-            SpielverlaufOutput.append("Diee Spielfigur kann nicht gezogen werden.");
+            SpielverlaufOutput.append("Die Spielfigur kann nicht gezogen werden.");
 
         }
     }//GEN-LAST:event_Spieler3ActionPerformed
@@ -576,7 +577,7 @@ public class MADGUI extends javax.swing.JFrame {
         if (dasSpiel.aktiverSpieler.SpielfigurZiehen(3) == 1) {
 
         } else {
-            SpielverlaufOutput.append("Diee Spielfigur kann nicht gezogen werden.");
+            SpielverlaufOutput.append("Die Spielfigur kann nicht gezogen werden.");
 
         }
     }//GEN-LAST:event_Spieler4ActionPerformed
@@ -605,9 +606,10 @@ public class MADGUI extends javax.swing.JFrame {
     SpielverlaufOutput.append("Projekt MAD-GUI des LK Informatik aus dem Jahr 2018            \n");
     SpielverlaufOutput.append("Autoren:                                                       \n");
     SpielverlaufOutput.append("Timon Böttinger, Hannah Claus, Lion Czernetzki,                \n");
-    SpielverlaufOutput.append(" Louie Noel Siaa Krüger, Johanna Polzin, Leon Schumann         \n");
+    SpielverlaufOutput.append("Louie Noel Siaa Krüger, Johanna Polzin,                        \n");
+    SpielverlaufOutput.append("Leon Schumann, Herr Köppen                                     \n");
     SpielverlaufOutput.append("                                                               \n");
-    SpielverlaufOutput.append("DAS GROSSARTIGE PROJEKT!!!!!!!!!!!!!!!!!!!!!                  \n");    
+    SpielverlaufOutput.append("DAS GROSSARTIGE PROJEKT!!!!!!!!!!!!!!!!!!!!!                   \n");    
     SpielverlaufOutput.append("-------------------------CREDITS-------------------------------\n");    
         
         
@@ -682,6 +684,9 @@ public class MADGUI extends javax.swing.JFrame {
             return;
         }
 
+    }
+    public javax.swing.JTextArea getSpielVerlaufOutput(){
+        return SpielverlaufOutput;
     }
 
 
