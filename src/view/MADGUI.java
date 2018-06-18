@@ -7,12 +7,10 @@ package view;
 
 import controller.Control;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import model.Feld;
 import model.Logger;
 import model.Spiel;
-import model.Spielfigur;
-import model.SpielerMensch;
-import javax.xml.stream.XMLEventReader;
 
 /**
  *
@@ -26,8 +24,10 @@ public class MADGUI extends javax.swing.JFrame {
     public MADGUI(Logger logger, Spiel spiel,Control control) {
         initComponents();
         log = logger;
+        log.deactivate();
         dasSpiel = spiel;
         this.control = control;
+        JOptionPane.showMessageDialog(null, "Hallo Welt");
         setzeFelderNachModel();
         this.WuerfelReset();
         this.darstellungAnzeigen();
@@ -596,12 +596,19 @@ public class MADGUI extends javax.swing.JFrame {
 
     private void CreditsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreditsActionPerformed
         //!!!!!!!!!!CREDITS!!!!!!!!!!
+        /*
     for(int i = 0;i<35;i++){
         SpielverlaufOutput.append("\n");
     }
+        */
     SpielverlaufOutput.append("-------------------------CREDITS-------------------------------\n");
-        
-        
+    SpielverlaufOutput.append("Projekt MAD-GUI des LK Informatik aus dem Jahr 2018            \n");
+    SpielverlaufOutput.append("Autoren:                                                       \n");
+    SpielverlaufOutput.append("Timon Böttinger, Hannah Claus, Lion Czernetzki,                \n");
+    SpielverlaufOutput.append(" Louie Noel Siaa Krüger, Johanna Polzin, Leon Schumann         \n");
+    SpielverlaufOutput.append("                                                               \n");
+    SpielverlaufOutput.append("DAS GROSSARTIGE PROJEKT!!!!!!!!!!!!!!!!!!!!!                  \n");    
+    SpielverlaufOutput.append("-------------------------CREDITS-------------------------------\n");    
         
         
         
