@@ -45,7 +45,7 @@ public class SpielerMensch implements Spieler {
     /**
      * Eine Liste mit 3 Spielfiguren.
      */
-    public Spielfigur[] Spielfiguren = new Spielfigur[3];
+    public Spielfigur[] Spielfiguren = new Spielfigur[4];
     private int gezogen = 0;
 
     /**
@@ -81,7 +81,7 @@ public class SpielerMensch implements Spieler {
             }
         }
         * **/
-        for (int k = 0; k < 3; k++) {
+        for (int k = 0; k < 4; k++) {
             if (this.Spielfiguren[k] == null) {
                 Figuren = "Error";
                 break;
@@ -105,7 +105,7 @@ public class SpielerMensch implements Spieler {
      */
     public void setSpielfigur(Spielfigur dieSpielfigur) {
         log.log(objektname, "Methode setSpielfigur() gestartet mit Parameter " + dieSpielfigur + " .");
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 4; i++) {
             if (Spielfiguren[i] == null) {
                 Spielfiguren[i] = dieSpielfigur;
                 log.log(objektname, "Methode setSpielfigur() beendet.");
@@ -156,8 +156,8 @@ public class SpielerMensch implements Spieler {
             //habe ich nur Spielfiguren im Startkreis
             if (this.alleSpielerImStartkreis()) {
                 //-> ja, dann bis zu dreimal würfeln und hoffe auf eine 6
-                for (int i = 0; i < 3; i++) {
-                    System.out.println(this.objektname + " darf noch " + (3 - i) + " mal wuerfeln.");
+                for (int i = 0; i < 4; i++) {
+                    System.out.println(this.objektname + " darf noch " + (4 - i) + " mal wuerfeln.");
                     if (this.dasSpiel.output.wuerfeln()) {
                         // ist es eine 6?
                         if (this.wuerfeln() == 6) {
@@ -209,14 +209,14 @@ public class SpielerMensch implements Spieler {
 
         log.log(objektname, "Methode ziehen() gestartet.");
         //habe ich gewonnen? Wenn nein, dann mache ich einen normalen Zug
-        if (this.gezogen < 3) {
+        if (this.gezogen < 4) {
             if (!this.hatGewonnen()) {
                 this.dasSpiel.output.spielAusgabe();
                 System.out.println(this.objektname + " ist am Zug");
                 //habe ich nur Spielfiguren im Startkreis
                 if (this.alleSpielerImStartkreis()) {
                     //-> ja, dann bis zu dreimal würfeln und hoffe auf eine 6
-                    for (int i = 0; i < 3; i++) {
+                    for (int i = 0; i < 4; i++) {
                         System.out.println(this.objektname + " darf noch " + (3 - i) + " mal wuerfeln.");
                         if (this.dasSpiel.output.wuerfeln()) {
                             // ist es eine 6?

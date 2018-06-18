@@ -153,7 +153,7 @@ public class SpielerComputer implements Spieler {
             if (this.alleSpielerImStartkreis()) {
                 //-> ja, dann bis zu dreimal würfeln und hoffe auf eine 6
                 for (int i = 0; i < 4; i++) {
-                    System.out.println(this.objektname + " darf noch " + (4 - i) + " mal wuerfeln.");
+                    System.out.println(this.objektname + " darf noch " + (3 - i) + " mal wuerfeln.");
 
                     // ist es eine 6?
                     if (this.wuerfeln() == 6) {
