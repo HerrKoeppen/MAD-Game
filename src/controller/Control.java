@@ -60,7 +60,7 @@ public class Control {
                 if (ich.alleSpielerImStartkreis()) {
                     //-> ja, dann bis zu dreimal würfeln und hoffe auf eine 6
                     for (int i = 0; i < 4; i++) {
-                        System.out.println(ich.getobjektname() + " darf noch " + (4 - i) + " mal wuerfeln.");
+                        System.out.println(ich.getobjektname() + " darf noch " + (3 - i) + " mal wuerfeln.");
 
                         // ist es eine 6?
                         int wuerfel = ich.wuerfeln();
