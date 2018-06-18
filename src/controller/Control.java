@@ -9,7 +9,9 @@ import java.util.List;
 import java.util.logging.Level;
 import model.Logger;
 import model.Spiel;
+import model.Spieler;
 import model.SpielerComputer;
+import model.SpielerMensch;
 import model.Spielfigur;
 import view.MADGUI;
 
@@ -36,8 +38,15 @@ public class Control {
         int rueckgabe = -1;
 
         while (rueckgabe != 1) {
+            Spieler ich;
             //Ausschreiben aller einzelmethoden zur besseren Handhabung an dieser Stelle
-            SpielerComputer ich = (SpielerComputer) dasSpiel.aktiverSpieler;
+            if (dasSpiel.aktiverSpieler instanceof SpielerComputer){
+            ich = (SpielerComputer) dasSpiel.aktiverSpieler;
+            }
+            else
+            {
+            ich = (SpielerMensch) dasSpiel.aktiverSpieler;
+            }
             //ziehen
             if (ich.hatGewonnen()) {
                 rueckgabe = 1;
@@ -52,8 +61,9 @@ public class Control {
 
                         // ist es eine 6?
                         if (ich.wuerfeln() == 6) {
+                            ich.getSpielfiguren()[0].herauskommen();
 
-                            ich.Spielfiguren[0].herauskommen();
+                            //ich.Spielfiguren[0].herauskommen();
                             //ich.dasSpiel.output.spielAusgabe();
 
                             ich.setgezogen(0);

@@ -20,6 +20,9 @@ public interface Spieler {
    
     public int ziehen();
     public int getgezogen();
+    public boolean hatGewonnen();
+    public List<Spielfigur> moeglSpielfiguren(int zahl);
+
 
     /**
      *

@@ -57,7 +57,7 @@ public class Spiel {
         SpielStarten(logger, oname, diebotanzahl);
         this.c = co;
         //spielen();
-        log.log(objektname, "Konstrucktor Spiel() beendet.");
+        log.log(objektname, "Konstruktor Spiel() beendet.");
     }
 
     /**
@@ -136,7 +136,7 @@ public class Spiel {
             case 2:
                 Spieler Computer1 = new SpielerComputer("(Computer) Barbarianna", log, this);
             case 1:
-                Spieler Computer = new SpielerComputer("(Computer) Azrael", log, this);
+                Spieler Mensch = new SpielerMensch("(Computer) Azrael", log, this);
             case 0:
             default:
                 break;
