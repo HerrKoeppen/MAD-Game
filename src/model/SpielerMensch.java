@@ -47,6 +47,8 @@ public class SpielerMensch implements Spieler {
      */
     public Spielfigur[] Spielfiguren = new Spielfigur[3];
     private int gezogen = 0;
+     // Spielfigur in Spe (wurde auserwählt gezogen zu werden )
+    private Spielfigur Spefigur = null;
 
     /**
      * Logger zu Diagnosezwecken
@@ -138,6 +140,25 @@ public class SpielerMensch implements Spieler {
         return true;
     }
 
+    private int herauskommen() {
+
+        for (int i = 0; i < 3; i++) {
+            System.out.println(this.objektname + " darf noch " + (3 - i) + " mal wuerfeln.");
+            this.dasSpiel.c.wuerfeln();
+                // ist es eine 6?
+                if (this.wuerfeln() == 6) {
+                    spielfigWaehlen().herauskommen();
+                    this.gezogen = 0;
+                    return 0;
+                }
+            
+        }
+        System.out.println(this.objektname + "'s Zug ist beendet");
+        this.gezogen = 0;
+        return 0;
+
+    }
+
     /**
      *
      * @return
@@ -152,26 +173,10 @@ public class SpielerMensch implements Spieler {
         }
         if (this.gezogen < 3) {
 
-            this.dasSpiel.output.spielAusgabe();
             //habe ich nur Spielfiguren im Startkreis
             if (this.alleSpielerImStartkreis()) {
                 //-> ja, dann bis zu dreimal würfeln und hoffe auf eine 6
-                for (int i = 0; i < 3; i++) {
-                    System.out.println(this.objektname + " darf noch " + (3 - i) + " mal wuerfeln.");
-                    if (this.dasSpiel.output.wuerfeln()) {
-                        // ist es eine 6?
-                        if (this.wuerfeln() == 6) {
-                            int spieler = this.dasSpiel.getoutput().Spielerwaehlen(java.util.Arrays.asList(this.Spielfiguren));
-                            this.Spielfiguren[spieler].herauskommen();
-                            this.dasSpiel.output.spielAusgabe();
-                            this.gezogen = 0;
-                            return 0;
-                        }
-                    }
-                }
-                System.out.println(this.objektname + "'s Zug ist beendet");
-                this.gezogen = 0;
-                return 0;
+                return this.herauskommen();
             } //-> nein, einmal würfeln
             else {  //unnoetige zeile aber lieber doppelt als keinmal
                 if (this.dasSpiel.output.wuerfeln()) {
@@ -204,72 +209,61 @@ public class SpielerMensch implements Spieler {
     /**
      *
      * @return
-     */
-    public int ziehen2() {
-
-        log.log(objektname, "Methode ziehen() gestartet.");
-        //habe ich gewonnen? Wenn nein, dann mache ich einen normalen Zug
-        if (this.gezogen < 3) {
-            if (!this.hatGewonnen()) {
-                this.dasSpiel.output.spielAusgabe();
-                System.out.println(this.objektname + " ist am Zug");
-                //habe ich nur Spielfiguren im Startkreis
-                if (this.alleSpielerImStartkreis()) {
-                    //-> ja, dann bis zu dreimal würfeln und hoffe auf eine 6
-                    for (int i = 0; i < 3; i++) {
-                        System.out.println(this.objektname + " darf noch " + (3 - i) + " mal wuerfeln.");
-                        if (this.dasSpiel.output.wuerfeln()) {
-                            // ist es eine 6?
-                            if (this.wuerfeln() == 6) {
-                                int spieler = this.dasSpiel.getoutput().Spielerwaehlen(java.util.Arrays.asList(this.Spielfiguren));
-                                this.Spielfiguren[spieler].herauskommen();
-                                this.dasSpiel.output.spielAusgabe();
-                                System.out.println(this.objektname + "'s Zug ist beendet");
-                                this.gezogen = 0;
-                                return 0;
-                            }
-                        }
-                    }
-                    System.out.println(this.objektname + "'s Zug ist beendet");
-                    this.gezogen = 0;
-                    return 0;
-                } //-> nein, einmal würfeln
-                else {  //unnoetige zeile aber lieber doppelt als keinmal
-                    if (this.dasSpiel.output.wuerfeln()) {
-                        int Random = this.wuerfeln();
-
-                        List<Spielfigur> moeglSpielfiguren = this.moeglSpielfiguren(Random);
-                        if (moeglSpielfiguren.isEmpty()) {
-                            System.out.println("Du kannst nicht ziehen.Muhahaha(böses Lachen)");
-                            return 0;
-
-                        } else {
-
-                            moeglSpielfiguren.get(this.dasSpiel.getoutput().Spielerwaehlen(moeglSpielfiguren)).laufen(Random);
-
-                        }
-                    }
-
-                }
-
-            }
-
-        } else {
-            System.out.println(this.objektname + " hat gewonnen.");
-            return 1;
-        }
-        if ((this.gezogen > 0)) {
-            this.gezogen--;
-        } else {
-            System.out.println(this.objektname + "'s Zug ist beendet");
-        }
-
-        //ich habe doch schon gewonnen: ich mache nichts
-        log.log(objektname, "Methode ziehen() beendet.");
-        return 0;
-    }
-
-    /**
+     *
+     * public int ziehen2() {
+     *
+     * log.log(objektname, "Methode ziehen() gestartet."); //habe ich gewonnen?
+     * Wenn nein, dann mache ich einen normalen Zug if (this.gezogen < 3) {
+     * if (!this.hatGewonnen()) {
+     * this.dasSpiel.output.spielAusgabe();
+     * System.out.println(this.objektname + " ist am Zug");
+     * //habe ich nur Spielfiguren im Startkreis
+     * if (this.alleSpielerImStartkreis()) {
+     * //-> ja, dann bis zu dreimal würfeln und hoffe auf eine 6 for (int i =
+     * 0; i < 3; i++) {
+     * System.out.println(this.objektname + " darf noch " + (3 - i) + " mal wuerfeln.");
+     * if (this.dasSpiel.output.wuerfeln()) {
+     * // ist es eine 6?
+     * if (this.wuerfeln() == 6) {
+     * int spieler = this.dasSpiel.getoutput().Spielerwaehlen(java.util.Arrays.asList(this.Spielfiguren));
+     * this.Spielfiguren[spieler].herauskommen();
+     * this.dasSpiel.output.spielAusgabe();
+     * System.out.println(this.objektname + "'s Zug ist beendet");
+     * this.gezogen = 0;
+     * return 0;
+     * }
+     * }
+     * }
+     * System.out.println(this.objektname + "'s Zug ist beendet");
+     * this.gezogen = 0;
+     * return 0;
+     * } //-> nein, einmal würfeln else { //unnoetige zeile aber lieber doppelt
+     * als keinmal if (this.dasSpiel.output.wuerfeln()) { int Random =
+     * this.wuerfeln();
+     *
+     * List<Spielfigur> moeglSpielfiguren = this.moeglSpielfiguren(Random); if
+     * (moeglSpielfiguren.isEmpty()) { System.out.println("Du kannst nicht
+     * ziehen.Muhahaha(böses Lachen)"); return 0;
+     *
+     * } else {
+     *
+     * moeglSpielfiguren.get(this.dasSpiel.getoutput().Spielerwaehlen(moeglSpielfiguren)).laufen(Random);
+     *
+     * }
+     * }
+     *
+     * }
+     *
+     * }
+     *
+     * } else { System.out.println(this.objektname + " hat gewonnen."); return
+     * 1; } if ((this.gezogen > 0)) { this.gezogen--; } else {
+     * System.out.println(this.objektname + "'s Zug ist beendet"); }
+     *
+     * //ich habe doch schon gewonnen: ich mache nichts log.log(objektname,
+     * "Methode ziehen() beendet."); return 0; } /
+     *
+     * /**
      * Methode gibt alle Spielfiguren zurück die für diesen Zug möglich währen
      * und benötigt dafür die gewürfelte Zahl.
      *
@@ -465,7 +459,6 @@ public class SpielerMensch implements Spieler {
      *
      *
      */
-
     public void VerbleideneZügeErrechnen() {
         if (this.alleSpielerImStartkreis()) {
             this.verbleideneZüge = 3;
@@ -483,8 +476,16 @@ public class SpielerMensch implements Spieler {
      * @param Spielfigur
      * @return
      */
-
     public int SpielfigurZiehen(int Spielfigur) {
+        if(this.SpielfigurZugMöglich(Spielfigur))
+       {
+       this.Spefigur = this.Spielfiguren[Spielfigur];
+       }
+       return 1;
+        
+        
+        
+        /**
         int SpielfigurIndex = Spielfigur--;
         if (this.verbleideneZüge != 0) {
             Spielfigur AusgewählteSpielfigur = this.getSpielfiguren()[SpielfigurIndex];
@@ -500,19 +501,21 @@ public class SpielerMensch implements Spieler {
 
         }
         return 1;
+        * */
     }
-    
-    public int getVerbleideneZüge(){
+
+    public int getVerbleideneZüge() {
         return this.verbleideneZüge;
     }
+
     /**
      * Überprüft ob sich die Spielfigur bewegen kann.
+     *
      * @param Spielfigur
-     * @return 
+     * @return
      */
-    
-    public boolean SpielfigurZugMöglich(int Spielfigur){
-        int SpielfigurIndex = Spielfigur--;
+    public boolean SpielfigurZugMöglich(int Spielfigur) {
+        /*int SpielfigurIndex = Spielfigur--;
         if (this.verbleideneZüge != 0) {
             Spielfigur AusgewählteSpielfigur = this.getSpielfiguren()[SpielfigurIndex];
             List<Spielfigur> moeglSpielfiguren = this.moeglSpielfiguren(dasSpiel.getWuerfel().getZahl());
@@ -521,8 +524,23 @@ public class SpielerMensch implements Spieler {
             }
 
         }
-        return false;
+        return false;*/
+        
+         List<Spielfigur> moeglSpielfiguren = this.moeglSpielfiguren(this.dasSpiel.getWuerfel().getZahl());
+        
+        return this.Spielfiguren[Spielfigur].kannSichBewegen(this.dasSpiel.getWuerfel().getZahl()) && moeglSpielfiguren.contains(this.Spielfiguren[Spielfigur]);
     }
+    
+    
+     public Spielfigur spielfigWaehlen() {
+        while (true) {
+        
+       if (this.Spefigur != null){
+       return Spefigur;
+       }
         
     }
+    }
 
+
+}

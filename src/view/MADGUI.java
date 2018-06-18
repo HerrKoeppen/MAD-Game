@@ -546,7 +546,7 @@ public class MADGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_WuerfelnActionPerformed
 
     private void Spieler1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Spieler1ActionPerformed
-        if (dasSpiel.aktiverSpieler.SpielfigurZiehen(1) == 1) {
+        if (dasSpiel.aktiverSpieler.SpielfigurZiehen(0) == 1) {
 
         } else {
             SpielverlaufOutput.append("Diee Spielfigur kann nicht gezogen werden.");
@@ -555,7 +555,7 @@ public class MADGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_Spieler1ActionPerformed
 
     private void Spieler2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Spieler2ActionPerformed
-        if (dasSpiel.aktiverSpieler.SpielfigurZiehen(2) == 1) {
+        if (dasSpiel.aktiverSpieler.SpielfigurZiehen(1) == 1) {
 
         } else {
             SpielverlaufOutput.append("Diee Spielfigur kann nicht gezogen werden.");
@@ -564,7 +564,7 @@ public class MADGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_Spieler2ActionPerformed
 
     private void Spieler3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Spieler3ActionPerformed
-        if (dasSpiel.aktiverSpieler.SpielfigurZiehen(3) == 1) {
+        if (dasSpiel.aktiverSpieler.SpielfigurZiehen(2) == 1) {
 
         } else {
             SpielverlaufOutput.append("Diee Spielfigur kann nicht gezogen werden.");
@@ -573,7 +573,7 @@ public class MADGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_Spieler3ActionPerformed
 
     private void Spieler4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Spieler4ActionPerformed
-        if (dasSpiel.aktiverSpieler.SpielfigurZiehen(4) == 1) {
+        if (dasSpiel.aktiverSpieler.SpielfigurZiehen(3) == 1) {
 
         } else {
             SpielverlaufOutput.append("Diee Spielfigur kann nicht gezogen werden.");

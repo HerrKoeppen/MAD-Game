@@ -139,11 +139,26 @@ public class Control {
         }
         gui.darstellungAnzeigen();
         this.dasSpiel.output.akt();
+        this.gui.WuerfelAusgeben(this.dasSpiel.getWuerfel().getZahl());
 
+    }
+    
+    
+    public void wuerfeln(){
+        
+        
+        // code  smh here
+        // request: need pop up menu
+        this.dasSpiel.getWuerfel().wuerfeln();
+   
+    
+    
+    
     }
 
     public static void main(String[] args) {
         Control c = new Control();
     }
 
+   
 }

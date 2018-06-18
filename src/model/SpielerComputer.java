@@ -47,7 +47,7 @@ public class SpielerComputer implements Spieler {
      */
     public Spielfigur[] Spielfiguren = new Spielfigur[4];
     private int gezogen = 0;
-
+   
     /**
      * Logger zu Diagnosezwecken
      */
@@ -389,7 +389,8 @@ public class SpielerComputer implements Spieler {
 
     @Override
     public int SpielfigurZiehen(int Spielfigur) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       
+       return 1;
     }
 
     @Override
@@ -399,7 +400,7 @@ public class SpielerComputer implements Spieler {
 
     @Override
     public boolean SpielfigurZugMöglich(int Spielfigur) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    return true;
     }
 
 }
