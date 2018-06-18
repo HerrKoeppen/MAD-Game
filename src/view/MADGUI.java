@@ -687,6 +687,9 @@ public class MADGUI extends javax.swing.JFrame {
         }
 
     }
+    public javax.swing.JTextArea getSpielVerlaufOutput(){
+        return SpielverlaufOutput;
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
