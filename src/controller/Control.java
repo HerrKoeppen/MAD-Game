@@ -36,6 +36,7 @@ public class Control {
 
         gui.darstellungAnzeigen();
         int rueckgabe = -1;
+        gui.getSpielVerlaufOutput().append("Spiel gestartet.\n");
 
         while (rueckgabe != 1) {
             Spieler ich;
@@ -47,6 +48,8 @@ public class Control {
             {
             ich = (SpielerMensch) dasSpiel.aktiverSpieler;
             }
+            gui.getSpielVerlaufOutput().append("Aktiver Spieler: "+ich.getobjektname()+"\n");
+
             //ziehen
             if (ich.hatGewonnen()) {
                 rueckgabe = 1;
@@ -60,7 +63,9 @@ public class Control {
                         System.out.println(ich.getobjektname() + " darf noch " + (4 - i) + " mal wuerfeln.");
 
                         // ist es eine 6?
-                        if (ich.wuerfeln() == 6) {
+                        int wuerfel = ich.wuerfeln();
+                        aktualisieren();
+                        if (wuerfel == 6) {
                             ich.getSpielfiguren()[0].herauskommen();
 
                             //ich.Spielfiguren[0].herauskommen();
@@ -79,6 +84,7 @@ public class Control {
                 else {  //unnoetige zeile aber lieber doppelt als keinmal
 
                     int Random = ich.wuerfeln();
+                    aktualisieren();
 
                     List<Spielfigur> moeglSpielfiguren = ich.moeglSpielfiguren(Random);
                     if (moeglSpielfiguren.isEmpty()) {
@@ -138,6 +144,7 @@ public class Control {
             java.util.logging.Logger.getLogger(Control.class.getName()).log(Level.SEVERE, null, ex);
         }
         gui.darstellungAnzeigen();
+        gui.WuerfelAusgeben(dasSpiel.getWuerfel().getZahl());
         this.dasSpiel.output.akt();
 
     }
