@@ -180,8 +180,6 @@ public class MADGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        rot2 = new javax.swing.JLabel();
-        rot3 = new javax.swing.JLabel();
         baf = new javax.swing.JLabel();
         f2 = new javax.swing.JLabel();
         f3 = new javax.swing.JLabel();
@@ -302,8 +300,6 @@ public class MADGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(rot2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 20, -1, -1));
-        getContentPane().add(rot3, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 70, -1, -1));
         getContentPane().add(baf, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, 50, 90));
         getContentPane().add(f2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, 50, 90));
         getContentPane().add(f3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, 50, 100));
@@ -326,7 +322,7 @@ public class MADGUI extends javax.swing.JFrame {
         getContentPane().add(f20, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 320, 50, 90));
         getContentPane().add(f21, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 380, 50, 80));
         getContentPane().add(f22, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 400, 50, 80));
-        getContentPane().add(f23, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 290, 50, 90));
+        getContentPane().add(f23, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 410, 50, 90));
         getContentPane().add(pef, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 450, 50, 90));
         getContentPane().add(paf, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 490, 50, 90));
         getContentPane().add(f26, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 480, 50, 90));
@@ -620,13 +616,13 @@ public class MADGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_CreditsActionPerformed
 
     private void STARTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_STARTActionPerformed
-        control.START();
+        //control.START();
         STOP.setEnabled(true);
         START.setEnabled(false);
     }//GEN-LAST:event_STARTActionPerformed
 
     private void STOPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_STOPActionPerformed
-        control.STOP();
+        //control.STOP();
         STOP.setEnabled(false);
         START.setEnabled(true);
     }//GEN-LAST:event_STOPActionPerformed
@@ -772,8 +768,6 @@ public class MADGUI extends javax.swing.JFrame {
     private javax.swing.JLabel pz4;
     private javax.swing.JLabel raf;
     private javax.swing.JLabel ref;
-    private javax.swing.JLabel rot2;
-    private javax.swing.JLabel rot3;
     private javax.swing.JLabel rs1;
     private javax.swing.JLabel rs2;
     private javax.swing.JLabel rs3;
