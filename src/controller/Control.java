@@ -62,7 +62,7 @@ public class Control {
 
             //ziehen
             if (ich.hatGewonnen()) {
-                 gui.getSpielVerlaufOutput().append(ich.getobjektname()+"hat das Spiel gewonnen.\n");
+                gui.getSpielVerlaufOutput().append(ich.getobjektname() + "hat das Spiel gewonnen.\n");
                 rueckgabe = 1;
             }
             if (ich.getgezogen() < 4) {
@@ -74,17 +74,22 @@ public class Control {
                         System.out.println(ich.getobjektname() + " darf noch " + (3 - i) + " mal wuerfeln.");
 
                         // ist es eine 6?
+                        if (dasSpiel.aktiverSpieler instanceof SpielerMensch) {
+                            JOptionPane.showMessageDialog(null, "Klicke um zu würfeln.");
+                        }
                         int wuerfel = ich.wuerfeln();
-                        gui.getSpielVerlaufOutput().append(ich.getobjektname()+ " hat " + this.dasSpiel.getWuerfel().getZahl() + " gewürfelt.\n");
+                        gui.getSpielVerlaufOutput().append(ich.getobjektname() + " hat " + this.dasSpiel.getWuerfel().getZahl() + " gewürfelt.\n");
                         aktualisieren();
                         if (wuerfel == 6) {
                             int geschlagen = ich.getSpielfiguren()[0].herauskommen();
-                            gui.getSpielVerlaufOutput().append(ich.getobjektname()+ " ist herausgekommen.\n");
+                            gui.getSpielVerlaufOutput().append(ich.getobjektname() + " ist herausgekommen.\n");
+                            //Welches ist die Rückgabe von herauskommen? Kann man hier einen Wert für das Schlagen beim Herauskommen einfügen?
+                            /*
                             if(geschlagen==2){
                                 gui.getSpielVerlaufOutput().append(ich.getobjektname()+ " HAT BEIM HERAUSKOMMEN GESCHLAGEN!\n");
 
                             }
-
+                             */
                             //ich.Spielfiguren[0].herauskommen();
                             //ich.dasSpiel.output.spielAusgabe();
                             ich.setgezogen(0);
@@ -98,9 +103,11 @@ public class Control {
                     rueckgabe = 0;
                 } //-> nein, einmal würfeln
                 else {  //unnoetige zeile aber lieber doppelt als keinmal
-
+                    if (dasSpiel.aktiverSpieler instanceof SpielerMensch) {
+                        JOptionPane.showMessageDialog(null, "Klicke um zu würfeln.");
+                    }
                     int Random = ich.wuerfeln();
-                    gui.getSpielVerlaufOutput().append(ich.getobjektname()+ " hat " + this.dasSpiel.getWuerfel().getZahl() + " gewürfelt.\n");
+                    gui.getSpielVerlaufOutput().append(ich.getobjektname() + " hat " + this.dasSpiel.getWuerfel().getZahl() + " gewürfelt.\n");
                     aktualisieren();
 
                     List<Spielfigur> moeglSpielfiguren = ich.moeglSpielfiguren(Random);
@@ -109,23 +116,24 @@ public class Control {
 
                     } else {
                         if (ich instanceof SpielerComputer) {
-                            
+
                             int geschlagen = moeglSpielfiguren.get(0).laufen(Random);
+                            //welches ist die Rückgabe von laufen()? Kann man hier einen Rückgabewert für einen Schlag einbauen?
                             //gui.getSpielVerlaufOutput().append(ich.getobjektname()+ " HAT GESCHLAGEN!\n");
 
                         } else {
                             ArrayList<String> values = new ArrayList();
-                            for (int i=1;i<=moeglSpielfiguren.size();i++){
-                            values.add(String.valueOf(i));
+                            for (int i = 0; i < moeglSpielfiguren.size(); i++) {
+                                values.add(String.valueOf(i));
                             }
-                            
 
-                            Object selected = JOptionPane.showInputDialog(null, "What is the target Nicotine level?", "Selection", JOptionPane.DEFAULT_OPTION, null, values.toArray(), "0");
+                            Object selected = JOptionPane.showInputDialog(null, "Welche Spielfigur möchtest du bewegen?", "Auswahl Spielfigur", JOptionPane.DEFAULT_OPTION, null, values.toArray(), "0");
                             if (selected != null) {//null if the user cancels. 
                                 String selectedString = selected.toString();
-                                //do something
+                                int auswahl = Integer.parseInt(selectedString);
+                                moeglSpielfiguren.get(auswahl).laufen(Random);
                             } else {
-                                System.out.println("User cancelled");
+                                System.out.println("Abbruch. Ungültiger Zug.");
                             }
                         }
                     }
@@ -135,7 +143,6 @@ public class Control {
             }
             ich.setgezogen(0);
             //ich habe doch schon gewonnen: ich mache nichts
-            log.log(ich.getobjektname(), "Methode ziehen() beendet.");
             if (ich.hatGewonnen()) {
                 rueckgabe = 1;
             }
@@ -154,10 +161,10 @@ public class Control {
                 dasSpiel.aktiverSpieler = dasSpiel.AlleSpieler[dasSpiel.aktiverSpielerIndex];
                 if (dasSpiel.zugNr % dasSpiel.AlleSpieler.length == 0) {
                     dasSpiel.Runde = dasSpiel.Runde + 1;
-                            gui.getSpielVerlaufOutput().append("Neue Runde: " + dasSpiel.Runde+"\n");
+                    gui.getSpielVerlaufOutput().append("Neue Runde: " + dasSpiel.Runde + "\n");
                 }
                 dasSpiel.zugNr = dasSpiel.zugNr + 1;
-                gui.getSpielVerlaufOutput().append("Zug Nr: "+dasSpiel.zugNr+"\n");
+                gui.getSpielVerlaufOutput().append("Zug Nr: " + dasSpiel.zugNr + "\n");
                 //wechsel aktiver Spieler
 
                 try {
@@ -183,23 +190,17 @@ public class Control {
         //this.dasSpiel.output.akt();
 
     }
-    
-    
-    public void wuerfeln(){
-        
-        
+
+    public void wuerfeln() {
+
         // code  smh here
         // request: need pop up menu
         this.dasSpiel.getWuerfel().wuerfeln();
-   
-    
-    
-    
+
     }
 
     public static void main(String[] args) {
         Control c = new Control();
     }
 
-   
 }

@@ -7,7 +7,6 @@ package model;
 
 import java.util.LinkedList;
 import java.util.List;
-import javax.swing.JOptionPane;
 
 /**
  * Die Klasse SpielerMensch beinhaltet zum einen, den Namen der Spieler, die
@@ -44,22 +43,16 @@ public class SpielerMensch implements Spieler {
      */
     private Spiel dasSpiel;
     /**
-     * Eine Liste mit 3 Spielfiguren.
+     * Eine Liste mit 4 Spielfiguren.
      */
     public Spielfigur[] Spielfiguren = new Spielfigur[4];
     private int gezogen = 0;
-     // Spielfigur in Spe (wurde auserwählt gezogen zu werden )
-    private Spielfigur Spefigur = null;
-
+   
     /**
      * Logger zu Diagnosezwecken
      */
     private Logger log;
     private String objektname;
-    /**
-     * Gibt an wie viele Züge der Spieler noch machen darf.
-     */
-    private int verbleideneZüge = 0;
 
     public SpielerMensch(String oname, Logger logger, Spiel dasspiel) {
         objektname = oname;
@@ -73,7 +66,8 @@ public class SpielerMensch implements Spieler {
         this.aFeld = this.dasSpiel.getSpielbrett().getAfelder()[this.id];
         this.zeFeld = this.dasSpiel.getSpielbrett().getEfelder()[this.id];
         this.zielfeld = this.dasSpiel.getSpielbrett().getZfelder()[this.id];
-
+        
+           
         this.dasSpiel.spielfigurenVerteilen();
         String Figuren = " ";
         /*
@@ -141,26 +135,6 @@ public class SpielerMensch implements Spieler {
         //System.out.println(this.objektname + " hat gewonnen");
         return true;
     }
-    /*
-    private int herauskommen() {
-
-        for (int i = 0; i < 3; i++) {
-            System.out.println(this.objektname + " darf noch " + (3 - i) + " mal wuerfeln.");
-            this.dasSpiel.c.wuerfeln();
-                // ist es eine 6?
-                if (this.wuerfeln() == 6) {
-                    spielfigWaehlen().herauskommen();
-                    this.gezogen = 0;
-                    return 0;
-                }
-            
-        }
-        System.out.println(this.objektname + "'s Zug ist beendet");
-        this.gezogen = 0;
-        return 0;
-
-    }
-    */
 
     /**
      *
@@ -174,46 +148,46 @@ public class SpielerMensch implements Spieler {
         if (this.hatGewonnen()) {
             return 1;
         }
-        if (this.gezogen < 3) {
+        if (this.gezogen < 4) {
 
             //habe ich nur Spielfiguren im Startkreis
             if (this.alleSpielerImStartkreis()) {
                 //-> ja, dann bis zu dreimal würfeln und hoffe auf eine 6
                 for (int i = 0; i < 4; i++) {
-                    System.out.println(this.objektname + " darf noch " + (4 - i) + " mal wuerfeln.");
-                    if (this.dasSpiel.output.wuerfeln()) {
-                        // ist es eine 6?
-                        if (this.wuerfeln() == 6) {
-                            int spieler = this.dasSpiel.getoutput().Spielerwaehlen(java.util.Arrays.asList(this.Spielfiguren));
-                            this.Spielfiguren[spieler].herauskommen();
-                            this.dasSpiel.output.spielAusgabe();
-                            this.gezogen = 0;
-                            return 0;
-                        }
+                    System.out.println(this.objektname + " darf noch " + (3 - i) + " mal wuerfeln.");
+
+                    // ist es eine 6?
+                    if (this.wuerfeln() == 6) {
+
+                        this.Spielfiguren[0].herauskommen();
+                        this.dasSpiel.output.spielAusgabe();
+
+                        this.gezogen = 0;
+
+                        return 0;
                     }
+
                 }
-                System.out.println(this.objektname + "'s Zug ist beendet");
+
                 this.gezogen = 0;
                 return 0;
-                //return this.herauskommen();
             } //-> nein, einmal würfeln
             else {  //unnoetige zeile aber lieber doppelt als keinmal
-                if (this.dasSpiel.output.wuerfeln()) {
-                    int Random = this.wuerfeln();
 
-                    List<Spielfigur> moeglSpielfiguren = this.moeglSpielfiguren(Random);
-                    if (moeglSpielfiguren.isEmpty()) {
-                        System.out.println("Du kannst nicht ziehen.Muhahaha(böses Lachen)");
-                        return 0;
+                int Random = this.wuerfeln();
 
-                    } else {
+                List<Spielfigur> moeglSpielfiguren = this.moeglSpielfiguren(Random);
+                if (moeglSpielfiguren.isEmpty()) {
+                    System.out.println("Du kannst nicht ziehen.Muhahaha(böses Lachen)");
 
-                        moeglSpielfiguren.get(this.dasSpiel.getoutput().Spielerwaehlen(moeglSpielfiguren)).laufen(Random);
+                } else {
 
-                    }
+                    moeglSpielfiguren.get(0).laufen(Random);
+
                 }
 
             }
+
         }
         this.gezogen = 0;
         //ich habe doch schon gewonnen: ich mache nichts
@@ -226,63 +200,6 @@ public class SpielerMensch implements Spieler {
     }
 
     /**
-     *
-     * @return
-     *
-     * public int ziehen2() {
-     *
-     * log.log(objektname, "Methode ziehen() gestartet."); //habe ich gewonnen?
-     * Wenn nein, dann mache ich einen normalen Zug if (this.gezogen < 3) {
-     * if (!this.hatGewonnen()) {
-     * this.dasSpiel.output.spielAusgabe();
-     * System.out.println(this.objektname + " ist am Zug");
-     * //habe ich nur Spielfiguren im Startkreis
-     * if (this.alleSpielerImStartkreis()) {
-     * //-> ja, dann bis zu dreimal würfeln und hoffe auf eine 6 for (int i =
-     * 0; i < 3; i++) {
-     * System.out.println(this.objektname + " darf noch " + (3 - i) + " mal wuerfeln.");
-     * if (this.dasSpiel.output.wuerfeln()) {
-     * // ist es eine 6?
-     * if (this.wuerfeln() == 6) {
-     * int spieler = this.dasSpiel.getoutput().Spielerwaehlen(java.util.Arrays.asList(this.Spielfiguren));
-     * this.Spielfiguren[spieler].herauskommen();
-     * this.dasSpiel.output.spielAusgabe();
-     * System.out.println(this.objektname + "'s Zug ist beendet");
-     * this.gezogen = 0;
-     * return 0;
-     * }
-     * }
-     * }
-     * System.out.println(this.objektname + "'s Zug ist beendet");
-     * this.gezogen = 0;
-     * return 0;
-     * } //-> nein, einmal würfeln else { //unnoetige zeile aber lieber doppelt
-     * als keinmal if (this.dasSpiel.output.wuerfeln()) { int Random =
-     * this.wuerfeln();
-     *
-     * List<Spielfigur> moeglSpielfiguren = this.moeglSpielfiguren(Random); if
-     * (moeglSpielfiguren.isEmpty()) { System.out.println("Du kannst nicht
-     * ziehen.Muhahaha(böses Lachen)"); return 0;
-     *
-     * } else {
-     *
-     * moeglSpielfiguren.get(this.dasSpiel.getoutput().Spielerwaehlen(moeglSpielfiguren)).laufen(Random);
-     *
-     * }
-     * }
-     *
-     * }
-     *
-     * }
-     *
-     * } else { System.out.println(this.objektname + " hat gewonnen."); return
-     * 1; } if ((this.gezogen > 0)) { this.gezogen--; } else {
-     * System.out.println(this.objektname + "'s Zug ist beendet"); }
-     *
-     * //ich habe doch schon gewonnen: ich mache nichts log.log(objektname,
-     * "Methode ziehen() beendet."); return 0; } /
-     *
-     * /**
      * Methode gibt alle Spielfiguren zurück die für diesen Zug möglich währen
      * und benötigt dafür die gewürfelte Zahl.
      *
@@ -328,7 +245,6 @@ public class SpielerMensch implements Spieler {
     @Override
     public int wuerfeln() {
         log.log(objektname, "Methode wuerfeln() gestartet.");
-        JOptionPane.showMessageDialog(null,"Würfeln!",getobjektname(), JOptionPane.PLAIN_MESSAGE);
         int augenzahl = this.dasSpiel.getWuerfel().wuerfeln();
         log.log(objektname, "Methodenrückgabe: " + augenzahl);
         log.log(objektname, "Methode wuerfeln() beendet.");
@@ -357,12 +273,7 @@ public class SpielerMensch implements Spieler {
         return true;
     }
 
-    /**
-     * Die Methode gibt an ob sich min. eine Spielfigur auf den Startfeldern
-     * befindet.
-     *
-     * @return Boolean
-     */
+    @Override
     public boolean SpielerImStartkreis() {
         log.log(objektname, "Methode hatGewonnen() gestartet.");
         for (Spielfigur i : Spielfiguren) {
@@ -378,32 +289,32 @@ public class SpielerMensch implements Spieler {
         return false;
     }
 
+    @Override
     /**
      * Getter-Methode fuer aFeld, also Anfangsfeld
      *
      * @return aFeld
      */
-    @Override
     public Feld getafeld() {
         return aFeld;
     }
 
+    @Override
     /**
      * Getter-Methode fuer ArrayList Felder
      *
      * @return null
      */
-    @Override
     public List<Feld> getFelder() {
         return null;
     }
 
+    @Override
     /**
      * Getter-Methode fuer Spiel
      *
      * @return dasSpiel
      */
-    @Override
     public Spiel getSpiel() {
         return this.dasSpiel;
     }
@@ -455,7 +366,6 @@ public class SpielerMensch implements Spieler {
      *
      * @return the farbe, objektname
      */
-    @Override
     public String getobjektname() {
         log.log(objektname, "Methode getobjektname() gestartet.");
         log.log(objektname, "Methodenrückgabe: " + objektname);
@@ -473,94 +383,25 @@ public class SpielerMensch implements Spieler {
         this.gezogen = c;
     }
 
-    /**
-     * Die Methode setz die verbleidenen Züge auf 1 oder 3 jenachdem ob alle
-     * Spielfiguren noch im Startkreis sind.
-     *
-     *
-     */
+    @Override
     public void VerbleideneZügeErrechnen() {
-        if (this.alleSpielerImStartkreis()) {
-            this.verbleideneZüge = 3;
-        } else {
-            this.verbleideneZüge = 1;
-
-        }
-
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    /**
-     * Prüft ob sich die Spielfigur begwegen kann und bewegt diese
-     * gegebenenfalls. 0 = Konnte sich bewegen. 1 = Kann sich nicht bewegen.
-     *
-     * @param Spielfigur
-     * @return
-     */
+    @Override
     public int SpielfigurZiehen(int Spielfigur) {
-        if(this.SpielfigurZugMöglich(Spielfigur))
-       {
-       this.Spefigur = this.Spielfiguren[Spielfigur];
-       }
+       
        return 1;
-        
-        
-        
-        /**
-        int SpielfigurIndex = Spielfigur--;
-        if (this.verbleideneZüge != 0) {
-            Spielfigur AusgewählteSpielfigur = this.getSpielfiguren()[SpielfigurIndex];
-            List<Spielfigur> moeglSpielfiguren = this.moeglSpielfiguren(dasSpiel.getWuerfel().getZahl());
-            if (moeglSpielfiguren.contains(AusgewählteSpielfigur)) {
-                AusgewählteSpielfigur.laufen(dasSpiel.getWuerfel().getZahl());
-                verbleideneZüge--;
-                return 0;
-            } else {
-                return 1;
-
-            }
-
-        }
-        return 1;
-        * */
     }
 
+    @Override
     public int getVerbleideneZüge() {
-        return this.verbleideneZüge;
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    /**
-     * Überprüft ob sich die Spielfigur bewegen kann.
-     *
-     * @param Spielfigur
-     * @return
-     */
+    @Override
     public boolean SpielfigurZugMöglich(int Spielfigur) {
-        /*int SpielfigurIndex = Spielfigur--;
-        if (this.verbleideneZüge != 0) {
-            Spielfigur AusgewählteSpielfigur = this.getSpielfiguren()[SpielfigurIndex];
-            List<Spielfigur> moeglSpielfiguren = this.moeglSpielfiguren(dasSpiel.getWuerfel().getZahl());
-            if (moeglSpielfiguren.contains(AusgewählteSpielfigur)) {
-                return true;
-            }
-
-        }
-        return false;*/
-        
-         List<Spielfigur> moeglSpielfiguren = this.moeglSpielfiguren(this.dasSpiel.getWuerfel().getZahl());
-        
-        return this.Spielfiguren[Spielfigur].kannSichBewegen(this.dasSpiel.getWuerfel().getZahl()) && moeglSpielfiguren.contains(this.Spielfiguren[Spielfigur]);
+    return true;
     }
-    
-    
-     public Spielfigur spielfigWaehlen() {
-        while (true) {
-        
-       if (this.Spefigur != null){
-       return Spefigur;
-       }
-        
-    }
-    }
-
 
 }
