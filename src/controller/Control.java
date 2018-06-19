@@ -46,6 +46,9 @@ public class Control {
         gui.darstellungAnzeigen();
         int rueckgabe = -1;
         gui.getSpielVerlaufOutput().append("Spiel gestartet.\n");
+        dasSpiel.zugNr = 1;
+
+        gui.getSpielVerlaufOutput().append("Runde 1. Zug 1\n");
 
         while (rueckgabe != 1) {
             Spieler ich;
@@ -75,8 +78,12 @@ public class Control {
                         gui.getSpielVerlaufOutput().append(ich.getobjektname()+ " hat " + this.dasSpiel.getWuerfel().getZahl() + " gewürfelt.\n");
                         aktualisieren();
                         if (wuerfel == 6) {
-                            ich.getSpielfiguren()[0].herauskommen();
+                            int geschlagen = ich.getSpielfiguren()[0].herauskommen();
                             gui.getSpielVerlaufOutput().append(ich.getobjektname()+ " ist herausgekommen.\n");
+                            if(geschlagen==2){
+                                gui.getSpielVerlaufOutput().append(ich.getobjektname()+ " HAT BEIM HERAUSKOMMEN GESCHLAGEN!\n");
+
+                            }
 
                             //ich.Spielfiguren[0].herauskommen();
                             //ich.dasSpiel.output.spielAusgabe();
@@ -104,7 +111,7 @@ public class Control {
                         if (ich instanceof SpielerComputer) {
                             
                             int geschlagen = moeglSpielfiguren.get(0).laufen(Random);
-                            gui.getSpielVerlaufOutput().append(ich.getobjektname()+ " HAT GESCHLAGEN!\n");
+                            //gui.getSpielVerlaufOutput().append(ich.getobjektname()+ " HAT GESCHLAGEN!\n");
 
                         } else {
                             ArrayList<String> values = new ArrayList();
@@ -137,9 +144,9 @@ public class Control {
 
             //wechsel aktiver Spieler
             if (rueckgabe == 1) {
-                System.out.println(dasSpiel.aktiverSpieler.getobjektname() + " hat gewonnen");
+                gui.getSpielVerlaufOutput().append(dasSpiel.aktiverSpieler.getobjektname() + " hat gewonnen.\n");
             } else {
-                System.out.println(dasSpiel.aktiverSpieler.getobjektname() + "'s Zug ist beendet");
+                gui.getSpielVerlaufOutput().append(dasSpiel.aktiverSpieler.getobjektname() + "'s Zug ist beendet.\n");
                 dasSpiel.aktiverSpielerIndex = dasSpiel.aktiverSpielerIndex + 1;
                 if (dasSpiel.aktiverSpielerIndex == dasSpiel.AlleSpieler.length) {
                     dasSpiel.aktiverSpielerIndex = 0;
@@ -147,13 +154,14 @@ public class Control {
                 dasSpiel.aktiverSpieler = dasSpiel.AlleSpieler[dasSpiel.aktiverSpielerIndex];
                 if (dasSpiel.zugNr % dasSpiel.AlleSpieler.length == 0) {
                     dasSpiel.Runde = dasSpiel.Runde + 1;
-                    System.out.println("Neue Runde: " + dasSpiel.Runde);
+                            gui.getSpielVerlaufOutput().append("Neue Runde: " + dasSpiel.Runde+"\n");
                 }
                 dasSpiel.zugNr = dasSpiel.zugNr + 1;
+                gui.getSpielVerlaufOutput().append("Zug Nr: "+dasSpiel.zugNr+"\n");
                 //wechsel aktiver Spieler
 
                 try {
-                    Thread.sleep(100);
+                    Thread.sleep(50);
                 } catch (InterruptedException ex) {
                     java.util.logging.Logger.getLogger(Control.class.getName()).log(Level.SEVERE, null, ex);
                 }

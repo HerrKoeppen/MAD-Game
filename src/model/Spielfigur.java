@@ -244,7 +244,6 @@ public class Spielfigur {
             {
                 schlagen(zielfeld);
                 System.out.println("schlag");
-                retval = 1; //ergänzt von Köppen als Wert für geschlagen
             }
             this.setzten(zielfeld);
         }

@@ -421,6 +421,7 @@ public class MADGUI extends javax.swing.JFrame {
         SpielverlaufOutput.setColumns(20);
         SpielverlaufOutput.setRows(5);
         SpielverlaufOutput.setToolTipText("");
+        SpielverlaufOutput.setWrapStyleWord(true);
         SpielverlaufOutputSP.setViewportView(SpielverlaufOutput);
 
         getContentPane().add(SpielverlaufOutputSP, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 0, 280, 460));

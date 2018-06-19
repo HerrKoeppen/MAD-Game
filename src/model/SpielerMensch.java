@@ -64,7 +64,7 @@ public class SpielerMensch implements Spieler {
     public SpielerMensch(String oname, Logger logger, Spiel dasspiel) {
         objektname = oname;
         log = logger;
-        log.log(objektname, "konstrucktor SpielerMensch() gestartet.");
+        log.log(objektname, "konstruktor SpielerMensch() gestartet.");
         this.dasSpiel = dasspiel;
         this.id = this.dasSpiel.setSpieler(this);
         this.Farbe = this.dasSpiel.Farben[id];
@@ -106,6 +106,7 @@ public class SpielerMensch implements Spieler {
      *
      * @param Spielfigur
      */
+    @Override
     public void setSpielfigur(Spielfigur dieSpielfigur) {
         log.log(objektname, "Methode setSpielfigur() gestartet mit Parameter " + dieSpielfigur + " .");
         for (int i = 0; i < 4; i++) {
@@ -140,7 +141,7 @@ public class SpielerMensch implements Spieler {
         //System.out.println(this.objektname + " hat gewonnen");
         return true;
     }
-
+    /*
     private int herauskommen() {
 
         for (int i = 0; i < 3; i++) {
@@ -159,6 +160,7 @@ public class SpielerMensch implements Spieler {
         return 0;
 
     }
+    */
 
     /**
      *
