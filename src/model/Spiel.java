@@ -126,18 +126,61 @@ public class Spiel {
                 Spieler Computer6 = new SpielerComputer("(Computer) Gargamel", log, this);
             */
             case 6:
-                Spieler Computer5 = new SpielerComputer("(Computer) Fynnia", log, this);
+                new SpielerComputer("(Computer) Fynnia", log, this);
+                new SpielerComputer("(Computer) Eve", log, this);
+                new SpielerComputer("(Computer) Dave", log, this);
+                new SpielerComputer("(Computer) Charles der II", log, this);
+                new SpielerComputer("(Computer) Barbarianna", log, this);
+                new SpielerComputer("(Computer) Azrael", log, this);
+                break;
             case 5:
-                Spieler Computer4 = new SpielerComputer("(Computer) Eve", log, this);
+                new SpielerComputer("(Computer) Fynnia", log, this);
+                new SpielerComputer("(Computer) Eve", log, this);
+                new SpielerComputer("(Computer) Dave", log, this);
+                new SpielerComputer("(Computer) Charles der II", log, this);
+                new SpielerComputer("(Computer) Barbarianna", log, this);
+                new SpielerMensch("(Mensch) Azrael", log, this);
+                break;
             case 4:
-                Spieler Computer3 = new SpielerComputer("(Computer) Dave", log, this);
+                new SpielerComputer("(Computer) Fynnia", log, this);
+                new SpielerComputer("(Computer) Eve", log, this);
+                new SpielerComputer("(Computer) Dave", log, this);
+                new SpielerComputer("(Computer) Charles der II", log, this);
+                new SpielerMensch("(Mensch) Barbarianna", log, this);
+                new SpielerMensch("(Mensch) Azrael", log, this);
+                break;
             case 3:
-                Spieler Computer2 = new SpielerComputer("(Computer) Charles der II", log, this);
+                new SpielerComputer("(Computer) Fynnia", log, this);
+                new SpielerComputer("(Computer) Eve", log, this);
+                new SpielerComputer("(Computer) Dave", log, this);
+                new SpielerMensch("(Mensch) Charles der II", log, this);
+                new SpielerMensch("(Mensch) Barbarianna", log, this);
+                new SpielerMensch("(Mensch) Azrael", log, this);
+                break;
             case 2:
-                Spieler Computer1 = new SpielerComputer("(Computer) Barbarianna", log, this);
+                new SpielerComputer("(Computer) Fynnia", log, this);
+                new SpielerComputer("(Computer) Eve", log, this);
+                new SpielerMensch("(Mensch) Dave", log, this);
+                new SpielerMensch("(Mensch) Charles der II", log, this);
+                new SpielerMensch("(Mensch) Barbarianna", log, this);
+                new SpielerMensch("(Mensch) Azrael", log, this);
+                break;
             case 1:
-                Spieler Mensch = new SpielerMensch("(Computer) Azrael", log, this);
+                new SpielerComputer("(Computer) Fynnia", log, this);
+                new SpielerMensch("(Mensch) Eve", log, this);
+                new SpielerMensch("(Mensch) Dave", log, this);
+                new SpielerMensch("(Mensch) Charles der II", log, this);
+                new SpielerMensch("(Mensch) Barbarianna", log, this);
+                new SpielerMensch("(Mensch) Azrael", log, this);
+                break;
             case 0:
+                new SpielerMensch("(Mensch) Fynnia", log, this);
+                new SpielerMensch("(Mensch) Eve", log, this);
+                new SpielerMensch("(Mensch) Dave", log, this);
+                new SpielerMensch("(Mensch) Charles der II", log, this);
+                new SpielerMensch("(Mensch) Barbarianna", log, this);
+                new SpielerMensch("(Mensch) Azrael", log, this);
+                break;
             default:
                 break;
         }

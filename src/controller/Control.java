@@ -59,6 +59,7 @@ public class Control {
 
             //ziehen
             if (ich.hatGewonnen()) {
+                 gui.getSpielVerlaufOutput().append(ich.getobjektname()+"hat das Spiel gewonnen.\n");
                 rueckgabe = 1;
             }
             if (ich.getgezogen() < 4) {
@@ -66,14 +67,16 @@ public class Control {
                 //habe ich nur Spielfiguren im Startkreis
                 if (ich.alleSpielerImStartkreis()) {
                     //-> ja, dann bis zu dreimal würfeln und hoffe auf eine 6
-                    for (int i = 0; i < 4; i++) {
+                    for (int i = 0; i < 3; i++) {
                         System.out.println(ich.getobjektname() + " darf noch " + (3 - i) + " mal wuerfeln.");
 
                         // ist es eine 6?
                         int wuerfel = ich.wuerfeln();
+                        gui.getSpielVerlaufOutput().append(ich.getobjektname()+ " hat " + this.dasSpiel.getWuerfel().getZahl() + " gewürfelt.\n");
                         aktualisieren();
                         if (wuerfel == 6) {
                             ich.getSpielfiguren()[0].herauskommen();
+                            gui.getSpielVerlaufOutput().append(ich.getobjektname()+ " ist herausgekommen.\n");
 
                             //ich.Spielfiguren[0].herauskommen();
                             //ich.dasSpiel.output.spielAusgabe();
@@ -90,6 +93,7 @@ public class Control {
                 else {  //unnoetige zeile aber lieber doppelt als keinmal
 
                     int Random = ich.wuerfeln();
+                    gui.getSpielVerlaufOutput().append(ich.getobjektname()+ " hat " + this.dasSpiel.getWuerfel().getZahl() + " gewürfelt.\n");
                     aktualisieren();
 
                     List<Spielfigur> moeglSpielfiguren = ich.moeglSpielfiguren(Random);

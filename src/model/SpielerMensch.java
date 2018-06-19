@@ -193,7 +193,7 @@ public class SpielerMensch implements Spieler {
                 System.out.println(this.objektname + "'s Zug ist beendet");
                 this.gezogen = 0;
                 return 0;
-                return this.herauskommen();
+                //return this.herauskommen();
             } //-> nein, einmal würfeln
             else {  //unnoetige zeile aber lieber doppelt als keinmal
                 if (this.dasSpiel.output.wuerfeln()) {
