@@ -227,7 +227,7 @@ public class Spielfigur {
      * @return
      */
     public int laufen(int augen) {
-
+        int retval = 0;
         Feld zielfeld = this.aktfeld;
         for (int i = 0; i < augen; i++) 
         {
@@ -244,6 +244,7 @@ public class Spielfigur {
             {
                 schlagen(zielfeld);
                 System.out.println("schlag");
+                retval = 1; //ergänzt von Köppen als Wert für geschlagen
             }
             this.setzten(zielfeld);
         }
@@ -252,7 +253,7 @@ public class Spielfigur {
             {
                 this.team.ziehen();
             }
-        return 0;
+        return retval;
     }
 
     /**

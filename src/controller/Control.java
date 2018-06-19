@@ -102,8 +102,10 @@ public class Control {
 
                     } else {
                         if (ich instanceof SpielerComputer) {
+                            
+                            int geschlagen = moeglSpielfiguren.get(0).laufen(Random);
+                            gui.getSpielVerlaufOutput().append(ich.getobjektname()+ " HAT GESCHLAGEN!\n");
 
-                            moeglSpielfiguren.get(0).laufen(Random);
                         } else {
                             ArrayList<String> values = new ArrayList();
                             for (int i=1;i<=moeglSpielfiguren.size();i++){
