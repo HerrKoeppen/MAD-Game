@@ -7,6 +7,7 @@ package model;
 
 import java.util.LinkedList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  * Die Klasse SpielerMensch beinhaltet zum einen, den Namen der Spieler, die
@@ -325,6 +326,7 @@ public class SpielerMensch implements Spieler {
     @Override
     public int wuerfeln() {
         log.log(objektname, "Methode wuerfeln() gestartet.");
+        JOptionPane.showMessageDialog(null,"Würfeln!",getobjektname(), JOptionPane.PLAIN_MESSAGE);
         int augenzahl = this.dasSpiel.getWuerfel().wuerfeln();
         log.log(objektname, "Methodenrückgabe: " + augenzahl);
         log.log(objektname, "Methode wuerfeln() beendet.");

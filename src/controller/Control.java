@@ -5,8 +5,10 @@
  */
 package controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
+import javax.swing.JOptionPane;
 import model.Logger;
 import model.Spiel;
 import model.Spieler;
@@ -28,7 +30,14 @@ public class Control {
     public Control() {
         log = new Logger();
         log.deactivate();
-        dasSpiel = new Spiel(log, "Das Spiel", 6, this);
+        String antwort = JOptionPane.showInputDialog(null, "Wie viele Computerspieler gibt es?");
+        int botanzahl = 6;
+        try {
+            botanzahl = Integer.parseInt(antwort);
+        } catch (NumberFormatException nfe) {
+
+        }
+        dasSpiel = new Spiel(log, "Das Spiel", botanzahl, this);
         gui = new MADGUI(log, dasSpiel, this);
         //GUI starten
 
@@ -41,67 +50,71 @@ public class Control {
         while (rueckgabe != 1) {
             Spieler ich;
             //Ausschreiben aller einzelmethoden zur besseren Handhabung an dieser Stelle
-            if (dasSpiel.aktiverSpieler instanceof SpielerComputer){
-            ich = (SpielerComputer) dasSpiel.aktiverSpieler;
+            if (dasSpiel.aktiverSpieler instanceof SpielerComputer) {
+                ich = (SpielerComputer) dasSpiel.aktiverSpieler;
+            } else {
+                ich = (SpielerMensch) dasSpiel.aktiverSpieler;
             }
-            else
-            {
-            ich = (SpielerMensch) dasSpiel.aktiverSpieler;
-            }
-            gui.getSpielVerlaufOutput().append("Aktiver Spieler: "+ich.getobjektname()+"\n");
+            gui.getSpielVerlaufOutput().append("Aktiver Spieler: " + ich.getobjektname() + "\n");
 
             //ziehen
             if (ich.hatGewonnen()) {
                 rueckgabe = 1;
-                gui.getSpielVerlaufOutput().append(ich.getobjektname()+"hat das Spiel gewonnen.\n");
             }
-            
-            
             if (ich.getgezogen() < 4) {
 
                 //habe ich nur Spielfiguren im Startkreis
                 if (ich.alleSpielerImStartkreis()) {
                     //-> ja, dann bis zu dreimal würfeln und hoffe auf eine 6
                     for (int i = 0; i < 4; i++) {
-                        System.out.println(ich.getobjektname() + " darf noch " + (4 - i) + " mal wuerfeln.");
+                        System.out.println(ich.getobjektname() + " darf noch " + (3 - i) + " mal wuerfeln.");
 
                         // ist es eine 6?
                         int wuerfel = ich.wuerfeln();
                         aktualisieren();
                         if (wuerfel == 6) {
                             ich.getSpielfiguren()[0].herauskommen();
-                        gui.getSpielVerlaufOutput().append(ich.getobjektname()+ " ist herausgekommen.\n");
+
                             //ich.Spielfiguren[0].herauskommen();
                             //ich.dasSpiel.output.spielAusgabe();
-
                             ich.setgezogen(0);
 
                             rueckgabe = 0;
-                            
                         }
 
                     }
 
                     ich.setgezogen(0);
                     rueckgabe = 0;
-                    gui.getSpielVerlaufOutput().append(ich.getobjektname()+ " hat " + this.dasSpiel.getWuerfel().getZahl() + " gewürfelt.\n");
                 } //-> nein, einmal würfeln
                 else {  //unnoetige zeile aber lieber doppelt als keinmal
 
                     int Random = ich.wuerfeln();
-                     gui.getSpielVerlaufOutput().append(ich.getobjektname()+ " hat " + this.dasSpiel.getWuerfel().getZahl() + " gewürfelt.\n");
-                    
                     aktualisieren();
-                    
 
                     List<Spielfigur> moeglSpielfiguren = ich.moeglSpielfiguren(Random);
                     if (moeglSpielfiguren.isEmpty()) {
                         System.out.println("Du kannst nicht ziehen.Muhahaha(böses Lachen)");
 
                     } else {
+                        if (ich instanceof SpielerComputer) {
 
-                        moeglSpielfiguren.get(0).laufen(Random);
+                            moeglSpielfiguren.get(0).laufen(Random);
+                        } else {
+                            ArrayList<String> values = new ArrayList();
+                            for (int i=1;i<=moeglSpielfiguren.size();i++){
+                            values.add(String.valueOf(i));
+                            }
+                            
 
+                            Object selected = JOptionPane.showInputDialog(null, "What is the target Nicotine level?", "Selection", JOptionPane.DEFAULT_OPTION, null, values.toArray(), "0");
+                            if (selected != null) {//null if the user cancels. 
+                                String selectedString = selected.toString();
+                                //do something
+                            } else {
+                                System.out.println("User cancelled");
+                            }
+                        }
                     }
 
                 }
@@ -141,7 +154,7 @@ public class Control {
                 gui.darstellungAnzeigen();
             }
         }
-    
+
     }
 
     public void aktualisieren() {
@@ -153,12 +166,26 @@ public class Control {
         }
         gui.darstellungAnzeigen();
         gui.WuerfelAusgeben(dasSpiel.getWuerfel().getZahl());
-        this.dasSpiel.output.akt();
+        //this.dasSpiel.output.akt();
 
+    }
+    
+    
+    public void wuerfeln(){
+        
+        
+        // code  smh here
+        // request: need pop up menu
+        this.dasSpiel.getWuerfel().wuerfeln();
+   
+    
+    
+    
     }
 
     public static void main(String[] args) {
         Control c = new Control();
     }
 
+   
 }
